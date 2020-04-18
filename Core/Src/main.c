@@ -101,8 +101,7 @@ int main(void)
   UB_VGA_SetPixel(319,0,0x00);
 
   /* USER CODE END 2 */
-
-  return 1;
+  return 0;
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
