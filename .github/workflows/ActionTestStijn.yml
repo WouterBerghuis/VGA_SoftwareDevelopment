@@ -15,6 +15,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Execute swont_ide.ioc
       run: ./swont_ide.ioc
-    - name: Execute main.c
-      run: ./Core/Src/main.c 
+    - name: build main.c
+      run: ggc ./Core/Src/main.c 
 
