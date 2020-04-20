@@ -18,6 +18,6 @@ jobs:
     - name: build main.c
       run: make ./Debug/makefile
     - name: build all
-      run: make -j4 all
+      run: make -j4 swont_ide.elf
     
 
