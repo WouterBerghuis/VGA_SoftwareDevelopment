@@ -16,5 +16,5 @@ jobs:
     - name: Execute swont_ide.ioc
       run: ./swont_ide.ioc
     - name: build main.c
-      run: make ./Debug/makefile
+      run: ./makefile
 
