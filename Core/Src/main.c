@@ -99,7 +99,7 @@ int main(void)
   UB_VGA_SetPixel(10,10,10);
   UB_VGA_SetPixel(0,0,0x00);
   UB_VGA_SetPixel(319,0,0x00);
-....;
+
   /* USER CODE END 2 */
   return 0;
 
