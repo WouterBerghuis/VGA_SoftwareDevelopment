@@ -13,13 +13,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      
     - name: Execute swont_ide.ioc
       run: ./swont_ide.ioc
+      
     - name: build main.c (debug)
-      run: make ./Debug/main.c
+      run: make ./Debug/Core/Src/main.c
+      
+    - name: build main.c 
+      run: make ./Core/Src/main.c
+      
     - name: build all (debug)
       run: make ./Debug/swont_ide.elf
-    - name: build main.c 
-      run: make ./Debug/Src/main.c
+      
+      
     
 
