@@ -15,9 +15,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: Execute swont_ide.ioc
       run: ./swont_ide.ioc
-    - name: build main.c
-      run: make ./Debug/makefile
-    - name: build all
-      run: make ./Debug./swont_ide.elf
+    - name: build main.c (debug)
+      run: make ./Debug/main.c
+    - name: build all (debug)
+      run: make ./Debug/swont_ide.elf
+    - name: build main.c 
+      run: make ./Debug/Src/main.c
     
 
