@@ -33,13 +33,16 @@ default.size.stdout \
 OBJDUMP_LIST += \
 swont_ide.list \
 
+OBJCOPY_BIN += \
+swont_ide.bin \
+
 
 # All Target
 all: swont_ide.elf secondary-outputs
 
 # Tool invocations
-swont_ide.elf: $(OBJS) $(USER_OBJS) D:\Bestanden\ET\ Jaar\ 3\Software\ Ontwikkeling\Software\swont_ide\STM32F407VGTX_FLASH.ld
-	arm-none-eabi-gcc -o "swont_ide.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Bestanden\ET Jaar 3\Software Ontwikkeling\Software\swont_ide\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="swont_ide.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+swont_ide.elf: $(OBJS) $(USER_OBJS) C:\Users\stijn\Documents\GitHub\VGA_SoftwareDevelopment\STM32F407VGTX_FLASH.ld
+	arm-none-eabi-gcc -o "swont_ide.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\stijn\Documents\GitHub\VGA_SoftwareDevelopment\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="swont_ide.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -53,12 +56,17 @@ swont_ide.list: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+swont_ide.bin: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "swont_ide.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 .PHONY: all clean dependents
 .SECONDARY:
