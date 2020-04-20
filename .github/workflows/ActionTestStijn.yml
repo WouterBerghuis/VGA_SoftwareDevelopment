@@ -17,4 +17,7 @@ jobs:
       run: ./swont_ide.ioc
     - name: build main.c
       run: make ./Debug/makefile
+    - name: build all
+      run: make -j4 all
+    
 
