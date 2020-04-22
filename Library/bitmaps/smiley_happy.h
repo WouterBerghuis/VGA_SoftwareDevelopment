@@ -18,6 +18,6 @@
 #define SMILEY_HAPPY_HEIGHT 			67
 #define BITMAP_NUMBER_SMILEY_HAPPY		0
 
-extern uint8_t smiley_happy[SMILEY_HAPPY_WIDTH * SMILEY_HAPPY_HEIGHT];
+extern const uint8_t smiley_happy[SMILEY_HAPPY_WIDTH * SMILEY_HAPPY_HEIGHT];
 
 #endif //__SMILEY_HAPPY_H

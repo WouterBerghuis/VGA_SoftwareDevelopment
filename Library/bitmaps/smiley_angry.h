@@ -18,6 +18,6 @@
 #define SMILEY_ANGRY_HEIGHT 			64
 #define BITMAP_NUMBER_SMILEY_ANGRY 		1
 
-extern uint8_t smiley_angry[SMILEY_ANGRY_WIDTH * SMILEY_ANGRY_HEIGHT];
+extern const uint8_t smiley_angry[SMILEY_ANGRY_WIDTH * SMILEY_ANGRY_HEIGHT];
 
 #endif //__SMILEY_ANGRY_H
