@@ -13,6 +13,7 @@ OBJDUMP_LIST :=
 EXECUTABLES := 
 OBJS := 
 C_DEPS := 
+OBJCOPY_BIN := 
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
@@ -20,4 +21,6 @@ Core/Src \
 Core/Startup \
 Core/ub_lib \
 Drivers/STM32F4xx_HAL_Driver/Src \
+Library \
+Library/bitmaps \
 

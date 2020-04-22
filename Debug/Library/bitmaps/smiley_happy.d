@@ -1,5 +1,8 @@
-Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+Library/bitmaps/smiley_happy.o: ../Library/bitmaps/smiley_happy.c \
+ ../Library/bitmaps/smiley_happy.h \
+ D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Library/bitmap.h \
+ D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Core/ub_lib/stm32_ub_vga_screen.h \
+ ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
@@ -26,12 +29,14 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Core/ub_lib/stm32_ub_vga_screen.h \
- ../Core/Inc/dma.h ../Core/Inc/main.h ../Core/Inc/tim.h \
- ../Core/Inc/gpio.h \
- D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Library/bitmap.h \
  D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Library/bitmaps/smiley_happy.h \
  D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Library/bitmaps/smiley_angry.h
+
+../Library/bitmaps/smiley_happy.h:
+
+D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Library/bitmap.h:
+
+D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Core/ub_lib/stm32_ub_vga_screen.h:
 
 ../Core/Inc/main.h:
 
@@ -88,18 +93,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
-
-D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Core/ub_lib/stm32_ub_vga_screen.h:
-
-../Core/Inc/dma.h:
-
-../Core/Inc/main.h:
-
-../Core/Inc/tim.h:
-
-../Core/Inc/gpio.h:
-
-D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Library/bitmap.h:
 
 D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Library/bitmaps/smiley_happy.h:
 

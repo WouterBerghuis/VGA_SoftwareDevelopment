@@ -14,9 +14,9 @@
 #ifndef __SMILEY_HAPPY_H
 #define __SMILEY_HAPPY_H
 
-#define SMILEY_HAPPY_WIDTH 		64
-#define SMILEY_HAPPY_HEIGHT 	67
-#define BITMAP_NUMBER 			0
+#define SMILEY_HAPPY_WIDTH 				64
+#define SMILEY_HAPPY_HEIGHT 			67
+#define BITMAP_NUMBER_SMILEY_HAPPY		0
 
 extern uint8_t smiley_happy[SMILEY_HAPPY_WIDTH * SMILEY_HAPPY_HEIGHT];
 

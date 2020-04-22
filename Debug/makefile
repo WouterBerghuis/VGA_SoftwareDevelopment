@@ -8,6 +8,8 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Library/bitmaps/subdir.mk
+-include Library/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/ub_lib/subdir.mk
 -include Core/Startup/subdir.mk
@@ -33,6 +35,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 swont_ide.list \
 
+OBJCOPY_BIN += \
+swont_ide.bin \
+
 
 # All Target
 all: swont_ide.elf secondary-outputs
@@ -53,12 +58,17 @@ swont_ide.list: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+swont_ide.bin: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "swont_ide.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 .PHONY: all clean dependents
 .SECONDARY:

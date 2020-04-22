@@ -23,6 +23,7 @@
 #include "dma.h"
 #include "tim.h"
 #include "gpio.h"
+#include "bitmap.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -95,10 +96,15 @@ int main(void)
 
   UB_VGA_Screen_Init(); // Init VGA-Screen
 
-  UB_VGA_FillScreen(VGA_COL_WHITE);
-  UB_VGA_SetPixel(10,10,10);
-  UB_VGA_SetPixel(0,0,0x00);
-  UB_VGA_SetPixel(319,0,0x00);
+//  UB_VGA_FillScreen(VGA_COL_RED);
+//  UB_VGA_SetPixel(10,10,10);
+//  UB_VGA_SetPixel(0,0,0x00);
+//  UB_VGA_SetPixel(319,0,0x00);
+
+  API_Draw_Bitmap(10,  5,   0);
+  API_Draw_Bitmap(200, 5,   1);
+  API_Draw_Bitmap(10,  150, 1);
+  API_Draw_Bitmap(200, 150, 0);
 
   /* USER CODE END 2 */
 

@@ -1,15 +1,12 @@
 /**
   ******************************************************************************
-  * @file	  			smiley_happy.h
+  * @file	  			smiley_happy.c
   *
   * @author 			Wouter Berghuis
   * @date 				21 April 2020
   * @brief        		This file contains the smiley_happy pixel data. This data
   * 					can be used in combination with the functions in bitmap.c
   * 					to draw a bitmap in the screen.
-  *
-  * 					The define TRANSPARENT_PIXEL can be used for a transparent
-  * 					pixel. this means that the pixel won't be printed
   ******************************************************************************
 **/
 
