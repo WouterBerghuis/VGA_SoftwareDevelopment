@@ -74,6 +74,10 @@ BITMAP_ERROR_CODES API_Draw_Bitmap(uint16_t x_coor, uint16_t y_coor, uint8_t bit
 		return error;
 
 	error = API_Write_Bitmap_to_VGA(x_coor, y_coor, bitmap_w, bitmap_h, bitmap_size, Pbitmap);
+	if(error == RAM_FILLED_WITH_BITMAP)
+		return DRAW_BITMAP_SUCCESS;
+	else
+		DRAW_BITMAP_FAILED;
 }
 
 BITMAP_ERROR_CODES API_Check_Bitmap_Position(uint16_t x_coor, uint16_t y_coor, uint16_t bitmap_w, uint16_t bitmap_h)
@@ -100,4 +104,5 @@ BITMAP_ERROR_CODES API_Write_Bitmap_to_VGA(uint16_t x_coor, uint16_t y_coor, uin
 			UB_VGA_SetPixel(j, i, *Pbitmap++);
 		}
 	}
+	return RAM_FILLED_WITH_BITMAP;
 }
