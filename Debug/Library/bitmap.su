@@ -1,3 +1,0 @@
-bitmap.c:16:20:API_Draw_Bitmap	48	static
-bitmap.c:56:20:API_Check_Bitmap_Position	16	static
-bitmap.c:73:20:API_Write_Bitmap_to_VGA	32	static
