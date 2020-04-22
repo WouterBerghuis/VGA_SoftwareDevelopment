@@ -17,7 +17,7 @@ BITMAP_ERROR_CODES API_Draw_Bitmap(uint16_t x_coor, uint16_t y_coor, uint8_t bit
 {
 	uint16_t bitmap_w;
 	uint16_t bitmap_h;
-	uint8_t *Pbitmap;
+	const uint8_t *Pbitmap;
 	uint32_t bitmap_size;
 	BITMAP_ERROR_CODES error;
 
@@ -27,12 +27,6 @@ BITMAP_ERROR_CODES API_Draw_Bitmap(uint16_t x_coor, uint16_t y_coor, uint8_t bit
 		bitmap_h 	= SMILEY_HAPPY_HEIGHT;
 		bitmap_size = SMILEY_HAPPY_WIDTH * SMILEY_HAPPY_HEIGHT;
 		Pbitmap 	= smiley_happy;
-
-		error = API_Check_Bitmap_Position(x_coor, y_coor, bitmap_w, bitmap_h);
-		if(error != CORRECT_BITMAP_PLACEMENT)
-			return error;
-
-		error = API_Write_Bitmap_to_VGA(x_coor, y_coor, bitmap_w, bitmap_h, bitmap_size, Pbitmap);
 		break;
 
 	case(1): 	//ANGRY SMILEY
@@ -40,17 +34,46 @@ BITMAP_ERROR_CODES API_Draw_Bitmap(uint16_t x_coor, uint16_t y_coor, uint8_t bit
 		bitmap_h 	= SMILEY_ANGRY_HEIGHT;
 		bitmap_size = SMILEY_ANGRY_WIDTH * SMILEY_ANGRY_HEIGHT;
 		Pbitmap 	= smiley_angry;
+		break;
 
-		error = API_Check_Bitmap_Position(x_coor, y_coor, bitmap_w, bitmap_h);
-		if(error != CORRECT_BITMAP_PLACEMENT)
-			return error;
+	case(2):	//ARROW UP
+		bitmap_w 	= ARROW_UP_WIDTH;
+		bitmap_h 	= ARROW_UP_HEIGHT;
+		bitmap_size = ARROW_UP_WIDTH * ARROW_UP_HEIGHT;
+		Pbitmap 	= arrow_up;
 
-		error = API_Write_Bitmap_to_VGA(x_coor, y_coor, bitmap_w, bitmap_h, bitmap_size, Pbitmap);
+		break;
+
+	case(3):	//ARROW DOWN
+		bitmap_w 	= ARROW_DOWN_WIDTH;
+		bitmap_h 	= ARROW_DOWN_HEIGHT;
+		bitmap_size = ARROW_DOWN_WIDTH * ARROW_DOWN_HEIGHT;
+		Pbitmap 	= arrow_down;
+		break;
+
+	case(4):	//ARROW RIGHT
+		bitmap_w 	= ARROW_RIGHT_WIDTH;
+		bitmap_h 	= ARROW_RIGHT_HEIGHT;
+		bitmap_size = ARROW_RIGHT_WIDTH * ARROW_RIGHT_HEIGHT;
+		Pbitmap 	= arrow_right;
+		break;
+
+	case(5):	//ARROW LEFT
+		bitmap_w 	= ARROW_LEFT_WIDTH;
+		bitmap_h 	= ARROW_LEFT_HEIGHT;
+		bitmap_size = ARROW_LEFT_WIDTH * ARROW_LEFT_HEIGHT;
+		Pbitmap 	= arrow_left;
 		break;
 
 	default:
 		return ERROR_BITMAP_NUMBER_UNAVAILABLE;
 	}
+
+	error = API_Check_Bitmap_Position(x_coor, y_coor, bitmap_w, bitmap_h);
+	if(error != CORRECT_BITMAP_PLACEMENT)
+		return error;
+
+	error = API_Write_Bitmap_to_VGA(x_coor, y_coor, bitmap_w, bitmap_h, bitmap_size, Pbitmap);
 }
 
 BITMAP_ERROR_CODES API_Check_Bitmap_Position(uint16_t x_coor, uint16_t y_coor, uint16_t bitmap_w, uint16_t bitmap_h)
@@ -70,7 +93,7 @@ BITMAP_ERROR_CODES API_Check_Bitmap_Position(uint16_t x_coor, uint16_t y_coor, u
 	return CORRECT_BITMAP_PLACEMENT;
 }
 
-BITMAP_ERROR_CODES API_Write_Bitmap_to_VGA(uint16_t x_coor, uint16_t y_coor, uint16_t bitmap_w, uint16_t bitmap_h, uint32_t bitmap_size, uint8_t *Pbitmap)
+BITMAP_ERROR_CODES API_Write_Bitmap_to_VGA(uint16_t x_coor, uint16_t y_coor, uint16_t bitmap_w, uint16_t bitmap_h, uint32_t bitmap_size, const uint8_t *Pbitmap)
 {
 	for(uint16_t i = y_coor; i < (bitmap_h + y_coor); i++){
 		for(uint16_t j = x_coor; j < (bitmap_w + x_coor); j++){

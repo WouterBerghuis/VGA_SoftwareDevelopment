@@ -22,6 +22,7 @@
 #include "stm32_ub_vga_screen.h"
 #include "smiley_happy.h"
 #include "smiley_angry.h"
+#include "arrows.h"
 
 /*
  * ENUMERATIONS
@@ -41,6 +42,6 @@ typedef enum{
  */
 BITMAP_ERROR_CODES API_Draw_Bitmap			(uint16_t x_coor, uint16_t y_coor, uint8_t bitmap_nr);
 BITMAP_ERROR_CODES API_Check_Bitmap_Position(uint16_t x_coor, uint16_t y_coor, uint16_t bitmap_w, uint16_t bitmap_h);
-BITMAP_ERROR_CODES API_Write_Bitmap_to_VGA	(uint16_t x_coor, uint16_t y_coor, uint16_t bitmap_w, uint16_t bitmap_h, uint32_t bitmap_size, uint8_t *Pbitmap);
+BITMAP_ERROR_CODES API_Write_Bitmap_to_VGA	(uint16_t x_coor, uint16_t y_coor, uint16_t bitmap_w, uint16_t bitmap_h, uint32_t bitmap_size, const uint8_t *Pbitmap);
 
 #endif //__BITMAP_H
