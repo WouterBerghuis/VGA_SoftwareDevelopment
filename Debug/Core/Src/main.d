@@ -26,12 +26,17 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Core/ub_lib/stm32_ub_vga_screen.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ C:/Users/jered/Documents/GitHub/VGA_SoftwareDevelopment/Core/ub_lib/stm32_ub_vga_screen.h \
  ../Core/Inc/dma.h ../Core/Inc/main.h ../Core/Inc/tim.h \
+<<<<<<< HEAD
  ../Core/Inc/gpio.h \
  D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Library/bitmap.h \
  D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Library/bitmaps/smiley_happy.h \
  D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Library/bitmaps/smiley_angry.h
+=======
+ ../Core/Inc/usart.h ../Core/Inc/gpio.h
+>>>>>>> 59134e6e0905041cb53e24f0aac396fadd842629
 
 ../Core/Inc/main.h:
 
@@ -89,13 +94,17 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 
-D:/Bestanden/ET\ Jaar\ 3/Software\ Ontwikkeling/Software/swont_ide/Core/ub_lib/stm32_ub_vga_screen.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
+
+C:/Users/jered/Documents/GitHub/VGA_SoftwareDevelopment/Core/ub_lib/stm32_ub_vga_screen.h:
 
 ../Core/Inc/dma.h:
 
 ../Core/Inc/main.h:
 
 ../Core/Inc/tim.h:
+
+../Core/Inc/usart.h:
 
 ../Core/Inc/gpio.h:
 
