@@ -24,6 +24,7 @@
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
+#include "bitmap.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -101,10 +102,15 @@ int main(void)
 
   UB_VGA_Screen_Init(); // Init VGA-Screen
 
-  UB_VGA_FillScreen(VGA_COL_WHITE);
-  UB_VGA_SetPixel(10,10,10);
-  UB_VGA_SetPixel(0,0,0x00);
-  UB_VGA_SetPixel(319,0,0x00);
+//  UB_VGA_FillScreen(VGA_COL_RED);
+//  UB_VGA_SetPixel(10,10,10);
+//  UB_VGA_SetPixel(0,0,0x00);
+//  UB_VGA_SetPixel(319,0,0x00);
+
+  API_Draw_Bitmap(10,  5,   5);
+//  API_Draw_Bitmap(200, 5,   3);
+//  API_Draw_Bitmap(10,  150, 4);
+//  API_Draw_Bitmap(200, 150, 5);
 
   /* USER CODE END 2 */
 
@@ -114,8 +120,8 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  char First[]="I am Jered";  // char array waarin je je string met data zet
-	  HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
+//	  char First[]="I am Jered";  // char array waarin je je string met data zet
+//	  HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
 
     /* USER CODE BEGIN 3 */
   }
