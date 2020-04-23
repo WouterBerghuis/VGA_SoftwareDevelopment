@@ -77,7 +77,7 @@ BITMAP_ERROR_CODES API_Draw_Bitmap(uint16_t x_coor, uint16_t y_coor, uint8_t bit
 	if(error == RAM_FILLED_WITH_BITMAP)
 		return DRAW_BITMAP_SUCCESS;
 	else
-		DRAW_BITMAP_FAILED;
+		return DRAW_BITMAP_FAILED;
 }
 
 BITMAP_ERROR_CODES API_Check_Bitmap_Position(uint16_t x_coor, uint16_t y_coor, uint16_t bitmap_w, uint16_t bitmap_h)

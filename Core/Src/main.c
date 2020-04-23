@@ -102,15 +102,14 @@ int main(void)
 
   UB_VGA_Screen_Init(); // Init VGA-Screen
 
-//  UB_VGA_FillScreen(VGA_COL_RED);
+  UB_VGA_FillScreen(VGA_COL_WHITE);
 //  UB_VGA_SetPixel(10,10,10);
 //  UB_VGA_SetPixel(0,0,0x00);
 //  UB_VGA_SetPixel(319,0,0x00);
 
   API_Draw_Bitmap(10,  5,   5);
-//  API_Draw_Bitmap(200, 5,   3);
-//  API_Draw_Bitmap(10,  150, 4);
-//  API_Draw_Bitmap(200, 150, 5);
+  API_Draw_Bitmap(250, 5,   0);
+  API_Draw_Bitmap(10,  150, 1);
 
   /* USER CODE END 2 */
 
@@ -177,7 +176,7 @@ void SystemClock_Config(void)
 static void MX_NVIC_Init(void)
 {
   /* USART2_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(USART2_IRQn, 2, 0);
   HAL_NVIC_EnableIRQ(USART2_IRQn);
 }
 
