@@ -151,7 +151,7 @@ BITMAP_ERROR_CODES API_Write_Bitmap_to_VGA(uint16_t x_coor, uint16_t y_coor, uin
 {
 	for(uint16_t i = y_coor; i < (bitmap_h + y_coor); i++){
 		for(uint16_t j = x_coor; j < (bitmap_w + x_coor); j++){
-			UB_VGA_SetPixel(j, i, *Pbitmap++);
+			API_SetPixel(j, i, *Pbitmap++);
 		}
 	}
 	return RAM_FILLED_WITH_BITMAP;

@@ -28,47 +28,58 @@ extern DMA_HandleTypeDef hdma_tim1_up;
 //--------------------------------------------------------------
 // Init VGA-Module
 //--------------------------------------------------------------
-void UB_VGA_Screen_Init(void)
+VGA_INIT_ERROR_CODES API_VGA_Screen_Init(void)
 {
-  VGA.hsync_cnt = 0;
-  VGA.start_adr = 0;
-  VGA.dma2_cr_reg = 0;
+	HAL_StatusTypeDef errorHal;
+	VGA_INIT_ERROR_CODES errorVGA;
+	VGA.hsync_cnt = 0;
+	VGA.start_adr = 0;
+	VGA.dma2_cr_reg = 0;
 
-  GPIOB->BSRR = VGA_VSYNC_Pin;
+	GPIOB->BSRR = VGA_VSYNC_Pin;
 
-  // TIM2
-  HAL_TIM_Base_Start(&htim2);
-  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
-  HAL_TIM_PWM_Start_IT(&htim2, TIM_CHANNEL_3);
+	// TIM2
+	error |= HAL_TIM_Base_Start(&htim2);
+	error |= HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
+	error |= HAL_TIM_PWM_Start_IT(&htim2, TIM_CHANNEL_3);
 
-  // TIM1
-  __HAL_TIM_ENABLE_DMA(&htim1, TIM_DMA_UPDATE);
-  __HAL_TIM_ENABLE(&htim1);
-  HAL_DMA_Start_IT(&hdma_tim1_up, (uint32_t)&VGA_RAM1[0], VGA_GPIOE_ODR_ADDRESS, VGA_DISPLAY_X + 1);
+	// TIM1
+	__HAL_TIM_ENABLE_DMA(&htim1, TIM_DMA_UPDATE);
+	__HAL_TIM_ENABLE(&htim1);
+	error |= HAL_DMA_Start_IT(&hdma_tim1_up, (uint32_t)&VGA_RAM1[0], VGA_GPIOE_ODR_ADDRESS, VGA_DISPLAY_X + 1);
 
-  HAL_DMA_Init(&hdma_tim1_up);
-  __HAL_DMA_ENABLE_IT(&hdma_tim1_up, DMA_IT_TC);
+	error |= HAL_DMA_Init(&hdma_tim1_up);
+	__HAL_DMA_ENABLE_IT(&hdma_tim1_up, DMA_IT_TC);
 
-  //-----------------------
-  // Register swap and safe
-  //-----------------------
-  // content of CR-Register read and save
-  VGA.dma2_cr_reg = DMA2_Stream5->CR;
+	//-----------------------
+	// Register swap and safe
+	//-----------------------
+	// content of CR-Register read and save
+	VGA.dma2_cr_reg = DMA2_Stream5->CR;
+
+	if(error)
+		return VGA_INIT_FAILED;
+
+	errorVGA = API_clearscreen(VGA_COL_BLACK);
+
+	if(errorVGA == VGA_CLEARSCREEN_SUCCESS)
+		return VGA_INIT_SUCCESS;
 }
 
 
 //--------------------------------------------------------------
 // fill the DMA RAM buffer with one color
 //--------------------------------------------------------------
-void UB_VGA_FillScreen(uint8_t color)
+VGA_INIT_ERROR_CODES API_clearscreen(uint8_t color)
 {
-  uint16_t xp,yp;
+	uint16_t xp,yp;
 
-  for(yp = 0; yp < VGA_DISPLAY_Y; yp++) {
-    for(xp = 0; xp < VGA_DISPLAY_X; xp++) {
-      UB_VGA_SetPixel(xp, yp, color);
-    }
-  }
+	for(yp = 0; yp < VGA_DISPLAY_Y; yp++) {
+		for(xp = 0; xp < VGA_DISPLAY_X; xp++) {
+			UB_VGA_SetPixel(xp, yp, color);
+		}
+	}
+	return VGA_CLEARSCREEN_SUCCESS;
 }
 
 
@@ -76,13 +87,15 @@ void UB_VGA_FillScreen(uint8_t color)
 // put one Pixel on the screen with one color
 // Important : the last Pixel+1 from every line must be black (don't know why??)
 //--------------------------------------------------------------
-void UB_VGA_SetPixel(uint16_t xp, uint16_t yp, uint8_t color)
+VGA_INIT_ERROR_CODES API_SetPixel(uint16_t xp, uint16_t yp, uint8_t color)
 {
-  if(xp >= VGA_DISPLAY_X)
-    xp = 0;
-  if(yp >= VGA_DISPLAY_Y)
-    yp = 0;
+	if(xp >= VGA_DISPLAY_X)
+		xp = 0;
+	if(yp >= VGA_DISPLAY_Y)
+		yp = 0;
 
-  // Write pixel to ram
-  VGA_RAM1[(yp * (VGA_DISPLAY_X + 1)) + xp] = color;
+	// Write pixel to ram
+	VGA_RAM1[(yp * (VGA_DISPLAY_X + 1)) + xp] = color;
+
+	return VGA_SETPIXEL_SUCCESS;
 }

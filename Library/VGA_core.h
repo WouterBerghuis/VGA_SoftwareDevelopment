@@ -1,18 +1,22 @@
-//--------------------------------------------------------------
-// File     : stm32_ub_vga_screen.h
-//--------------------------------------------------------------
+/**
+  ******************************************************************************
+  * @file	  			bitmap.h
+  *
+  * @author 			Wouter Berghuis
+  * @date 				24 April 2020
+  * @brief        		This file is the headerfile of VGA_core.c
+  ******************************************************************************
+**/
 
 //--------------------------------------------------------------
-#ifndef __STM32F4_UB_VGA_SCREEN_H
-#define __STM32F4_UB_VGA_SCREEN_H
+#ifndef __VGA_core_H
+#define __VGA_core_H
 
 
 //--------------------------------------------------------------
 // Includes
 //--------------------------------------------------------------
 #include "main.h"
-
-
 
 //--------------------------------------------------------------
 // color designation
@@ -39,7 +43,12 @@
 #define VGA_DISPLAY_X   320
 #define VGA_DISPLAY_Y   240
 
-
+typedef enum{
+	VGA_INIT_SUCCESS = 0,
+	VGA_INIT_FAILED,
+	VGA_CLEARSCREEN_SUCCESS,
+	VGA_SETPIXEL_SUCCESS
+}VGA_INIT_ERROR_CODES;
 
 //--------------------------------------------------------------
 // VGA Structure
@@ -123,9 +132,9 @@ uint8_t VGA_RAM1[(VGA_DISPLAY_X+1)*VGA_DISPLAY_Y];
 //--------------------------------------------------------------
 // Global Function call
 //--------------------------------------------------------------
-void UB_VGA_Screen_Init(void);
-void UB_VGA_FillScreen(uint8_t color);
-void UB_VGA_SetPixel(uint16_t xp, uint16_t yp, uint8_t color);
+VGA_INIT_ERROR_CODES API_VGA_Screen_Init(void);
+void API_Clearscreen(uint8_t color);
+void API_SetPixel(uint16_t xp, uint16_t yp, uint8_t color);
 
 //--------------------------------------------------------------
-#endif // __STM32F4_UB_VGA_SCREEN_H
+#endif // __VGA_core_H
