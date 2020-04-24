@@ -111,9 +111,6 @@ int main(void)
   API_Draw_Bitmap(250, 5,   0);
   API_Draw_Bitmap(10,  150, 1);
 
-  uint8_t send_data[]="I am Jered";
-  API_Uart_Transmit(send_data);
-
   char Command_woord[20] = {0};
   char TwoDarray[5][20] = {0};
   /* USER CODE END 2 */
@@ -123,9 +120,11 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	  uint8_t buffer[100];
+	  API_Uart_Receive(buffer);
+	  API_Uart_Transmit(buffer);
+	  memset(buffer, 0, sizeof(buffer));
 
-	  //char send_data[]="I am Jered";
-	  //API_Uart_Transmit(send_data);
 	  char First[]="STM32 is de bom";  // char array waarin je je string met data zet
 
 	  uart_parser(First, Command_woord, TwoDarray);
