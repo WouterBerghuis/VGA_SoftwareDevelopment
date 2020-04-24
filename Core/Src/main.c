@@ -100,12 +100,8 @@ int main(void)
   MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
 
-  UB_VGA_Screen_Init(); // Init VGA-Screen
-
-  UB_VGA_FillScreen(VGA_COL_WHITE);
-//  UB_VGA_SetPixel(10,10,10);
-//  UB_VGA_SetPixel(0,0,0x00);
-//  UB_VGA_SetPixel(319,0,0x00);
+  /* Initialize non-CubeMX peripherals */
+  API_VGA_Screen_Init();
 
   API_Draw_Bitmap(10,  5,   5);
   API_Draw_Bitmap(250, 5,   0);
