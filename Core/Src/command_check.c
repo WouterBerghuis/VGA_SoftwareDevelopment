@@ -8,13 +8,30 @@
 void Command_check(char *First_word)
 {
 	int test = 0;
-	if (strcmp(First_word, "lijn") == 0)
+	if 		 (strcmp(First_word, "lijn") == 0)
 	{
-		test = 1;
+
+		//Command_check_lijn();
 	}
+	else if (strcmp(First_word, "rechthoek") == 0)
+	{
+		test = 2;
+	}
+	else if (strcmp(First_word, "tekst") == 0)
+	{
+		test = 3;
+	}
+	else if (strcmp(First_word, "bitmap") == 0)
+	{
+		test = 4;
+	}
+	else if (strcmp(First_word, "clearscherm") == 0)
+	{
+		test = 5;
+	}
+	else{
 
-
-
+	}
 
 
 	//	switch(Command_word){
