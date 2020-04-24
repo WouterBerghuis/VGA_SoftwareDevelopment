@@ -11,7 +11,7 @@
 #ifndef __BITMAP_H
 #define __BITMAP_H
 
-#include "stm32_ub_vga_screen.h"
+#include <VGA_core.h>
 #include "smiley_happy.h"
 #include "smiley_angry.h"
 #include "arrows.h"
