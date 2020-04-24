@@ -106,12 +106,12 @@ int main(void)
 
   /* Initialize non-CubeMX peripherals */
   API_VGA_Screen_Init();
-  
+
   API_Draw_Bitmap(10,  5,   5);
   API_Draw_Bitmap(250, 5,   0);
   API_Draw_Bitmap(10,  150, 1);
-  
-  char send_data[]="I am Jered";
+
+  uint8_t send_data[]="I am Jered";
   API_Uart_Transmit(send_data);
 
   char Command_woord[20] = {0};

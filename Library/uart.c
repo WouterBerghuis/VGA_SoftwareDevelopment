@@ -11,12 +11,11 @@
 
 #include "uart.h"
 
-UART_ERROR_CODES API_Uart_Transmit(char *send_data)
+UART_ERROR_CODES API_Uart_Transmit(uint8_t *send_data)
 {
 	HAL_StatusTypeDef error;
-	//HAL_UART_Transmit(&huart2, (uint8_t*)send_data, sizeof(send_data), 1000);
 
- 	error = HAL_UART_Transmit(&huart2, (uint8_t*)send_data, sizeof(send_data), 1000);
+ 	error = HAL_UART_Transmit(&huart2, (uint8_t*)send_data, 100, 1000);
 
 	if(error == HAL_OK)
 		return UART_ACTION_SUCCESFULL;
