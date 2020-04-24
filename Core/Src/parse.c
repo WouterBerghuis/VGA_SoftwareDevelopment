@@ -8,29 +8,21 @@
 #include <stdio.h>
 #include "usart.h"
 
-void uart_parser(char uartstring[])
+void uart_parser(char uartstring[], char* woord, char Empty_array[5][20])
 {
-	int string_size = strlen(uartstring);
-	char teststring[] = "dit is een test text met heelveel kleine woorden";
-	char delim[]= " ";
-	char *ptr = strtok(teststring, " ");
-	//_write(teststring);
+    int i = 0;
+	//char Command_array[5][20];
+	char delim[]= " ,";
+	char *ptr = strtok(uartstring, delim);
 	while(ptr != NULL)
 		{
-		    HAL_UART_Transmit(&huart2, (uint8_t*)ptr, sizeof(ptr), 1000);
-		//printf("'%s'\n", ptr);
+		    //strncpy(&Command_array[i][0], ptr, strlen(ptr));
+		    strncpy(&Empty_array[i][0], ptr, strlen(ptr));
 			ptr = strtok(NULL, " ");
-
-			//HAL_UART_Transmit(&huart2, (uint8_t*)test, sizeof(test), 1000); // string versturen via uart2
-
+			i++;
 		}
+	i = 0;
 
+	strncpy(woord, Empty_array[0], strlen(Empty_array[0]));
 
-	//	char output[N][2];
-	//	char input[] = "274a2e";
-	//
-	//	for(int i=0; i<strlen(input)/2; i++) {
-	//	    output[i][0] = input[i * 2];
-	//	    output[i][1] = input[(i * 2) + 1];
-	//	}
 }
