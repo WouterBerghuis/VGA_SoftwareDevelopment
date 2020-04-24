@@ -19,7 +19,7 @@
 //--------------------------------------------------------------
 // Includes
 //--------------------------------------------------------------
-#include "stm32_ub_vga_screen.h"
+#include <VGA_core.h>
 
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;

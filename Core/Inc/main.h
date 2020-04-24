@@ -33,7 +33,7 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdint.h"
-#include "stm32_ub_vga_screen.h"
+#include "VGA_core.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
