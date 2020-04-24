@@ -32,6 +32,6 @@ typedef enum{
  */
 
 UART_ERROR_CODES API_Uart_Transmit(uint8_t *send_data);
-UART_ERROR_CODES API_Uart_Receive();
+UART_ERROR_CODES API_Uart_Receive(uint8_t *incoming);
 
 #endif // __UART_H
