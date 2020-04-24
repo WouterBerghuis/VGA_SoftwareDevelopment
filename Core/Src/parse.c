@@ -6,9 +6,9 @@
  */
 #include <string.h>
 #include <stdio.h>
-#include "usart.h"
+#include "parse.h"
 
-void uart_parser(char uartstring[], char* woord, char Empty_array[5][20])
+void uart_parser(char uartstring[], char* First_word, char Empty_array[MAX_STRINGS_DEVIDED][MAX_COMMAND_LENGTH])
 {
     int i = 0;
 	//char Command_array[5][20];
@@ -18,11 +18,11 @@ void uart_parser(char uartstring[], char* woord, char Empty_array[5][20])
 		{
 		    //strncpy(&Command_array[i][0], ptr, strlen(ptr));
 		    strncpy(&Empty_array[i][0], ptr, strlen(ptr));
-			ptr = strtok(NULL, " ");
+			ptr = strtok(NULL, delim);
 			i++;
 		}
 	i = 0;
 
-	strncpy(woord, Empty_array[0], strlen(Empty_array[0]));
+	strncpy(First_word, Empty_array[0], strlen(Empty_array[0]));
 
 }

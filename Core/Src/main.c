@@ -111,8 +111,8 @@ int main(void)
   API_Draw_Bitmap(250, 5,   0);
   API_Draw_Bitmap(10,  150, 1);
 
-  char Command_woord[20] = {0};
-  char TwoDarray[5][20] = {0};
+  char Command_word[COMMAND_WORD_SIZE] = {0};
+  char Commandstring_devided[MAX_STRINGS_DEVIDED][MAX_COMMAND_LENGTH] = {0};
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -121,10 +121,11 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  char First[]="STM32 is de bom";  // char array waarin je je string met data zet
+	  char First[]="lijn, x, y, x’, y’, kleur, dikte";  // char array waarin je je string met data zet
 	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
 
-	  uart_parser(First, Command_woord, TwoDarray);
+	  uart_parser(First, Command_word, Commandstring_devided);
+	  Command_check(Command_word);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
