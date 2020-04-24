@@ -31,3 +31,11 @@ UART_ERROR_CODES API_Uart_Transmit(char *send_data)
 		return UART_ERROR;
 
 }
+
+
+UART_ERROR_CODES API_Uart_Receive()
+{
+	char *in;
+	HAL_UART_Receive(&huart2, (uint8_t*)in, sizeof(in), 1000);
+	return UART_ACTION_SUCCESFULL;
+}
