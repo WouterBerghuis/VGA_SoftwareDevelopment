@@ -112,8 +112,8 @@ int main(void)
   API_Draw_Bitmap(250, 5,   0);
   API_Draw_Bitmap(10,  150, 1);
 
-  char Command_word[COMMAND_WORD_SIZE] = {0};
-  char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMAND_LENGTH] = {0};
+  char Command_word[MAX_COMMANDWORD_SIZE] = {0};
+  char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
   /* USER CODE END 2 */
 
   /* Infinite loop */

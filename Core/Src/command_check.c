@@ -10,7 +10,22 @@
 #include "parse.h"
 #include "command_check.h"
 
-COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMAND_LENGTH] )
+/**
+  * @brief	This function checks the parsed data and calls an API-function based on the command word
+  *
+  * The bitmap data is accessed with the use of @p Pbitmap. By looping of
+  * the width and the height of the bitmap the correct data is send to the
+  * VGA-RAM.
+  *
+  * @param	First_word This the the first word of the command wh, (uint16_t)
+  * @param  Commandstringdevided This is the 2D-array with all the parsed data, (uint16_t)
+  *
+  * @retval	COMMANDCHECK_ERROR_CODES
+  *
+  * @see COMMANDCHECK_ERROR_CODES
+  */
+
+COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] )
 {
 	int test = 0;
 	COMMANDCHECK_ERROR_CODES error;
@@ -23,8 +38,8 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 		lijn1.y_coor2 = atoi(Commandstringdevided[4]);
 		strcpy(lijn1.kleur,  Commandstringdevided[5]);
 		lijn1.dikte   = atoi(Commandstringdevided[6]);
+		// Place API-function
 		test = 1;
-		//Command_check_lijn();
 	}
 	else if (strcmp(First_word, "rechthoek") == 0)
 	{
@@ -35,6 +50,7 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 		rechthoek1.hoogte =  atoi(Commandstringdevided[4]);
 		strcpy(rechthoek1.kleur,  Commandstringdevided[5]);
 		rechthoek1.gevuld =  atoi(Commandstringdevided[6]);
+		// Place API-function
 		test = 2;
 	}
 	else if (strcmp(First_word, "tekst") == 0)
@@ -47,6 +63,7 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 		strcpy(tekst1.fontnaam,  Commandstringdevided[5]);
 		tekst1.fontgrootte= atoi(Commandstringdevided[6]);
 		strcpy(tekst1.fontstijl, Commandstringdevided[7]);
+		// Place API-function
 		test = 3;
 	}
 	else if (strcmp(First_word, "bitmap") == 0)
@@ -62,6 +79,7 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 	{
 		struct Struct_clearscherm clearscherm1;
 		strcpy(clearscherm1.kleur, Commandstringdevided[1]);
+		// Place API-function
 		test = 5;
 	}
 	else{
@@ -69,7 +87,7 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 		return error;
 	}
 
-	error = FIND_COMMAND_SUCCESS;
-	return error;
+	return FIND_COMMAND_SUCCESS;
+
 }
 
