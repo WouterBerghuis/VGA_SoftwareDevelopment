@@ -25,6 +25,8 @@
 #include "usart.h"
 #include "gpio.h"
 #include "parse.h"
+#include "text.h"
+#include "bitmap.h"
 
 
 /* Private includes ----------------------------------------------------------*/
@@ -107,12 +109,13 @@ int main(void)
   /* Initialize non-CubeMX peripherals */
   API_VGA_Screen_Init();
 
-  API_Draw_Bitmap(10,  5,   5);
-  API_Draw_Bitmap(250, 5,   0);
-  API_Draw_Bitmap(10,  150, 1);
+  API_Draw_Text(10, 10,"ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Minecraft", 1, 1);
+//  API_Draw_Bitmap(10,  5,   5);
+//  API_Draw_Bitmap(250, 5,   0);
+//  API_Draw_Bitmap(10,  150, 1);
 
-  char Command_woord[20] = {0};
-  char TwoDarray[5][20] = {0};
+//  char Command_woord[20] = {0};
+//  char TwoDarray[5][20] = {0};
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -121,10 +124,10 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  char First[]="STM32 is de bom";  // char array waarin je je string met data zet
-	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
-
-	  uart_parser(First, Command_woord, TwoDarray);
+//	  char First[]="STM32 is de bom";  // char array waarin je je string met data zet
+//	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
+//
+//	  uart_parser(First, Command_woord, TwoDarray);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

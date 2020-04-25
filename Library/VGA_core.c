@@ -51,7 +51,7 @@ extern DMA_HandleTypeDef hdma_tim1_up;
   */
 VGA_INIT_ERROR_CODES API_VGA_Screen_Init(void)
 {
-	HAL_StatusTypeDef errorHAL;
+	HAL_StatusTypeDef errorHAL = 0;
 	VGA_INIT_ERROR_CODES errorVGA;
 	VGA.hsync_cnt = 0;
 	VGA.start_adr = 0;
@@ -81,7 +81,7 @@ VGA_INIT_ERROR_CODES API_VGA_Screen_Init(void)
 	if(errorHAL)
 		return VGA_INIT_FAILED;
 
-	errorVGA = API_Clearscreen(VGA_COL_BLACK);
+	errorVGA = API_Clearscreen(VGA_COL_WHITE);
 
 	if(errorVGA != VGA_CLEARSCREEN_SUCCESS)
 		return VGA_INIT_FAILED;
