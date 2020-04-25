@@ -109,6 +109,9 @@ int main(void)
 
   API_Draw_Text(10, 10,"ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Minecraft", 1, 1);
   API_Draw_Text(10, 20,"abcdefghijklmnopqrstuvwxyz", "Minecraft", 1, 1);
+  API_Draw_Text(10, 30,"!#$%&'()*+,-./0123456789:;<=>!@", "Minecraft", 1, 1);
+  API_Draw_Text(10, 40,"Hallo ik ben Wouter, en ben 20 jaar!", "Minecraft", 1, 1);
+
 //  API_Draw_Bitmap(10,  5,   5);
 //  API_Draw_Bitmap(250, 5,   0);
 //  API_Draw_Bitmap(10,  150, 1);
