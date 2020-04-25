@@ -26,6 +26,17 @@ TEXT_ERROR_CODES API_Draw_Text(uint16_t x_coor, uint16_t y_coor, char *text, cha
 			x_coor_cursor += MINECRAFT_UPPER_CASE_CHARACTER_WIDTH;
 			text++;
 		}
+
+		if(*text >= LOWER_CASE_A_ASCII_VALUE && *text <= LOWER_CASE_Z_ASCII_VALUE){			// Current character is upper case
+			uint8_t characterNumber  = *text;
+			characterNumber 		-= LOWER_CASE_ASCII_OFFSET;
+			Pbitmap 				 = &Lower_Case_Minecraft[characterNumber][0];
+
+			API_Write_Bitmap_to_VGA(x_coor_cursor, y_coor_cursor, MINECRAFT_LOWER_CASE_CHARACTER_WIDTH, MINECRAFT_LOWER_CASE_CHARACTER_HEIGHT, Pbitmap);
+
+			x_coor_cursor += MINECRAFT_UPPER_CASE_CHARACTER_WIDTH;
+			text++;
+		}
 	}
 
 	return DRAW_TEXT_SUCCESS;

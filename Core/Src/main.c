@@ -82,8 +82,6 @@ int main(void)
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
 
-
-
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
@@ -110,6 +108,7 @@ int main(void)
   API_VGA_Screen_Init();
 
   API_Draw_Text(10, 10,"ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Minecraft", 1, 1);
+  API_Draw_Text(10, 20,"abcdefghijklmnopqrstuvwxyz", "Minecraft", 1, 1);
 //  API_Draw_Bitmap(10,  5,   5);
 //  API_Draw_Bitmap(250, 5,   0);
 //  API_Draw_Bitmap(10,  150, 1);
