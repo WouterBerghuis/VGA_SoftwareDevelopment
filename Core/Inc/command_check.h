@@ -8,7 +8,14 @@
 #ifndef INC_COMMAND_CHECK_H_
 #define INC_COMMAND_CHECK_H_
 
-void Command_check(char Command_word[20]);
+
+typedef enum{
+	FIND_COMMAND_SUCCESS = 0,			/**< No errors occurred during finding the command			*/
+	FIND_COMMAND_FAILED		, 			/**< Error occurred during finding the command				*/
+}COMMANDCHECK_ERROR_CODES;
+
+
+void Command_check(char *First_word, char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMAND_LENGTH]);
 
 struct Struct_lijn
 {
@@ -16,7 +23,7 @@ struct Struct_lijn
 	uint16_t y_coor1;
 	uint16_t x_coor2;
 	uint16_t y_coor2;
-	uint16_t kleur;
+	char kleur[MAX_COMMAND_LENGTH];
 	uint16_t dikte;
 };
 
@@ -50,7 +57,7 @@ struct Struct_bitmap
 	uint8_t fontstijl;
 };
 
-struct Struct_bitmap
+struct Struct_clearscherm
 {
 	uint16_t kleur;
 };

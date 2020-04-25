@@ -24,5 +24,5 @@ void uart_parser(char uartstring[], char* First_word, char Empty_array[MAX_STRIN
 	i = 0;
 
 	strncpy(First_word, Empty_array[0], strlen(Empty_array[0]));
-
+	return;
 }

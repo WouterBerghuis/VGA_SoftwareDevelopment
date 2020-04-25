@@ -25,6 +25,7 @@
 #include "usart.h"
 #include "gpio.h"
 #include "parse.h"
+#include "command_check.h"
 
 
 /* Private includes ----------------------------------------------------------*/
@@ -112,7 +113,7 @@ int main(void)
   API_Draw_Bitmap(10,  150, 1);
 
   char Command_word[COMMAND_WORD_SIZE] = {0};
-  char Commandstring_devided[MAX_STRINGS_DEVIDED][MAX_COMMAND_LENGTH] = {0};
+  char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMAND_LENGTH] = {0};
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -121,11 +122,12 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  char First[]="lijn, x, y, x’, y’, kleur, dikte";  // char array waarin je je string met data zet
+	  char Teststring[]="lijn, 230, 30, 300, 40, magenta, 4";  // char array waarin je je string met data zet
 	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
 
-	  uart_parser(First, Command_word, Commandstring_devided);
-	  Command_check(Command_word);
+	  uart_parser(Teststring, Command_word, Commandstring);
+
+	  Command_check(Command_word, Commandstring);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
