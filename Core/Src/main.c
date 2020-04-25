@@ -122,7 +122,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  char Teststring[]="lijn, 230, 30, 300, 40, magenta, 4";  // char array waarin je je string met data zet
+	  char Teststring[]="bitmap, 2, 30, 250";  // char array waarin je je string met data zet
 	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
 
 	  uart_parser(Teststring, Command_word, Commandstring);

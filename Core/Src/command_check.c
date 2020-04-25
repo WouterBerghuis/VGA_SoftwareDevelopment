@@ -55,7 +55,7 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 		bitmap1.nr =     atoi(Commandstringdevided[1]);
 		bitmap1.x_coor = atoi(Commandstringdevided[2]);
 		bitmap1.y_coor = atoi(Commandstringdevided[3]);
-
+		API_Draw_Bitmap(bitmap1.x_coor, bitmap1.y_coor, bitmap1.nr);
 		test = 4;
 	}
 	else if (strcmp(First_word, "clearscherm") == 0)
