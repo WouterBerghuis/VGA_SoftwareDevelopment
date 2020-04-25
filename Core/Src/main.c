@@ -107,10 +107,10 @@ int main(void)
   /* Initialize non-CubeMX peripherals */
   API_VGA_Screen_Init();
 
-  API_Draw_Text(10, 10,"ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Minecraft", 1, 1);
-  API_Draw_Text(10, 20,"abcdefghijklmnopqrstuvwxyz", "Minecraft", 1, 1);
-  API_Draw_Text(10, 30,"!#$%&'()*+,-./0123456789:;<=>!@", "Minecraft", 1, 1);
-  API_Draw_Text(10, 40,"Hallo ik ben Wouter, en ben 20 jaar!", "Minecraft", 1, 1);
+  API_Draw_Text(10, 10, VGA_COL_RED,   "Hallo, ik ben Rogier!#@$%",            "Minecraft", 1, 1);
+  API_Draw_Text(10, 20, VGA_COL_GREEN, "abcdefghijklmnopqrstuvwxyz",           "Minecraft", 1, 1);
+  API_Draw_Text(10, 30, VGA_COL_BLUE,  "!#$%&'()*+,-./0123456789:;<=>!@[]^_`", "Minecraft", 1, 1);
+  API_Draw_Text(10, 40, VGA_COL_BLACK, "Hallo ik ben Wouter, en ben 20 jaar!", "Minecraft", 1, 1);
 
 //  API_Draw_Bitmap(10,  5,   5);
 //  API_Draw_Bitmap(250, 5,   0);

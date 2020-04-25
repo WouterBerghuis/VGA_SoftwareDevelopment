@@ -110,6 +110,9 @@ VGA_INIT_ERROR_CODES API_Clearscreen(uint8_t color)
 			API_SetPixel(xp, yp, color);
 		}
 	}
+
+	Background_Color = color;
+
 	return VGA_CLEARSCREEN_SUCCESS;
 }
 
