@@ -15,7 +15,7 @@ typedef enum{
 }COMMANDCHECK_ERROR_CODES;
 
 
-COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMAND_LENGTH]);
+COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
 
 struct Struct_lijn
 {
@@ -23,7 +23,7 @@ struct Struct_lijn
 	uint16_t y_coor1;
 	uint16_t x_coor2;
 	uint16_t y_coor2;
-	char kleur[MAX_COMMAND_LENGTH];
+	char kleur[MAX_COMMANDWORD_SIZE];
 	uint16_t dikte;
 };
 
@@ -33,7 +33,7 @@ struct Struct_rechthoek
 	uint16_t y_coor;
 	uint16_t breedte;
 	uint16_t hoogte;
-	char kleur[MAX_COMMAND_LENGTH];
+	char kleur[MAX_COMMANDWORD_SIZE];
 	uint8_t gevuld;
 };
 
@@ -57,7 +57,7 @@ struct Struct_bitmap
 
 struct Struct_clearscherm
 {
-	char kleur[MAX_COMMAND_LENGTH];
+	char kleur[MAX_COMMANDWORD_SIZE];
 };
 
 struct Struct_wacht
