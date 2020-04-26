@@ -27,7 +27,6 @@
 #include "bitmap.h"
 #include "uart.h"
 #include "parse.h"
-
 #include "command_check.h"
 
 
@@ -126,17 +125,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  uint8_t buffer[100];
-	  API_Uart_Receive(buffer);
-	  API_Uart_Transmit(buffer);
-	  memset(buffer, 0, sizeof(buffer));
-
 
 	  char Teststring[]="bitmap, 0, 200, 100";  // char array waarin je je string met data zet
 	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
-
-	  char First[]="STM32 is de bom";  // char array waarin je je string met data zet
-
 
 	  uart_parser(Teststring, Command_word, Commandstring);
 
