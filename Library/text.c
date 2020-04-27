@@ -1,3 +1,13 @@
+/**
+  ******************************************************************************
+  * @file	  			bitmap.c
+  *
+  * @author 			Wouter Berghuis
+  * @date 				24 April 2020
+  * @brief        		This file contains all API function responsible for drawing text on the screen
+  *
+  ******************************************************************************
+  **/
 
 #include "text.h"
 
@@ -13,47 +23,48 @@ TEXT_ERROR_CODES API_Draw_Text(uint16_t x_coor, uint16_t y_coor, uint8_t color, 
 	if(strcmp(fontname, "Minecraft") != 0)
 		return ERROR_FONT_NOT_AVAILABLE;
 
-	switch(fontsize){
-	case (FONTSIZE_SMALL):
-		if((x_coor + (text_length * MAX_SMALL_CHARACTER_WIDTH)) > VGA_DISPLAY_X)
-			return ERROR_TEXT_TOO_LONG;
+	error = API_Check_Text_Length(x_coor, text_length, fontsize);
+	if(error != CORRECT_TEXT_LENGTH)
+		return error;
 
-		for(uint32_t i = 0; i < text_length; i++){
-			uint8_t characterNumber  = *text;
-			characterNumber 		-= ASCII_OFFSET;
-			Pbitmap 				 = &Minecraft_Font[characterNumber][0];
+	for(uint32_t i = 0; i < text_length; i++){
+		uint8_t characterNumber  = *text;
+		characterNumber 		-= ASCII_OFFSET;
+		Pbitmap 				 = &Minecraft_Font[characterNumber][0];
 
+		if(fontsize == FONTSIZE_SMALL){
 			error = API_Write_Small_Character_to_VGA(x_coor_cursor, y_coor_cursor, MINECRAFT_CHARACTERS_WIDTH, MINECRAFT_CHARACTERS_HEIGHT, color, Pbitmap);
-			if(error == ERROR_WRITE_CHARACTER)
-				return error;
-
 			x_coor_cursor += MINECRAFT_CHARACTERS_WIDTH;
-			text++;
 		}
 
-		return DRAW_TEXT_SUCCESS;
-
-	case(FONTSIZE_BIG):
-		if((x_coor + (text_length * MAX_BIG_CHARACTER_WIDTH)) > VGA_DISPLAY_X)
-			return ERROR_TEXT_TOO_LONG;
-
-		for(uint32_t i = 0; i < text_length; i++){
-			uint8_t characterNumber  = *text;
-			characterNumber 		-= ASCII_OFFSET;
-			Pbitmap 				 = &Minecraft_Font[characterNumber][0];
-
+		if(fontsize == FONTSIZE_BIG){
 			error = API_Write_Big_Character_to_VGA(x_coor_cursor, y_coor_cursor, (MINECRAFT_CHARACTERS_WIDTH * 2), (MINECRAFT_CHARACTERS_HEIGHT * 2), color, Pbitmap);
-			if(error == ERROR_WRITE_CHARACTER)
-				return error;
-
 			x_coor_cursor += (MINECRAFT_CHARACTERS_WIDTH * 2);
-			text++;
 		}
+		if(error == ERROR_WRITE_CHARACTER)
+			return error;
 
-		return DRAW_TEXT_SUCCESS;
+		text++;
+	}
+	return DRAW_TEXT_SUCCESS;
+}
 
-	default:
-		return ERROR_FONTSIZE_NOT_AVAILABLE;
+TEXT_ERROR_CODES API_Check_Text_Length(uint16_t x_coor, size_t text_length, uint8_t fontsize){
+	switch(fontsize){
+		case (FONTSIZE_SMALL):
+			if((x_coor + (text_length * MAX_SMALL_CHARACTER_WIDTH)) > VGA_DISPLAY_X)
+				return ERROR_TEXT_TOO_LONG;
+			else
+				return CORRECT_TEXT_LENGTH;
+
+		case(FONTSIZE_BIG):
+			if((x_coor + (text_length * MAX_BIG_CHARACTER_WIDTH)) > VGA_DISPLAY_X)
+				return ERROR_TEXT_TOO_LONG;
+			else
+				return CORRECT_TEXT_LENGTH;
+
+		default:
+			return ERROR_FONTSIZE_NOT_AVAILABLE;
 	}
 }
 
