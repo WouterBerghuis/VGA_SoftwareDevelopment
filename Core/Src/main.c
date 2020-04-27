@@ -109,7 +109,6 @@ int main(void)
 
   API_Draw_Text(11, 10, VGA_COL_RED,   "Hello, World!", "Minecraft", 0, 1);
   API_Draw_Text(10, 20, VGA_COL_BLUE,  "Hello, World!", "Minecraft", 1, 1);
-
 //  API_Draw_Bitmap(10,  5,   5);
 //  API_Draw_Bitmap(250, 5,   0);
 //  API_Draw_Bitmap(10,  150, 1);

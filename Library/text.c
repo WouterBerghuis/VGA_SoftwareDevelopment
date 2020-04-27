@@ -32,9 +32,14 @@ TEXT_ERROR_CODES API_Draw_Text(uint16_t x_coor, uint16_t y_coor, uint8_t color, 
 		characterNumber 		-= ASCII_OFFSET;
 		Pbitmap 				 = &Minecraft_Font[characterNumber][0];
 
+//		if(fontsize == FONTSIZE_SMALL){
+//			error = API_Write_Small_Character_to_VGA(x_coor_cursor, y_coor_cursor, MINECRAFT_CHARACTERS_WIDTH, MINECRAFT_CHARACTERS_HEIGHT, color, Pbitmap);
+//			x_coor_cursor += MINECRAFT_CHARACTERS_WIDTH;
+//		}
+
 		if(fontsize == FONTSIZE_SMALL){
-			error = API_Write_Small_Character_to_VGA(x_coor_cursor, y_coor_cursor, MINECRAFT_CHARACTERS_WIDTH, MINECRAFT_CHARACTERS_HEIGHT, color, Pbitmap);
-			x_coor_cursor += MINECRAFT_CHARACTERS_WIDTH;
+			error = API_Write_Small_Italic_Character_to_VGA(x_coor_cursor, y_coor_cursor, MINECRAFT_CHARACTERS_WIDTH, MINECRAFT_CHARACTERS_HEIGHT, color, Pbitmap);
+			x_coor_cursor += (MINECRAFT_CHARACTERS_WIDTH + 2);
 		}
 
 		if(fontsize == FONTSIZE_BIG){
@@ -107,6 +112,60 @@ TEXT_ERROR_CODES API_Write_Big_Character_to_VGA(uint16_t x_coor, uint16_t y_coor
 			Pbitmap++;
 		}
 	}
+
+	if(error != VGA_SETPIXEL_SUCCESS)
+		return ERROR_WRITE_CHARACTER;
+	return WRITE_CHARACTER_SUCCESS;
+}
+
+TEXT_ERROR_CODES API_Write_Small_Italic_Character_to_VGA(uint16_t x_coor, uint16_t y_coor, uint16_t character_w, uint16_t character_h, uint8_t color, const uint8_t *Pbitmap){
+
+	VGA_INIT_ERROR_CODES error = 0;
+	for(uint16_t i = y_coor; i <(character_h + y_coor); i++){
+		for(uint16_t j = x_coor ; j < (character_w + x_coor); j++){
+			if(i >= (y_coor + 0) && i < (y_coor + 2)){
+				if(*Pbitmap == 0xFF)
+					error = API_SetPixel(j + 2, i, Background_Color);
+				else if(*Pbitmap == 0x00)
+					error = API_SetPixel(j + 2, i, color);
+			}
+			else if(i >= (y_coor + 2) && i < (y_coor + 5)){
+				if(*Pbitmap == 0xFF)
+					error = API_SetPixel(j + 1, i, Background_Color);
+				else if(*Pbitmap == 0x00)
+					error = API_SetPixel(j + 1, i, color);
+			}
+			else{
+				if(*Pbitmap == 0xFF)
+					error = API_SetPixel(j, i, Background_Color);
+				else if(*Pbitmap == 0x00)
+					error = API_SetPixel(j, i, color);
+			}
+			Pbitmap++;
+		}
+	}
+
+	// FILL REMAINING PIXELS
+	// ROW +2
+	API_SetPixel(x_coor    , y_coor    , Background_Color);
+	API_SetPixel(x_coor + 1, y_coor    , Background_Color);
+	API_SetPixel(x_coor    , y_coor + 1, Background_Color);
+	API_SetPixel(x_coor + 1, y_coor + 1, Background_Color);
+
+	// ROW + 1
+	API_SetPixel(x_coor    , y_coor + 2, Background_Color);
+	API_SetPixel(x_coor    , y_coor + 3, Background_Color);
+	API_SetPixel(x_coor    , y_coor + 4, Background_Color);
+
+	API_SetPixel(x_coor + (character_w + 1), y_coor + 2, Background_Color);
+	API_SetPixel(x_coor + (character_w + 1), y_coor + 3, Background_Color);
+	API_SetPixel(x_coor + (character_w + 1), y_coor + 4, Background_Color);
+
+	// ROW +0
+	API_SetPixel(x_coor + character_w      , y_coor + 5, Background_Color);
+	API_SetPixel(x_coor + (character_w + 1), y_coor + 5, Background_Color);
+	API_SetPixel(x_coor + character_w      , y_coor + 6, Background_Color);
+	API_SetPixel(x_coor + (character_w + 1), y_coor + 6, Background_Color);
 
 	if(error != VGA_SETPIXEL_SUCCESS)
 		return ERROR_WRITE_CHARACTER;
