@@ -103,52 +103,67 @@ LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint1
 	if(Even == 1)
 	{
 		offset = 0.5;
-		if(x_coor1 <= x_coor2){
-			for(i = x_coor1; i < x_coor2; i++){
-				for(k = 0; k < dikte/2; k++)
-				{
-					x_temp = i + k + offset;
-					y_temp = slope * i + y_coor1;
-					x = Round_Float_to_Int(x_temp);
-					y = Round_Float_to_Int(y_temp);
-					API_SetPixel(x, y, *kleur);
+		if(x_coor1 >= x_coor2){
+			if(dxabs >= dyabs){
+				slope = dy/dx;
+				for(i = 0; i != dxabs; i+=sdx){
+					for(k = 0; k <= dikte/2; k++)
+					{
+						x_temp = i + x_coor1 + offset;
+						y_temp = slope * i + y_coor1 + k;
+						x = Round_Float_to_Int(x_temp);
+						y = Round_Float_to_Int(y_temp);
+						API_SetPixel(x, y, *kleur);
 
-					x_temp = i - k - offset;
-					y_temp = slope * i + y_coor1;
-					x = Round_Float_to_Int(x_temp);
-					y = Round_Float_to_Int(y_temp);
-					API_SetPixel(x, y, *kleur);
+						x_temp = i + x_coor1 - offset;
+						y_temp = slope * i + y_coor1 - k;
+						x = Round_Float_to_Int(x_temp);
+						y = Round_Float_to_Int(y_temp);
+						API_SetPixel(x, y, *kleur);
+					}
 				}
-
 			}
+			if (dyabs >= dxabs){
+				slope = dx/dy;
+				for(i = 0; i != dy; i+=sdy){
+					for(k = 0; k <= dikte/2; k++)
+					{
+						y_temp = i + y_coor1 + offset;
+						x_temp = slope * i + x_coor1 + k;
+						x = Round_Float_to_Int(x_temp);
+						y = Round_Float_to_Int(y_temp);
+						API_SetPixel(x, y, *kleur);
+
+						y_temp = i + y_coor1 - offset;
+						x_temp = slope * i + x_coor1 - k;
+						x = Round_Float_to_Int(x_temp);
+						y = Round_Float_to_Int(y_temp);
+						API_SetPixel(x, y, *kleur);
+					}
+				}
+			}
+
+
+
 		}
 	}
-//	else
-//		for(i = x_coor1; i > x_coor2; i--){
-//			y_temp = slope * i + y_coor2;
-//
-//			y = Round_Float_to_Int(y_temp);
-//			API_SetPixel(i, y, *kleur);
-//			}
-//	}
 	if(Even == 0)
 	{
-		offset = 0;
 			if(x_coor1 <= x_coor2){
 				if(dxabs >= dyabs)
 				{
 					slope = dy/dx;
-					for(i = 0; i < x_coor2 - x_coor1; i++){
+					for(i = 0; i != dxabs; i+=sdx){
 						for(k = 0; k <= (dikte-1)/2; k++)
 						{
-							x_temp = i + k + offset + x_coor1;
-							y_temp = slope * i + y_coor1;
+							x_temp = i + x_coor1;
+							y_temp = slope * i + y_coor1 + k;
 							x = Round_Float_to_Int(x_temp);
 							y = Round_Float_to_Int(y_temp);
 							API_SetPixel(x, y, *kleur);
 
-							x_temp = i - k - offset + x_coor1;
-							y_temp = slope * i + y_coor1;
+							x_temp = i + x_coor1;
+							y_temp = slope * i + y_coor1 - k;
 							x = Round_Float_to_Int(x_temp);
 							y = Round_Float_to_Int(y_temp);
 							API_SetPixel(x, y, *kleur);
@@ -174,9 +189,10 @@ LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint1
 							API_SetPixel(x, y, *kleur);
 						}
 					}
+
 				}
-			}
 		}
+	}
 	return error;
 }
 
