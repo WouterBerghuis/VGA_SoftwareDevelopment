@@ -118,6 +118,13 @@ int main(void)
 
   char Command_word[MAX_COMMANDWORD_SIZE] = {0};
   char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
+
+  char Teststring[]="lijn, 100, 190, 1, 200, magenta, 1";  // char array waarin je je string met data zet
+  	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
+
+  	  uart_parser(Teststring, Command_word, Commandstring);
+
+  	  Command_check(Command_word, Commandstring);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -126,12 +133,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  char Teststring[]="bitmap, 0, 200, 100";  // char array waarin je je string met data zet
-	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
 
-	  uart_parser(Teststring, Command_word, Commandstring);
-
-	  Command_check(Command_word, Commandstring);
 
     /* USER CODE BEGIN 3 */
   }

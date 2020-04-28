@@ -20,20 +20,18 @@
  *
  */
 typedef enum{
-	DRAW_BITMAP_SUCCESS = 0,			/**< No errors occurred during bitmap placement 							*/
-	DRAW_BITMAP_FAILED,					/**< Error occurred during drawing of the bitmap 							*/
-	ERROR_BITMAP_NUMBER_UNAVAILABLE,	/**< Received bitmap number doesn't exist 									*/
-	CORRECT_BITMAP_PLACEMENT,			/**< Received position of the bitmap is available, fits on the screen 		*/
-	EROR_BITMAP_PLACEMENT_RIGHT,		/**< Received position of bitmap unavailable, too far right for the screen 	*/
-	ERROR_BITMAP_PLACEMENT_LEFT,		/**< Received position of bitmap unavailable, too far left for the screen	*/
-	ERROR_BITMAP_PLACEMENT_TOP,			/**< Received position of bitmap unavailable, too high for the screen 		*/
-	ERROR_BITMAP_PLACEMENT_BOT,			/**< Received position of bitmap unavailable, to0 low for  on the screen 	*/
-	RAM_FILLED_WITH_BITMAP				/**< RAM is successfully filled with the received bitmap 					*/
+	CORRECT_LINE_PLACEMENT= 0,			/**< No errors occurred during bitmap placement 							*/
+	ERROR_LINE_PLACEMENT_XCOOR1,		/**< Received position of bitmap unavailable, too far right for the screen 	*/
+	ERROR_LINE_PLACEMENT_YCOOR1,		/**< Received position of bitmap unavailable, too far left for the screen	*/
+	ERROR_LINE_PLACEMENT_XCOOR2,			/**< Received position of bitmap unavailable, too high for the screen 		*/
+	ERROR_LINE_PLACEMENT_YCOOR2,			/**< Received position of bitmap unavailable, to0 low for  on the screen 	*/
 }LINE_ERROR_CODES;
 
 /*
  * FUNCTIONS
  */
 LINE_ERROR_CODES API_Draw_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, char kleur[MAX_COMMANDWORD_SIZE], uint16_t dikte);
-
+LINE_ERROR_CODES API_Check_LineCoords(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2);
+LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, char kleur[MAX_COMMANDWORD_SIZE], uint16_t dikte);
+int Round_Float_to_Int(float num);
 #endif /* LINE_H_ */

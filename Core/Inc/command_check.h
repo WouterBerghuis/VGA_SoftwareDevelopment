@@ -8,6 +8,8 @@
 #ifndef INC_COMMAND_CHECK_H_
 #define INC_COMMAND_CHECK_H_
 
+#include "parse.h"
+#include <stdio.h>
 
 typedef enum{
 	FIND_COMMAND_SUCCESS = 0,			/**< No errors occurred during finding the command			*/

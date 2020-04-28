@@ -38,7 +38,8 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 		lijn1.y_coor2 = atoi(Commandstringdevided[4]);
 		strcpy(lijn1.kleur,  Commandstringdevided[5]);
 		lijn1.dikte   = atoi(Commandstringdevided[6]);
-		// Place API-function
+
+		API_Draw_Line(lijn1.x_coor1, lijn1.y_coor1, lijn1.x_coor2, lijn1.y_coor2, lijn1.kleur, lijn1.dikte);
 		test = 1;
 	}
 	else if (strcmp(First_word, "rechthoek") == 0)
@@ -72,6 +73,7 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 		bitmap1.nr =     atoi(Commandstringdevided[1]);
 		bitmap1.x_coor = atoi(Commandstringdevided[2]);
 		bitmap1.y_coor = atoi(Commandstringdevided[3]);
+
 		API_Draw_Bitmap(bitmap1.x_coor, bitmap1.y_coor, bitmap1.nr);
 		test = 4;
 	}
