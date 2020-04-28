@@ -88,12 +88,13 @@ LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint1
 	float x_temp, y_temp;
 	float dxabs, dyabs;
 
+	float dy = y_coor2 - y_coor1;
+	float dx = x_coor2 - x_coor1;
+
 	dxabs = abs(dx);
 	dyabs = abs(dy);
 	sdx = sgn(dx);
 	sdy = sgn(dy);
-	float dy = y_coor2 - y_coor1;
-	float dx = x_coor2 - x_coor1;
 
 	float Even = Even_or_Uneven(dikte);
 
