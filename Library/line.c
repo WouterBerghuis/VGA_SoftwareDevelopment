@@ -10,6 +10,7 @@
 **/
 #include "command_check.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include "line.h"
 
 /**
@@ -83,31 +84,124 @@ LINE_ERROR_CODES API_Check_LineCoords(uint16_t x_coor1, uint16_t y_coor1, uint16
 LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, char kleur[MAX_COMMANDWORD_SIZE], uint16_t dikte)
 {
 	LINE_ERROR_CODES error;
-	uint16_t i,j;
-	float slope;				//hellingsgraad van de lijn
-	float y_temp;
+	uint16_t x,y;
+	int i,j,k,sdx,sdy;
+	float offset;
+	float slope; //hellingsgraad van de lijn
+	float x_temp, y_temp;
 	float dy = y_coor2 - y_coor1;
 	float dx = x_coor2 - x_coor1;
-	slope = dy/dx;
 
-	if(x_coor1 < x_coor2){
-		for(i = x_coor1; i < x_coor2; i++){
-		y_temp = slope * i + y_coor1;
-		j = Round_Float_to_Int(y_temp);
-		API_SetPixel(i, j, *kleur);
-		}
+	float dxabs, dyabs;
+	dxabs = abs(dx);
+	dyabs = abs(dy);
+	sdx = sgn(dx);
+	sdy = sgn(dy);
 
-	}
-	else
-		for(i = x_coor1; i > x_coor2; i--){
-			y_temp = slope * i + y_coor2;
-			j = Round_Float_to_Int(y_temp);
-			API_SetPixel(i, j, *kleur);
+	float Even = Even_or_Uneven(dikte);
+
+	if(Even == 1)
+	{
+		offset = 0.5;
+		if(x_coor1 <= x_coor2){
+			for(i = x_coor1; i < x_coor2; i++){
+				for(k = 0; k < dikte/2; k++)
+				{
+					x_temp = i + k + offset;
+					y_temp = slope * i + y_coor1;
+					x = Round_Float_to_Int(x_temp);
+					y = Round_Float_to_Int(y_temp);
+					API_SetPixel(x, y, *kleur);
+
+					x_temp = i - k - offset;
+					y_temp = slope * i + y_coor1;
+					x = Round_Float_to_Int(x_temp);
+					y = Round_Float_to_Int(y_temp);
+					API_SetPixel(x, y, *kleur);
+				}
+
 			}
+		}
+	}
+//	else
+//		for(i = x_coor1; i > x_coor2; i--){
+//			y_temp = slope * i + y_coor2;
+//
+//			y = Round_Float_to_Int(y_temp);
+//			API_SetPixel(i, y, *kleur);
+//			}
+//	}
+	if(Even == 0)
+	{
+		offset = 0;
+			if(x_coor1 <= x_coor2){
+				if(dxabs >= dyabs)
+				{
+					slope = dy/dx;
+					for(i = 0; i < x_coor2 - x_coor1; i++){
+						for(k = 0; k <= (dikte-1)/2; k++)
+						{
+							x_temp = i + k + offset + x_coor1;
+							y_temp = slope * i + y_coor1;
+							x = Round_Float_to_Int(x_temp);
+							y = Round_Float_to_Int(y_temp);
+							API_SetPixel(x, y, *kleur);
+
+							x_temp = i - k - offset + x_coor1;
+							y_temp = slope * i + y_coor1;
+							x = Round_Float_to_Int(x_temp);
+							y = Round_Float_to_Int(y_temp);
+							API_SetPixel(x, y, *kleur);
+						}
+					}
+				}
+				if(dyabs >= dxabs)
+				{
+					slope = dx/dy;
+					for(i = 0; i != dy; i+=sdy){
+						for(k = 0; k <= (dikte-1)/2; k++)
+						{
+							y_temp = i + y_coor1;
+							x_temp = slope * i + x_coor1 + k;
+							x = Round_Float_to_Int(x_temp);
+							y = Round_Float_to_Int(y_temp);
+							API_SetPixel(x, y, *kleur);
+
+							y_temp = i + y_coor1;
+							x_temp = slope * i + x_coor1 - k;
+							x = Round_Float_to_Int(x_temp);
+							y = Round_Float_to_Int(y_temp);
+							API_SetPixel(x, y, *kleur);
+						}
+					}
+				}
+			}
+		}
 	return error;
 }
 
 int Round_Float_to_Int(float num)
 {
     return num < 0 ? num - 0.5 : num + 0.5;
+}
+
+float Even_or_Uneven(uint16_t data)
+{
+	float var;
+	if(data % 2 == 0)
+	{
+		var = 1;
+	}
+	else
+	{
+		var = 0;
+	}
+	return var;
+}
+
+int sgn(int v)
+{
+	if (v < 0) return -1;
+	if (v > 0) return 1;
+	return 0;
 }
