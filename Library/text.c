@@ -45,6 +45,14 @@ TEXT_ERROR_CODES API_Draw_Text(uint16_t x_coor, uint16_t y_coor, uint8_t color, 
 			x_coor_cursor += MINECRAFT_SMALL_ITALIC_CHARACTERS_WIDTH;
 		}
 
+		else if(fontsize == FONTSIZE_SMALL && fontstyle == FONTSTYLE_BOLD){
+			uint8_t characterBitmap_bold[MINECRAFT_SMALL_BOLD_CHARACTERS_WIDTH * MINECRAFT_SMALL_BOLD_CHARACTERS_HEIGHT];
+
+			API_Set_Bold_Character_Bitmap(MINECRAFT_SMALL_BOLD_CHARACTERS_WIDTH, MINECRAFT_SMALL_BOLD_CHARACTERS_HEIGHT, (uint8_t *)currentCharacter, characterBitmap_bold);
+			error = API_Write_Character_to_VGA(x_coor_cursor, y_coor_cursor, MINECRAFT_SMALL_BOLD_CHARACTERS_WIDTH, MINECRAFT_SMALL_BOLD_CHARACTERS_HEIGHT, color, characterBitmap_bold);
+			x_coor_cursor += MINECRAFT_SMALL_BOLD_CHARACTERS_WIDTH;
+		}
+
 		else if(fontsize == FONTSIZE_BIG && fontstyle == FONTSTYLE_NORMAL){
 			uint8_t characterBitmap_big[MINECRAFT_BIG_CHARACTERS_WIDTH * MINECRAFT_BIG_CHARACTERS_HEIGHT];
 
@@ -62,6 +70,17 @@ TEXT_ERROR_CODES API_Draw_Text(uint16_t x_coor, uint16_t y_coor, uint8_t color, 
 
 			error = API_Write_Character_to_VGA(x_coor_cursor, y_coor_cursor, MINECRAFT_BIG_ITALIC_CHARACTERS_WIDTH, MINECRAFT_BIG_ITALIC_CHARACTERS_HEIGHT, color, characterBitmap_big_italic);
 			x_coor_cursor += MINECRAFT_BIG_ITALIC_CHARACTERS_WIDTH;
+		}
+
+		else if(fontsize == FONTSIZE_BIG && fontstyle == FONTSTYLE_BOLD){
+			uint8_t characterBitmap_big			[MINECRAFT_BIG_CHARACTERS_WIDTH 		* MINECRAFT_BIG_CHARACTERS_HEIGHT];
+			uint8_t characterBitmap_big_bold	[MINECRAFT_BIG_BOLD_CHARACTERS_WIDTH  * MINECRAFT_BIG_BOLD_CHARACTERS_HEIGHT];
+
+			API_Set_Big_Character_Bitmap(MINECRAFT_BIG_CHARACTERS_WIDTH, MINECRAFT_BIG_CHARACTERS_HEIGHT, currentCharacter, characterBitmap_big);
+			API_Set_Bold_Character_Bitmap(MINECRAFT_BIG_BOLD_CHARACTERS_WIDTH, MINECRAFT_BIG_BOLD_CHARACTERS_HEIGHT, characterBitmap_big, characterBitmap_big_bold);
+
+			error = API_Write_Character_to_VGA(x_coor_cursor, y_coor_cursor, MINECRAFT_BIG_BOLD_CHARACTERS_WIDTH, MINECRAFT_BIG_BOLD_CHARACTERS_HEIGHT, color, characterBitmap_big_bold);
+			x_coor_cursor += MINECRAFT_BIG_BOLD_CHARACTERS_WIDTH;
 		}
 
 		text++;
@@ -179,4 +198,20 @@ void API_Set_Italic_Character_Bitmap(uint16_t italic__character_w, uint16_t ital
 	}
 }
 
+void API_Set_Bold_Character_Bitmap(uint16_t bold_character_w, uint16_t bold_character_h, const uint8_t *currentCharacter, uint8_t *characterBitmap){
+
+	for(uint16_t i = 0; i < bold_character_h; i++ ){
+		for(uint16_t j = 0; j < bold_character_w; j += 2){
+			if(*currentCharacter == 0xFF){
+				*(characterBitmap + ( j 					   + (i * bold_character_w))) 	= 0xFF;
+				*(characterBitmap + ((j + 1)   				   + (i * bold_character_w))) 	= 0xFF;
+			}
+			else if(*currentCharacter == 0x00){
+				*(characterBitmap + ( j                        + (i * bold_character_w)))  	= 0x00;
+				*(characterBitmap + ((j + 1)                   + (i * bold_character_w))) 	= 0x00;
+			}
+			currentCharacter++;
+		}
+	}
+}
 
