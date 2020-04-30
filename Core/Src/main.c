@@ -112,22 +112,25 @@ int main(void)
   /* Initialize non-CubeMX peripherals */
   API_VGA_Screen_Init();
 
-  API_Draw_Text(0, 10, VGA_COL_RED,  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Minecraft", 0, 0);
-  API_Draw_Text(0, 20, VGA_COL_BLUE, "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB", "Minecraft", 0, 1);
-  API_Draw_Text(0, 30, VGA_COL_GREEN, "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 0, 2);
-  API_Draw_Text(0, 50, VGA_COL_RED,  "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 1, 0);
-  API_Draw_Text(0, 70, VGA_COL_BLUE, "XXXXXXXXXXXXXXXXXXXXXX", "Minecraft", 1, 1);
-  API_Draw_Text(0, 90, VGA_COL_GREEN, "QQQQQQQQQQQQQ", "Minecraft", 1, 2);
+//  API_Draw_Text(0, 10, VGA_COL_RED,  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Minecraft", 0, 0);
+//  API_Draw_Text(0, 20, VGA_COL_BLUE, "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB", "Minecraft", 0, 1);
+//  API_Draw_Text(0, 30, VGA_COL_GREEN, "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 0, 2);
+//  API_Draw_Text(0, 50, VGA_COL_RED,  "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 1, 0);
+//  API_Draw_Text(0, 70, VGA_COL_BLUE, "XXXXXXXXXXXXXXXXXXXXXX", "Minecraft", 1, 1);
+//  API_Draw_Text(0, 90, VGA_COL_GREEN, "QQQQQQQQQQQQQ", "Minecraft", 1, 2);
 
-  char Command_word[MAX_COMMANDWORD_SIZE] = {0};
-  char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
+  API_Draw_Rectangle(10, 10, 20, 30, VGA_COL_RED, 0);
+  API_Draw_Rectangle(100, 50, 30, 50, VGA_COL_GREEN, 1);
 
-  char Teststring[]="lijn, 200, 20, 200, 210, magenta,21";  // char array waarin je je string met data zet
-  	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
-
-  uart_parser(Teststring, Command_word, Commandstring);
-
-  Command_check(Command_word, Commandstring);
+//  char Command_word[MAX_COMMANDWORD_SIZE] = {0};
+//  char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
+//
+//  char Teststring[]="lijn, 200, 20, 200, 210, magenta,21";  // char array waarin je je string met data zet
+//  	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
+//
+//  uart_parser(Teststring, Command_word, Commandstring);
+//
+//  Command_check(Command_word, Commandstring);
 
 //  API_Draw_Bitmap(10,  5,   5);
 //  API_Draw_Bitmap(250, 5,   0);
