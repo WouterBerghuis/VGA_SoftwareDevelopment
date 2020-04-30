@@ -70,6 +70,8 @@ LINE_ERROR_CODES API_Check_LineCoords(uint16_t x_coor1, uint16_t y_coor1, uint16
 /**
   * @brief	This function is used for writing the line on the VGA
   *
+  * Firstly the width is checked if it is even or uneven. This is checked because that has effect on the placement of the line.
+  *
   * @param	x_coor1 This is the first x-coordinate for the line,  (uint16_t)
   * @param  y_coor1 This is the first y-coordinate for the line,  (uint16_t)
   * @param	x_coor2 This is the second x-coordinate for the line, (uint16_t)
@@ -127,6 +129,10 @@ LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_c
 /**
   * @brief	This function is used for drawing a line on the VGA-screen that is more horizontal than vertical.
   *
+  * Because
+  *
+  * The width of the line is created by reusing the formula of the line and shifting it by 1 pixel per extra width
+  *
   * @param	sloap  This is the sloap of the line, (float)
   * @param  dx  This is the difference between x_coor1 and x_coor2, (float)
   * @param	dy  This is the difference between y_coor1 and y_coor2, (float)
@@ -164,6 +170,27 @@ LINE_ERROR_CODES API_Write_Line_to_VGA_Horizontal(float slope, float dx, float d
 	return LINE_ON_VGA_SUCCESS;
 }
 
+/**
+  * @brief	This function is used for drawing a line on the VGA-screen that is more vertical than horizontal.
+  *
+  * Because
+  *
+  * The width of the line is created by reusing the formula of the line and shifting it by 1 pixel per extra width
+  *
+  * @param	sloap  This is the sloap of the line, (float)
+  * @param  dxabs  This is the absolute difference between x_coor1 and x_coor2, (float)
+  * @param	dy  This is the difference between y_coor1 and y_coor2, (float)
+  * @param  offset  This is the offset which is used for creating the width of the line, (float)
+  * @param  width  This is the width of the line, (uint16_t)
+  * @param  sdy  This is the signed value of dy (1 or -1), (int)
+  * @param  x_coor1  This is the x-coordinate of the first coordinate, (uint16_t)
+  * @param  y_coor1 This is the y-coordinate of the first coordinate, (uint16_t)
+  * @param  Colour  This is the colour of the line, (uint8_t)
+  *
+  * @retval	LINE_ERROR_CODES
+  *
+  * @see LINE_ERROR_CODES
+  */
 LINE_ERROR_CODES API_Write_Line_to_VGA_Vertical(float slope, float dxabs, float dy, float offset, uint16_t width, int sdy, uint16_t x_coor1, uint16_t y_coor1, uint8_t Colour){
 	float x_temp, y_temp;
 	int i,k;
