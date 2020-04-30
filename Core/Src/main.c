@@ -24,17 +24,13 @@
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
 #include "bitmap.h"
 #include "uart.h"
 #include "parse.h"
 #include "command_check.h"
-
-
-
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,7 +42,6 @@
 /* USER CODE BEGIN PD */
 /* USER CODE END PD */
 
-
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 
@@ -55,7 +50,9 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+uint8_t buffer_tx[100]={"20,21,22,23,24,25,26,27,28,29"};
+uint8_t buffer_rx[100];
+uint8_t buffer[100];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -84,8 +81,6 @@ int main(void)
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
-
-
 
   /* USER CODE BEGIN Init */
 
@@ -125,6 +120,12 @@ int main(void)
   	  uart_parser(Teststring, Command_word, Commandstring);
 
   	  Command_check(Command_word, Commandstring);
+
+	  //uint8_t buffer[100];
+	  //API_Uart_Receive(buffer);
+	  //API_Uart_Transmit(buffer);
+	  //memset(buffer, 0, sizeof(buffer));
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -132,14 +133,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  uint8_t buffer[100];
-	  API_Uart_Receive(buffer);
-	  API_Uart_Transmit(buffer);
-	  memset(buffer, 0, sizeof(buffer));
 
-  	  //uart_parser(Teststring, Command_word, Commandstring);
-
-  	  //Command_check(Command_word, Commandstring);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -154,11 +148,11 @@ void SystemClock_Config(void)
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-  /** Configure the main internal regulator output voltage
+  /** Configure the main internal regulator output voltage 
   */
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
-  /** Initializes the CPU, AHB and APB busses clocks
+  /** Initializes the CPU, AHB and APB busses clocks 
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
@@ -172,7 +166,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  /** Initializes the CPU, AHB and APB busses clocks
+  /** Initializes the CPU, AHB and APB busses clocks 
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
@@ -193,12 +187,26 @@ void SystemClock_Config(void)
   */
 static void MX_NVIC_Init(void)
 {
-  /* USART2_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(USART2_IRQn, 2, 0);
-  HAL_NVIC_EnableIRQ(USART2_IRQn);
+  /* DMA1_Stream5_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream5_IRQn);
+  /* DMA1_Stream6_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
 }
 
 /* USER CODE BEGIN 4 */
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart2)
+{
+
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart2)
+{
+	  HAL_UART_Receive_DMA(&huart2, buffer_rx, 100);
+	  HAL_UART_Transmit_DMA(&huart2, buffer_tx, 100);
+}
 
 /* USER CODE END 4 */
 
@@ -223,7 +231,7 @@ void Error_Handler(void)
   * @retval None
   */
 void assert_failed(uint8_t *file, uint32_t line)
-{
+{ 
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,
      tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */

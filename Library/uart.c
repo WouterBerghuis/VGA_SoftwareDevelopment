@@ -15,7 +15,7 @@ UART_ERROR_CODES API_Uart_Transmit(uint8_t *send_data)
 {
 	HAL_StatusTypeDef error;
 
- 	error = HAL_UART_Transmit(&huart2, (uint8_t*)send_data, 100, 1000);
+ 	error = HAL_UART_Transmit_DMA(&huart2, (uint8_t*)send_data, 100);
 
 	if(error == HAL_OK)
 		return UART_ACTION_SUCCESFULL;
@@ -35,7 +35,7 @@ UART_ERROR_CODES API_Uart_Receive(uint8_t *incoming)
 {
 	HAL_StatusTypeDef error;
 
-	error = HAL_UART_Receive(&huart2, (uint8_t*)incoming, 100, 1000);
+	error = HAL_UART_Receive_DMA(&huart2, (uint8_t*)incoming, 100);
 
 	if(error == HAL_OK)
 		return UART_ACTION_SUCCESFULL;
