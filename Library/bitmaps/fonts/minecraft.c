@@ -11,6 +11,11 @@
 
 #include "minecraft.h"
 
+/*
+ * @brief Full Mincraft font character array
+ *
+ * Pixeldata for all characters
+ */
 const uint8_t Minecraft_Font[NUMBER_OF_CHARACTERS][MINECRAFT_SMALL_CHARACTERS_WIDTH * MINECRAFT_SMALL_CHARACTERS_HEIGHT] ={
 
 	// ' '

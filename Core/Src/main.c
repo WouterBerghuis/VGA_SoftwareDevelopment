@@ -107,13 +107,13 @@ int main(void)
   /* Initialize non-CubeMX peripherals */
   API_VGA_Screen_Init();
 
-  API_Draw_Text(10, 10, VGA_COL_RED,  "Normaal", "Minecraft", 0, 0);
-  API_Draw_Text(10, 20, VGA_COL_BLUE, "Italic", "Minecraft", 0, 1);
-  API_Draw_Text(10, 30, VGA_COL_GREEN, "Bold", "Minecraft", 0, 2);
+  API_Draw_Text(0, 10, VGA_COL_RED,  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Minecraft", 0, 0);
+  API_Draw_Text(0, 20, VGA_COL_BLUE, "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB", "Minecraft", 0, 1);
+  API_Draw_Text(0, 30, VGA_COL_GREEN, "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 0, 2);
 
-  API_Draw_Text(10, 50, VGA_COL_RED,  "Normaal/Groot", "Minecraft", 1, 0);
-  API_Draw_Text(10, 70, VGA_COL_BLUE, "Italic/Groot", "Minecraft", 1, 1);
-  API_Draw_Text(10, 90, VGA_COL_GREEN, "Bold/Groot", "Minecraft", 1, 2);
+  API_Draw_Text(0, 50, VGA_COL_RED,  "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 1, 0);
+  API_Draw_Text(0, 70, VGA_COL_BLUE, "XXXXXXXXXXXXXXXXXXXXXX", "Minecraft", 1, 1);
+  API_Draw_Text(0, 90, VGA_COL_GREEN, "QQQQQQQQQQQQQ", "Minecraft", 1, 2);
 //  API_Draw_Bitmap(10,  5,   5);
 //  API_Draw_Bitmap(250, 5,   0);
 //  API_Draw_Bitmap(10,  150, 1);
