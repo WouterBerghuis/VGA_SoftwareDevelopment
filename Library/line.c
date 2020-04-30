@@ -26,14 +26,14 @@
   *
   * @see LINE_ERROR_CODES
   */
-LINE_ERROR_CODES API_Draw_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, char kleur[MAX_COMMANDWORD_SIZE], uint16_t dikte)
+LINE_ERROR_CODES API_Draw_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t color, uint16_t dikte)
 {
 	LINE_ERROR_CODES error;
 
 	error = API_Check_LineCoords(x_coor1, y_coor1, x_coor2, y_coor2);
 	if(error != CORRECT_LINE_PLACEMENT)
 		return error;
-	error = API_Write_Line_to_VGA(x_coor1, y_coor1, x_coor2, y_coor2, kleur, dikte);
+	error = API_Write_Line_to_VGA(x_coor1, y_coor1, x_coor2, y_coor2, color, dikte);
 	return error;
 }
 
@@ -71,13 +71,13 @@ LINE_ERROR_CODES API_Check_LineCoords(uint16_t x_coor1, uint16_t y_coor1, uint16
   * @param  y_coor1 This is the first y-coordinate for the line,  (uint16_t)
   * @param	x_coor2 This is the second x-coordinate for the line, (uint16_t)
   * @param  y_coor2 This is the second y-coordinate for the line, (uint16_t)
-  * @param  kleur 	This is the color of the line 		, (char)
+  * @param  color 	This is the color of the line 		, (uint8_t)
   * @param  dikte   This is the width of the line		, (uint16_t)
   * @retval	LINE_ERROR_CODES
   *
   * @see LINE_ERROR_CODES
   */
-LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, char kleur[MAX_COMMANDWORD_SIZE], uint16_t dikte)
+LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t color, uint16_t dikte)
 {
 	LINE_ERROR_CODES error = 0;
 
@@ -110,13 +110,13 @@ LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint1
 						y_temp = slope * i + y_coor1 + k;
 						x = Round_Float_to_Int(x_temp);
 						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, *kleur);
+						API_SetPixel(x, y, color);
 
 						x_temp = i + x_coor1 - offset;
 						y_temp = slope * i + y_coor1 - k;
 						x = Round_Float_to_Int(x_temp);
 						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, *kleur);
+						API_SetPixel(x, y, color);
 					}
 				}
 			}
@@ -128,13 +128,13 @@ LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint1
 						x_temp = slope * i + x_coor1 + k;
 						x = Round_Float_to_Int(x_temp);
 						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, *kleur);
+						API_SetPixel(x, y, color);
 
 						y_temp = i + y_coor1 - offset;
 						x_temp = slope * i + x_coor1 - k;
 						x = Round_Float_to_Int(x_temp);
 						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, *kleur);
+						API_SetPixel(x, y, color);
 					}
 				}
 			}
@@ -153,12 +153,12 @@ LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint1
 						y_temp = slope * i + y_coor1 + k;
 					    x = Round_Float_to_Int(x_temp);
 						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, *kleur);
+						API_SetPixel(x, y, color);
 						x_temp = i + x_coor1;
 						y_temp = slope * i + y_coor1 - k;
 						x = Round_Float_to_Int(x_temp);
 						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, *kleur);
+						API_SetPixel(x, y, color);
 					}
 				}
 			}
@@ -172,13 +172,13 @@ LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint1
 						x_temp = slope * i + x_coor1 + k;
 						x = Round_Float_to_Int(x_temp);
 						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, *kleur);
+						API_SetPixel(x, y, color);
 
 						y_temp = i + y_coor1;
 						x_temp = slope * i + x_coor1 - k;
 						x = Round_Float_to_Int(x_temp);
 						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, *kleur);
+						API_SetPixel(x, y, color);
 					}
 				}
 
