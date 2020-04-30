@@ -24,7 +24,12 @@
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
+#include "bitmap.h"
+#include "uart.h"
 #include "parse.h"
+#include "command_check.h"
+
+
 
 
 /* Private includes ----------------------------------------------------------*/
@@ -111,8 +116,15 @@ int main(void)
   API_Draw_Bitmap(250, 5,   0);
   API_Draw_Bitmap(10,  150, 1);
 
-  char Command_woord[20] = {0};
-  char TwoDarray[5][20] = {0};
+  char Command_word[MAX_COMMANDWORD_SIZE] = {0};
+  char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
+
+  char Teststring[]="lijn, 200, 20, 200, 210, magenta,21";  // char array waarin je je string met data zet
+  	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
+
+  	  uart_parser(Teststring, Command_word, Commandstring);
+
+  	  Command_check(Command_word, Commandstring);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -121,10 +133,8 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  char First[]="STM32 is de bom";  // char array waarin je je string met data zet
-	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
 
-	  uart_parser(First, Command_woord, TwoDarray);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
