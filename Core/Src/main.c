@@ -132,9 +132,14 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	  uint8_t buffer[100];
+	  API_Uart_Receive(buffer);
+	  API_Uart_Transmit(buffer);
+	  memset(buffer, 0, sizeof(buffer));
 
+  	  //uart_parser(Teststring, Command_word, Commandstring);
 
-
+  	  //Command_check(Command_word, Commandstring);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
