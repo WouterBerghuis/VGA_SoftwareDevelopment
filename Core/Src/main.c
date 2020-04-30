@@ -69,7 +69,7 @@ static void MX_NVIC_Init(void);
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */
-
+struct Struct_lijn lijn1;
 /**
   * @brief  The application entry point.
   * @retval int
@@ -116,15 +116,24 @@ int main(void)
   API_Draw_Bitmap(250, 5,   0);
   API_Draw_Bitmap(10,  150, 1);
 
+
+
   char Command_word[MAX_COMMANDWORD_SIZE] = {0};
   char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
 
-  char Teststring[]="lijn, 200, 20, 200, 210, magenta,21";  // char array waarin je je string met data zet
+
+
+  char Teststring[]="bitmap, 5, 50, 100";  // char array waarin je je string met data zet
   	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
 
-  	  uart_parser(Teststring, Command_word, Commandstring);
+  uart_parser(Teststring, Command_word, Commandstring);
 
-  	  Command_check(Command_word, Commandstring);
+  COMMANDCHECK_ERROR_CODES error_check = Command_check(Command_word, Commandstring);
+
+  if(error_check == CHECK_COMMAND_SUCCESS)
+	  Run_Command(Command_word, Commandstring);
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */

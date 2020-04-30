@@ -12,12 +12,31 @@
 #include <stdio.h>
 
 typedef enum{
-	FIND_COMMAND_SUCCESS = 0,			/**< No errors occurred during finding the command			*/
-	FIND_COMMAND_FAILED		, 			/**< Error occurred during finding the command				*/
+	CHECK_COMMAND_SUCCESS = 0,			/**< No errors occurred during finding the command			*/
+	COMMAND_DOES_NOT_EXIST, 			/**< Error occurred during finding the command				*/
 }COMMANDCHECK_ERROR_CODES;
 
-
+struct Data_Structure
+{
+	char command_word[MAX_COMMANDWORD_SIZE];
+	char data1[MAX_COMMANDWORD_SIZE];
+	char data2[MAX_COMMANDWORD_SIZE];
+	char data3[MAX_COMMANDWORD_SIZE];
+	char data4[MAX_COMMANDWORD_SIZE];
+	char data5[MAX_COMMANDWORD_SIZE];
+	char data6[MAX_COMMANDWORD_SIZE];
+	char data7[MAX_COMMANDWORD_SIZE];
+	char data8[MAX_COMMANDWORD_SIZE];
+	char data9[MAX_COMMANDWORD_SIZE];
+};
 COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
+//struct Data_Structure Fill_Struct_Lijn(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
+void Fill_Struct_Rechthoek(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
+void Fill_Struct_Tekst(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
+void Fill_Struct_Bitmap(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
+void Fill_Struct_Clearscherm(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
+
+
 
 struct Struct_lijn
 {

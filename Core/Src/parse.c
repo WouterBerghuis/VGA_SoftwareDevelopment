@@ -12,6 +12,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "parse.h"
+#include "command_check.h"
 
 /**
   * @brief	This function parses the incoming string
