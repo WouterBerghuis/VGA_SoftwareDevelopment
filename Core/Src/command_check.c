@@ -4,10 +4,7 @@
  *  Created on: 24 Apr 2020
  *      Author: stijn
  */
-#include <string.h>
-#include <stdint.h>
-#include <stdio.h>
-#include "parse.h"
+
 #include "command_check.h"
 
 /**

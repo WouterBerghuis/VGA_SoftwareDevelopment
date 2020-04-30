@@ -1,15 +1,32 @@
-/*
- * run_command.h
- *
- *  Created on: 30 Apr 2020
- *      Author: stijn
- */
-
+/**
+  ******************************************************************************
+  * @file	  			run_command.h
+  *
+  * @author 			Stijn Keller
+  * @date 				30 April 2020
+  * @brief        		This function calls the different API-functions
+  *
+  ******************************************************************************
+**/
 
 #ifndef INC_RUN_COMMAND_H_
 #define INC_RUN_COMMAND_H_
 
-void Run_Command(char *First_word, char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
+#include <parse.h>
+
+/*
+ * @brief 	Returnvalues for calling the API-functions
+ *
+ */
+typedef enum{
+	API_FUNCTION_CALL_SUCCESS= 0,			/**< No errors occurred during bitmap placement 							*/
+	API_FUNCTION_CALL_FAILED,		/**< Received position of bitmap unavailable, too far right for the screen 	*/
+}RUNCOMMANDS_ERROR_CODES;
+
+/*
+ * FUNCTIONS
+ */
+RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
 
 void Run_Command_Line(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
 void Run_Command_Rectangle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
