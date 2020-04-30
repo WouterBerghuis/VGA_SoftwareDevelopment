@@ -13,6 +13,8 @@
 #define INC_RUN_COMMAND_H_
 
 #include <parse.h>
+#include <VGA_core.h>
+#include <line.h>
 
 /*
  * @brief 	Returnvalues for calling the API-functions

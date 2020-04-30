@@ -142,3 +142,55 @@ VGA_INIT_ERROR_CODES API_SetPixel(uint16_t xp, uint16_t yp, uint8_t color)
 
 	return VGA_SETPIXEL_SUCCESS;
 }
+
+VGA_INIT_ERROR_CODES Check_Colour(char *Colour){
+
+	if (strcmp(Colour, "zwart") == 0)
+			return COLOUR_FOUND;
+
+	else if (strcmp(Colour, "blauw") == 0)
+			return COLOUR_FOUND;
+
+	else if (strcmp(Colour, "lichtblauw") == 0)
+			return COLOUR_FOUND;
+
+	else if (strcmp(Colour, "groen") == 0)
+			return COLOUR_FOUND;
+
+	else if (strcmp(Colour, "lichtgroen") == 0)
+			return COLOUR_FOUND;
+
+	else if (strcmp(Colour, "cyaan") == 0)
+			return COLOUR_FOUND;
+
+	else if (strcmp(Colour, "lichtcyaan") == 0)
+			return COLOUR_FOUND;
+
+	else if (strcmp(Colour, "rood") == 0)
+			return COLOUR_FOUND;
+
+	else if (strcmp(Colour, "lichtrood") == 0)
+			return COLOUR_FOUND;
+
+	else if (strcmp(Colour, "magenta") == 0)
+			return COLOUR_FOUND;
+
+	else if (strcmp(Colour, "lichtmagenta") == 0)
+			return COLOUR_FOUND;
+
+	else if (strcmp(Colour, "bruin") == 0)
+			return COLOUR_FOUND;
+
+	else if (strcmp(Colour, "geel") == 0)
+			return COLOUR_FOUND;
+
+	else if (strcmp(Colour, "grijs") == 0)
+			return COLOUR_FOUND;
+
+	else if (strcmp(Colour, "zwart") == 0)
+			return COLOUR_FOUND;
+	else
+		return COLOUR_NOT_FOUND;
+
+
+}

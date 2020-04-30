@@ -11,6 +11,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <VGA_core.h>
 #include "parse.h"
 
 typedef enum{

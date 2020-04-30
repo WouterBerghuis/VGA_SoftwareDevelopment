@@ -53,7 +53,7 @@ void Run_Command_Line(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMAND
 			 	  atoi(Commandstringdevided[2]),
 				  atoi(Commandstringdevided[3]),
 				  atoi(Commandstringdevided[4]),
-				  	   Commandstringdevided[5],
+				  atoi(Commandstringdevided[5]),
 				  atoi(Commandstringdevided[6]));
 }
 
@@ -62,7 +62,7 @@ void Run_Command_Rectangle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_CO
 //			 	  	   atoi(Commandstringdevided[2]),
 //					   atoi(Commandstringdevided[3]),
 //					   atoi(Commandstringdevided[4]),
-//					   	    Commandstringdevided[5],
+//					   atoi(Commandstringdevided[5]),
 //					   atoi(Commandstringdevided[6]));
 }
 

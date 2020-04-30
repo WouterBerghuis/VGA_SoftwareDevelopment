@@ -8,9 +8,7 @@
   *
   ******************************************************************************
 **/
-#include "command_check.h"
-#include <stdio.h>
-#include <stdlib.h>
+
 #include "line.h"
 
 /**
@@ -30,15 +28,16 @@
   *
   * @see LINE_ERROR_CODES
   */
-LINE_ERROR_CODES API_Draw_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, char kleur[MAX_COMMANDWORD_SIZE], uint16_t dikte)
+LINE_ERROR_CODES API_Draw_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t kleur, uint16_t dikte)
 {
-	LINE_ERROR_CODES error;
+	LINE_ERROR_CODES error_line;
 
-	error = API_Check_LineCoords(x_coor1, y_coor1, x_coor2, y_coor2);
-	if(error != CORRECT_LINE_PLACEMENT)
-		return error;
-	error = API_Write_Line(x_coor1, y_coor1, x_coor2, y_coor2, kleur, dikte);
-	return error;
+	error_line = API_Check_LineCoords(x_coor1, y_coor1, x_coor2, y_coor2);
+	if(error_line != CORRECT_LINE_PLACEMENT)
+		return error_line;
+
+	error_line = API_Write_Line(x_coor1, y_coor1, x_coor2, y_coor2, kleur, dikte);
+	return error_line;
 }
 
 /**
@@ -81,15 +80,12 @@ LINE_ERROR_CODES API_Check_LineCoords(uint16_t x_coor1, uint16_t y_coor1, uint16
   *
   * @see LINE_ERROR_CODES
   */
-LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, char kleur[MAX_COMMANDWORD_SIZE], uint16_t dikte)
+LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t kleur, uint16_t dikte)
 {
 	LINE_ERROR_CODES error;
-	uint8_t Colour = 1;
-	uint16_t x,y;
-	int i,k,sdx,sdy;
+	int sdx,sdy;
 	float offset;
 	float slope; 								//richtingscoëfficient van de lijn
-	float x_temp, y_temp;
 	float dxabs, dyabs;
 	float dy = y_coor2 - y_coor1;
 	float dx = x_coor2 - x_coor1;
@@ -105,64 +101,46 @@ LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_c
 		offset = 0.5;
 			if(dxabs >= dyabs){								//More horizontal than vertical
 				slope = dy/dx;
-				API_Write_Line_to_VGA_Horizontal(slope, dx, dy, offset, dikte, sdx, x_coor1, y_coor1, Colour);
+				error = API_Write_Line_to_VGA_Horizontal(slope, dx, dy, offset, dikte, sdx, x_coor1, y_coor1, kleur);
 			}
 			if (dyabs >= dxabs){							// More vertical than horizontal
 				slope = dx/dy;
-				API_Write_Line_to_VGA_Vertical(slope, dxabs, dy, offset, dikte, sdy, x_coor1, y_coor1, Colour);
-//				for(i = 0; i != dy; i+=sdy){
-//					for(k = 0; k <= dikte/2; k++){
-//						y_temp = i + y_coor1 + offset;
-//						x_temp = slope * i + x_coor1 + k;
-//						x = Round_Float_to_Int(x_temp);
-//						y = Round_Float_to_Int(y_temp);
-//						API_SetPixel(x, y, *kleur);
-//
-//						y_temp = i + y_coor1 - offset;
-//						x_temp = slope * i + x_coor1 - k;
-//						x = Round_Float_to_Int(x_temp);
-//						y = Round_Float_to_Int(y_temp);
-//						API_SetPixel(x, y, *kleur);
-//					}
-//				}
+				error = API_Write_Line_to_VGA_Vertical(slope, dxabs, dy, offset, dikte, sdy, x_coor1, y_coor1, kleur);
 			}
-
 	}
 	else if(Even == 0)
 	{
 		offset = 0;
-
-			if(dxabs >= dyabs)
-			{
+			if(dxabs >= dyabs){								//More horizontal than vertical
 				slope = dy/dx;
 				dikte = dikte + 1;
-				API_Write_Line_to_VGA_Horizontal(slope, dx, dy, offset, dikte, sdx, x_coor1, y_coor1, Colour);
+				error = API_Write_Line_to_VGA_Horizontal(slope, dx, dy, offset, dikte, sdx, x_coor1, y_coor1, kleur);
 			}
-			if(dyabs >= dxabs)								// More vertical than horizontal
-			{
+			if(dyabs >= dxabs){								// More vertical than horizontal
 				slope = dx/dy;
-				API_Write_Line_to_VGA_Vertical(slope, dxabs, dy, offset, dikte, sdy, x_coor1, y_coor1, Colour);
-//				for(i = 0; i != dy; i+=sdy){
-//					for(k = 0; k <= dikte/2; k++)
-//					{
-//						y_temp = i + y_coor1 ;
-//						x_temp = slope * i + x_coor1 + offset + k;
-//						x = Round_Float_to_Int(x_temp);
-//						y = Round_Float_to_Int(y_temp);
-//						API_SetPixel(x, y, *kleur);
-//
-//						y_temp = i + y_coor1 ;
-//						x_temp = slope * i + x_coor1 - offset - k;
-//						x = Round_Float_to_Int(x_temp);
-//						y = Round_Float_to_Int(y_temp);
-//						API_SetPixel(x, y, *kleur);
-//					}
-//				}
+				error = API_Write_Line_to_VGA_Vertical(slope, dxabs, dy, offset, dikte, sdy, x_coor1, y_coor1, kleur);
 			}
 	}
 	return error;
 }
 
+/**
+  * @brief	This function is used for drawing a line on the VGA-screen that is more horizontal than vertical.
+  *
+  * @param	sloap  This is the sloap of the line, (float)
+  * @param  dx  This is the difference between x_coor1 and x_coor2, (float)
+  * @param	dy  This is the difference between y_coor1 and y_coor2, (float)
+  * @param  offset  This is the offset which is used for creating the width of the line, (float)
+  * @param  width  This is the width of the line, (uint16_t)
+  * @param  sdx  This is the signed value of dx (1 or -1), (int)
+  * @param  x_coor1  This is the x-coordinate of the first coordinate, (uint16_t)
+  * @param  y_coor1 This is the y-coordinate of the first coordinate, (uint16_t)
+  * @param  Colour  This is the colour of the line, (uint8_t)
+  *
+  * @retval	LINE_ERROR_CODES
+  *
+  * @see LINE_ERROR_CODES
+  */
 LINE_ERROR_CODES API_Write_Line_to_VGA_Horizontal(float slope, float dx, float dy, float offset, uint16_t width, int sdx, uint16_t x_coor1, uint16_t y_coor1, uint8_t Colour){
 	float x_temp, y_temp;
 	int i,k;
@@ -183,6 +161,7 @@ LINE_ERROR_CODES API_Write_Line_to_VGA_Horizontal(float slope, float dx, float d
 			API_SetPixel(x, y, Colour);
 		}
 	}
+	return LINE_ON_VGA_SUCCESS;
 }
 
 LINE_ERROR_CODES API_Write_Line_to_VGA_Vertical(float slope, float dxabs, float dy, float offset, uint16_t width, int sdy, uint16_t x_coor1, uint16_t y_coor1, uint8_t Colour){
@@ -205,6 +184,7 @@ LINE_ERROR_CODES API_Write_Line_to_VGA_Vertical(float slope, float dxabs, float 
 			API_SetPixel(x, y, Colour);
 		}
 	}
+	return LINE_ON_VGA_SUCCESS;
 }
 
 /**
