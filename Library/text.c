@@ -11,6 +11,25 @@
 
 #include "text.h"
 
+/**
+  * @brief	This function draws a received string on the VGA screen
+  *
+  * The drawing of the text consist of multiple steps. These steps are:
+  * 1. Check if received font is available
+  * 2.
+  *
+  * @param	x_coor This is the x-coordinate for the start of the string, (uint16_t)
+  * @param  y_coor This is the y-coordinate for the start of the string, (uint16_t)
+  * @param  color, The color of the text, (uint16_t)
+  * @param  text, The string of character (char *)
+  * @param  fontname, Fontname which should be used for printing (char *)
+  * @param  fontsize, 0 = small | 1 = big
+  * @param  fontstyle, 0 = normal | 1 = Italic | 2 = Bold
+  *
+  * @retval	TEXT_ERROR_CODES
+  *
+  * @see TEXT_ERROR_CODES
+  */
 TEXT_ERROR_CODES API_Draw_Text(uint16_t x_coor, uint16_t y_coor, uint8_t color, char *text, char *fontname,
 					 	 	 	uint8_t fontsize, uint8_t fontstyle){
 
