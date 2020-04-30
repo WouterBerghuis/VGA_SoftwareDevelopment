@@ -79,8 +79,8 @@ LINE_ERROR_CODES API_Check_LineCoords(uint16_t x_coor1, uint16_t y_coor1, uint16
   */
 LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, char kleur[MAX_COMMANDWORD_SIZE], uint16_t dikte)
 {
-	LINE_ERROR_CODES error;
-	char *colour = kleur;
+	LINE_ERROR_CODES error = 0;
+
 	uint16_t x,y;
 	int i,k,sdx,sdy;
 	float offset;

@@ -30,6 +30,7 @@
 #include "command_check.h"
 #include "text.h"
 #include "bitmap.h"
+#include "rectangle.h"
 
 
 

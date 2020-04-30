@@ -13,6 +13,7 @@
 #define LINE_H_
 
 #include "VGA_core.h"
+#include "parse.h"
 
 /*
  * @brief 	Returnvalues for the different line functions. These can be used for
