@@ -50,21 +50,24 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t buffer_tx[100]={"20,21,22,23,24,25,26,27,28,29"};
-uint8_t buffer_rx[100];
-uint8_t buffer[100];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint8_t Rx_data[10];
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	HAL_UART_Transmit (&huart2, Rx_data, sizeof (Rx_data),4);
+	HAL_UART_Receive_IT (&huart2, Rx_data, 4); //restart the interrupt reception mode
+}
 /* USER CODE END 0 */
 
 /**
@@ -99,27 +102,15 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_USART2_UART_Init();
-
-  /* Initialize interrupts */
-  MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
 
   /* Initialize non-CubeMX peripherals */
+  HAL_UART_Receive_IT (&huart2, Rx_data, 4);
   API_VGA_Screen_Init();
 
   API_Draw_Bitmap(10,  5,   5);
   API_Draw_Bitmap(250, 5,   0);
   API_Draw_Bitmap(10,  150, 1);
-
-  char Command_word[MAX_COMMANDWORD_SIZE] = {0};
-  char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
-
-  char Teststring[]="lijn, 200, 20, 200, 210, magenta,21";  // char array waarin je je string met data zet
-  	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
-
-  	  uart_parser(Teststring, Command_word, Commandstring);
-
-  	  Command_check(Command_word, Commandstring);
 
 	  //uint8_t buffer[100];
 	  //API_Uart_Receive(buffer);
@@ -133,7 +124,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  //HAL_UART_Receive (&huart2, Rx_data, 4, 100);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -181,32 +172,8 @@ void SystemClock_Config(void)
   }
 }
 
-/**
-  * @brief NVIC Configuration.
-  * @retval None
-  */
-static void MX_NVIC_Init(void)
-{
-  /* DMA1_Stream5_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream5_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream5_IRQn);
-  /* DMA1_Stream6_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
-}
-
 /* USER CODE BEGIN 4 */
 
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart2)
-{
-
-}
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart2)
-{
-	  HAL_UART_Receive_DMA(&huart2, buffer_rx, 100);
-	  HAL_UART_Transmit_DMA(&huart2, buffer_tx, 100);
-}
 
 /* USER CODE END 4 */
 
