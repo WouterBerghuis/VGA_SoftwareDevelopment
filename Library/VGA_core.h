@@ -145,7 +145,7 @@ VGA_INIT_ERROR_CODES API_VGA_Screen_Init(void);
 VGA_INIT_ERROR_CODES API_Clearscreen(uint8_t color);
 VGA_INIT_ERROR_CODES API_SetPixel(uint16_t xp, uint16_t yp, uint8_t color);
 VGA_INIT_ERROR_CODES Check_Color(char *Colorstring, uint8_t *colorValue);
-VGA_INIT_ERROR_CODES Color_String_to_Int(char *Colorstring, uint8_t *Colorvalue);
+VGA_INIT_ERROR_CODES Color_String_to_Int(char *Colorstring, uint8_t *colorValue);
 
 //--------------------------------------------------------------
 #endif // __VGA_core_H
