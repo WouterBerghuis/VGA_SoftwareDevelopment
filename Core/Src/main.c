@@ -52,9 +52,11 @@
 /* USER CODE BEGIN PV */
 uint8_t rx_data;
 volatile uint8_t rx_index = 0;
-uint8_t rx_buffer[100];
-uint8_t a=0;
-volatile uint8_t rxd[10];
+volatile uint8_t rx_row = 0;
+uint8_t rx_buffer[30][100];
+uint8_t stack[30][100];
+uint8_t commando = 0;
+uint8_t message = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -66,36 +68,40 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+// voor alle waardes defines maken
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
+	//
 	if (huart->Instance == USART2)
 	{
 		// If the data is not being received, clear the buffer
 		if (rx_index == 0)
 		{
-			for (int i=0; i<100; i++)
-			{
-				rx_buffer[i] = 0;
-			}
+			for(uint8_t i=0; i<100; i++)
+				rx_buffer[commando][i] = 0;
 		}
 
 		// If the character received is other than the ascii '13' which is enter, save the data in the buffer
-
 		if (rx_data != 13)
-		{
-			rx_buffer[rx_index++] = rx_data;
-		}
+		rx_buffer[commando][rx_index++] = rx_data;
 
 		else
 		{
 			rx_index = 0;
-			//HAL_UART_Transmit (&huart2, rx_buffer, sizeof (rx_buffer), 100); // transmit the data via uart
+			commando++;
 		}
 
 		HAL_UART_Receive_IT (&huart2, &rx_data, 1); // receive data (one character at a time)
 	}
 }
-
+/*
+void commando_stack(rx_buffer)
+{
+	stack[commando][message] = rx_buffer;
+	commando++;
+	message++;
+}
+*/
 /* USER CODE END 0 */
 
 /**
@@ -130,9 +136,8 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_USART2_UART_Init();
-  HAL_UART_Receive_IT (&huart2, &rx_data, 1);
   /* USER CODE BEGIN 2 */
-
+  HAL_UART_Receive_IT (&huart2, &rx_data, 1);
   /* Initialize non-CubeMX peripherals */
   API_VGA_Screen_Init();
 
@@ -152,8 +157,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  HAL_UART_Transmit (&huart2, rx_buffer, sizeof (rx_buffer), 100); // transmit the data via uart
-	  HAL_Delay(1000);
+	  //HAL_UART_Transmit (&huart2, rx_buffer[1], sizeof (rx_buffer), 100); // transmit the data via uart
+	  //HAL_Delay(1000);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
