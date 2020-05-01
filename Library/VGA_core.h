@@ -139,6 +139,11 @@ uint8_t VGA_RAM1[(VGA_DISPLAY_X+1)*VGA_DISPLAY_Y];
 #define VGA_GPIO_HINIBBLE  ((uint16_t)0xFF00) // GPIO_Pin_8 to GPIO_Pin_15
 
 /**
+  * @brief Global variables
+  */
+uint8_t Background_Color;
+
+/**
   * @brief Global Function call
   */
 VGA_INIT_ERROR_CODES API_VGA_Screen_Init(void);
