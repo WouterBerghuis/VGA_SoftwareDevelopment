@@ -154,82 +154,54 @@ VGA_INIT_ERROR_CODES API_SetPixel(uint16_t xp, uint16_t yp, uint8_t color)
 VGA_INIT_ERROR_CODES Check_Color(char *Color, uint8_t *colorValue){
 
 	VGA_INIT_ERROR_CODES error;
-	if (strcmp(Color, "zwart") == 0){
+	if (strcmp(Color, "zwart") == 0)
 		error = Color_String_to_Int(Color, colorValue);
-		return COLOR_FOUND;
-	}
 
-	else if (strcmp(Color, "blauw") == 0){
+	else if (strcmp(Color, "blauw") == 0)
+		error = Color_String_to_Int(Color, colorValue);
 
-		return COLOR_FOUND;
-	}
+	else if (strcmp(Color, "lichtblauw") == 0)
+		error = Color_String_to_Int(Color, colorValue);
 
-	else if (strcmp(Color, "lichtblauw") == 0){
+	else if (strcmp(Color, "groen") == 0)
+		error = Color_String_to_Int(Color, colorValue);
 
-		return COLOR_FOUND;
-	}
+	else if (strcmp(Color, "lichtgroen") == 0)
+		error = Color_String_to_Int(Color, colorValue);
 
-	else if (strcmp(Color, "groen") == 0){
+	else if (strcmp(Color, "cyaan") == 0)
+		error = Color_String_to_Int(Color, colorValue);
 
-		return COLOR_FOUND;
-	}
+	else if (strcmp(Color, "lichtcyaan") == 0)
+		error = Color_String_to_Int(Color, colorValue);
 
-	else if (strcmp(Color, "lichtgroen") == 0){
+	else if (strcmp(Color, "rood") == 0)
+		error = Color_String_to_Int(Color, colorValue);
 
-		return COLOR_FOUND;
-	}
+	else if (strcmp(Color, "lichtrood") == 0)
+		error = Color_String_to_Int(Color, colorValue);
 
-	else if (strcmp(Color, "cyaan") == 0){
+	else if (strcmp(Color, "magenta") == 0)
+		error = Color_String_to_Int(Color, colorValue);
 
-		return COLOR_FOUND;
-	}
+	else if (strcmp(Color, "lichtmagenta") == 0)
+		error = Color_String_to_Int(Color, colorValue);
 
-	else if (strcmp(Color, "lichtcyaan") == 0){
+	else if (strcmp(Color, "bruin") == 0)
+		error = Color_String_to_Int(Color, colorValue);
 
-		return COLOR_FOUND;
-	}
+	else if (strcmp(Color, "geel") == 0)
+		error = Color_String_to_Int(Color, colorValue);
 
-	else if (strcmp(Color, "rood") == 0){
-
-		return COLOR_FOUND;
-	}
-
-	else if (strcmp(Color, "lichtrood") == 0){
-
-		return COLOR_FOUND;
-	}
-
-	else if (strcmp(Color, "magenta") == 0){
-
-		return COLOR_FOUND;
-	}
-
-	else if (strcmp(Color, "lichtmagenta") == 0){
-
-		return COLOR_FOUND;
-	}
-
-	else if (strcmp(Color, "bruin") == 0){
-
-		return COLOR_FOUND;
-	}
-
-	else if (strcmp(Color, "geel") == 0){
-
-		return COLOR_FOUND;
-	}
-
-	else if (strcmp(Color, "grijs") == 0){
-
-		return COLOR_FOUND;
-	}
+	else if (strcmp(Color, "grijs") == 0)
+		error = Color_String_to_Int(Color, colorValue);
 
 	else if (strcmp(Color, "wit") == 0){
-
-		return COLOR_FOUND;
+		error = Color_String_to_Int(Color, colorValue);
 	}
 	else
 		return COLOR_NOT_FOUND;
+	return COLOR_FOUND;
 }
 
 /**
@@ -242,7 +214,6 @@ VGA_INIT_ERROR_CODES Check_Color(char *Color, uint8_t *colorValue){
   */
 VGA_INIT_ERROR_CODES Color_String_to_Int(char *Colorstring, uint8_t *Colorvalue)
 {
-
 	if (strcmp(Colorstring, "zwart") == 0)
 		*Colorvalue = VGA_COL_BLACK ;
 
@@ -250,31 +221,31 @@ VGA_INIT_ERROR_CODES Color_String_to_Int(char *Colorstring, uint8_t *Colorvalue)
 		*Colorvalue = VGA_COL_BLUE ;
 
 	else if (strcmp(Colorstring, "lichtblauw") == 0)
-		*Colorvalue = 23;
+		*Colorvalue = VGA_COL_LIGHTBLUE;
 
 	else if (strcmp(Colorstring, "groen") == 0)
 		*Colorvalue = VGA_COL_GREEN ;
 
 	else if (strcmp(Colorstring, "lichtgroen") == 0)
-		*Colorvalue = 157;
+		*Colorvalue = VGA_COL_LIGHTGREEN;
 
 	else if (strcmp(Colorstring, "cyaan") == 0)
 		*Colorvalue = VGA_COL_CYAN ;
 
 	else if (strcmp(Colorstring, "lichtcyaan") == 0)
-		*Colorvalue = 31;
+		*Colorvalue = VGA_COL_LIGHTCYAN;
 
 	else if (strcmp(Colorstring, "rood") == 0)
 		*Colorvalue = VGA_COL_RED;
 
 	else if (strcmp(Colorstring, "lichtrood") == 0)
-		*Colorvalue = 233;
+		*Colorvalue = VGA_COL_LIGHTRED;
 
 	else if (strcmp(Colorstring, "magenta") == 0)
 		*Colorvalue = VGA_COL_MAGENTA;
 
 	else if (strcmp(Colorstring, "lichtmagenta") == 0)
-		*Colorvalue = 243;
+		*Colorvalue = VGA_COL_LIGHTMAGENTA;
 
 	else if (strcmp(Colorstring, "bruin") == 0)
 		*Colorvalue = VGA_COL_BROWN;
@@ -283,7 +254,7 @@ VGA_INIT_ERROR_CODES Color_String_to_Int(char *Colorstring, uint8_t *Colorvalue)
 		*Colorvalue = VGA_COL_YELLOW;
 
 	else if (strcmp(Colorstring, "grijs") == 0)
-		*Colorvalue = 146;
+		*Colorvalue = VGA_COL_GREY;
 
 	else if (strcmp(Colorstring, "wit") == 0)
 		*Colorvalue = VGA_COL_WHITE;

@@ -38,6 +38,11 @@
 #define  VGA_COL_YELLOW         0xFC
 #define  VGA_COL_BROWN 			0x68
 #define  VGA_COL_LIGHTMAGENTA	0xF7
+#define  VGA_COL_LIGHTBLUE		0x17
+#define  VGA_COL_LIGHTGREEN		0xBE
+#define  VGA_COL_LIGHTCYAN		0x9F
+#define  VGA_COL_LIGHTRED		0x4F
+#define  VGA_COL_GREY			0X92
 
 /**
   * @brief Define the VGA_display resolution
