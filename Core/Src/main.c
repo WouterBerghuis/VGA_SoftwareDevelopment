@@ -28,6 +28,7 @@
 #include "uart.h"
 #include "parse.h"
 #include "command_check.h"
+#include "run_command.h"
 
 
 
@@ -123,7 +124,7 @@ int main(void)
 
 
 
-  char Teststring[]="lijn, 20, 50, 10,100, magenta, 3";  // char array waarin je je string met data zet
+  char Teststring[]="lijn, 20, 50, 100,30, blauw, 8";  // char array waarin je je string met data zet
   	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
 
   uart_parser(Teststring, Command_word, Commandstring);
@@ -132,7 +133,6 @@ int main(void)
 
   if(error_check == CHECK_COMMAND_SUCCESS)
 	  Run_Command(Command_word, Commandstring);
-
 
   /* USER CODE END 2 */
 

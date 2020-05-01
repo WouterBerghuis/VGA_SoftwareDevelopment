@@ -1,9 +1,13 @@
-/*
- * run_command.c
- *
- *  Created on: 30 Apr 2020
- *      Author: stijn
- */
+/**
+  ******************************************************************************
+  * @file	  			run_command.c
+  *
+  * @author 			Stijn Keller
+  * @date 				30 April 2020
+  * @brief        		This file contains the function which calls the different API-functions
+  *
+  ******************************************************************************
+**/
 
 
 #include <run_command.h>
@@ -11,20 +15,15 @@
 /**
   * @brief	This function is used calling the API-functions
   *
-  * The first thing that will be checked is if the commandword has a APi-function
+  * The first thing that will be checked is if the commandword contains a API-function
   * that can be called.
   *
-  * @param	x_coor1 This the x-coordinate for the bitmap, (uint16_t)
-  * @param  y_coor1 This the y-coordinate for the bitmap, (uint16_t)
-  * @param	x_coor2 This the x-coordinate for the bitmap, (uint16_t)
-  * @param  y_coor2 This the y-coordinate for the bitmap, (uint16_t)
-  * @param  kleur 	This is the color of the line 		, (char)
-  * @param  dikte   This is the width of the line		, (uint16_t)
+  * @param	First_word This is the pointer to the first char of the 2D-array, (uint16_t)
+  * @param  Commandstringdevided This is the 2D-array where all the data for the command is stored, (char[][])
   * @retval	LINE_ERROR_CODES
   *
   * @see LINE_ERROR_CODES
   */
-
 RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE])
 {
 	if 	(strcmp(First_word, "lijn") == 0)
@@ -83,6 +82,6 @@ void Run_Command_Bitmap(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMA
 }
 
 void Run_Command_Clearscreen(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
-	//API_Draw_Clearscreen(atoi(Commandstringdevided[1]));
+	API_Clearscreen(atoi(Commandstringdevided[1]));
 }
 

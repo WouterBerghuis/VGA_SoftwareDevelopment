@@ -153,50 +153,140 @@ VGA_INIT_ERROR_CODES API_SetPixel(uint16_t xp, uint16_t yp, uint8_t color)
   */
 VGA_INIT_ERROR_CODES Check_Colour(char *Colour){
 
-	if (strcmp(Colour, "zwart") == 0)
+	if (strcmp(Colour, "zwart") == 0){
 		return COLOUR_FOUND;
+	}
 
-	else if (strcmp(Colour, "blauw") == 0)
-		return COLOUR_FOUND;
+	else if (strcmp(Colour, "blauw") == 0){
 
-	else if (strcmp(Colour, "lichtblauw") == 0)
 		return COLOUR_FOUND;
+	}
 
-	else if (strcmp(Colour, "groen") == 0)
-		return COLOUR_FOUND;
+	else if (strcmp(Colour, "lichtblauw") == 0){
 
-	else if (strcmp(Colour, "lichtgroen") == 0)
 		return COLOUR_FOUND;
+	}
 
-	else if (strcmp(Colour, "cyaan") == 0)
-		return COLOUR_FOUND;
+	else if (strcmp(Colour, "groen") == 0){
 
-	else if (strcmp(Colour, "lichtcyaan") == 0)
 		return COLOUR_FOUND;
+	}
 
-	else if (strcmp(Colour, "rood") == 0)
-		return COLOUR_FOUND;
+	else if (strcmp(Colour, "lichtgroen") == 0){
 
-	else if (strcmp(Colour, "lichtrood") == 0)
 		return COLOUR_FOUND;
+	}
 
-	else if (strcmp(Colour, "magenta") == 0)
-		return COLOUR_FOUND;
+	else if (strcmp(Colour, "cyaan") == 0){
 
-	else if (strcmp(Colour, "lichtmagenta") == 0)
 		return COLOUR_FOUND;
+	}
 
-	else if (strcmp(Colour, "bruin") == 0)
-		return COLOUR_FOUND;
+	else if (strcmp(Colour, "lichtcyaan") == 0){
 
-	else if (strcmp(Colour, "geel") == 0)
 		return COLOUR_FOUND;
+	}
 
-	else if (strcmp(Colour, "grijs") == 0)
-		return COLOUR_FOUND;
+	else if (strcmp(Colour, "rood") == 0){
 
-	else if (strcmp(Colour, "zwart") == 0)
 		return COLOUR_FOUND;
+	}
+
+	else if (strcmp(Colour, "lichtrood") == 0){
+
+		return COLOUR_FOUND;
+	}
+
+	else if (strcmp(Colour, "magenta") == 0){
+
+		return COLOUR_FOUND;
+	}
+
+	else if (strcmp(Colour, "lichtmagenta") == 0){
+
+		return COLOUR_FOUND;
+	}
+
+	else if (strcmp(Colour, "bruin") == 0){
+
+		return COLOUR_FOUND;
+	}
+
+	else if (strcmp(Colour, "geel") == 0){
+
+		return COLOUR_FOUND;
+	}
+
+	else if (strcmp(Colour, "grijs") == 0){
+
+		return COLOUR_FOUND;
+	}
+
+	else if (strcmp(Colour, "wit") == 0){
+
+		return COLOUR_FOUND;
+	}
 	else
 		return COLOUR_NOT_FOUND;
+}
+
+/**
+  * @brief	This function returns the decimal value of the colour sent to the function
+  *
+  * @param	Colour Pointer to the string that contains the colour, (char *)
+  * @retval	int
+  *
+  * @see VGA_INIT_ERROR_CODES
+  */
+int Colour_Letters_to_Numbers(char *Colour)
+{
+		int Value;
+		if (strcmp(Colour, "zwart") == 0)
+			Value = 0;
+
+		else if (strcmp(Colour, "blauw") == 0)
+			Value = 3;
+
+		else if (strcmp(Colour, "lichtblauw") == 0)
+			Value = 0;
+
+		else if (strcmp(Colour, "groen") == 0)
+			Value = 0;
+
+		else if (strcmp(Colour, "lichtgroen") == 0)
+			Value = 0;
+
+		else if (strcmp(Colour, "cyaan") == 0)
+			Value = 0;
+
+		else if (strcmp(Colour, "lichtcyaan") == 0)
+			Value = 0;
+
+		else if (strcmp(Colour, "rood") == 0)
+			Value = 0;
+
+		else if (strcmp(Colour, "lichtrood") == 0)
+			Value = 0;
+
+		else if (strcmp(Colour, "magenta") == 0)
+			Value = 0;
+
+		else if (strcmp(Colour, "lichtmagenta") == 0)
+			Value = 0;
+
+		else if (strcmp(Colour, "bruin") == 0)
+			Value = 0;
+
+		else if (strcmp(Colour, "geel") == 0)
+			Value = 0;
+
+		else if (strcmp(Colour, "grijs") == 0)
+			Value = 0;
+
+		else if (strcmp(Colour, "wit") == 0)
+			Value = 255;
+
+		else
+			Value =  0;
+		return Value;
 }

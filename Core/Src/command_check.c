@@ -13,7 +13,7 @@
 /**
   * @brief	This function checks the first word of the commandstring
   *
-  *	For some commands extra checks will be done for the string. (i.e. Check_Colour())
+  *	For some commands extra checks or/and customizations will be done for the string. (i.e. Check_Colour())
   *
   * @param	First_word This the the first word of the commandstring, (uint16_t)
   * @param  Commandstringdevided This is the 2D-array with all the parsed data, (uint16_t)
@@ -25,14 +25,22 @@
 COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE])
 {
 	COMMANDCHECK_ERROR_CODES error;
-	if 		(strcmp(First_word, "lijn") == 0)
+	int Value;
+	if 	(strcmp(First_word, "lijn") == 0)
 	{
-		Check_Colour(Commandstringdevided[5]);
+		Check_Colour(Commandstringdevided[5]);							//Colour gets checked if it exists
+		Value = Colour_Letters_to_Numbers(Commandstringdevided[5]);		//Colour gets converted to integer
+		sprintf(Commandstringdevided[5], "%d", Value);					//Integer gets placed in string
 		error = CHECK_COMMAND_SUCCESS;
 	}
 
 	else if (strcmp(First_word, "rechthoek") == 0)
+	{
+		Check_Colour(Commandstringdevided[5]);							//Colour gets checked if it exists
+		Value = Colour_Letters_to_Numbers(Commandstringdevided[5]);		//Colour gets converted to integer
+		sprintf(Commandstringdevided[5], "%d", Value);					//Integer gets placed in string
 		error = CHECK_COMMAND_SUCCESS;
+	}
 
 	else if (strcmp(First_word, "tekst") == 0)
 		error = CHECK_COMMAND_SUCCESS;

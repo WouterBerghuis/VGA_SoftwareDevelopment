@@ -17,6 +17,7 @@
   * @brief Includes
   */
 #include "main.h"
+#include "parse.h"
 
 /**
   * @brief 8Bit Color Designation
@@ -134,6 +135,7 @@ VGA_INIT_ERROR_CODES API_VGA_Screen_Init(void);
 VGA_INIT_ERROR_CODES API_Clearscreen(uint8_t color);
 VGA_INIT_ERROR_CODES API_SetPixel(uint16_t xp, uint16_t yp, uint8_t color);
 VGA_INIT_ERROR_CODES Check_Colour(char *Colourstring);
+int Colour_Letters_to_Numbers(char *Colour);
 
 //--------------------------------------------------------------
 #endif // __VGA_core_H

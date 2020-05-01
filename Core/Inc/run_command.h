@@ -15,6 +15,7 @@
 #include <parse.h>
 #include <VGA_core.h>
 #include <line.h>
+#include <bitmap.h>
 
 /*
  * @brief 	Returnvalues for calling the API-functions
