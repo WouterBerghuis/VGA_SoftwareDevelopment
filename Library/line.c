@@ -4,7 +4,7 @@
   *
   * @author 			Stijn Keller
   * @date 				26 April 2020
-  * @brief        		This file contains the API-function for drawing a line
+  * @brief        		This file contains the API-function for drawing a line on the screen
   *
   ******************************************************************************
 **/
@@ -14,9 +14,9 @@
 /**
   * @brief	This function is used for drawing a line on the VGA screen.
   *
-  * A line will be drawn between 2 given coordinates, the width and the color
+  * A line will be drawn between 2 given coordinates, the width and the colour.
   * The coordinates will be checked if they fit on the screen.
-  *
+  * If that's true the function API_Write_Line will be called to draw the line on the screen.
   *
   * @param	x_coor1 This the x-coordinate for the line, (uint16_t)
   * @param  y_coor1 This the y-coordinate for the line, (uint16_t)
@@ -42,6 +42,8 @@ LINE_ERROR_CODES API_Draw_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_co
 
 /**
   * @brief	This function is used for checking the coordinates of the sent data
+  *
+  * The values of the coordinates are checked if they can be placed on the VGA display.
   *
   * @param	x_coor1 This is the first x-coordinate for the line,  (uint16_t)
   * @param  y_coor1 This is the first y-coordinate for the line,  (uint16_t)
@@ -71,11 +73,13 @@ LINE_ERROR_CODES API_Check_LineCoords(uint16_t x_coor1, uint16_t y_coor1, uint16
   * @brief	This function is used for writing the line on the VGA
   *
   * Firstly the width is checked if it is even or uneven. This is checked because that has effect on the placement of the line.
+  * Secondly the sloap of the line will be checked. There is a function for a more horizontal than vertical line and a function for a more
+  * vertical than horizontal line.
   *
-  * @param	x_coor1 This is the first x-coordinate for the line,  (uint16_t)
-  * @param  y_coor1 This is the first y-coordinate for the line,  (uint16_t)
-  * @param	x_coor2 This is the second x-coordinate for the line, (uint16_t)
-  * @param  y_coor2 This is the second y-coordinate for the line, (uint16_t)
+  * @param	x_coor1 This is the first x-coordinate of the line,  (uint16_t)
+  * @param  y_coor1 This is the first y-coordinate of the line,  (uint16_t)
+  * @param	x_coor2 This is the second x-coordinate of the line, (uint16_t)
+  * @param  y_coor2 This is the second y-coordinate of the line, (uint16_t)
   * @param  kleur 	This is the color of the line 		, (char)
   * @param  dikte   This is the width of the line		, (uint16_t)
   * @retval	LINE_ERROR_CODES
@@ -87,7 +91,7 @@ LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_c
 	LINE_ERROR_CODES error;
 	int sdx,sdy;
 	float offset;
-	float slope; 								//richtingscoëfficient van de lijn
+	float slope;
 	float dxabs, dyabs;
 	float dy = y_coor2 - y_coor1;
 	float dx = x_coor2 - x_coor1;
@@ -129,9 +133,14 @@ LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_c
 /**
   * @brief	This function is used for drawing a line on the VGA-screen that is more horizontal than vertical.
   *
-  * Because
+  * There are too for-loops for drawing the line on the VGA. The first for-loop is for drawing the original line.
+  * The second for-loop is for creating the width of the line.
   *
-  * The width of the line is created by reusing the formula of the line and shifting it by 1 pixel per extra width
+  * The formula for the line: x = i + x_coor1, y = slope * i + offset + k & y = slope * i + offset - k
+  * For an uneven width, the offset is 0. For an even width, the offset is 0.5.
+  * The 'k' is used for making the width of the line by shifting the y one upwards or downwards.
+  *
+  * Before the x and y are used for the API_set_pixel() function, they are rounded and converted to integers by the function Round_Float_to_Int().
   *
   * @param	sloap  This is the sloap of the line, (float)
   * @param  dx  This is the difference between x_coor1 and x_coor2, (float)
@@ -173,9 +182,15 @@ LINE_ERROR_CODES API_Write_Line_to_VGA_Horizontal(float slope, float dx, float d
 /**
   * @brief	This function is used for drawing a line on the VGA-screen that is more vertical than horizontal.
   *
-  * Because
+  * There are too for-loops for drawing the line on the VGA. The first for-loop is for drawing the original line.
+  * The second for-loop is for creating the width of the line.
   *
-  * The width of the line is created by reusing the formula of the line and shifting it by 1 pixel per extra width
+  * The formula for the line: y = i + y_coor1, x = slope * i + offset + k & x = slope * i + offset - k
+  *
+  * For an uneven width, the offset is 0. For an even width, the offset is 0.5.
+  * The 'k' is used for making the width of the line by shifting the y one upwards or downwards.
+  *
+  * Before the x and y are used for the API_set_pixel() function, they are rounded and converted to integers by the function Round_Float_to_Int().
   *
   * @param	sloap  This is the sloap of the line, (float)
   * @param  dxabs  This is the absolute difference between x_coor1 and x_coor2, (float)
