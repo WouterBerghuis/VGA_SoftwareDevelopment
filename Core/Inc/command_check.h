@@ -1,9 +1,13 @@
-/*
- * command_check.h
- *
- *  Created on: 24 Apr 2020
- *      Author: stijn
- */
+/**
+  ******************************************************************************
+  * @file	  			command_check.h
+  *
+  * @author 			Stijn Keller
+  * @date 				26 April 2020
+  * @brief        		This file contains the API-function for drawing a line on the screen
+  *
+  ******************************************************************************
+**/
 
 #ifndef INC_COMMAND_CHECK_H_
 #define INC_COMMAND_CHECK_H_
