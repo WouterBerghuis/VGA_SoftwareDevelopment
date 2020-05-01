@@ -48,40 +48,40 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 }
 
 void Run_Command_Line(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
-	API_Draw_Line(atoi(Commandstringdevided[1]),
-			 	  atoi(Commandstringdevided[2]),
-				  atoi(Commandstringdevided[3]),
-				  atoi(Commandstringdevided[4]),
-				  atoi(Commandstringdevided[5]),
-				  atoi(Commandstringdevided[6]));
+	API_Draw_Line(atoi(Commandstringdevided[1]),		// x_coor1
+			 	  atoi(Commandstringdevided[2]),		// y_coor1
+				  atoi(Commandstringdevided[3]),		// x_coor2
+				  atoi(Commandstringdevided[4]),		// y_coor2
+				  atoi(Commandstringdevided[5]),		// Color
+				  atoi(Commandstringdevided[6]));		// Width
 }
 
 void Run_Command_Rectangle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
-	//API_Draw_Rectangle(atoi(Commandstringdevided[1]),
-//			 	  	   atoi(Commandstringdevided[2]),
-//					   atoi(Commandstringdevided[3]),
-//					   atoi(Commandstringdevided[4]),
-//					   atoi(Commandstringdevided[5]),
-//					   atoi(Commandstringdevided[6]));
+	//API_Draw_Rectangle(atoi(Commandstringdevided[1]), // x
+//			 	  	   atoi(Commandstringdevided[2]),	// y
+//					   atoi(Commandstringdevided[3]),	// Width
+//					   atoi(Commandstringdevided[4]),	// Height
+//					   atoi(Commandstringdevided[5]),	// Color
+//					   atoi(Commandstringdevided[6]));	// Filled
 }
 
 void Run_Command_Text(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
-	//API_Draw_Text(atoi(Commandstringdevided[1]),
-//			 	  atoi(Commandstringdevided[2]),
-//				  atoi(Commandstringdevided[3]),
-//				 	   Commandstringdevided[4],
-//					   Commandstringdevided[5],
-//			 	  atoi(Commandstringdevided[6]),
-//				  	   Commandstringdevided[7]);
+	//API_Draw_Text(atoi(Commandstringdevided[1]),		// x
+//			 	  atoi(Commandstringdevided[2]),		// y
+//				  atoi(Commandstringdevided[3]),		// Color
+//				 	   Commandstringdevided[4],			// Text
+//					   Commandstringdevided[5],			// Fontname
+//			 	  atoi(Commandstringdevided[6]),		// Fontsize
+//				  	   Commandstringdevided[7]);		// Font style
 }
 
 void Run_Command_Bitmap(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
-	API_Draw_Bitmap(atoi(Commandstringdevided[2]),
-			 	    atoi(Commandstringdevided[3]),
-				    atoi(Commandstringdevided[1]));
+	API_Draw_Bitmap(atoi(Commandstringdevided[2]),		// x
+			 	    atoi(Commandstringdevided[3]),		// y
+				    atoi(Commandstringdevided[1]));     // Bitmap number
 }
 
 void Run_Command_Clearscreen(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
-	API_Clearscreen(atoi(Commandstringdevided[1]));
+	API_Clearscreen(atoi(Commandstringdevided[1]));		// Color
 }
 

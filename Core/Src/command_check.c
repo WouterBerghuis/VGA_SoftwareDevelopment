@@ -28,15 +28,14 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 	uint8_t colorValue;
 	if 	(strcmp(First_word, "lijn") == 0)
 	{
-		Check_Color(Commandstringdevided[5], &colorValue);							//Colour gets checked if it exists
+		Check_Color(Commandstringdevided[5], &colorValue);					//Color gets checked if it exists and will be converted into uint8_t
 		sprintf(Commandstringdevided[5], "%d", colorValue);					//Integer gets placed in string
 		error = CHECK_COMMAND_SUCCESS;
 	}
 
 	else if (strcmp(First_word, "rechthoek") == 0)
 	{
-		Check_Color(Commandstringdevided[5], &colorValue);							//Colour gets checked if it exists
-		// Color_String_to_Int(Commandstringdevided[5], &colorValue);		//Colour gets converted to integer
+		Check_Color(Commandstringdevided[5], &colorValue);					//Color gets checked if it exists and will be converted into uint8_t
 		sprintf(Commandstringdevided[5], "%d", colorValue);					//Integer gets placed in string
 		error = CHECK_COMMAND_SUCCESS;
 	}
@@ -48,7 +47,12 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 		error = CHECK_COMMAND_SUCCESS;
 
 	else if (strcmp(First_word, "clearscherm") == 0)
+	{
+		Check_Color(Commandstringdevided[1], &colorValue);					//Color gets checked if it exists and will be converted into uint8_t
+		sprintf(Commandstringdevided[1], "%d", colorValue);					//Integer gets placed in string
 		error = CHECK_COMMAND_SUCCESS;
+	}
+
 
 	else
 		return COMMAND_DOES_NOT_EXIST;
