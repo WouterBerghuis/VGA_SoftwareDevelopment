@@ -36,6 +36,8 @@
 #define  VGA_COL_CYAN           0x1F
 #define  VGA_COL_MAGENTA        0xE3
 #define  VGA_COL_YELLOW         0xFC
+#define  VGA_COL_BROWN 			0x68
+#define  VGA_COL_LIGHTMAGENTA	0xF7
 
 /**
   * @brief Define the VGA_display resolution
@@ -51,8 +53,11 @@ typedef enum{
 	VGA_INIT_FAILED,
 	VGA_CLEARSCREEN_SUCCESS,
 	VGA_SETPIXEL_SUCCESS,
-	COLOUR_FOUND,
-	COLOUR_NOT_FOUND,
+	COLOR_FOUND,
+	COLOR_NOT_FOUND,
+	COLOR_TO_STRING_FAILED,
+	COLOR_TO_STRING_SUCCES
+
 }VGA_INIT_ERROR_CODES;
 
 /**
@@ -134,8 +139,8 @@ uint8_t VGA_RAM1[(VGA_DISPLAY_X+1)*VGA_DISPLAY_Y];
 VGA_INIT_ERROR_CODES API_VGA_Screen_Init(void);
 VGA_INIT_ERROR_CODES API_Clearscreen(uint8_t color);
 VGA_INIT_ERROR_CODES API_SetPixel(uint16_t xp, uint16_t yp, uint8_t color);
-VGA_INIT_ERROR_CODES Check_Colour(char *Colourstring);
-int Colour_Letters_to_Numbers(char *Colour);
+VGA_INIT_ERROR_CODES Check_Color(char *Colorstring, uint8_t *colorValue);
+VGA_INIT_ERROR_CODES Color_String_to_Int(char *Colorstring, uint8_t *Colorvalue);
 
 //--------------------------------------------------------------
 #endif // __VGA_core_H

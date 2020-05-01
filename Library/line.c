@@ -86,7 +86,7 @@ LINE_ERROR_CODES API_Check_LineCoords(uint16_t x_coor1, uint16_t y_coor1, uint16
   *
   * @see LINE_ERROR_CODES
   */
-LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t kleur, uint16_t dikte)
+LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t colour, uint16_t dikte)
 {
 	LINE_ERROR_CODES error;
 	int sdx,sdy;
@@ -107,11 +107,11 @@ LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_c
 		offset = 0.5;
 			if(dxabs >= dyabs){								//More horizontal than vertical
 				slope = dy/dx;
-				error = API_Write_Line_to_VGA_Horizontal(slope, dx, dy, offset, dikte, sdx, x_coor1, y_coor1, kleur);
+				error = API_Write_Line_to_VGA_Horizontal(slope, dx, dy, offset, dikte, sdx, x_coor1, y_coor1, colour);
 			}
 			if (dyabs >= dxabs){							// More vertical than horizontal
 				slope = dx/dy;
-				error = API_Write_Line_to_VGA_Vertical(slope, dxabs, dy, offset, dikte, sdy, x_coor1, y_coor1, kleur);
+				error = API_Write_Line_to_VGA_Vertical(slope, dxabs, dy, offset, dikte, sdy, x_coor1, y_coor1, colour);
 			}
 	}
 	else if(Even == 0)
@@ -120,11 +120,11 @@ LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_c
 			if(dxabs >= dyabs){								//More horizontal than vertical
 				slope = dy/dx;
 				dikte = dikte + 1;
-				error = API_Write_Line_to_VGA_Horizontal(slope, dx, dy, offset, dikte, sdx, x_coor1, y_coor1, kleur);
+				error = API_Write_Line_to_VGA_Horizontal(slope, dx, dy, offset, dikte, sdx, x_coor1, y_coor1, colour);
 			}
 			if(dyabs >= dxabs){								// More vertical than horizontal
 				slope = dx/dy;
-				error = API_Write_Line_to_VGA_Vertical(slope, dxabs, dy, offset, dikte, sdy, x_coor1, y_coor1, kleur);
+				error = API_Write_Line_to_VGA_Vertical(slope, dxabs, dy, offset, dikte, sdy, x_coor1, y_coor1, colour);
 			}
 	}
 	return error;

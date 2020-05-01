@@ -70,7 +70,7 @@ static void MX_NVIC_Init(void);
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */
-struct Struct_lijn lijn1;
+
 /**
   * @brief  The application entry point.
   * @retval int
@@ -124,7 +124,7 @@ int main(void)
 
 
 
-  char Teststring[]="lijn, 20, 50, 100,30, blauw, 8";  // char array waarin je je string met data zet
+  char Teststring[]="lijn, 20, 50, 100,30, zwart, 8";  // char array waarin je je string met data zet
   	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
 
   uart_parser(Teststring, Command_word, Commandstring);
