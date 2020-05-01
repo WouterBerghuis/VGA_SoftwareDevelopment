@@ -50,7 +50,11 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+uint8_t rx_data;
+volatile uint8_t rx_index = 0;
+uint8_t rx_buffer[100];
+uint8_t a=0;
+volatile uint8_t rxd[10];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -61,13 +65,37 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t Rx_data[10];
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	HAL_UART_Transmit (&huart2, Rx_data, sizeof (Rx_data),4);
-	HAL_UART_Receive_IT (&huart2, Rx_data, 4); //restart the interrupt reception mode
+	if (huart->Instance == USART2)
+	{
+		// If the data is not being received, clear the buffer
+		if (rx_index == 0)
+		{
+			for (int i=0; i<100; i++)
+			{
+				rx_buffer[i] = 0;
+			}
+		}
+
+		// If the character received is other than the ascii '13' which is enter, save the data in the buffer
+
+		if (rx_data != 13)
+		{
+			rx_buffer[rx_index++] = rx_data;
+		}
+
+		else
+		{
+			rx_index = 0;
+			//HAL_UART_Transmit (&huart2, rx_buffer, sizeof (rx_buffer), 100); // transmit the data via uart
+		}
+
+		HAL_UART_Receive_IT (&huart2, &rx_data, 1); // receive data (one character at a time)
+	}
 }
+
 /* USER CODE END 0 */
 
 /**
@@ -102,10 +130,10 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_USART2_UART_Init();
+  HAL_UART_Receive_IT (&huart2, &rx_data, 1);
   /* USER CODE BEGIN 2 */
 
   /* Initialize non-CubeMX peripherals */
-  HAL_UART_Receive_IT (&huart2, Rx_data, 4);
   API_VGA_Screen_Init();
 
   API_Draw_Bitmap(10,  5,   5);
@@ -124,7 +152,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  //HAL_UART_Receive (&huart2, Rx_data, 4, 100);
+	  HAL_UART_Transmit (&huart2, rx_buffer, sizeof (rx_buffer), 100); // transmit the data via uart
+	  HAL_Delay(1000);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
