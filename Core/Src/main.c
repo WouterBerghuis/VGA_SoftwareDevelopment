@@ -24,6 +24,7 @@
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
+#include "stdbool.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -40,6 +41,9 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define MAX_SIZE_MESSAGE 100
+#define CARRIAGE_RETURN 13
+#define MAX_AMOUNT_OF_COMMANDS 60
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -53,10 +57,11 @@
 uint8_t rx_data;
 volatile uint8_t rx_index = 0;
 volatile uint8_t rx_row = 0;
-uint8_t rx_buffer[30][100];
-uint8_t stack[30][100];
+uint8_t rx_buffer[MAX_AMOUNT_OF_COMMANDS][MAX_SIZE_MESSAGE];
 uint8_t commando = 0;
 uint8_t message = 0;
+uint8_t Message_Counter = 0;
+bool New_Message = false;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -68,40 +73,6 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-// voor alle waardes defines maken
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-	//
-	if (huart->Instance == USART2)
-	{
-		// If the data is not being received, clear the buffer
-		if (rx_index == 0)
-		{
-			for(uint8_t i=0; i<100; i++)
-				rx_buffer[commando][i] = 0;
-		}
-
-		// If the character received is other than the ascii '13' which is enter, save the data in the buffer
-		if (rx_data != 13)
-		rx_buffer[commando][rx_index++] = rx_data;
-
-		else
-		{
-			rx_index = 0;
-			commando++;
-		}
-
-		HAL_UART_Receive_IT (&huart2, &rx_data, 1); // receive data (one character at a time)
-	}
-}
-/*
-void commando_stack(rx_buffer)
-{
-	stack[commando][message] = rx_buffer;
-	commando++;
-	message++;
-}
-*/
 /* USER CODE END 0 */
 
 /**
@@ -156,6 +127,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  API_Send_Command();
     /* USER CODE END WHILE */
 	  //HAL_UART_Transmit (&huart2, rx_buffer[1], sizeof (rx_buffer), 100); // transmit the data via uart
 	  //HAL_Delay(1000);
@@ -209,6 +181,49 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 
+// voor alle waardes defines maken
+
+//When data reception is finished, it will be called by interrupt handle function
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	//
+	if (huart->Instance == USART2)
+	{
+		// If the data is not being received, clear the buffer
+		if (rx_index == 0)
+		{
+			for(uint8_t i=0; i<MAX_SIZE_MESSAGE; i++)
+				rx_buffer[commando][i] = 0;
+		}
+
+		// If the character received is other than the ascii '13' which is carriage return (enter), save the data in the buffer
+		if (rx_data != CARRIAGE_RETURN)
+		rx_buffer[commando][rx_index++] = rx_data;
+
+		else
+		{
+			rx_index = 0;
+			commando++;
+			New_Message = true;
+		}
+
+		HAL_UART_Receive_IT (&huart2, &rx_data, 1); // receive data (one character at a time)
+	}
+}
+
+void API_Send_Command()
+{
+
+	if (New_Message == true)
+	{
+
+		HAL_UART_Transmit (&huart2, (uint8_t*)rx_buffer[Message_Counter], sizeof (rx_buffer[Message_Counter]), 100); // transmit the data via uart
+		Message_Counter++;
+		New_Message = false;
+	}
+
+}
 
 /* USER CODE END 4 */
 
