@@ -66,13 +66,13 @@ void Run_Command_Rectangle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_CO
 }
 
 void Run_Command_Text(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
-	//API_Draw_Text(atoi(Commandstringdevided[1]),		// x
-//			 	  atoi(Commandstringdevided[2]),		// y
-//				  atoi(Commandstringdevided[3]),		// Color
-//				 	   Commandstringdevided[4],			// Text
-//					   Commandstringdevided[5],			// Fontname
-//			 	  atoi(Commandstringdevided[6]),		// Fontsize
-//				  	   Commandstringdevided[7]);		// Font style
+	API_Draw_Text(atoi(Commandstringdevided[1]),		// x
+			 	  atoi(Commandstringdevided[2]),		// y
+				  atoi(Commandstringdevided[3]),		// Color
+				 	   Commandstringdevided[4],			// Text
+					   Commandstringdevided[5],			// Fontname
+			 	  atoi(Commandstringdevided[6]),		// Fontsize
+				  atoi(Commandstringdevided[7]));		// Font style
 }
 
 void Run_Command_Bitmap(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
