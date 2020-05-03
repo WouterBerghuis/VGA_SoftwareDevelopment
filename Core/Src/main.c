@@ -121,31 +121,31 @@ int main(void)
   HAL_UART_Receive_IT (&huart2, &rx_data, 1);
   /* Initialize non-CubeMX peripherals */
   API_VGA_Screen_Init();
-
+/*
   API_Draw_Text(0, 10, VGA_COL_RED,  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Minecraft", 0, 0);
   API_Draw_Text(0, 20, VGA_COL_BLUE, "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB", "Minecraft", 0, 1);
   API_Draw_Text(0, 30, VGA_COL_GREEN, "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 0, 2);
   API_Draw_Text(0, 50, VGA_COL_RED,  "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 1, 0);
   API_Draw_Text(0, 70, VGA_COL_BLUE, "XXXXXXXXXXXXXXXXXXXXXX", "Minecraft", 1, 1);
   API_Draw_Text(0, 90, VGA_COL_GREEN, "QQQQQQQQQQQQQ", "Minecraft", 1, 2);
-
-
+*/
+/*
   char Command_word[MAX_COMMANDWORD_SIZE] = {0};
   char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
 
 
 
-  char Teststring[]="clearscherm, blauw";  // char array waarin je je string met data zet
+  //char Teststring[]="clearscherm, blauw";  // char array waarin je je string met data zet
   	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
 
-  uart_parser(Teststring, Command_word, Commandstring);
+  //uart_parser(Teststring, Command_word, Commandstring);
 
 
   COMMANDCHECK_ERROR_CODES error_check = Command_check(Command_word, Commandstring);
 
   if(error_check == CHECK_COMMAND_SUCCESS)
 	  Run_Command(Command_word, Commandstring);
-
+*/
 
 
 
@@ -243,7 +243,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	if (huart->Instance == USART2)
 	{
 		/**< If the character received is ascii '13' which is carriage return (enter), reset rx_index, put counter on commando and set flag message true */
-		if (rx_data == CARRIAGE_RETURN)
+		if (rx_data == CARRIAGE_RETURN || rx_data == 46)
 		{
 			rx_index = 0;
 			commando++;
@@ -277,7 +277,13 @@ void API_Send_Command()
 	if (New_Message == true)
 	{
 		API_Uart_Transmit ((uint8_t*)rx_buffer[Message_Counter]);   /**< Transmit the data via uart */
-		//uart_parser((uint8_t*)rx_buffer[Message_Counter], Command_word, Commandstring);
+		uart_parser((char*)rx_buffer[Message_Counter], Command_word, Commandstring);
+
+		COMMANDCHECK_ERROR_CODES error_check = Command_check(Command_word, Commandstring);
+
+		  if(error_check == CHECK_COMMAND_SUCCESS)
+			  Run_Command(Command_word, Commandstring);
+
 		Message_Counter++; 											/**< Keeps track of the messages send */
 		New_Message = false;										/**< Reset the New_Message flag */
 	}
