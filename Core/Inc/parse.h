@@ -16,7 +16,7 @@
  *
  */
 #define MAX_STRINGS_DEVIDED 12		//Maximum amount of words per string
-#define MAX_COMMANDWORD_SIZE 13		//Maximum size of a single word
+#define MAX_COMMANDWORD_SIZE 40	//Maximum size of a single word
 
 
 /*

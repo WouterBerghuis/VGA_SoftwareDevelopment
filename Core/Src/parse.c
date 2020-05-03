@@ -35,14 +35,22 @@ void uart_parser(char uartstring[], char* First_word, char Empty_array[MAX_STRIN
     int i = 0;
 	char delim[]= " ,";											 //strtok() will look for ' ' and ',' in the string
 	char *ptr = strtok(uartstring, delim);
+	strncpy(&Empty_array[i][0], ptr, strlen(ptr));
+	strncpy(First_word, Empty_array[0], strlen(Empty_array[0])); //The first word from the parsed string will also be stored in individual array
+
 	while(ptr != NULL)
 		{
-		    strncpy(&Empty_array[i][0], ptr, strlen(ptr));		 //The word where *ptr is pointing to will be stored in the 2D-array
-			ptr = strtok(NULL, delim);							 //Pointer will point to the next word
 			i++;
-		}
-	i = 0;
+			if ((strcmp(First_word, "tekst")) == 0 && i == 4)
+			{
+				ptr = strtok(NULL, ",");
+				strncpy(&Empty_array[i][0], ptr, strlen(ptr));		 //The word where *ptr is pointing to will be stored in the 2D-array
+			}
 
-	strncpy(First_word, Empty_array[0], strlen(Empty_array[0])); //The first word from the parsed string will also be stored in individual array
+			else {
+				ptr = strtok(NULL, delim);
+				strncpy(&Empty_array[i][0], ptr, strlen(ptr));		 //The word where *ptr is pointing to will be stored in the 2D-array
+			}
+		}
 	return;
 }

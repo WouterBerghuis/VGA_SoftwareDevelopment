@@ -321,7 +321,7 @@ TEXT_ERROR_CODES API_Set_Italic_Character_Bitmap(uint16_t italic__character_w, u
   *
   * @see TEXT_ERROR_CODES
   */
-void API_Set_Bold_Character_Bitmap(uint16_t bold_character_w, uint16_t bold_character_h, const uint8_t *currentCharacter, uint8_t *characterBitmap){
+TEXT_ERROR_CODES API_Set_Bold_Character_Bitmap(uint16_t bold_character_w, uint16_t bold_character_h, const uint8_t *currentCharacter, uint8_t *characterBitmap){
 
 	for(uint16_t i = 0; i < bold_character_h; i++ ){
 		for(uint16_t j = 0; j < bold_character_w; j += 2){

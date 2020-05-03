@@ -46,7 +46,7 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 		Check_Color(Commandstringdevided[3], &colorValue);					//Color gets checked if it exists and will be converted into uint8_t
 		sprintf(Commandstringdevided[3], "%d", colorValue);
 		Check_Fontstyle(Commandstringdevided[7], &fontstyleValue);
-		sprintf(Commandstringdevided[7], "%d", fonstyleValue);
+		sprintf(Commandstringdevided[7], "%d", fontstyleValue);
 		error = CHECK_COMMAND_SUCCESS;
 	}
 

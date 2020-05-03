@@ -273,13 +273,13 @@ VGA_INIT_ERROR_CODES Color_String_to_Int(char *Colorstring, uint8_t *colorValue)
 VGA_INIT_ERROR_CODES Check_Fontstyle(char *Fontstylestring, uint8_t *fontstyleValue){
 	VGA_INIT_ERROR_CODES error;
 		if (strcmp(Fontstylestring, "normaal") == 0)
-			error = Color_String_to_Int(Fontstylestring, fontstyleValue);
+			error = Fontstyle_String_to_Int(Fontstylestring, fontstyleValue);
 
 		else if (strcmp(Fontstylestring, "vet") == 0)
-			error = Color_String_to_Int(Fontstylestring, fontstyleValue);
+			error = Fontstyle_String_to_Int(Fontstylestring, fontstyleValue);
 
 		else if (strcmp(Fontstylestring, "cursief") == 0)
-			error = Color_String_to_Int(Fontstylestring, fontstyleValue);
+			error = Fontstyle_String_to_Int(Fontstylestring, fontstyleValue);
 
 		else
 			return FONTSTYLE_NOT_FOUND;

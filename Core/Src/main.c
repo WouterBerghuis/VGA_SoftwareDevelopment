@@ -127,7 +127,7 @@ int main(void)
 
 
 
-  char Teststring[]="tekst,0,10,blauw,ABCDEFEG, Minecraft, 1, 1";  // char array waarin je je string met data zet
+  char Teststring[]="clearscherm, rood";  // char array waarin je je string met data zet
   	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
 
   uart_parser(Teststring, Command_word, Commandstring);
