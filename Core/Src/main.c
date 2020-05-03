@@ -56,12 +56,12 @@
 /* USER CODE BEGIN PV */
 uint8_t rx_data;
 volatile uint8_t rx_index = 0;
-volatile uint8_t rx_row = 0;
 uint8_t rx_buffer[MAX_AMOUNT_OF_COMMANDS][MAX_SIZE_MESSAGE];
 uint8_t commando = 0;
-uint8_t message = 0;
 uint8_t Message_Counter = 0;
 bool New_Message = false;
+char Command_word[MAX_COMMANDWORD_SIZE] = {0};
+char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -129,8 +129,6 @@ int main(void)
   {
 	  API_Send_Command();
     /* USER CODE END WHILE */
-	  //HAL_UART_Transmit (&huart2, rx_buffer[1], sizeof (rx_buffer), 100); // transmit the data via uart
-	  //HAL_Delay(1000);
 
     /* USER CODE BEGIN 3 */
   }
@@ -181,46 +179,74 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 
-// voor alle waardes defines maken
-
-//When data reception is finished, it will be called by interrupt handle function
+/**
+  * @brief	This function is used to receive the data from the UART interrupt.
+  *
+  *
+  * When data reception is finished, it will be called by the interrupt handler function.
+  * Unfortunately the HAL_UART_Receive_IT will only trigger if it received the expected size for the message.
+  * To receive a message with unknown lenght, we instead set the expected size for the message to 1 byte.
+  * The following steps are followed in this function
+  *
+  * 1. Checking the runtime of USART 2
+  * 2. Check if the received byte is a carriage return.
+  * 	2.1 If a carriage return was received, reset the rx_index and put a counter on commando
+  * 	so the next message will be stored in a new string
+  * 	2.2 If no carriage return was received, store the byte in the rx_buffer.
+  *
+  * Doing this allows us to store the whole message byte by byte until we read a carriage return (a enter, ascii 13) so the next
+  * command can be stored in a new array.
+  *
+  *
+  *@param huart Pointer to the huart handler
+  *
+  * @retval None
+  *
+  */
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	//
+	/** Checks the runtime of USART 2*/
 	if (huart->Instance == USART2)
 	{
-		// If the data is not being received, clear the buffer
-		if (rx_index == 0)
-		{
-			for(uint8_t i=0; i<MAX_SIZE_MESSAGE; i++)
-				rx_buffer[commando][i] = 0;
-		}
-
-		// If the character received is other than the ascii '13' which is carriage return (enter), save the data in the buffer
-		if (rx_data != CARRIAGE_RETURN)
-		rx_buffer[commando][rx_index++] = rx_data;
-
-		else
+		/**< If the character received is ascii '13' which is carriage return (enter), reset rx_index, put counter on commando and set flag message true */
+		if (rx_data == CARRIAGE_RETURN)
 		{
 			rx_index = 0;
 			commando++;
 			New_Message = true;
 		}
+		else
+		rx_buffer[commando][rx_index++] = rx_data;
 
-		HAL_UART_Receive_IT (&huart2, &rx_data, 1); // receive data (one character at a time)
+
+		HAL_UART_Receive_IT (&huart2, &rx_data, 1); /**< receive data (one character at a time) */
 	}
 }
+
+/**
+  * @brief	This function is used to send the received message to the parser
+  *
+  *The function waits for a New_Message flag to be set to true.
+  *This flag will only be set to true when the HAL_UART_RxCpltCallback has determined if a new message is received.
+  *When the flag is set to true, the uart_parser function will be called and the message will be sent to the parser.
+  *To keep track of the messages a message counter is used to make sure the new message will be send to the parser.
+  *The New_Message flag will always be reset to false afterwards to only send the message once to the parser.
+  * @param	None
+  *
+  * @retval	None
+  *
+  */
 
 void API_Send_Command()
 {
 
 	if (New_Message == true)
 	{
-
-		HAL_UART_Transmit (&huart2, (uint8_t*)rx_buffer[Message_Counter], sizeof (rx_buffer[Message_Counter]), 100); // transmit the data via uart
-		Message_Counter++;
-		New_Message = false;
+		API_Uart_Transmit ((uint8_t*)rx_buffer[Message_Counter]);   /**< Transmit the data via uart */
+		//uart_parser((uint8_t*)rx_buffer[Message_Counter], Command_word, Commandstring);
+		Message_Counter++; 											/**< Keeps track of the messages send */
+		New_Message = false;										/**< Reset the New_Message flag */
 	}
 
 }
