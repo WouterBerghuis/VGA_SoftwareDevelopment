@@ -17,6 +17,7 @@
   * @brief Includes
   */
 #include "main.h"
+#include "parse.h"
 
 /**
   * @brief 8Bit Color Designation
@@ -35,6 +36,13 @@
 #define  VGA_COL_CYAN           0x1F
 #define  VGA_COL_MAGENTA        0xE3
 #define  VGA_COL_YELLOW         0xFC
+#define  VGA_COL_BROWN 			0x68
+#define  VGA_COL_LIGHTMAGENTA	0xF7
+#define  VGA_COL_LIGHTBLUE		0x17
+#define  VGA_COL_LIGHTGREEN		0xBE
+#define  VGA_COL_LIGHTCYAN		0x9F
+#define  VGA_COL_LIGHTRED		0x4F
+#define  VGA_COL_GREY			0X92
 
 /**
   * @brief Define the VGA_display resolution
@@ -49,7 +57,12 @@ typedef enum{
 	VGA_INIT_SUCCESS = 0,
 	VGA_INIT_FAILED,
 	VGA_CLEARSCREEN_SUCCESS,
-	VGA_SETPIXEL_SUCCESS
+	VGA_SETPIXEL_SUCCESS,
+	COLOR_FOUND,
+	COLOR_NOT_FOUND,
+	COLOR_TO_STRING_FAILED,
+	COLOR_TO_STRING_SUCCES
+
 }VGA_INIT_ERROR_CODES;
 
 /**
@@ -126,11 +139,18 @@ uint8_t VGA_RAM1[(VGA_DISPLAY_X+1)*VGA_DISPLAY_Y];
 #define VGA_GPIO_HINIBBLE  ((uint16_t)0xFF00) // GPIO_Pin_8 to GPIO_Pin_15
 
 /**
+  * @brief Global variables
+  */
+uint8_t Background_Color;
+
+/**
   * @brief Global Function call
   */
 VGA_INIT_ERROR_CODES API_VGA_Screen_Init(void);
 VGA_INIT_ERROR_CODES API_Clearscreen(uint8_t color);
 VGA_INIT_ERROR_CODES API_SetPixel(uint16_t xp, uint16_t yp, uint8_t color);
+VGA_INIT_ERROR_CODES Check_Color(char *Colorstring, uint8_t *colorValue);
+VGA_INIT_ERROR_CODES Color_String_to_Int(char *Colorstring, uint8_t *colorValue);
 
 //--------------------------------------------------------------
 #endif // __VGA_core_H

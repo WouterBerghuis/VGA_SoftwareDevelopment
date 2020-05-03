@@ -6,12 +6,13 @@
   * @date 				21 April 2020
   * @brief        		This file contains the function to parse the incoming string.
   *
-  * This file uses 2 libraries (string.h & stdio.h)  and its header file.
+  * This file uses 2 libraries (string.h & stdio.h) header file command_check and it's own header file.
   ******************************************************************************
 **/
 #include <string.h>
 #include <stdio.h>
 #include "parse.h"
+#include "command_check.h"
 
 /**
   * @brief	This function parses the incoming string
@@ -36,7 +37,6 @@ void uart_parser(char uartstring[], char* First_word, char Empty_array[MAX_STRIN
 	char *ptr = strtok(uartstring, delim);
 	while(ptr != NULL)
 		{
-		    //strncpy(&Command_array[i][0], ptr, strlen(ptr));
 		    strncpy(&Empty_array[i][0], ptr, strlen(ptr));		 //The word where *ptr is pointing to will be stored in the 2D-array
 			ptr = strtok(NULL, delim);							 //Pointer will point to the next word
 			i++;

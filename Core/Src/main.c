@@ -32,6 +32,16 @@
 #include "uart.h"
 #include "parse.h"
 #include "command_check.h"
+#include "run_command.h"
+#include "text.h"
+#include "bitmap.h"
+
+
+
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -112,14 +122,32 @@ int main(void)
   /* Initialize non-CubeMX peripherals */
   API_VGA_Screen_Init();
 
-  API_Draw_Bitmap(10,  5,   5);
-  API_Draw_Bitmap(250, 5,   0);
-  API_Draw_Bitmap(10,  150, 1);
+  API_Draw_Text(0, 10, VGA_COL_RED,  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Minecraft", 0, 0);
+  API_Draw_Text(0, 20, VGA_COL_BLUE, "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB", "Minecraft", 0, 1);
+  API_Draw_Text(0, 30, VGA_COL_GREEN, "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 0, 2);
+  API_Draw_Text(0, 50, VGA_COL_RED,  "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 1, 0);
+  API_Draw_Text(0, 70, VGA_COL_BLUE, "XXXXXXXXXXXXXXXXXXXXXX", "Minecraft", 1, 1);
+  API_Draw_Text(0, 90, VGA_COL_GREEN, "QQQQQQQQQQQQQ", "Minecraft", 1, 2);
 
-	  //uint8_t buffer[100];
-	  //API_Uart_Receive(buffer);
-	  //API_Uart_Transmit(buffer);
-	  //memset(buffer, 0, sizeof(buffer));
+
+  char Command_word[MAX_COMMANDWORD_SIZE] = {0};
+  char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
+
+
+
+  char Teststring[]="clearscherm, blauw";  // char array waarin je je string met data zet
+  	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
+
+  uart_parser(Teststring, Command_word, Commandstring);
+
+
+  COMMANDCHECK_ERROR_CODES error_check = Command_check(Command_word, Commandstring);
+
+  if(error_check == CHECK_COMMAND_SUCCESS)
+	  Run_Command(Command_word, Commandstring);
+
+
+
 
   /* USER CODE END 2 */
 
@@ -129,6 +157,11 @@ int main(void)
   {
 	  API_Send_Command();
     /* USER CODE END WHILE */
+
+//	  char First[]="STM32 is de bom";  // char array waarin je je string met data zet
+//	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
+//
+//	  uart_parser(First, Command_woord, TwoDarray);
 
     /* USER CODE BEGIN 3 */
   }
