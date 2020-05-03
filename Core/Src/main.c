@@ -243,7 +243,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	if (huart->Instance == USART2)
 	{
 		/**< If the character received is ascii '13' which is carriage return (enter), reset rx_index, put counter on commando and set flag message true */
-		if (rx_data == CARRIAGE_RETURN || rx_data == 46)
+		if (rx_data == CARRIAGE_RETURN || rx_data == 46 || rx_data == 10)
 		{
 			rx_index = 0;
 			commando++;
