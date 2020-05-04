@@ -1,0 +1,23 @@
+digraph "D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont_ide/Library/bitmap.c"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="D:/Bestanden/ET Jaar\l 3/Software Ontwikkeling\l/Software/swont_ide/Library\l/bitmap.c",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This file contains all API function responsible for drawing the different bitmaps."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="bitmap.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bitmap_8h.html",tooltip="This file is the headerfile of bitmap.c."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="VGA_core.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_v_g_a__core_8h.html",tooltip="This file is the headerfile of VGA_core.c."];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="main.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="smiley_happy.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$smiley__happy_8h.html",tooltip="This file contains all the needed defines for the 'smiley_happy' bitmap."];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="stdint.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="smiley_angry.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$smiley__angry_8h.html",tooltip="This file contains the smiley_angry pixel data. This data can be used in combination with the functio..."];
+  Node7 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="arrows.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$arrows_8h.html",tooltip="This file contains all the needed defines for the different arrow bitmaps."];
+  Node8 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

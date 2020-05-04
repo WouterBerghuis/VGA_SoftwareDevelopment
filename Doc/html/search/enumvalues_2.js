@@ -1,8 +1,25 @@
 var searchData=
 [
-  ['eror_5fbitmap_5fplacement_5fright_34',['EROR_BITMAP_PLACEMENT_RIGHT',['../bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdba08ed5b055855fdc2b808b83af263fb11',1,'bitmap.h']]],
-  ['error_5fbitmap_5fnumber_5funavailable_35',['ERROR_BITMAP_NUMBER_UNAVAILABLE',['../bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdbac3eb2b46fa094b706f67db4d09f77638',1,'bitmap.h']]],
-  ['error_5fbitmap_5fplacement_5fbot_36',['ERROR_BITMAP_PLACEMENT_BOT',['../bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdba5cb14099ac79b2ea5c77a34c4fe1e840',1,'bitmap.h']]],
-  ['error_5fbitmap_5fplacement_5fleft_37',['ERROR_BITMAP_PLACEMENT_LEFT',['../bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdba0f95c24fd5401366bc8ad63a1131b32f',1,'bitmap.h']]],
-  ['error_5fbitmap_5fplacement_5ftop_38',['ERROR_BITMAP_PLACEMENT_TOP',['../bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdba4ce3dd3114e42111449370d491acc46c',1,'bitmap.h']]]
+  ['ellipse_5fline_5fplacement_5fsuccess_282',['ELLIPSE_LINE_PLACEMENT_SUCCESS',['../ellipse_8h.html#ab6d7523fbb3210cbe4f988a28a855cf3a4421f7a9a320c2674a4646db8521edda',1,'ellipse.h']]],
+  ['eror_5fbitmap_5fplacement_5fright_283',['EROR_BITMAP_PLACEMENT_RIGHT',['../bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdba08ed5b055855fdc2b808b83af263fb11',1,'bitmap.h']]],
+  ['error_5fbitmap_5fnumber_5funavailable_284',['ERROR_BITMAP_NUMBER_UNAVAILABLE',['../bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdbac3eb2b46fa094b706f67db4d09f77638',1,'bitmap.h']]],
+  ['error_5fbitmap_5fplacement_5fbot_285',['ERROR_BITMAP_PLACEMENT_BOT',['../bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdba5cb14099ac79b2ea5c77a34c4fe1e840',1,'bitmap.h']]],
+  ['error_5fbitmap_5fplacement_5fleft_286',['ERROR_BITMAP_PLACEMENT_LEFT',['../bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdba0f95c24fd5401366bc8ad63a1131b32f',1,'bitmap.h']]],
+  ['error_5fbitmap_5fplacement_5ftop_287',['ERROR_BITMAP_PLACEMENT_TOP',['../bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdba4ce3dd3114e42111449370d491acc46c',1,'bitmap.h']]],
+  ['error_5fellipse_5fposition_5fx_5fcoor_288',['ERROR_ELLIPSE_POSITION_X_COOR',['../ellipse_8h.html#ab6d7523fbb3210cbe4f988a28a855cf3ad8cb8ae02a3f5cd4215d7e23c390ede7',1,'ellipse.h']]],
+  ['error_5fellipse_5fposition_5fy_5fcoor_289',['ERROR_ELLIPSE_POSITION_Y_COOR',['../ellipse_8h.html#ab6d7523fbb3210cbe4f988a28a855cf3ae3546b472f22e25236420ea2d1d5d059',1,'ellipse.h']]],
+  ['error_5ffill_5frectangle_290',['ERROR_FILL_RECTANGLE',['../rectangle_8h.html#aa0a9b88644f862cb2d392058f2eb16c3ad06f7ab7cd2107bf84e8e3fb810953fa',1,'rectangle.h']]],
+  ['error_5ffont_5fnot_5favailable_291',['ERROR_FONT_NOT_AVAILABLE',['../text_8h.html#a7bd5a728fd3c13428992659bb0d87467a0d123974cb07b6419b9c653676526583',1,'text.h']]],
+  ['error_5ffontsize_5fnot_5favailable_292',['ERROR_FONTSIZE_NOT_AVAILABLE',['../text_8h.html#a7bd5a728fd3c13428992659bb0d87467a50e6529904ace5b271fa764637a10a0f',1,'text.h']]],
+  ['error_5fline_5fplacement_293',['ERROR_LINE_PLACEMENT',['../rectangle_8h.html#aa0a9b88644f862cb2d392058f2eb16c3a26f1219af1b187582f86f4850b042327',1,'rectangle.h']]],
+  ['error_5fline_5fplacement_5fxcoor1_294',['ERROR_LINE_PLACEMENT_XCOOR1',['../line_8h.html#af7d805d67201582f6b65762d7efbe562a8c633490c0c6deba8d34f83e08708bcb',1,'line.h']]],
+  ['error_5fline_5fplacement_5fxcoor2_295',['ERROR_LINE_PLACEMENT_XCOOR2',['../line_8h.html#af7d805d67201582f6b65762d7efbe562a860c2cf5247c2de27c5a3d475c366161',1,'line.h']]],
+  ['error_5fline_5fplacement_5fycoor1_296',['ERROR_LINE_PLACEMENT_YCOOR1',['../line_8h.html#af7d805d67201582f6b65762d7efbe562a60a39c68bad14cdde33971f3ca9c0cf9',1,'line.h']]],
+  ['error_5fline_5fplacement_5fycoor2_297',['ERROR_LINE_PLACEMENT_YCOOR2',['../line_8h.html#af7d805d67201582f6b65762d7efbe562a828957273ea482a0f0fa66d58ca27d06',1,'line.h']]],
+  ['error_5fplacement_5findividual_5fline_298',['ERROR_PLACEMENT_INDIVIDUAL_LINE',['../ellipse_8h.html#ab6d7523fbb3210cbe4f988a28a855cf3a09b31ae27cfd7eec1921e94e42f93e1e',1,'ellipse.h']]],
+  ['error_5fposition_5fx_5fcoor_299',['ERROR_POSITION_X_COOR',['../rectangle_8h.html#aa0a9b88644f862cb2d392058f2eb16c3a0ea2d4f267614a120f20db8ed3f24212',1,'rectangle.h']]],
+  ['error_5fposition_5fy_5fcoor_300',['ERROR_POSITION_Y_COOR',['../rectangle_8h.html#aa0a9b88644f862cb2d392058f2eb16c3afc05be678f1e30c890ad2791458eab31',1,'rectangle.h']]],
+  ['error_5ftext_5ffailed_301',['ERROR_TEXT_FAILED',['../text_8h.html#a7bd5a728fd3c13428992659bb0d87467adc1b7ce3c2758cbb44cc55452a33b5f3',1,'text.h']]],
+  ['error_5ftext_5ftoo_5flong_302',['ERROR_TEXT_TOO_LONG',['../text_8h.html#a7bd5a728fd3c13428992659bb0d87467a0318f19354e9cddbb00d9a94cdf644c9',1,'text.h']]],
+  ['error_5fwrite_5fcharacter_303',['ERROR_WRITE_CHARACTER',['../text_8h.html#a7bd5a728fd3c13428992659bb0d87467abf68f578c652a4398e5a89868e23a993',1,'text.h']]]
 ];

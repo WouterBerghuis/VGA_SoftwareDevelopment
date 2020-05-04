@@ -1,0 +1,161 @@
+\hypertarget{_v_g_a__core_8c}{}\doxysection{D\+:/\+Bestanden/\+ET Jaar 3/\+Software Ontwikkeling/\+Software/swont\+\_\+ide/\+Library/\+V\+G\+A\+\_\+core.c File Reference}
+\label{_v_g_a__core_8c}\index{D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont\_ide/Library/VGA\_core.c@{D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont\_ide/Library/VGA\_core.c}}
+
+
+This file contains all the core functions for controlling the V\+GA screen.  
+
+
+{\ttfamily \#include \char`\"{}V\+G\+A\+\_\+core.\+h\char`\"{}}\newline
+Include dependency graph for V\+G\+A\+\_\+core.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{_v_g_a__core_8c_ade692319ed4167a35485f514039feae8}{A\+P\+I\+\_\+\+V\+G\+A\+\_\+\+Screen\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em This function initialized the V\+GA screen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{_v_g_a__core_8c_a850b2269b47826f529ff8c0c34f2d503}{A\+P\+I\+\_\+\+Clearscreen}} (uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em This function clears the screen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{_v_g_a__core_8c_a2e5f4ee3788504643af7c5b5e25ec667}{A\+P\+I\+\_\+\+Set\+Pixel}} (uint16\+\_\+t xp, uint16\+\_\+t yp, uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em This function sets the color of a single pixel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+T\+I\+M\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{_v_g_a__core_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}}
+\item 
+T\+I\+M\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{_v_g_a__core_8c_a2c80fd5510e2990a59a5c90d745c716c}{htim2}}
+\item 
+D\+M\+A\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{_v_g_a__core_8c_a66e79e362967e621b35e4adc5a9239c1}{hdma\+\_\+tim1\+\_\+up}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains all the core functions for controlling the V\+GA screen. 
+
+\begin{DoxyAuthor}{Author}
+Wouter Berghuis 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+24 April 2020 The V\+GA screen is controlled outside the main functions loop. This is done with the use of Timers (T\+I\+M1 and T\+I\+M2) and the D\+MA (D\+M\+A2, Channel6 and Stream5). These will control the different G\+P\+I\+O-\/pins connected to the V\+GA connector.
+\end{DoxyDate}
+Signal\+: P\+B11 = H\+Sync-\/\+Signal P\+B12 = V\+Sync-\/\+Signal P\+E8+\+P\+E9 = Color Blue P\+E10-\/\+P\+E12 = Color Green P\+E13-\/\+P\+E15 = Color red
+
+V\+GA out\+: 320x240 Pixel 8bit color 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_v_g_a__core_8c_a850b2269b47826f529ff8c0c34f2d503}\label{_v_g_a__core_8c_a850b2269b47826f529ff8c0c34f2d503}} 
+\index{VGA\_core.c@{VGA\_core.c}!API\_Clearscreen@{API\_Clearscreen}}
+\index{API\_Clearscreen@{API\_Clearscreen}!VGA\_core.c@{VGA\_core.c}}
+\doxysubsubsection{\texorpdfstring{API\_Clearscreen()}{API\_Clearscreen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Clearscreen (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+This function clears the screen. 
+
+Clearing the screen is done by setting the whole screen to one color. This is done by setting each individual pixel to a specific color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The color of screen to clear the screen with, (uint8\+\_\+t) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{_v_g_a__core_8c_a2e5f4ee3788504643af7c5b5e25ec667}\label{_v_g_a__core_8c_a2e5f4ee3788504643af7c5b5e25ec667}} 
+\index{VGA\_core.c@{VGA\_core.c}!API\_SetPixel@{API\_SetPixel}}
+\index{API\_SetPixel@{API\_SetPixel}!VGA\_core.c@{VGA\_core.c}}
+\doxysubsubsection{\texorpdfstring{API\_SetPixel()}{API\_SetPixel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Set\+Pixel (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{xp,  }\item[{uint16\+\_\+t}]{yp,  }\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+This function sets the color of a single pixel. 
+
+Setting the color of a single pixel is done by writing the color code in the V\+G\+A\+\_\+\+R\+AM. The position in the R\+AM corresponds with the coordinates on the screen.
+
+Important \+: The last Pixel+1 from every line must be black The reason for this is still unclear
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & The x-\/coordinate of the pixel, (uint16\+\_\+t) \\
+\hline
+{\em yp} & The y-\/coordinate of the pixel, (uint16\+\_\+t) \\
+\hline
+{\em color} & The color of screen to clear the screen with, (uint8\+\_\+t) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{_v_g_a__core_8c_ade692319ed4167a35485f514039feae8}\label{_v_g_a__core_8c_ade692319ed4167a35485f514039feae8}} 
+\index{VGA\_core.c@{VGA\_core.c}!API\_VGA\_Screen\_Init@{API\_VGA\_Screen\_Init}}
+\index{API\_VGA\_Screen\_Init@{API\_VGA\_Screen\_Init}!VGA\_core.c@{VGA\_core.c}}
+\doxysubsubsection{\texorpdfstring{API\_VGA\_Screen\_Init()}{API\_VGA\_Screen\_Init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+V\+G\+A\+\_\+\+Screen\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function initialized the V\+GA screen. 
+
+Global Function call.
+
+The initialization consist of the following steps\+:
+\begin{DoxyEnumerate}
+\item Setting timer2 Channel 4 is the H\+Sync-\/signal Channel 3 is the trigger point for the D\+MA start
+\item Enabling the D\+MA which uses timer1 The D\+MA is used to send the 8bit color to the V\+GA color pins from the V\+G\+A\+\_\+\+R\+AM. In these R\+AM the color for each individual pixel can be set.
+\item Clear the screen The screen is set to full black after initializing the V\+G\+A\+\_\+screen.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:
+% FIG 4
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_v_g_a__core_8c_a66e79e362967e621b35e4adc5a9239c1}\label{_v_g_a__core_8c_a66e79e362967e621b35e4adc5a9239c1}} 
+\index{VGA\_core.c@{VGA\_core.c}!hdma\_tim1\_up@{hdma\_tim1\_up}}
+\index{hdma\_tim1\_up@{hdma\_tim1\_up}!VGA\_core.c@{VGA\_core.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_tim1\_up}{hdma\_tim1\_up}}
+{\footnotesize\ttfamily D\+M\+A\+\_\+\+Handle\+Type\+Def hdma\+\_\+tim1\+\_\+up}
+
+\mbox{\Hypertarget{_v_g_a__core_8c_a25fc663547539bc49fecc0011bd76ab5}\label{_v_g_a__core_8c_a25fc663547539bc49fecc0011bd76ab5}} 
+\index{VGA\_core.c@{VGA\_core.c}!htim1@{htim1}}
+\index{htim1@{htim1}!VGA\_core.c@{VGA\_core.c}}
+\doxysubsubsection{\texorpdfstring{htim1}{htim1}}
+{\footnotesize\ttfamily T\+I\+M\+\_\+\+Handle\+Type\+Def htim1}
+
+\mbox{\Hypertarget{_v_g_a__core_8c_a2c80fd5510e2990a59a5c90d745c716c}\label{_v_g_a__core_8c_a2c80fd5510e2990a59a5c90d745c716c}} 
+\index{VGA\_core.c@{VGA\_core.c}!htim2@{htim2}}
+\index{htim2@{htim2}!VGA\_core.c@{VGA\_core.c}}
+\doxysubsubsection{\texorpdfstring{htim2}{htim2}}
+{\footnotesize\ttfamily T\+I\+M\+\_\+\+Handle\+Type\+Def htim2}
+

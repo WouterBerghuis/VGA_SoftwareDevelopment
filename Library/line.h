@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "VGA_core.h"
+#include "parse.h"
 
 /*
  * @brief 	Returnvalues for the different line functions. These can be used for
@@ -34,10 +35,9 @@ typedef enum{
 /*
  * FUNCTIONS
  */
-LINE_ERROR_CODES API_Draw_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t kleur, uint16_t dikte);
+LINE_ERROR_CODES API_Draw_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t color, uint16_t dikte);
 LINE_ERROR_CODES API_Check_LineCoords(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2);
-LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t kleur, uint16_t dikte);
-
+LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t color, uint16_t dikte);
 LINE_ERROR_CODES API_Write_Line_to_VGA_Horizontal(float slope, float dxabs, float dy, float offset, uint16_t width, int sdx, uint16_t x_coor1, uint16_t y_coor1, uint8_t Colour);
 LINE_ERROR_CODES API_Write_Line_to_VGA_Vertical(float slope, float dxabs, float dy, float offset, uint16_t width, int sdy, uint16_t x_coor1, uint16_t y_coor1, uint8_t Colour);
 
