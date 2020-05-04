@@ -12,7 +12,7 @@
 #define INC_PARSE_H_
 
 /*
- * @brief 	Multiple defines for determining the size of the arrays/2D-arrays
+ * @brief 	Multiple defines for defining the size of the arrays/2D-arrays
  *
  */
 #define MAX_STRINGS_DEVIDED 12		//Maximum amount of words per string
