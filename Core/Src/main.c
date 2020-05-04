@@ -24,10 +24,6 @@
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
-#include "stdbool.h"
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
 #include "bitmap.h"
 #include "uart.h"
 #include "parse.h"
@@ -51,10 +47,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define MAX_SIZE_MESSAGE 100
-#define CARRIAGE_RETURN 13
-#define MAX_AMOUNT_OF_COMMANDS 60
 /* USER CODE END PD */
+
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
@@ -64,18 +58,12 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t rx_data;
-volatile uint8_t rx_index = 0;
-uint8_t rx_buffer[MAX_AMOUNT_OF_COMMANDS][MAX_SIZE_MESSAGE];
-uint8_t commando = 0;
-uint8_t Message_Counter = 0;
-bool New_Message = false;
-char Command_word[MAX_COMMANDWORD_SIZE] = {1};
-char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -117,35 +105,38 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_USART2_UART_Init();
+
+  /* Initialize interrupts */
+  MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
-  HAL_UART_Receive_IT (&huart2, &rx_data, 1);
+
   /* Initialize non-CubeMX peripherals */
   API_VGA_Screen_Init();
-/*
+
   API_Draw_Text(0, 10, VGA_COL_RED,  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Minecraft", 0, 0);
   API_Draw_Text(0, 20, VGA_COL_BLUE, "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB", "Minecraft", 0, 1);
   API_Draw_Text(0, 30, VGA_COL_GREEN, "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 0, 2);
   API_Draw_Text(0, 50, VGA_COL_RED,  "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 1, 0);
   API_Draw_Text(0, 70, VGA_COL_BLUE, "XXXXXXXXXXXXXXXXXXXXXX", "Minecraft", 1, 1);
   API_Draw_Text(0, 90, VGA_COL_GREEN, "QQQQQQQQQQQQQ", "Minecraft", 1, 2);
-*/
-/*
+
+
+
   char Command_word[MAX_COMMANDWORD_SIZE] = {0};
   char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
 
 
 
-  //char Teststring[]="clearscherm, blauw";  // char array waarin je je string met data zet
+  char Teststring[]="clearscherm, rood";  // char array waarin je je string met data zet
   	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
 
-  //uart_parser(Teststring, Command_word, Commandstring);
+  uart_parser(Teststring, Command_word, Commandstring);
 
 
   COMMANDCHECK_ERROR_CODES error_check = Command_check(Command_word, Commandstring);
 
   if(error_check == CHECK_COMMAND_SUCCESS)
 	  Run_Command(Command_word, Commandstring);
-*/
 
 
 
@@ -155,7 +146,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  API_Send_Command();
     /* USER CODE END WHILE */
 
 //	  char First[]="STM32 is de bom";  // char array waarin je je string met data zet
@@ -210,86 +200,18 @@ void SystemClock_Config(void)
   }
 }
 
-/* USER CODE BEGIN 4 */
-
 /**
-  * @brief	This function is used to receive the data from the UART interrupt.
-  *
-  *
-  * When data reception is finished, it will be called by the interrupt handler function.
-  * Unfortunately the HAL_UART_Receive_IT will only trigger if it received the expected size for the message.
-  * To receive a message with unknown lenght, we instead set the expected size for the message to 1 byte.
-  * The following steps are followed in this function
-  *
-  * 1. Checking the runtime of USART 2
-  * 2. Check if the received byte is a carriage return.
-  * 	2.1 If a carriage return was received, reset the rx_index and put a counter on commando
-  * 	so the next message will be stored in a new string
-  * 	2.2 If no carriage return was received, store the byte in the rx_buffer.
-  *
-  * Doing this allows us to store the whole message byte by byte until we read a carriage return (a enter, ascii 13) so the next
-  * command can be stored in a new array.
-  *
-  *
-  *@param huart Pointer to the huart handler
-  *
+  * @brief NVIC Configuration.
   * @retval None
-  *
   */
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+static void MX_NVIC_Init(void)
 {
-	/** Checks the runtime of USART 2*/
-	if (huart->Instance == USART2)
-	{
-		/**< If the character received is ascii '13' which is carriage return (enter), reset rx_index, put counter on commando and set flag message true */
-		if (rx_data == CARRIAGE_RETURN || rx_data == 46 || rx_data == 10)
-		{
-			rx_index = 0;
-			commando++;
-			New_Message = true;
-		}
-		else
-		rx_buffer[commando][rx_index++] = rx_data;
-
-
-		HAL_UART_Receive_IT (&huart2, &rx_data, 1); /**< receive data (one character at a time) */
-	}
+  /* USART2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(USART2_IRQn, 2, 0);
+  HAL_NVIC_EnableIRQ(USART2_IRQn);
 }
 
-/**
-  * @brief	This function is used to send the received message to the parser
-  *
-  *The function waits for a New_Message flag to be set to true.
-  *This flag will only be set to true when the HAL_UART_RxCpltCallback has determined if a new message is received.
-  *When the flag is set to true, the uart_parser function will be called and the message will be sent to the parser.
-  *To keep track of the messages a message counter is used to make sure the new message will be send to the parser.
-  *The New_Message flag will always be reset to false afterwards to only send the message once to the parser.
-  * @param	None
-  *
-  * @retval	None
-  *
-  */
-
-void API_Send_Command()
-{
-
-	if (New_Message == true)
-	{
-		memset(Commandstring, 0, sizeof(Commandstring[0][0]) * MAX_STRINGS_DEVIDED * MAX_COMMANDWORD_SIZE);
-		API_Uart_Transmit ((uint8_t*)rx_buffer[Message_Counter]);   /**< Transmit the data via uart */
-		uart_parser((char*)rx_buffer[Message_Counter], Command_word, Commandstring);
-
-		COMMANDCHECK_ERROR_CODES error_check = Command_check(Command_word, Commandstring);
-
-		  if(error_check == CHECK_COMMAND_SUCCESS)
-			  Run_Command(Command_word, Commandstring);
-
-		Message_Counter++; 											/**< Keeps track of the messages send */
-		New_Message = false;										/**< Reset the New_Message flag */
-	}
-
-}
+/* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
 

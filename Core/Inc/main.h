@@ -53,7 +53,6 @@ extern "C" {
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
-void API_Send_Command(void);
 
 /* USER CODE BEGIN EFP */
 
