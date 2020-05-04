@@ -66,13 +66,13 @@ void Run_Command_Rectangle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_CO
 }
 
 void Run_Command_Text(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
-	//API_Draw_Text(atoi(Commandstringdevided[1]),		// x
-//			 	  atoi(Commandstringdevided[2]),		// y
-//				  atoi(Commandstringdevided[3]),		// Color
-//				 	   Commandstringdevided[4],			// Text
-//					   Commandstringdevided[5],			// Fontname
-//			 	  atoi(Commandstringdevided[6]),		// Fontsize
-//				  	   Commandstringdevided[7]);		// Font style
+	API_Draw_Text(atoi(Commandstringdevided[1]),		// x
+			 	  atoi(Commandstringdevided[2]),		// y
+				  atoi(Commandstringdevided[3]),		// Color
+				 	   Commandstringdevided[4],			// Text
+					   Commandstringdevided[5],			// Fontname
+			 	  atoi(Commandstringdevided[6]),		// Fontsize
+				  atoi(Commandstringdevided[7]));		// Font style
 }
 
 void Run_Command_Bitmap(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
@@ -84,4 +84,12 @@ void Run_Command_Bitmap(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMA
 void Run_Command_Clearscreen(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
 	API_Clearscreen(atoi(Commandstringdevided[1]));		// Color
 }
+
+//void Run_Command_Circle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
+//	API_Draw_Circle(atoi(Commandstringdevided[1]),		// x
+//			 	    atoi(Commandstringdevided[2]),		// y
+//				    atoi(Commandstringdevided[3]),		// Height
+//				 	atoi(Commandstringdevided[4]),		// Width
+//					atoi(Commandstringdevided[5]));		// Color
+//}
 

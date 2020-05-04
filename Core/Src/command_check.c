@@ -26,6 +26,7 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 {
 	COMMANDCHECK_ERROR_CODES error;
 	uint8_t colorValue;
+	uint8_t fontstyleValue;
 	if 	(strcmp(First_word, "lijn") == 0)
 	{
 		Check_Color(Commandstringdevided[5], &colorValue);					//Color gets checked if it exists and will be converted into uint8_t
@@ -41,7 +42,14 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 	}
 
 	else if (strcmp(First_word, "tekst") == 0)
+	{
+		Check_Color(Commandstringdevided[3], &colorValue);					//Color gets checked if it exists and will be converted into uint8_t
+		sprintf(Commandstringdevided[3], "%d", colorValue);					//Integer gets placed in string
+		Check_Fontstyle(Commandstringdevided[7], &fontstyleValue);			//Fontstyle gets checked if it exists and will be converted into uint8_t
+		sprintf(Commandstringdevided[7], "%d", fontstyleValue);				//Integer gets placed in string
 		error = CHECK_COMMAND_SUCCESS;
+	}
+
 
 	else if (strcmp(First_word, "bitmap") == 0)
 		error = CHECK_COMMAND_SUCCESS;
@@ -53,6 +61,11 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 		error = CHECK_COMMAND_SUCCESS;
 	}
 
+	else if (strcmp(First_word, "cirkel") == 0){
+		Check_Color(Commandstringdevided[5], &colorValue);					//Color gets checked if it exists and will be converted into uint8_t
+		sprintf(Commandstringdevided[5], "%d", colorValue);					//Integer gets placed in string
+		error = CHECK_COMMAND_SUCCESS;
+	}
 
 	else
 		return COMMAND_DOES_NOT_EXIST;

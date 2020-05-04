@@ -204,7 +204,7 @@ VGA_INIT_ERROR_CODES Check_Color(char *Color, uint8_t *colorValue){
 	}
 	else
 		return COLOR_NOT_FOUND;
-	return COLOR_FOUND;
+	return error;
 }
 
 /**
@@ -268,4 +268,34 @@ VGA_INIT_ERROR_CODES Color_String_to_Int(char *Colorstring, uint8_t *colorValue)
 		return COLOR_TO_STRING_FAILED;
 
 	return COLOR_TO_STRING_SUCCES;
+}
+
+VGA_INIT_ERROR_CODES Check_Fontstyle(char *Fontstylestring, uint8_t *fontstyleValue){
+	VGA_INIT_ERROR_CODES error;
+		if (strcmp(Fontstylestring, "normaal") == 0)
+			error = Fontstyle_String_to_Int(Fontstylestring, fontstyleValue);
+
+		else if (strcmp(Fontstylestring, "vet") == 0)
+			error = Fontstyle_String_to_Int(Fontstylestring, fontstyleValue);
+
+		else if (strcmp(Fontstylestring, "cursief") == 0)
+			error = Fontstyle_String_to_Int(Fontstylestring, fontstyleValue);
+
+		else
+			return FONTSTYLE_NOT_FOUND;
+		return error;
+}
+
+VGA_INIT_ERROR_CODES Fontstyle_String_to_Int(char *Fontstylestring, uint8_t *fontstyleValue){
+		if (strcmp(Fontstylestring, "normaal") == 0)
+			*fontstyleValue = FONTSTYLE_NORMAL;
+
+		else if (strcmp(Fontstylestring, "vet") == 0)
+			*fontstyleValue = FONTSTYLE_ITALIC;
+
+		else if (strcmp(Fontstylestring, "cursief") == 0)
+			*fontstyleValue = FONTSTYLE_BOLD;
+		else
+			return FONTSTYLE_TO_INT_FAILED;
+		return FONTSTYLE_TO_INT_SUCCESS;
 }
