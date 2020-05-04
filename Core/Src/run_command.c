@@ -85,3 +85,11 @@ void Run_Command_Clearscreen(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_
 	API_Clearscreen(atoi(Commandstringdevided[1]));		// Color
 }
 
+//void Run_Command_Circle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
+//	API_Draw_Circle(atoi(Commandstringdevided[1]),		// x
+//			 	    atoi(Commandstringdevided[2]),		// y
+//				    atoi(Commandstringdevided[3]),		// Height
+//				 	atoi(Commandstringdevided[4]),		// Width
+//					atoi(Commandstringdevided[5]));		// Color
+//}
+

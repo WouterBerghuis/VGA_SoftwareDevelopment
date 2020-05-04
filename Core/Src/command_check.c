@@ -44,9 +44,9 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 	else if (strcmp(First_word, "tekst") == 0)
 	{
 		Check_Color(Commandstringdevided[3], &colorValue);					//Color gets checked if it exists and will be converted into uint8_t
-		sprintf(Commandstringdevided[3], "%d", colorValue);
-		Check_Fontstyle(Commandstringdevided[7], &fontstyleValue);
-		sprintf(Commandstringdevided[7], "%d", fontstyleValue);
+		sprintf(Commandstringdevided[3], "%d", colorValue);					//Integer gets placed in string
+		Check_Fontstyle(Commandstringdevided[7], &fontstyleValue);			//Fontstyle gets checked if it exists and will be converted into uint8_t
+		sprintf(Commandstringdevided[7], "%d", fontstyleValue);				//Integer gets placed in string
 		error = CHECK_COMMAND_SUCCESS;
 	}
 

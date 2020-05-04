@@ -36,5 +36,6 @@ void Run_Command_Rectangle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_CO
 void Run_Command_Text(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
 void Run_Command_Bitmap(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
 void Run_Command_Clearscreen(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
+void Run_Command_Circle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
 
 #endif /* INC_RUN_COMMAND_H_ */
