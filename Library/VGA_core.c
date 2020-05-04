@@ -204,7 +204,7 @@ VGA_INIT_ERROR_CODES Check_Color(char *Color, uint8_t *colorValue){
 	}
 	else
 		return COLOR_NOT_FOUND;
-	return COLOR_FOUND;
+	return error;
 }
 
 /**
@@ -287,7 +287,6 @@ VGA_INIT_ERROR_CODES Check_Fontstyle(char *Fontstylestring, uint8_t *fontstyleVa
 }
 
 VGA_INIT_ERROR_CODES Fontstyle_String_to_Int(char *Fontstylestring, uint8_t *fontstyleValue){
-	VGA_INIT_ERROR_CODES error;
 		if (strcmp(Fontstylestring, "normaal") == 0)
 			*fontstyleValue = FONTSTYLE_NORMAL;
 
@@ -298,5 +297,5 @@ VGA_INIT_ERROR_CODES Fontstyle_String_to_Int(char *Fontstylestring, uint8_t *fon
 			*fontstyleValue = FONTSTYLE_BOLD;
 		else
 			return FONTSTYLE_TO_INT_FAILED;
-		return error;
+		return FONTSTYLE_TO_INT_SUCCESS;
 }
