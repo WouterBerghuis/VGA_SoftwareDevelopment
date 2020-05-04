@@ -52,8 +52,10 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define MAX_SIZE_MESSAGE 100
-#define CARRIAGE_RETURN 13
 #define MAX_AMOUNT_OF_COMMANDS 300
+#define CARRIAGE_RETURN 13
+#define DOT 46
+#define LINE_FEED 10
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -242,8 +244,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	/** Checks the runtime of USART 2*/
 	if (huart->Instance == USART2)
 	{
-		/**< If the character received is ascii '13' which is carriage return (enter), reset rx_index, put counter on commando and set flag message true */
-		if (rx_data == CARRIAGE_RETURN  || rx_data == 46 )
+		/**< If the character received is ascii '13' which is carriage return (enter), reset rx_index, put counter on commando and set flag New_Message true */
+		if (rx_data == CARRIAGE_RETURN  || rx_data == DOT )
 		{
 			rx_index = 0;
 			commando++;
@@ -251,9 +253,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		}
 
 		/**< If the character received is ascii '10', do not store it but turn it into a space character */
-		else if(rx_data == 10)
+		else if(rx_data == LINE_FEED)
 			rx_data = ' ';
 
+		/**< Store rx_data into a buffer */
 		else
 		rx_buffer[commando][rx_index++] = rx_data;
 
