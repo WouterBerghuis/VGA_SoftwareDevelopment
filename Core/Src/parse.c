@@ -32,7 +32,6 @@
 
 void uart_parser(char uartstring[], char* First_word, char Empty_array[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE])
 {
-
 	int i = 0;
 	char delim[]= " ,";											 //strtok() will look for ' ' and ',' in the string
 	char *ptr = strtok(uartstring, delim);
