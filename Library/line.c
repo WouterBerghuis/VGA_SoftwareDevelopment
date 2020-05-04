@@ -35,7 +35,7 @@ LINE_ERROR_CODES API_Draw_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_co
 	error_line = API_Check_LineCoords(x_coor1, y_coor1, x_coor2, y_coor2);
 	if(error_line != CORRECT_LINE_PLACEMENT)
 		return error_line;
-	error_line = API_Write_Line(x_coor1, y_coor1, x_coor2, y_coor2, color, dikte);
+	error_line = API_Write_Line_to_VGA(x_coor1, y_coor1, x_coor2, y_coor2, color, dikte);
 	return error_line;
 }
 
@@ -93,12 +93,19 @@ LINE_ERROR_CODES API_Check_LineCoords(uint16_t x_coor1, uint16_t y_coor1, uint16
   *
   * @see LINE_ERROR_CODES
   */
+<<<<<<< HEAD
+LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t color, uint16_t dikte)
+{
+	LINE_ERROR_CODES error = 0;
 
+	uint16_t x,y;
+	int i,k,sdx,sdy;
+=======
 LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t colour, uint16_t dikte)
 {
 	LINE_ERROR_CODES error;
 	int sdx,sdy;
-
+>>>>>>> 58762513776e847239562ef252781d6edef20dba
 	float offset;
 	float slope;
 	float dxabs, dyabs;
@@ -116,12 +123,47 @@ LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_c
 		offset = 0.5;
 			if(dxabs >= dyabs){								//More horizontal than vertical
 				slope = dy/dx;
+<<<<<<< HEAD
+				for(i = 0; i != dxabs; i+=sdx){
+					for(k = 0; k <= dikte/2; k++){
+						x_temp = i + x_coor1 + offset;
+						y_temp = slope * i + y_coor1 + k;
+						x = Round_Float_to_Int(x_temp);
+						y = Round_Float_to_Int(y_temp);
+						API_SetPixel(x, y, color);
+
+						x_temp = i + x_coor1 - offset;
+						y_temp = slope * i + y_coor1 - k;
+						x = Round_Float_to_Int(x_temp);
+						y = Round_Float_to_Int(y_temp);
+						API_SetPixel(x, y, color);
+					}
+				}
+			}
+			if (dyabs >= dxabs){							// More vertical than horizontal
+				slope = dx/dy;
+				for(i = 0; i != dy; i+=sdy){
+					for(k = 0; k <= dikte/2; k++){
+						y_temp = i + y_coor1 + offset;
+						x_temp = slope * i + x_coor1 + k;
+						x = Round_Float_to_Int(x_temp);
+						y = Round_Float_to_Int(y_temp);
+						API_SetPixel(x, y, color);
+
+						y_temp = i + y_coor1 - offset;
+						x_temp = slope * i + x_coor1 - k;
+						x = Round_Float_to_Int(x_temp);
+						y = Round_Float_to_Int(y_temp);
+						API_SetPixel(x, y, color);
+					}
+				}
+=======
 				error = API_Write_Line_to_VGA_Horizontal(slope, dx, dy, offset, dikte, sdx, x_coor1, y_coor1, colour);
 			}
 			if (dyabs >= dxabs){							// More vertical than horizontal
 				slope = dx/dy;
 				error = API_Write_Line_to_VGA_Vertical(slope, dxabs, dy, offset, dikte, sdy, x_coor1, y_coor1, colour);
-
+>>>>>>> 58762513776e847239562ef252781d6edef20dba
 			}
 	}
 	else if(Even == 0)
@@ -129,13 +171,50 @@ LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_c
 		offset = 0;
 			if(dxabs >= dyabs){								//More horizontal than vertical
 				slope = dy/dx;
+<<<<<<< HEAD
+				for(i = 0; i != dxabs; i+=sdx){						//More horizontal than vertical
+					for(k = 0; k <= (dikte-1)/2; k++)
+					{
+						x_temp = i + x_coor1;
+						y_temp = slope * i + y_coor1 + k;
+					    x = Round_Float_to_Int(x_temp);
+						y = Round_Float_to_Int(y_temp);
+						API_SetPixel(x, y, color);
+						x_temp = i + x_coor1;
+						y_temp = slope * i + y_coor1 - k;
+						x = Round_Float_to_Int(x_temp);
+						y = Round_Float_to_Int(y_temp);
+						API_SetPixel(x, y, color);
+					}
+				}
+=======
 				dikte = dikte + 1;
 				error = API_Write_Line_to_VGA_Horizontal(slope, dx, dy, offset, dikte, sdx, x_coor1, y_coor1, colour);
-
+>>>>>>> 58762513776e847239562ef252781d6edef20dba
 			}
 			if(dyabs >= dxabs){								// More vertical than horizontal
 				slope = dx/dy;
+<<<<<<< HEAD
+				for(i = 0; i != dy; i+=sdy){
+					for(k = 0; k <= (dikte-1)/2; k++)
+					{
+						y_temp = i + y_coor1;
+						x_temp = slope * i + x_coor1 + k;
+						x = Round_Float_to_Int(x_temp);
+						y = Round_Float_to_Int(y_temp);
+						API_SetPixel(x, y, color);
+
+						y_temp = i + y_coor1;
+						x_temp = slope * i + x_coor1 - k;
+						x = Round_Float_to_Int(x_temp);
+						y = Round_Float_to_Int(y_temp);
+						API_SetPixel(x, y, color);
+					}
+				}
+
+=======
 				error = API_Write_Line_to_VGA_Vertical(slope, dxabs, dy, offset, dikte, sdy, x_coor1, y_coor1, colour);
+>>>>>>> 58762513776e847239562ef252781d6edef20dba
 			}
 	}
 	return error;
