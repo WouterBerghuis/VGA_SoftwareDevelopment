@@ -1,0 +1,249 @@
+\hypertarget{ellipse_8h}{}\doxysection{D\+:/\+Bestanden/\+ET Jaar 3/\+Software Ontwikkeling/\+Software/swont\+\_\+ide/\+Library/ellipse.h File Reference}
+\label{ellipse_8h}\index{D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont\_ide/Library/ellipse.h@{D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont\_ide/Library/ellipse.h}}
+
+
+This file contains all the needed defines for the ellipse drawing functions.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}V\+G\+A\+\_\+\+Core.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}line.\+h\char`\"{}}\newline
+Include dependency graph for ellipse.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ellipse_8h_a29b3c230501a9d0bdc014856cd4651b1}{\+\_\+\+\_\+\+Square\+\_\+\+Number}}(number)~(number $\ast$ number)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}{E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \{ \newline
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3a0e59ea114752358fd49d1da50846f26e}{D\+R\+A\+W\+\_\+\+E\+L\+L\+I\+P\+S\+E\+\_\+\+S\+U\+C\+C\+E\+SS}} = 0, 
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3a894d5c3d6c6281dcc20d0a8f522683aa}{D\+R\+A\+W\+\_\+\+E\+L\+L\+I\+P\+S\+E\+\_\+\+F\+A\+I\+L\+ED}}, 
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3ad8cb8ae02a3f5cd4215d7e23c390ede7}{E\+R\+R\+O\+R\+\_\+\+E\+L\+L\+I\+P\+S\+E\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+X\+\_\+\+C\+O\+OR}}, 
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3ae3546b472f22e25236420ea2d1d5d059}{E\+R\+R\+O\+R\+\_\+\+E\+L\+L\+I\+P\+S\+E\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+Y\+\_\+\+C\+O\+OR}}, 
+\newline
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3ac57abe1b9c521314870c61377fcf3a42}{C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+L\+L\+I\+P\+S\+E\+\_\+\+P\+O\+S\+I\+T\+I\+ON}}, 
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3adb73e9d09634af6379568e17071aec19}{C\+A\+L\+C\+U\+L\+A\+T\+E\+\_\+\+P\+O\+I\+N\+T\+\_\+\+O\+N\+\_\+\+E\+L\+L\+I\+P\+S\+E\+\_\+\+S\+U\+C\+C\+E\+SS}}, 
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3a09b31ae27cfd7eec1921e94e42f93e1e}{E\+R\+R\+O\+R\+\_\+\+P\+L\+A\+C\+E\+M\+E\+N\+T\+\_\+\+I\+N\+D\+I\+V\+I\+D\+U\+A\+L\+\_\+\+L\+I\+NE}}, 
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3a4421f7a9a320c2674a4646db8521edda}{E\+L\+L\+I\+P\+S\+E\+\_\+\+L\+I\+N\+E\+\_\+\+P\+L\+A\+C\+E\+M\+E\+N\+T\+\_\+\+S\+U\+C\+C\+E\+SS}}
+ \}
+\begin{DoxyCompactList}\small\item\em Error codes for the rectangle drawing functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}{E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{ellipse_8h_a2c22d369b239025f9ca327663ec3a86a}{A\+P\+I\+\_\+\+Draw\+\_\+\+Ellipse}} (uint16\+\_\+t x\+\_\+coor, uint16\+\_\+t y\+\_\+coor, uint16\+\_\+t width, uint16\+\_\+t height, uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em This function is used for drawing an ellipse on the V\+GA screen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}{E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{ellipse_8h_ae46de4a62cf2f8bcd03111c682789fdb}{A\+P\+I\+\_\+\+Check\+\_\+\+Ellipse\+\_\+\+Position}} (uint16\+\_\+t x\+\_\+coor, uint16\+\_\+t y\+\_\+coor, uint16\+\_\+t width, uint16\+\_\+t height)
+\begin{DoxyCompactList}\small\item\em This function is used for checking to position of the ellipse. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}{E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{ellipse_8h_a474dec60e86aa22848d057e28147154c}{A\+P\+I\+\_\+\+Calculate\+\_\+\+Point\+\_\+\+On\+\_\+\+Ellipse}} (uint16\+\_\+t x\+\_\+coor\+\_\+center, uint16\+\_\+t y\+\_\+coor\+\_\+center, float width, float height, uint16\+\_\+t x\+\_\+coor\+\_\+ellipse, uint16\+\_\+t $\ast$y\+\_\+coor\+\_\+ellipse)
+\begin{DoxyCompactList}\small\item\em This function is used for calculating individual coordinates of the ellipse. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}{E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{ellipse_8h_a714459c3278993d76088bb586002476c}{A\+P\+I\+\_\+\+Draw\+\_\+\+Ellipse\+\_\+\+Line}} (uint16\+\_\+t x\+\_\+coor, uint16\+\_\+t x\+\_\+coor\+\_\+center, uint16\+\_\+t y\+\_\+coor\+\_\+one, uint16\+\_\+t y\+\_\+coor\+\_\+two, uint8\+\_\+t color)
+\item 
+bool \mbox{\hyperlink{ellipse_8h_aa98cc64aa9ca95de9c749dd0a7f0ff10}{A\+P\+I\+\_\+\+Check\+\_\+\+Jump\+\_\+in\+\_\+\+Y\+\_\+\+Coor}} (uint16\+\_\+t new\+\_\+y\+\_\+coor, uint16\+\_\+t old\+\_\+y\+\_\+coor)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains all the needed defines for the ellipse drawing functions. 
+
+\begin{DoxyAuthor}{Author}
+Wouter Berghuis 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+1 mei 2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ellipse_8h_a29b3c230501a9d0bdc014856cd4651b1}\label{ellipse_8h_a29b3c230501a9d0bdc014856cd4651b1}} 
+\index{ellipse.h@{ellipse.h}!\_\_Square\_Number@{\_\_Square\_Number}}
+\index{\_\_Square\_Number@{\_\_Square\_Number}!ellipse.h@{ellipse.h}}
+\doxysubsubsection{\texorpdfstring{\_\_Square\_Number}{\_\_Square\_Number}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+Square\+\_\+\+Number(\begin{DoxyParamCaption}\item[{}]{number }\end{DoxyParamCaption})~(number $\ast$ number)}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}\label{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}} 
+\index{ellipse.h@{ellipse.h}!ELLIPSE\_ERROR\_CODES@{ELLIPSE\_ERROR\_CODES}}
+\index{ELLIPSE\_ERROR\_CODES@{ELLIPSE\_ERROR\_CODES}!ellipse.h@{ellipse.h}}
+\doxysubsubsection{\texorpdfstring{ELLIPSE\_ERROR\_CODES}{ELLIPSE\_ERROR\_CODES}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}{E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}}}
+
+
+
+Error codes for the rectangle drawing functions. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DRAW\_ELLIPSE\_SUCCESS@{DRAW\_ELLIPSE\_SUCCESS}!ellipse.h@{ellipse.h}}\index{ellipse.h@{ellipse.h}!DRAW\_ELLIPSE\_SUCCESS@{DRAW\_ELLIPSE\_SUCCESS}}}\mbox{\Hypertarget{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3a0e59ea114752358fd49d1da50846f26e}\label{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3a0e59ea114752358fd49d1da50846f26e}} 
+D\+R\+A\+W\+\_\+\+E\+L\+L\+I\+P\+S\+E\+\_\+\+S\+U\+C\+C\+E\+SS&No error occurred during drawing of ellipse ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DRAW\_ELLIPSE\_FAILED@{DRAW\_ELLIPSE\_FAILED}!ellipse.h@{ellipse.h}}\index{ellipse.h@{ellipse.h}!DRAW\_ELLIPSE\_FAILED@{DRAW\_ELLIPSE\_FAILED}}}\mbox{\Hypertarget{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3a894d5c3d6c6281dcc20d0a8f522683aa}\label{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3a894d5c3d6c6281dcc20d0a8f522683aa}} 
+D\+R\+A\+W\+\_\+\+E\+L\+L\+I\+P\+S\+E\+\_\+\+F\+A\+I\+L\+ED&Error occurred during drawing of ellipse ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR\_ELLIPSE\_POSITION\_X\_COOR@{ERROR\_ELLIPSE\_POSITION\_X\_COOR}!ellipse.h@{ellipse.h}}\index{ellipse.h@{ellipse.h}!ERROR\_ELLIPSE\_POSITION\_X\_COOR@{ERROR\_ELLIPSE\_POSITION\_X\_COOR}}}\mbox{\Hypertarget{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3ad8cb8ae02a3f5cd4215d7e23c390ede7}\label{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3ad8cb8ae02a3f5cd4215d7e23c390ede7}} 
+E\+R\+R\+O\+R\+\_\+\+E\+L\+L\+I\+P\+S\+E\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+X\+\_\+\+C\+O\+OR&Error horizontal line position, placed to far left or right ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR\_ELLIPSE\_POSITION\_Y\_COOR@{ERROR\_ELLIPSE\_POSITION\_Y\_COOR}!ellipse.h@{ellipse.h}}\index{ellipse.h@{ellipse.h}!ERROR\_ELLIPSE\_POSITION\_Y\_COOR@{ERROR\_ELLIPSE\_POSITION\_Y\_COOR}}}\mbox{\Hypertarget{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3ae3546b472f22e25236420ea2d1d5d059}\label{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3ae3546b472f22e25236420ea2d1d5d059}} 
+E\+R\+R\+O\+R\+\_\+\+E\+L\+L\+I\+P\+S\+E\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+Y\+\_\+\+C\+O\+OR&Error vertical line position, placed to far top or bottom ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CORRECT\_ELLIPSE\_POSITION@{CORRECT\_ELLIPSE\_POSITION}!ellipse.h@{ellipse.h}}\index{ellipse.h@{ellipse.h}!CORRECT\_ELLIPSE\_POSITION@{CORRECT\_ELLIPSE\_POSITION}}}\mbox{\Hypertarget{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3ac57abe1b9c521314870c61377fcf3a42}\label{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3ac57abe1b9c521314870c61377fcf3a42}} 
+C\+O\+R\+R\+E\+C\+T\+\_\+\+E\+L\+L\+I\+P\+S\+E\+\_\+\+P\+O\+S\+I\+T\+I\+ON&Position off the ellipse is correct, fits on the screen ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CALCULATE\_POINT\_ON\_ELLIPSE\_SUCCESS@{CALCULATE\_POINT\_ON\_ELLIPSE\_SUCCESS}!ellipse.h@{ellipse.h}}\index{ellipse.h@{ellipse.h}!CALCULATE\_POINT\_ON\_ELLIPSE\_SUCCESS@{CALCULATE\_POINT\_ON\_ELLIPSE\_SUCCESS}}}\mbox{\Hypertarget{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3adb73e9d09634af6379568e17071aec19}\label{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3adb73e9d09634af6379568e17071aec19}} 
+C\+A\+L\+C\+U\+L\+A\+T\+E\+\_\+\+P\+O\+I\+N\+T\+\_\+\+O\+N\+\_\+\+E\+L\+L\+I\+P\+S\+E\+\_\+\+S\+U\+C\+C\+E\+SS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR\_PLACEMENT\_INDIVIDUAL\_LINE@{ERROR\_PLACEMENT\_INDIVIDUAL\_LINE}!ellipse.h@{ellipse.h}}\index{ellipse.h@{ellipse.h}!ERROR\_PLACEMENT\_INDIVIDUAL\_LINE@{ERROR\_PLACEMENT\_INDIVIDUAL\_LINE}}}\mbox{\Hypertarget{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3a09b31ae27cfd7eec1921e94e42f93e1e}\label{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3a09b31ae27cfd7eec1921e94e42f93e1e}} 
+E\+R\+R\+O\+R\+\_\+\+P\+L\+A\+C\+E\+M\+E\+N\+T\+\_\+\+I\+N\+D\+I\+V\+I\+D\+U\+A\+L\+\_\+\+L\+I\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ELLIPSE\_LINE\_PLACEMENT\_SUCCESS@{ELLIPSE\_LINE\_PLACEMENT\_SUCCESS}!ellipse.h@{ellipse.h}}\index{ellipse.h@{ellipse.h}!ELLIPSE\_LINE\_PLACEMENT\_SUCCESS@{ELLIPSE\_LINE\_PLACEMENT\_SUCCESS}}}\mbox{\Hypertarget{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3a4421f7a9a320c2674a4646db8521edda}\label{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3a4421f7a9a320c2674a4646db8521edda}} 
+E\+L\+L\+I\+P\+S\+E\+\_\+\+L\+I\+N\+E\+\_\+\+P\+L\+A\+C\+E\+M\+E\+N\+T\+\_\+\+S\+U\+C\+C\+E\+SS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ellipse_8h_a474dec60e86aa22848d057e28147154c}\label{ellipse_8h_a474dec60e86aa22848d057e28147154c}} 
+\index{ellipse.h@{ellipse.h}!API\_Calculate\_Point\_On\_Ellipse@{API\_Calculate\_Point\_On\_Ellipse}}
+\index{API\_Calculate\_Point\_On\_Ellipse@{API\_Calculate\_Point\_On\_Ellipse}!ellipse.h@{ellipse.h}}
+\doxysubsubsection{\texorpdfstring{API\_Calculate\_Point\_On\_Ellipse()}{API\_Calculate\_Point\_On\_Ellipse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}{E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Calculate\+\_\+\+Point\+\_\+\+On\+\_\+\+Ellipse (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+coor\+\_\+center,  }\item[{uint16\+\_\+t}]{y\+\_\+coor\+\_\+center,  }\item[{float}]{width,  }\item[{float}]{height,  }\item[{uint16\+\_\+t}]{x\+\_\+coor\+\_\+ellipse,  }\item[{uint16\+\_\+t $\ast$}]{y\+\_\+coor\+\_\+ellipse }\end{DoxyParamCaption})}
+
+
+
+This function is used for calculating individual coordinates of the ellipse. 
+
+The calculation is based on the following formula\+: $ (((x - h)^2)/a^2) + (((x - k)^2)/b^2) = 1 $
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+coor\+\_\+center} & This is the x-\/coordinate of the center of the ellipse, (uint16\+\_\+t) \\
+\hline
+{\em y\+\_\+coor\+\_\+center} & This is the y-\/coordinate of the center of the ellipse, (uint16\+\_\+t) \\
+\hline
+{\em width} & This is the width of the ellipse, (uint16\+\_\+t) \\
+\hline
+{\em height} & This is the height of the ellipse, (uint16\+\_\+t)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}{E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{ellipse_8h_ae46de4a62cf2f8bcd03111c682789fdb}\label{ellipse_8h_ae46de4a62cf2f8bcd03111c682789fdb}} 
+\index{ellipse.h@{ellipse.h}!API\_Check\_Ellipse\_Position@{API\_Check\_Ellipse\_Position}}
+\index{API\_Check\_Ellipse\_Position@{API\_Check\_Ellipse\_Position}!ellipse.h@{ellipse.h}}
+\doxysubsubsection{\texorpdfstring{API\_Check\_Ellipse\_Position()}{API\_Check\_Ellipse\_Position()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}{E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Check\+\_\+\+Ellipse\+\_\+\+Position (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+coor\+\_\+center,  }\item[{uint16\+\_\+t}]{y\+\_\+coor\+\_\+center,  }\item[{uint16\+\_\+t}]{width,  }\item[{uint16\+\_\+t}]{height }\end{DoxyParamCaption})}
+
+
+
+This function is used for checking to position of the ellipse. 
+
+This function returns an errormessage if the received position doesn\textquotesingle{}t fit on the screen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+coor\+\_\+center} & This is the x-\/coordinate of the center of the ellipse, (uint16\+\_\+t) \\
+\hline
+{\em y\+\_\+coor\+\_\+center} & This is the y-\/coordinate of the center of the ellipse, (uint16\+\_\+t) \\
+\hline
+{\em width} & This is the width of the ellipse, (uint16\+\_\+t) \\
+\hline
+{\em height} & This is the height of the ellipse, (uint16\+\_\+t)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}{E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{ellipse_8h_aa98cc64aa9ca95de9c749dd0a7f0ff10}\label{ellipse_8h_aa98cc64aa9ca95de9c749dd0a7f0ff10}} 
+\index{ellipse.h@{ellipse.h}!API\_Check\_Jump\_in\_Y\_Coor@{API\_Check\_Jump\_in\_Y\_Coor}}
+\index{API\_Check\_Jump\_in\_Y\_Coor@{API\_Check\_Jump\_in\_Y\_Coor}!ellipse.h@{ellipse.h}}
+\doxysubsubsection{\texorpdfstring{API\_Check\_Jump\_in\_Y\_Coor()}{API\_Check\_Jump\_in\_Y\_Coor()}}
+{\footnotesize\ttfamily bool A\+P\+I\+\_\+\+Check\+\_\+\+Jump\+\_\+in\+\_\+\+Y\+\_\+\+Coor (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{new\+\_\+y\+\_\+coor,  }\item[{uint16\+\_\+t}]{old\+\_\+y\+\_\+coor }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{ellipse_8h_a2c22d369b239025f9ca327663ec3a86a}\label{ellipse_8h_a2c22d369b239025f9ca327663ec3a86a}} 
+\index{ellipse.h@{ellipse.h}!API\_Draw\_Ellipse@{API\_Draw\_Ellipse}}
+\index{API\_Draw\_Ellipse@{API\_Draw\_Ellipse}!ellipse.h@{ellipse.h}}
+\doxysubsubsection{\texorpdfstring{API\_Draw\_Ellipse()}{API\_Draw\_Ellipse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}{E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Draw\+\_\+\+Ellipse (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+coor\+\_\+center,  }\item[{uint16\+\_\+t}]{y\+\_\+coor\+\_\+center,  }\item[{uint16\+\_\+t}]{width,  }\item[{uint16\+\_\+t}]{height,  }\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+This function is used for drawing an ellipse on the V\+GA screen. 
+
+Drawing an ellipse on the screen consist of multiple steps. These steps are\+:
+\begin{DoxyEnumerate}
+\item Check the received position of the ellipse Does the ellipse fit on the screen with the received position and height/width. The function will return an error if the ellipse doesn\textquotesingle{}t fit on the screen.
+\item Calculate the individual points of the ellipse An ellipse consist of two parabolas, the coordinates of the bottom parabola are calculated. Using these coordinates and the center point the top (opposite) parabola is calculated.
+\item Check if there is a big jump for old to new point on the y-\/axis If there is a big jump ($>$ 1) an line is drawn between the two points. This will fill in the gaps between the two calculated points.
+\item Write calculated ellipse point to the V\+GA R\+AM
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+coor\+\_\+center} & This is the x-\/coordinate of the center of the ellipse, (uint16\+\_\+t) \\
+\hline
+{\em y\+\_\+coor\+\_\+center} & This is the y-\/coordinate of the center of the ellipse, (uint16\+\_\+t) \\
+\hline
+{\em width} & This is the width of the ellipse, (uint16\+\_\+t) \\
+\hline
+{\em height} & This is the height of the ellipse, (uint16\+\_\+t) \\
+\hline
+{\em color} & This is the color with which the ellipse is drawn, (uint8\+\_\+t)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}{E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{ellipse_8h_a714459c3278993d76088bb586002476c}\label{ellipse_8h_a714459c3278993d76088bb586002476c}} 
+\index{ellipse.h@{ellipse.h}!API\_Draw\_Ellipse\_Line@{API\_Draw\_Ellipse\_Line}}
+\index{API\_Draw\_Ellipse\_Line@{API\_Draw\_Ellipse\_Line}!ellipse.h@{ellipse.h}}
+\doxysubsubsection{\texorpdfstring{API\_Draw\_Ellipse\_Line()}{API\_Draw\_Ellipse\_Line()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ellipse_8h_ab6d7523fbb3210cbe4f988a28a855cf3}{E\+L\+L\+I\+P\+S\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Draw\+\_\+\+Ellipse\+\_\+\+Line (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+coor,  }\item[{uint16\+\_\+t}]{x\+\_\+coor\+\_\+center,  }\item[{uint16\+\_\+t}]{y\+\_\+coor\+\_\+one,  }\item[{uint16\+\_\+t}]{y\+\_\+coor\+\_\+two,  }\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7

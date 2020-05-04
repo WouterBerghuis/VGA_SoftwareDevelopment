@@ -1,0 +1,17 @@
+digraph "D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont_ide/Library/rectangle.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="D:/Bestanden/ET Jaar\l 3/Software Ontwikkeling\l/Software/swont_ide/Library\l/rectangle.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This file contains all the needed defines for the rectangle drawing functions."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="stdio.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="line.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$line_8h.html",tooltip="This file contains all API function responsible for drawing the different bitmaps."];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="VGA_core.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_v_g_a__core_8h.html",tooltip="This file is the headerfile of VGA_core.c."];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="main.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node3 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="parse.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+}

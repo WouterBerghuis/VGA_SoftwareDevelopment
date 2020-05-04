@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['transparent_5fpixel_91',['TRANSPARENT_PIXEL',['../bitmap_8h.html#a97c95e3112be808b5ce506c90b1a95d5',1,'bitmap.h']]]
+  ['italic_5fshift_5fone_5foffset_339',['ITALIC_SHIFT_ONE_OFFSET',['../text_8h.html#a69b73231f369c0bd68c61cc28522915a',1,'text.h']]],
+  ['italic_5fshift_5ftwo_5foffset_340',['ITALIC_SHIFT_TWO_OFFSET',['../text_8h.html#ac16ed9d82764a6660c07d4ec5da64622',1,'text.h']]]
 ];

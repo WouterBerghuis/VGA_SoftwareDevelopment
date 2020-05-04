@@ -1,0 +1,22 @@
+digraph "API_Write_Rectangle_to_VGA"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="API_Write_Rectangle\l_to_VGA",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This function writes the rectangle pixel data to the VGA RAM."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="API_Draw_Line",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$line_8c.html#a6f9297d151929e0bf3e975ce1c497f5d",tooltip="This function is used for drawing a line on the VGA screen."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="API_Check_LineCoords",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$line_8c.html#a7d79d1836ab6fa62aa0e40586bc925f2",tooltip="This function is used for checking the coordinates of the sent data."];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="API_Write_Line_to_VGA",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$line_8c.html#ad737d8f17e17f336751f56f5bbfef908",tooltip="This function is used for writing the line on the VGA."];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="API_SetPixel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_v_g_a__core_8c.html#a2e5f4ee3788504643af7c5b5e25ec667",tooltip="This function sets the color of a single pixel."];
+  Node4 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Even_or_Uneven",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$line_8c.html#ac0b303e7c63014dee4699f81fa8d6ac7",tooltip="This function is used to check if a value is divisible by 2."];
+  Node4 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Round_Float_to_Int",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$line_8c.html#a726074376b42d71538eaa0cb17f54cc8",tooltip="This function is used for rounding a float to an integer."];
+  Node4 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="sgn",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$line_8c.html#a717b67cf51c62a641c775f023ecb034f",tooltip="This function is used to check if a variable is bigger or smaller than 0."];
+}

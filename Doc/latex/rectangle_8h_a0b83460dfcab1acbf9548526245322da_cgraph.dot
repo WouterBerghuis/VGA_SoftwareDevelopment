@@ -1,0 +1,29 @@
+digraph "API_Draw_Rectangle"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="API_Draw_Rectangle",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Draw rectangle functions."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="API_Check_Rectangle\l_Position",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$rectangle_8c.html#a0d775c6a6b4ffaa06eb2438cee467a7c",tooltip="This function is used to check if the received rectangle fits on the screen."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="API_Fill_Rectangle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$rectangle_8c.html#a79b2bb710e1d267360b3b5611659a870",tooltip="This function fills the inside of the rectangle with one color."];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="API_SetPixel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_v_g_a__core_8c.html#a2e5f4ee3788504643af7c5b5e25ec667",tooltip="This function sets the color of a single pixel."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="API_Write_Rectangle\l_to_VGA",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$rectangle_8c.html#aa60c0f3bef0d6513c125972eea829092",tooltip="This function writes the rectangle pixel data to the VGA RAM."];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="API_Draw_Line",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$line_8c.html#a6f9297d151929e0bf3e975ce1c497f5d",tooltip="This function is used for drawing a line on the VGA screen."];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="API_Check_LineCoords",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$line_8c.html#a7d79d1836ab6fa62aa0e40586bc925f2",tooltip="This function is used for checking the coordinates of the sent data."];
+  Node6 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="API_Write_Line_to_VGA",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$line_8c.html#ad737d8f17e17f336751f56f5bbfef908",tooltip="This function is used for writing the line on the VGA."];
+  Node8 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="Even_or_Uneven",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$line_8c.html#ac0b303e7c63014dee4699f81fa8d6ac7",tooltip="This function is used to check if a value is divisible by 2."];
+  Node8 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="Round_Float_to_Int",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$line_8c.html#a726074376b42d71538eaa0cb17f54cc8",tooltip="This function is used for rounding a float to an integer."];
+  Node8 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="sgn",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$line_8c.html#a717b67cf51c62a641c775f023ecb034f",tooltip="This function is used to check if a variable is bigger or smaller than 0."];
+}

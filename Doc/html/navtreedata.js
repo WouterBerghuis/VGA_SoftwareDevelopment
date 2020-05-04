@@ -25,13 +25,23 @@
 var NAVTREE =
 [
   [ "API_VGA", "index.html", [
+    [ "Data Structures", "annotated.html", [
+      [ "Data Structures", "annotated.html", "annotated_dup" ],
+      [ "Data Structure Index", "classes.html", null ],
+      [ "Data Fields", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
+    ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
-        [ "Enumerator", "globals_eval.html", null ]
+        [ "Enumerator", "globals_eval.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]
@@ -39,7 +49,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"arrows_8c.html"
+"_v_g_a__core_8c.html",
+"text_8h.html#a7bd5a728fd3c13428992659bb0d87467a8ef651224a523fd9a06cf207882bd8b6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

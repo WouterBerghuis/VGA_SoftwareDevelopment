@@ -1,0 +1,193 @@
+\hypertarget{rectangle_8c}{}\doxysection{D\+:/\+Bestanden/\+ET Jaar 3/\+Software Ontwikkeling/\+Software/swont\+\_\+ide/\+Library/rectangle.c File Reference}
+\label{rectangle_8c}\index{D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont\_ide/Library/rectangle.c@{D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont\_ide/Library/rectangle.c}}
+
+
+This file contains all A\+PI function responsible for drawing a rectangle on the screen.  
+
+
+{\ttfamily \#include \char`\"{}rectangle.\+h\char`\"{}}\newline
+Include dependency graph for rectangle.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{rectangle_8h_aa0a9b88644f862cb2d392058f2eb16c3}{R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{rectangle_8c_a0b83460dfcab1acbf9548526245322da}{A\+P\+I\+\_\+\+Draw\+\_\+\+Rectangle}} (uint16\+\_\+t x\+\_\+coor, uint16\+\_\+t y\+\_\+coor, uint16\+\_\+t width, uint16\+\_\+t height, uint8\+\_\+t color, uint8\+\_\+t filled)
+\begin{DoxyCompactList}\small\item\em This function is used for drawing a rectangle on the V\+GA screen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rectangle_8h_aa0a9b88644f862cb2d392058f2eb16c3}{R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{rectangle_8c_a0d775c6a6b4ffaa06eb2438cee467a7c}{A\+P\+I\+\_\+\+Check\+\_\+\+Rectangle\+\_\+\+Position}} (uint16\+\_\+t x\+\_\+coor, uint16\+\_\+t y\+\_\+coor, uint16\+\_\+t width, uint16\+\_\+t height)
+\begin{DoxyCompactList}\small\item\em This function is used to check if the received rectangle fits on the screen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rectangle_8h_aa0a9b88644f862cb2d392058f2eb16c3}{R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{rectangle_8c_aa60c0f3bef0d6513c125972eea829092}{A\+P\+I\+\_\+\+Write\+\_\+\+Rectangle\+\_\+to\+\_\+\+V\+GA}} (uint16\+\_\+t x\+\_\+coor, uint16\+\_\+t y\+\_\+coor, uint16\+\_\+t width, uint16\+\_\+t height, uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em This function writes the rectangle pixel data to the V\+GA R\+AM. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rectangle_8h_aa0a9b88644f862cb2d392058f2eb16c3}{R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{rectangle_8c_a79b2bb710e1d267360b3b5611659a870}{A\+P\+I\+\_\+\+Fill\+\_\+\+Rectangle}} (uint16\+\_\+t x\+\_\+coor, uint16\+\_\+t y\+\_\+coor, uint16\+\_\+t width, uint16\+\_\+t height, uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em This function fills the inside of the rectangle with one color. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains all A\+PI function responsible for drawing a rectangle on the screen. 
+
+\begin{DoxyAuthor}{Author}
+Wouter Berghuis 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+30 April 2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rectangle_8c_a0d775c6a6b4ffaa06eb2438cee467a7c}\label{rectangle_8c_a0d775c6a6b4ffaa06eb2438cee467a7c}} 
+\index{rectangle.c@{rectangle.c}!API\_Check\_Rectangle\_Position@{API\_Check\_Rectangle\_Position}}
+\index{API\_Check\_Rectangle\_Position@{API\_Check\_Rectangle\_Position}!rectangle.c@{rectangle.c}}
+\doxysubsubsection{\texorpdfstring{API\_Check\_Rectangle\_Position()}{API\_Check\_Rectangle\_Position()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{rectangle_8h_aa0a9b88644f862cb2d392058f2eb16c3}{R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Check\+\_\+\+Rectangle\+\_\+\+Position (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+coor,  }\item[{uint16\+\_\+t}]{y\+\_\+coor,  }\item[{uint16\+\_\+t}]{width,  }\item[{uint16\+\_\+t}]{height }\end{DoxyParamCaption})}
+
+
+
+This function is used to check if the received rectangle fits on the screen. 
+
+The check consist of checking each corner of the rectangle with the resolution of the V\+GA screen. If the rectangle does not fit on the screen the function returns an error code.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+coor} & This is the x-\/coordinate for the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em y\+\_\+coor} & This is the y-\/coordinate for the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em width} & This is the width of the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em height} & This is the height of the rectangle, (uint16\+\_\+t)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{rectangle_8h_aa0a9b88644f862cb2d392058f2eb16c3}{R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{rectangle_8c_a0b83460dfcab1acbf9548526245322da}\label{rectangle_8c_a0b83460dfcab1acbf9548526245322da}} 
+\index{rectangle.c@{rectangle.c}!API\_Draw\_Rectangle@{API\_Draw\_Rectangle}}
+\index{API\_Draw\_Rectangle@{API\_Draw\_Rectangle}!rectangle.c@{rectangle.c}}
+\doxysubsubsection{\texorpdfstring{API\_Draw\_Rectangle()}{API\_Draw\_Rectangle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{rectangle_8h_aa0a9b88644f862cb2d392058f2eb16c3}{R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Draw\+\_\+\+Rectangle (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+coor,  }\item[{uint16\+\_\+t}]{y\+\_\+coor,  }\item[{uint16\+\_\+t}]{width,  }\item[{uint16\+\_\+t}]{height,  }\item[{uint8\+\_\+t}]{color,  }\item[{uint8\+\_\+t}]{filled }\end{DoxyParamCaption})}
+
+
+
+This function is used for drawing a rectangle on the V\+GA screen. 
+
+Draw rectangle functions.
+
+Drawing the rectangle on the screen consist of the following steps\+:
+\begin{DoxyEnumerate}
+\item Check the received coordinates of the rectangle. Does the rectangle fit on the screen or is the size too big for the chosen position.
+\item Write the rectangle pixel data to the V\+GA R\+AM This is done with the use of the A\+P\+I\+\_\+\+Draw\+\_\+\+Line function
+\item Fill the inside of the rectangle if
+\begin{DoxyParams}{Parameters}
+{\em filled} & is equal to one This is done by setting the pixels within the rectangle corners to\\
+\hline
+{\em color.} & \\
+\hline
+{\em x\+\_\+coor} & This is the x-\/coordinate for the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em y\+\_\+coor} & This is the y-\/coordinate for the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em width} & This is the width of the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em height} & This is the height of the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em color} & This is the color with which the rectangle is drawn, (uint8\+\_\+t) \\
+\hline
+{\em filled} & 0 = Not filled $\vert$ 1 = Filled, if filled the inside of the rectangle will be filled with\\
+\hline
+{\em color,(uint8\+\_\+t)} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{rectangle_8h_aa0a9b88644f862cb2d392058f2eb16c3}{R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+
+\end{DoxyEnumerate}Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{rectangle_8c_a79b2bb710e1d267360b3b5611659a870}\label{rectangle_8c_a79b2bb710e1d267360b3b5611659a870}} 
+\index{rectangle.c@{rectangle.c}!API\_Fill\_Rectangle@{API\_Fill\_Rectangle}}
+\index{API\_Fill\_Rectangle@{API\_Fill\_Rectangle}!rectangle.c@{rectangle.c}}
+\doxysubsubsection{\texorpdfstring{API\_Fill\_Rectangle()}{API\_Fill\_Rectangle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{rectangle_8h_aa0a9b88644f862cb2d392058f2eb16c3}{R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Fill\+\_\+\+Rectangle (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+coor,  }\item[{uint16\+\_\+t}]{y\+\_\+coor,  }\item[{uint16\+\_\+t}]{width,  }\item[{uint16\+\_\+t}]{height,  }\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+This function fills the inside of the rectangle with one color. 
+
+Filling the rectangle is done by looping over the individual pixels within the rectangle area. Each individual pixel is set to the
+\begin{DoxyParams}{Parameters}
+{\em color.} & \\
+\hline
+{\em x\+\_\+coor} & This is the x-\/coordinate for the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em y\+\_\+coor} & This is the y-\/coordinate for the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em width} & This is the width of the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em height} & This is the height of the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em color} & This is the color with which the rectangle is drawn, (uint8\+\_\+t)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{rectangle_8h_aa0a9b88644f862cb2d392058f2eb16c3}{R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{rectangle_8c_aa60c0f3bef0d6513c125972eea829092}\label{rectangle_8c_aa60c0f3bef0d6513c125972eea829092}} 
+\index{rectangle.c@{rectangle.c}!API\_Write\_Rectangle\_to\_VGA@{API\_Write\_Rectangle\_to\_VGA}}
+\index{API\_Write\_Rectangle\_to\_VGA@{API\_Write\_Rectangle\_to\_VGA}!rectangle.c@{rectangle.c}}
+\doxysubsubsection{\texorpdfstring{API\_Write\_Rectangle\_to\_VGA()}{API\_Write\_Rectangle\_to\_VGA()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{rectangle_8h_aa0a9b88644f862cb2d392058f2eb16c3}{R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Write\+\_\+\+Rectangle\+\_\+to\+\_\+\+V\+GA (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+coor,  }\item[{uint16\+\_\+t}]{y\+\_\+coor,  }\item[{uint16\+\_\+t}]{width,  }\item[{uint16\+\_\+t}]{height,  }\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+This function writes the rectangle pixel data to the V\+GA R\+AM. 
+
+To write the pixel data to the V\+GA R\+AM the function is using the A\+P\+I\+\_\+\+Draw\+\_\+\+Line function. Using this function the four different lines of the rectangle can be drawn.
+
+\begin{DoxyAttention}{Attention}
+A weird bug which is solved with a hack. The right vertical line misses one pixel. To fix this the line is extended with one pixel.
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+coor} & This is the x-\/coordinate for the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em y\+\_\+coor} & This is the y-\/coordinate for the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em width} & This is the width of the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em height} & This is the height of the rectangle, (uint16\+\_\+t) \\
+\hline
+{\em color} & This is the color with which the rectangle is drawn, (uint8\+\_\+t)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{rectangle_8h_aa0a9b88644f862cb2d392058f2eb16c3}{R\+E\+C\+T\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
