@@ -144,7 +144,7 @@ int main(void)
 
 
 
-  char Teststring[]="clearscherm, blauw";  // char array waarin je je string met data zet
+  char Teststring[]="cirkel, 100, 100, 100, 100, blauw";  // char array waarin je je string met data zet
 
   	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
 

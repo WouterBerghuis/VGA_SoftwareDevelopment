@@ -41,6 +41,9 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 	else if (strcmp(First_word, "clearscherm") == 0)
 		Run_Command_Clearscreen(Commandstringdevided);
 
+	else if (strcmp(First_word, "cirkel") == 0)
+		Run_Command_Circle(Commandstringdevided);
+
 	else{
 		return API_FUNCTION_CALL_FAILED;
 	}
@@ -85,11 +88,11 @@ void Run_Command_Clearscreen(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_
 	API_Clearscreen(atoi(Commandstringdevided[1]));		// Color
 }
 
-//void Run_Command_Circle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
-//	API_Draw_Circle(atoi(Commandstringdevided[1]),		// x
-//			 	    atoi(Commandstringdevided[2]),		// y
-//				    atoi(Commandstringdevided[3]),		// Height
-//				 	atoi(Commandstringdevided[4]),		// Width
-//					atoi(Commandstringdevided[5]));		// Color
-//}
+void Run_Command_Circle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
+	API_Draw_Ellipse(atoi(Commandstringdevided[1]),		// x
+			 	     atoi(Commandstringdevided[2]),		// y
+				     atoi(Commandstringdevided[3]),		// Height
+				 	 atoi(Commandstringdevided[4]),		// Width
+					 atoi(Commandstringdevided[5]));	// Color
+}
 
