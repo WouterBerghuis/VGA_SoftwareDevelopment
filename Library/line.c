@@ -35,7 +35,7 @@ LINE_ERROR_CODES API_Draw_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_co
 	error_line = API_Check_LineCoords(x_coor1, y_coor1, x_coor2, y_coor2);
 	if(error_line != CORRECT_LINE_PLACEMENT)
 		return error_line;
-	error_line = API_Write_Line_to_VGA(x_coor1, y_coor1, x_coor2, y_coor2, color, dikte);
+	error_line = API_Write_Line(x_coor1, y_coor1, x_coor2, y_coor2, color, dikte);
 	return error_line;
 }
 
@@ -71,41 +71,25 @@ LINE_ERROR_CODES API_Check_LineCoords(uint16_t x_coor1, uint16_t y_coor1, uint16
 /**
   * @brief	This function is used for writing the line on the VGA
   *
-<<<<<<< HEAD
+  * Firstly the width is checked if it is even or uneven. This is checked because that has effect on the placement of the line.
+  * Secondly the sloap of the line will be checked. There is a function for a more horizontal than vertical line and a function for a more
+  * vertical than horizontal line.
+  *
   * @param	x_coor1 This is the first x-coordinate for the line,  (uint16_t)
   * @param  y_coor1 This is the first y-coordinate for the line,  (uint16_t)
   * @param	x_coor2 This is the second x-coordinate for the line, (uint16_t)
   * @param  y_coor2 This is the second y-coordinate for the line, (uint16_t)
   * @param  color 	This is the color of the line 		, (uint8_t)
-=======
-  * Firstly the width is checked if it is even or uneven. This is checked because that has effect on the placement of the line.
-  * Secondly the sloap of the line will be checked. There is a function for a more horizontal than vertical line and a function for a more
-  * vertical than horizontal line.
-  *
-  * @param	x_coor1 This is the first x-coordinate of the line,  (uint16_t)
-  * @param  y_coor1 This is the first y-coordinate of the line,  (uint16_t)
-  * @param	x_coor2 This is the second x-coordinate of the line, (uint16_t)
-  * @param  y_coor2 This is the second y-coordinate of the line, (uint16_t)
-  * @param  kleur 	This is the color of the line 		, (char)
->>>>>>> 58762513776e847239562ef252781d6edef20dba
   * @param  dikte   This is the width of the line		, (uint16_t)
+  *
   * @retval	LINE_ERROR_CODES
   *
   * @see LINE_ERROR_CODES
   */
-<<<<<<< HEAD
-LINE_ERROR_CODES API_Write_Line_to_VGA(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t color, uint16_t dikte)
-{
-	LINE_ERROR_CODES error = 0;
-
-	uint16_t x,y;
-	int i,k,sdx,sdy;
-=======
-LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t colour, uint16_t dikte)
+LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2, uint8_t color, uint16_t dikte)
 {
 	LINE_ERROR_CODES error;
 	int sdx,sdy;
->>>>>>> 58762513776e847239562ef252781d6edef20dba
 	float offset;
 	float slope;
 	float dxabs, dyabs;
@@ -123,47 +107,11 @@ LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_c
 		offset = 0.5;
 			if(dxabs >= dyabs){								//More horizontal than vertical
 				slope = dy/dx;
-<<<<<<< HEAD
-				for(i = 0; i != dxabs; i+=sdx){
-					for(k = 0; k <= dikte/2; k++){
-						x_temp = i + x_coor1 + offset;
-						y_temp = slope * i + y_coor1 + k;
-						x = Round_Float_to_Int(x_temp);
-						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, color);
-
-						x_temp = i + x_coor1 - offset;
-						y_temp = slope * i + y_coor1 - k;
-						x = Round_Float_to_Int(x_temp);
-						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, color);
-					}
-				}
+				error = API_Write_Line_to_VGA_Horizontal(slope, dx, dy, offset, dikte, sdx, x_coor1, y_coor1, color);
 			}
 			if (dyabs >= dxabs){							// More vertical than horizontal
 				slope = dx/dy;
-				for(i = 0; i != dy; i+=sdy){
-					for(k = 0; k <= dikte/2; k++){
-						y_temp = i + y_coor1 + offset;
-						x_temp = slope * i + x_coor1 + k;
-						x = Round_Float_to_Int(x_temp);
-						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, color);
-
-						y_temp = i + y_coor1 - offset;
-						x_temp = slope * i + x_coor1 - k;
-						x = Round_Float_to_Int(x_temp);
-						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, color);
-					}
-				}
-=======
-				error = API_Write_Line_to_VGA_Horizontal(slope, dx, dy, offset, dikte, sdx, x_coor1, y_coor1, colour);
-			}
-			if (dyabs >= dxabs){							// More vertical than horizontal
-				slope = dx/dy;
-				error = API_Write_Line_to_VGA_Vertical(slope, dxabs, dy, offset, dikte, sdy, x_coor1, y_coor1, colour);
->>>>>>> 58762513776e847239562ef252781d6edef20dba
+				error = API_Write_Line_to_VGA_Vertical(slope, dxabs, dy, offset, dikte, sdy, x_coor1, y_coor1, color);
 			}
 	}
 	else if(Even == 0)
@@ -171,50 +119,12 @@ LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_c
 		offset = 0;
 			if(dxabs >= dyabs){								//More horizontal than vertical
 				slope = dy/dx;
-<<<<<<< HEAD
-				for(i = 0; i != dxabs; i+=sdx){						//More horizontal than vertical
-					for(k = 0; k <= (dikte-1)/2; k++)
-					{
-						x_temp = i + x_coor1;
-						y_temp = slope * i + y_coor1 + k;
-					    x = Round_Float_to_Int(x_temp);
-						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, color);
-						x_temp = i + x_coor1;
-						y_temp = slope * i + y_coor1 - k;
-						x = Round_Float_to_Int(x_temp);
-						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, color);
-					}
-				}
-=======
 				dikte = dikte + 1;
-				error = API_Write_Line_to_VGA_Horizontal(slope, dx, dy, offset, dikte, sdx, x_coor1, y_coor1, colour);
->>>>>>> 58762513776e847239562ef252781d6edef20dba
+				error = API_Write_Line_to_VGA_Horizontal(slope, dx, dy, offset, dikte, sdx, x_coor1, y_coor1, color);
 			}
 			if(dyabs >= dxabs){								// More vertical than horizontal
 				slope = dx/dy;
-<<<<<<< HEAD
-				for(i = 0; i != dy; i+=sdy){
-					for(k = 0; k <= (dikte-1)/2; k++)
-					{
-						y_temp = i + y_coor1;
-						x_temp = slope * i + x_coor1 + k;
-						x = Round_Float_to_Int(x_temp);
-						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, color);
-
-						y_temp = i + y_coor1;
-						x_temp = slope * i + x_coor1 - k;
-						x = Round_Float_to_Int(x_temp);
-						y = Round_Float_to_Int(y_temp);
-						API_SetPixel(x, y, color);
-					}
-				}
-
-=======
-				error = API_Write_Line_to_VGA_Vertical(slope, dxabs, dy, offset, dikte, sdy, x_coor1, y_coor1, colour);
->>>>>>> 58762513776e847239562ef252781d6edef20dba
+				error = API_Write_Line_to_VGA_Vertical(slope, dxabs, dy, offset, dikte, sdy, x_coor1, y_coor1, color);
 			}
 	}
 	return error;

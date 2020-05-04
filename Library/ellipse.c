@@ -218,7 +218,7 @@ ELLIPSE_ERROR_CODES API_Draw_Ellipse_Line(uint16_t x_coor, uint16_t x_coor_cente
 	else if(x_coor > x_coor_center && y_coor_one > y_coor_two)										// Top second half
 		error |= API_Draw_Line(x_coor, (y_coor_two + FILLING_LINE_OFFSET), x_coor, y_coor_one, color, FILLING_LINE_SIZE);
 
-	if(error != CORRECT_LINE_PLACEMENT)
+	if(error != LINE_ON_VGA_SUCCESS)
 		return ERROR_PLACEMENT_INDIVIDUAL_LINE;
 	return ELLIPSE_LINE_PLACEMENT_SUCCESS;
 }
