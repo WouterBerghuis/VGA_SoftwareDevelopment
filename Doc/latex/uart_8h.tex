@@ -1,0 +1,65 @@
+\hypertarget{uart_8h}{}\doxysection{D\+:/\+Bestanden/\+ET Jaar 3/\+Software Ontwikkeling/\+Software/swont\+\_\+ide/\+Library/uart.h File Reference}
+\label{uart_8h}\index{D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont\_ide/Library/uart.h@{D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont\_ide/Library/uart.h}}
+{\ttfamily \#include \char`\"{}usart.\+h\char`\"{}}\newline
+Include dependency graph for uart.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784}{U\+A\+R\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \{ \mbox{\hyperlink{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784add942a659415961d67f3f1236ab1c3e2}{U\+A\+R\+T\+\_\+\+A\+C\+T\+I\+O\+N\+\_\+\+S\+U\+C\+C\+E\+S\+F\+U\+LL}} = 0, 
+\mbox{\hyperlink{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784a108080dd41fe4f3c5e1813a3fc0b33df}{U\+A\+R\+T\+\_\+\+B\+U\+SY}}, 
+\mbox{\hyperlink{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784a6db8855475c024fa80574d98d7e60fe3}{U\+A\+R\+T\+\_\+\+T\+I\+M\+E\+O\+UT}}, 
+\mbox{\hyperlink{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784a8d985e4627498f56f5ab06caa7405b46}{U\+A\+R\+T\+\_\+\+E\+R\+R\+OR}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784}{U\+A\+R\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{uart_8h_afc0914f58e9993a541966c39322ce6a6}{A\+P\+I\+\_\+\+Uart\+\_\+\+Transmit}} (uint8\+\_\+t $\ast$send\+\_\+data)
+\item 
+\mbox{\hyperlink{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784}{U\+A\+R\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{uart_8h_aefbbc2ddd5a50e96c2a94a3534b6987c}{A\+P\+I\+\_\+\+Uart\+\_\+\+Receive}} (uint8\+\_\+t $\ast$incoming)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784}\label{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784}} 
+\index{uart.h@{uart.h}!UART\_ERROR\_CODES@{UART\_ERROR\_CODES}}
+\index{UART\_ERROR\_CODES@{UART\_ERROR\_CODES}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{UART\_ERROR\_CODES}{UART\_ERROR\_CODES}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784}{U\+A\+R\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_ACTION\_SUCCESFULL@{UART\_ACTION\_SUCCESFULL}!uart.h@{uart.h}}\index{uart.h@{uart.h}!UART\_ACTION\_SUCCESFULL@{UART\_ACTION\_SUCCESFULL}}}\mbox{\Hypertarget{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784add942a659415961d67f3f1236ab1c3e2}\label{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784add942a659415961d67f3f1236ab1c3e2}} 
+U\+A\+R\+T\+\_\+\+A\+C\+T\+I\+O\+N\+\_\+\+S\+U\+C\+C\+E\+S\+F\+U\+LL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_BUSY@{UART\_BUSY}!uart.h@{uart.h}}\index{uart.h@{uart.h}!UART\_BUSY@{UART\_BUSY}}}\mbox{\Hypertarget{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784a108080dd41fe4f3c5e1813a3fc0b33df}\label{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784a108080dd41fe4f3c5e1813a3fc0b33df}} 
+U\+A\+R\+T\+\_\+\+B\+U\+SY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_TIMEOUT@{UART\_TIMEOUT}!uart.h@{uart.h}}\index{uart.h@{uart.h}!UART\_TIMEOUT@{UART\_TIMEOUT}}}\mbox{\Hypertarget{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784a6db8855475c024fa80574d98d7e60fe3}\label{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784a6db8855475c024fa80574d98d7e60fe3}} 
+U\+A\+R\+T\+\_\+\+T\+I\+M\+E\+O\+UT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_ERROR@{UART\_ERROR}!uart.h@{uart.h}}\index{uart.h@{uart.h}!UART\_ERROR@{UART\_ERROR}}}\mbox{\Hypertarget{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784a8d985e4627498f56f5ab06caa7405b46}\label{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784a8d985e4627498f56f5ab06caa7405b46}} 
+U\+A\+R\+T\+\_\+\+E\+R\+R\+OR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{uart_8h_aefbbc2ddd5a50e96c2a94a3534b6987c}\label{uart_8h_aefbbc2ddd5a50e96c2a94a3534b6987c}} 
+\index{uart.h@{uart.h}!API\_Uart\_Receive@{API\_Uart\_Receive}}
+\index{API\_Uart\_Receive@{API\_Uart\_Receive}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{API\_Uart\_Receive()}{API\_Uart\_Receive()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784}{U\+A\+R\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Uart\+\_\+\+Receive (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{incoming }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{uart_8h_afc0914f58e9993a541966c39322ce6a6}\label{uart_8h_afc0914f58e9993a541966c39322ce6a6}} 
+\index{uart.h@{uart.h}!API\_Uart\_Transmit@{API\_Uart\_Transmit}}
+\index{API\_Uart\_Transmit@{API\_Uart\_Transmit}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{API\_Uart\_Transmit()}{API\_Uart\_Transmit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{uart_8h_a7147ec48ef11e09cb24f4d55a0bc5784}{U\+A\+R\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Uart\+\_\+\+Transmit (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{send\+\_\+data }\end{DoxyParamCaption})}
+

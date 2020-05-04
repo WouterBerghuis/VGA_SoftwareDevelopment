@@ -16,6 +16,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -92,9 +99,7 @@ $(document).ready(function(){initNavTree('bitmap_8c.html',''); initResizable(); 
 <p>This file contains all API function responsible for drawing the different bitmaps.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="bitmap_8h_source.html">bitmap.h</a>&quot;</code><br />
-</div>
-<p><a href="bitmap_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ace7afd6d3172262c2868a2733b684c10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdb">BITMAP_ERROR_CODES</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bitmap_8c.html#ace7afd6d3172262c2868a2733b684c10">API_Draw_Bitmap</a> (uint16_t x_coor, uint16_t y_coor, uint8_t bitmap_nr)</td></tr>
@@ -109,10 +114,11 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains all API function responsible for drawing the different bitmaps. </p>
+<p>This file contains all API function responsible for drawing text on the screen.</p>
 <dl class="section author"><dt>Author</dt><dd>Wouter Berghuis </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>21 April 2020 This file uses different files, its header file (<a class="el" href="bitmap_8h.html" title="This file is the headerfile of bitmap.c.">bitmap.h</a>) and the different saved bitmaps files. These are all saved the folder ~/Library/bitmaps </dd></dl>
-
-<p class="definition">Definition in file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
+<dl class="section date"><dt>Date</dt><dd>21 April 2020 This file uses different files, its header file (<a class="el" href="bitmap_8h.html" title="This file is the headerfile of bitmap.c.">bitmap.h</a>) and the different saved bitmaps files. These are all saved the folder ~/Library/bitmaps</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Wouter Berghuis </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>24 April 2020 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a0d6870b69d85b67ae4ad00eb58e01f2e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0d6870b69d85b67ae4ad00eb58e01f2e">&#9670;&nbsp;</a></span>API_Check_Bitmap_Position()</h2>
@@ -171,8 +177,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdb">BITMAP_ERROR_CODES</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00116">116</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
-
 </div>
 </div>
 <a id="ace7afd6d3172262c2868a2733b684c10"></a>
@@ -226,19 +230,17 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdb">BITMAP_ERROR_CODES</a> </dd>
 <dd>
-smiley_happy </dd>
+<a class="el" href="smiley__happy_8h.html#a00c0fa71bb2dabbd561f57e82a0a943a">smiley_happy</a> </dd>
 <dd>
-smiley_angry </dd>
+<a class="el" href="smiley__angry_8h.html#ab64bec877b3ca42deff0723d49c09894">smiley_angry</a> </dd>
 <dd>
-arrow_up </dd>
+<a class="el" href="arrows_8h.html#ab0d6761326cb4c313ef33de4ad88cc37">arrow_up</a> </dd>
 <dd>
-arrow_down </dd>
+<a class="el" href="arrows_8h.html#a16efae6436a4472dd952f75d470e646b">arrow_down</a> </dd>
 <dd>
-arrow_right </dd>
+<a class="el" href="arrows_8h.html#a76e0960b7cc90dcd19a075ed7bc9c794">arrow_right</a> </dd>
 <dd>
-arrow_left </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00041">41</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
+<a class="el" href="arrows_8h.html#ada96a8528b75f348de48a39184fc7ab5">arrow_left</a> </dd></dl>
 
 </div>
 </div>
@@ -305,8 +307,6 @@ arrow_left </dd></dl>
   </dd>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdb">BITMAP_ERROR_CODES</a> </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00150">150</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
 
 </div>
 </div>

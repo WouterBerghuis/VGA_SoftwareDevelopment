@@ -36,6 +36,7 @@
 #include "text.h"
 #include "bitmap.h"
 #include "rectangle.h"
+#include "ellipse.h"
 
 
 
@@ -130,8 +131,11 @@ int main(void)
 //  API_Draw_Text(0, 70, VGA_COL_BLUE, "XXXXXXXXXXXXXXXXXXXXXX", "Minecraft", 1, 1);
 //  API_Draw_Text(0, 90, VGA_COL_GREEN, "QQQQQQQQQQQQQ", "Minecraft", 1, 2);
 
-  API_Draw_Rectangle(10, 10, 20, 30, VGA_COL_RED, 0);
-  API_Draw_Rectangle(100, 50, 30, 50, VGA_COL_GREEN, 1);
+   API_Draw_Ellipse(100, 100,20, 60, VGA_COL_RED);
+   API_Draw_Ellipse(50, 50,80, 40, VGA_COL_BLUE);
+   API_Draw_Ellipse(200, 150, 10, 20, VGA_COL_GREEN);
+//  API_Draw_Rectangle(10, 10, 20, 30, VGA_COL_RED, 0);
+//  API_Draw_Rectangle(100, 50, 30, 50, VGA_COL_GREEN, 1);
 
   char Command_word[MAX_COMMANDWORD_SIZE] = {0};
   char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};

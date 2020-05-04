@@ -1,0 +1,11 @@
+digraph "D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont_ide/Library" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_5ad7f572bbca03234e8e621e192fc099 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_5ad7f572bbca03234e8e621e192fc099.html"];
+    dir_5ad7f572bbca03234e8e621e192fc099 [shape=plaintext label="Library"];
+    dir_1a42898649e3a278369544d7a0f55e99 [shape=box label="bitmaps" color="red" fillcolor="white" style="filled" URL="dir_1a42898649e3a278369544d7a0f55e99.html"];
+  }
+  dir_5ad7f572bbca03234e8e621e192fc099->dir_1a42898649e3a278369544d7a0f55e99 [headlabel="4", labeldistance=1.5 headhref="dir_000000_000001.html"];
+}

@@ -1,0 +1,469 @@
+\hypertarget{_v_g_a__core_8h}{}\doxysection{D\+:/\+Bestanden/\+ET Jaar 3/\+Software Ontwikkeling/\+Software/swont\+\_\+ide/\+Library/\+V\+G\+A\+\_\+core.h File Reference}
+\label{_v_g_a__core_8h}\index{D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont\_ide/Library/VGA\_core.h@{D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont\_ide/Library/VGA\_core.h}}
+
+
+This file is the headerfile of \mbox{\hyperlink{_v_g_a__core_8c}{V\+G\+A\+\_\+core.\+c}}.  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+Include dependency graph for V\+G\+A\+\_\+core.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_v_g_a__t}{V\+G\+A\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em V\+GA structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a9fee0c95dea1cdd3eeb3605ece528a8a}{V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+B\+L\+A\+CK}}~0x00
+\begin{DoxyCompactList}\small\item\em Includes. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a9314f832988df57045bf9790f18de6fa}{V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+B\+L\+UE}}~0x03
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_acd643373461ea57a495e8403ba41eab7}{V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+G\+R\+E\+EN}}~0x1C
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a790cc430619a64faf356c303f8bdd3d4}{V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+R\+ED}}~0x\+E0
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a2ad592a88539ed90dd1fe6c33648a13b}{V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+W\+H\+I\+TE}}~0x\+FF
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a39a87dbbf6639be1a1312dbe9229c4a8}{V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+C\+Y\+AN}}~0x1F
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a9498759c02ab7d643c9af53a70d15ad5}{V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+M\+A\+G\+E\+N\+TA}}~0x\+E3
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a76575b7810719497e2b15a6709c1b6f0}{V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+Y\+E\+L\+L\+OW}}~0x\+FC
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_ace7f348dc91111917772d3e19f8821d3}{V\+G\+A\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+\_\+X}}~320
+\begin{DoxyCompactList}\small\item\em Define the V\+G\+A\+\_\+display resolution. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a9c3e46882b624fe1887d0ec6171d771b}{V\+G\+A\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+\_\+Y}}~240
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a9934465d996215f7e3a39f574116cd16}{V\+G\+A\+\_\+\+T\+I\+M1\+\_\+\+P\+E\+R\+I\+O\+DE}}~11
+\begin{DoxyCompactList}\small\item\em Timer1 defines. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_ab20ff576649ab2c78f0f87b758c2705b}{V\+G\+A\+\_\+\+T\+I\+M1\+\_\+\+P\+R\+E\+S\+C\+A\+LE}}~0
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a6781ff356015bb423813eb349582faa3}{V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+H\+S\+Y\+N\+C\+\_\+\+P\+E\+R\+I\+O\+DE}}~2667
+\begin{DoxyCompactList}\small\item\em Timer2 defines. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_ae0124ad9d53b4c2af5902820421aea02}{V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+H\+S\+Y\+N\+C\+\_\+\+P\+R\+E\+S\+C\+A\+LE}}~0
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_ad3ef518a75a4d574f2a36ce343157676}{V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+H\+S\+Y\+N\+C\+\_\+\+I\+MP}}~320
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a5dabd74236cb9b42d94ccc7435176d40}{V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+H\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+T\+A\+RT}}~480
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_ae0447f6b6430a8c09536288b2b01abb4}{V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+D\+M\+A\+\_\+\+D\+E\+L\+AY}}~37
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a73e729af6a6a2eb20ef3804cf794e4bd}{V\+G\+A\+\_\+\+V\+S\+Y\+N\+C\+\_\+\+P\+E\+R\+I\+O\+DE}}~525
+\begin{DoxyCompactList}\small\item\em V\+Sync-\/\+Signal. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_ad3c951f66600690235db2c93e74bc82f}{V\+G\+A\+\_\+\+V\+S\+Y\+N\+C\+\_\+\+I\+MP}}~2
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a1bf220647b6ad6187cc358cbffbb74fc}{V\+G\+A\+\_\+\+V\+S\+Y\+N\+C\+\_\+\+B\+I\+L\+D\+\_\+\+S\+T\+A\+RT}}~36
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_abf14fb3313d4de9367100e2dcddcd39f}{V\+G\+A\+\_\+\+V\+S\+Y\+N\+C\+\_\+\+B\+I\+L\+D\+\_\+\+S\+T\+OP}}~514
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a758dadcf25d5a3b26f4791e9a332f1bb}{V\+G\+A\+\_\+\+G\+P\+I\+O\+E\+\_\+\+B\+A\+S\+E\+\_\+\+A\+DR}}~((uint32\+\_\+t)0x40021000)
+\begin{DoxyCompactList}\small\item\em Adress from P\+O\+R\+TE (Reg O\+DR) callback D\+MA. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_af70daf7e1e57589c259536efc1187d6c}{V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+O\+D\+R\+\_\+\+O\+F\+F\+S\+ET}}~((uint32\+\_\+t)0x00000014)
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_ac3336e31bfbbd8199e506f39164a19eb}{V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+B\+Y\+T\+E\+\_\+\+O\+F\+F\+S\+ET}}~((uint32\+\_\+t)0x00000001)
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a2fb72da69dd330b1ebbff2b8550d1db2}{V\+G\+A\+\_\+\+G\+P\+I\+O\+E\+\_\+\+O\+D\+R\+\_\+\+A\+D\+D\+R\+E\+SS}}~(\mbox{\hyperlink{_v_g_a__core_8h_a758dadcf25d5a3b26f4791e9a332f1bb}{V\+G\+A\+\_\+\+G\+P\+I\+O\+E\+\_\+\+B\+A\+S\+E\+\_\+\+A\+DR}} $\vert$ \mbox{\hyperlink{_v_g_a__core_8h_af70daf7e1e57589c259536efc1187d6c}{V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+O\+D\+R\+\_\+\+O\+F\+F\+S\+ET}} $\vert$ \mbox{\hyperlink{_v_g_a__core_8h_ac3336e31bfbbd8199e506f39164a19eb}{V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+B\+Y\+T\+E\+\_\+\+O\+F\+F\+S\+ET}})
+\item 
+\#define \mbox{\hyperlink{_v_g_a__core_8h_a114dc879235023dc8e6f360a6f487a6b}{V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+H\+I\+N\+I\+B\+B\+LE}}~((uint16\+\_\+t)0x\+F\+F00)
+\begin{DoxyCompactList}\small\item\em Define for black on P\+E8 -\/ P\+E15. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \{ \mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfaa677bcc67ba407cf2005143e3a7471268}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+S\+U\+C\+C\+E\+SS}} = 0, 
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfaaa0155251c58787a8b436fbcd1dd172a5}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+F\+A\+I\+L\+ED}}, 
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfaae42912a21bb1ac5aef3a8385c7bb584c}{V\+G\+A\+\_\+\+C\+L\+E\+A\+R\+S\+C\+R\+E\+E\+N\+\_\+\+S\+U\+C\+C\+E\+SS}}, 
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfaa4b9bc459053a619f5251b967c7ac1421}{V\+G\+A\+\_\+\+S\+E\+T\+P\+I\+X\+E\+L\+\_\+\+S\+U\+C\+C\+E\+SS}}
+ \}
+\begin{DoxyCompactList}\small\item\em Returnvalues for the different core V\+GA functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{_v_g_a__core_8h_ade692319ed4167a35485f514039feae8}{A\+P\+I\+\_\+\+V\+G\+A\+\_\+\+Screen\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Global Function call. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{_v_g_a__core_8h_a850b2269b47826f529ff8c0c34f2d503}{A\+P\+I\+\_\+\+Clearscreen}} (uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em This function clears the screen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{_v_g_a__core_8h_a2e5f4ee3788504643af7c5b5e25ec667}{A\+P\+I\+\_\+\+Set\+Pixel}} (uint16\+\_\+t xp, uint16\+\_\+t yp, uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em This function sets the color of a single pixel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_v_g_a__t}{V\+G\+A\+\_\+t}} \mbox{\hyperlink{_v_g_a__core_8h_a0642526bfd4eb59d888572150ee3032a}{V\+GA}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_v_g_a__core_8h_adad76feab97da661d4015659c7a7f9a8}{V\+G\+A\+\_\+\+R\+A\+M1}} \mbox{[}(\mbox{\hyperlink{_v_g_a__core_8h_ace7f348dc91111917772d3e19f8821d3}{V\+G\+A\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+\_\+X}}+1) $\ast$\mbox{\hyperlink{_v_g_a__core_8h_a9c3e46882b624fe1887d0ec6171d771b}{V\+G\+A\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+\_\+Y}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Display R\+AM. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{_v_g_a__core_8h_acd48b1c3d56a19d493bb4311cccbee25}{Background\+\_\+\+Color}}
+\begin{DoxyCompactList}\small\item\em Global variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file is the headerfile of \mbox{\hyperlink{_v_g_a__core_8c}{V\+G\+A\+\_\+core.\+c}}. 
+
+\begin{DoxyAuthor}{Author}
+Wouter Berghuis 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+24 April 2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_v_g_a__core_8h_a9fee0c95dea1cdd3eeb3605ece528a8a}\label{_v_g_a__core_8h_a9fee0c95dea1cdd3eeb3605ece528a8a}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_COL\_BLACK@{VGA\_COL\_BLACK}}
+\index{VGA\_COL\_BLACK@{VGA\_COL\_BLACK}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_COL\_BLACK}{VGA\_COL\_BLACK}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+B\+L\+A\+CK~0x00}
+
+
+
+Includes. 
+
+8Bit Color Designation
+
+8Bit color (R3\+G3\+B2) Red (3bit) -\/$>$ Bit7-\/\+Bit5 Green (3bit) -\/$>$ Bit4-\/\+Bit2 Blue (2bit) -\/$>$ Bit1-\/\+Bit0 \mbox{\Hypertarget{_v_g_a__core_8h_a9314f832988df57045bf9790f18de6fa}\label{_v_g_a__core_8h_a9314f832988df57045bf9790f18de6fa}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_COL\_BLUE@{VGA\_COL\_BLUE}}
+\index{VGA\_COL\_BLUE@{VGA\_COL\_BLUE}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_COL\_BLUE}{VGA\_COL\_BLUE}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+B\+L\+UE~0x03}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_a39a87dbbf6639be1a1312dbe9229c4a8}\label{_v_g_a__core_8h_a39a87dbbf6639be1a1312dbe9229c4a8}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_COL\_CYAN@{VGA\_COL\_CYAN}}
+\index{VGA\_COL\_CYAN@{VGA\_COL\_CYAN}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_COL\_CYAN}{VGA\_COL\_CYAN}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+C\+Y\+AN~0x1F}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_acd643373461ea57a495e8403ba41eab7}\label{_v_g_a__core_8h_acd643373461ea57a495e8403ba41eab7}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_COL\_GREEN@{VGA\_COL\_GREEN}}
+\index{VGA\_COL\_GREEN@{VGA\_COL\_GREEN}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_COL\_GREEN}{VGA\_COL\_GREEN}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+G\+R\+E\+EN~0x1C}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_a9498759c02ab7d643c9af53a70d15ad5}\label{_v_g_a__core_8h_a9498759c02ab7d643c9af53a70d15ad5}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_COL\_MAGENTA@{VGA\_COL\_MAGENTA}}
+\index{VGA\_COL\_MAGENTA@{VGA\_COL\_MAGENTA}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_COL\_MAGENTA}{VGA\_COL\_MAGENTA}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+M\+A\+G\+E\+N\+TA~0x\+E3}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_a790cc430619a64faf356c303f8bdd3d4}\label{_v_g_a__core_8h_a790cc430619a64faf356c303f8bdd3d4}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_COL\_RED@{VGA\_COL\_RED}}
+\index{VGA\_COL\_RED@{VGA\_COL\_RED}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_COL\_RED}{VGA\_COL\_RED}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+R\+ED~0x\+E0}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_a2ad592a88539ed90dd1fe6c33648a13b}\label{_v_g_a__core_8h_a2ad592a88539ed90dd1fe6c33648a13b}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_COL\_WHITE@{VGA\_COL\_WHITE}}
+\index{VGA\_COL\_WHITE@{VGA\_COL\_WHITE}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_COL\_WHITE}{VGA\_COL\_WHITE}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+W\+H\+I\+TE~0x\+FF}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_a76575b7810719497e2b15a6709c1b6f0}\label{_v_g_a__core_8h_a76575b7810719497e2b15a6709c1b6f0}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_COL\_YELLOW@{VGA\_COL\_YELLOW}}
+\index{VGA\_COL\_YELLOW@{VGA\_COL\_YELLOW}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_COL\_YELLOW}{VGA\_COL\_YELLOW}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+Y\+E\+L\+L\+OW~0x\+FC}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_ace7f348dc91111917772d3e19f8821d3}\label{_v_g_a__core_8h_ace7f348dc91111917772d3e19f8821d3}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_DISPLAY\_X@{VGA\_DISPLAY\_X}}
+\index{VGA\_DISPLAY\_X@{VGA\_DISPLAY\_X}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_DISPLAY\_X}{VGA\_DISPLAY\_X}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+\_\+X~320}
+
+
+
+Define the V\+G\+A\+\_\+display resolution. 
+
+\mbox{\Hypertarget{_v_g_a__core_8h_a9c3e46882b624fe1887d0ec6171d771b}\label{_v_g_a__core_8h_a9c3e46882b624fe1887d0ec6171d771b}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_DISPLAY\_Y@{VGA\_DISPLAY\_Y}}
+\index{VGA\_DISPLAY\_Y@{VGA\_DISPLAY\_Y}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_DISPLAY\_Y}{VGA\_DISPLAY\_Y}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+\_\+Y~240}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_ac3336e31bfbbd8199e506f39164a19eb}\label{_v_g_a__core_8h_ac3336e31bfbbd8199e506f39164a19eb}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_GPIO\_BYTE\_OFFSET@{VGA\_GPIO\_BYTE\_OFFSET}}
+\index{VGA\_GPIO\_BYTE\_OFFSET@{VGA\_GPIO\_BYTE\_OFFSET}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_GPIO\_BYTE\_OFFSET}{VGA\_GPIO\_BYTE\_OFFSET}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+B\+Y\+T\+E\+\_\+\+O\+F\+F\+S\+ET~((uint32\+\_\+t)0x00000001)}
+
+Data for 8bit ~\newline
+ \mbox{\Hypertarget{_v_g_a__core_8h_a114dc879235023dc8e6f360a6f487a6b}\label{_v_g_a__core_8h_a114dc879235023dc8e6f360a6f487a6b}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_GPIO\_HINIBBLE@{VGA\_GPIO\_HINIBBLE}}
+\index{VGA\_GPIO\_HINIBBLE@{VGA\_GPIO\_HINIBBLE}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_GPIO\_HINIBBLE}{VGA\_GPIO\_HINIBBLE}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+H\+I\+N\+I\+B\+B\+LE~((uint16\+\_\+t)0x\+F\+F00)}
+
+
+
+Define for black on P\+E8 -\/ P\+E15. 
+
+\mbox{\Hypertarget{_v_g_a__core_8h_af70daf7e1e57589c259536efc1187d6c}\label{_v_g_a__core_8h_af70daf7e1e57589c259536efc1187d6c}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_GPIO\_ODR\_OFFSET@{VGA\_GPIO\_ODR\_OFFSET}}
+\index{VGA\_GPIO\_ODR\_OFFSET@{VGA\_GPIO\_ODR\_OFFSET}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_GPIO\_ODR\_OFFSET}{VGA\_GPIO\_ODR\_OFFSET}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+O\+D\+R\+\_\+\+O\+F\+F\+S\+ET~((uint32\+\_\+t)0x00000014)}
+
+A\+DR from Register O\+DR ~\newline
+ \mbox{\Hypertarget{_v_g_a__core_8h_a758dadcf25d5a3b26f4791e9a332f1bb}\label{_v_g_a__core_8h_a758dadcf25d5a3b26f4791e9a332f1bb}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_GPIOE\_BASE\_ADR@{VGA\_GPIOE\_BASE\_ADR}}
+\index{VGA\_GPIOE\_BASE\_ADR@{VGA\_GPIOE\_BASE\_ADR}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_GPIOE\_BASE\_ADR}{VGA\_GPIOE\_BASE\_ADR}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+G\+P\+I\+O\+E\+\_\+\+B\+A\+S\+E\+\_\+\+A\+DR~((uint32\+\_\+t)0x40021000)}
+
+
+
+Adress from P\+O\+R\+TE (Reg O\+DR) callback D\+MA. 
+
+(See page 53+204 of the User Manual(\+S\+T\+M32\+F407) for additional information
+
+Data-\/\+Bit0 =$>$ P\+E8 Data-\/\+Bit7 =$>$ P\+E15 A\+DR from Port-\/E ~\newline
+ \mbox{\Hypertarget{_v_g_a__core_8h_a2fb72da69dd330b1ebbff2b8550d1db2}\label{_v_g_a__core_8h_a2fb72da69dd330b1ebbff2b8550d1db2}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_GPIOE\_ODR\_ADDRESS@{VGA\_GPIOE\_ODR\_ADDRESS}}
+\index{VGA\_GPIOE\_ODR\_ADDRESS@{VGA\_GPIOE\_ODR\_ADDRESS}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_GPIOE\_ODR\_ADDRESS}{VGA\_GPIOE\_ODR\_ADDRESS}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+G\+P\+I\+O\+E\+\_\+\+O\+D\+R\+\_\+\+A\+D\+D\+R\+E\+SS~(\mbox{\hyperlink{_v_g_a__core_8h_a758dadcf25d5a3b26f4791e9a332f1bb}{V\+G\+A\+\_\+\+G\+P\+I\+O\+E\+\_\+\+B\+A\+S\+E\+\_\+\+A\+DR}} $\vert$ \mbox{\hyperlink{_v_g_a__core_8h_af70daf7e1e57589c259536efc1187d6c}{V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+O\+D\+R\+\_\+\+O\+F\+F\+S\+ET}} $\vert$ \mbox{\hyperlink{_v_g_a__core_8h_ac3336e31bfbbd8199e506f39164a19eb}{V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+B\+Y\+T\+E\+\_\+\+O\+F\+F\+S\+ET}})}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_a9934465d996215f7e3a39f574116cd16}\label{_v_g_a__core_8h_a9934465d996215f7e3a39f574116cd16}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_TIM1\_PERIODE@{VGA\_TIM1\_PERIODE}}
+\index{VGA\_TIM1\_PERIODE@{VGA\_TIM1\_PERIODE}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_TIM1\_PERIODE}{VGA\_TIM1\_PERIODE}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+T\+I\+M1\+\_\+\+P\+E\+R\+I\+O\+DE~11}
+
+
+
+Timer1 defines. 
+
+Function = Pixelclock (Speed for D\+MA Transfer)
+
+basefreq = 2 $\ast$ A\+P\+B2 (A\+P\+B2=84M\+Hz) =$>$ T\+I\+M\+\_\+\+C\+LK=168M\+Hz Frq = 168M\+Hz/1/12 = 14M\+Hz \mbox{\Hypertarget{_v_g_a__core_8h_ab20ff576649ab2c78f0f87b758c2705b}\label{_v_g_a__core_8h_ab20ff576649ab2c78f0f87b758c2705b}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_TIM1\_PRESCALE@{VGA\_TIM1\_PRESCALE}}
+\index{VGA\_TIM1\_PRESCALE@{VGA\_TIM1\_PRESCALE}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_TIM1\_PRESCALE}{VGA\_TIM1\_PRESCALE}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+T\+I\+M1\+\_\+\+P\+R\+E\+S\+C\+A\+LE~0}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_ae0447f6b6430a8c09536288b2b01abb4}\label{_v_g_a__core_8h_ae0447f6b6430a8c09536288b2b01abb4}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_TIM2\_DMA\_DELAY@{VGA\_TIM2\_DMA\_DELAY}}
+\index{VGA\_TIM2\_DMA\_DELAY@{VGA\_TIM2\_DMA\_DELAY}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_TIM2\_DMA\_DELAY}{VGA\_TIM2\_DMA\_DELAY}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+D\+M\+A\+\_\+\+D\+E\+L\+AY~37}
+
+Ease the delay when D\+MA S\+T\+A\+RT (Optimization = none) \mbox{\Hypertarget{_v_g_a__core_8h_ad3ef518a75a4d574f2a36ce343157676}\label{_v_g_a__core_8h_ad3ef518a75a4d574f2a36ce343157676}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_TIM2\_HSYNC\_IMP@{VGA\_TIM2\_HSYNC\_IMP}}
+\index{VGA\_TIM2\_HSYNC\_IMP@{VGA\_TIM2\_HSYNC\_IMP}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_TIM2\_HSYNC\_IMP}{VGA\_TIM2\_HSYNC\_IMP}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+H\+S\+Y\+N\+C\+\_\+\+I\+MP~320}
+
+H\+Sync-\/length (3,81us) ~\newline
+ \mbox{\Hypertarget{_v_g_a__core_8h_a6781ff356015bb423813eb349582faa3}\label{_v_g_a__core_8h_a6781ff356015bb423813eb349582faa3}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_TIM2\_HSYNC\_PERIODE@{VGA\_TIM2\_HSYNC\_PERIODE}}
+\index{VGA\_TIM2\_HSYNC\_PERIODE@{VGA\_TIM2\_HSYNC\_PERIODE}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_TIM2\_HSYNC\_PERIODE}{VGA\_TIM2\_HSYNC\_PERIODE}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+H\+S\+Y\+N\+C\+\_\+\+P\+E\+R\+I\+O\+DE~2667}
+
+
+
+Timer2 defines. 
+
+Function = C\+H4 \+: H\+Sync-\/\+Signal on P\+B11 C\+H3 \+: Trigger point for D\+MA start
+
+basefreq = 2$\ast$\+A\+P\+B1 (A\+P\+B1=48M\+Hz) =$>$ T\+I\+M\+\_\+\+C\+LK=84M\+Hz Frq = 84M\+Hz/1/2668 = 31,48k\+Hz =$>$ T = 31,76us 1T\+IC = 11,90ns \mbox{\Hypertarget{_v_g_a__core_8h_ae0124ad9d53b4c2af5902820421aea02}\label{_v_g_a__core_8h_ae0124ad9d53b4c2af5902820421aea02}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_TIM2\_HSYNC\_PRESCALE@{VGA\_TIM2\_HSYNC\_PRESCALE}}
+\index{VGA\_TIM2\_HSYNC\_PRESCALE@{VGA\_TIM2\_HSYNC\_PRESCALE}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_TIM2\_HSYNC\_PRESCALE}{VGA\_TIM2\_HSYNC\_PRESCALE}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+H\+S\+Y\+N\+C\+\_\+\+P\+R\+E\+S\+C\+A\+LE~0}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_a5dabd74236cb9b42d94ccc7435176d40}\label{_v_g_a__core_8h_a5dabd74236cb9b42d94ccc7435176d40}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_TIM2\_HTRIGGER\_START@{VGA\_TIM2\_HTRIGGER\_START}}
+\index{VGA\_TIM2\_HTRIGGER\_START@{VGA\_TIM2\_HTRIGGER\_START}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_TIM2\_HTRIGGER\_START}{VGA\_TIM2\_HTRIGGER\_START}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+H\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+T\+A\+RT~480}
+
+H\+Sync+\+Back\+Porch (5,71us) ~\newline
+ \mbox{\Hypertarget{_v_g_a__core_8h_a1bf220647b6ad6187cc358cbffbb74fc}\label{_v_g_a__core_8h_a1bf220647b6ad6187cc358cbffbb74fc}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_VSYNC\_BILD\_START@{VGA\_VSYNC\_BILD\_START}}
+\index{VGA\_VSYNC\_BILD\_START@{VGA\_VSYNC\_BILD\_START}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_VSYNC\_BILD\_START}{VGA\_VSYNC\_BILD\_START}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+V\+S\+Y\+N\+C\+\_\+\+B\+I\+L\+D\+\_\+\+S\+T\+A\+RT~36}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_abf14fb3313d4de9367100e2dcddcd39f}\label{_v_g_a__core_8h_abf14fb3313d4de9367100e2dcddcd39f}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_VSYNC\_BILD\_STOP@{VGA\_VSYNC\_BILD\_STOP}}
+\index{VGA\_VSYNC\_BILD\_STOP@{VGA\_VSYNC\_BILD\_STOP}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_VSYNC\_BILD\_STOP}{VGA\_VSYNC\_BILD\_STOP}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+V\+S\+Y\+N\+C\+\_\+\+B\+I\+L\+D\+\_\+\+S\+T\+OP~514}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_ad3c951f66600690235db2c93e74bc82f}\label{_v_g_a__core_8h_ad3c951f66600690235db2c93e74bc82f}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_VSYNC\_IMP@{VGA\_VSYNC\_IMP}}
+\index{VGA\_VSYNC\_IMP@{VGA\_VSYNC\_IMP}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_VSYNC\_IMP}{VGA\_VSYNC\_IMP}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+V\+S\+Y\+N\+C\+\_\+\+I\+MP~2}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_a73e729af6a6a2eb20ef3804cf794e4bd}\label{_v_g_a__core_8h_a73e729af6a6a2eb20ef3804cf794e4bd}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_VSYNC\_PERIODE@{VGA\_VSYNC\_PERIODE}}
+\index{VGA\_VSYNC\_PERIODE@{VGA\_VSYNC\_PERIODE}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_VSYNC\_PERIODE}{VGA\_VSYNC\_PERIODE}}
+{\footnotesize\ttfamily \#define V\+G\+A\+\_\+\+V\+S\+Y\+N\+C\+\_\+\+P\+E\+R\+I\+O\+DE~525}
+
+
+
+V\+Sync-\/\+Signal. 
+
+Trigger = Timer2 Update (f=31,48k\+Hz =$>$ T = 31,76us) 1T\+IC = 31,76us 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}\label{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_INIT\_ERROR\_CODES@{VGA\_INIT\_ERROR\_CODES}}
+\index{VGA\_INIT\_ERROR\_CODES@{VGA\_INIT\_ERROR\_CODES}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_INIT\_ERROR\_CODES}{VGA\_INIT\_ERROR\_CODES}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}}}
+
+
+
+Returnvalues for the different core V\+GA functions. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VGA\_INIT\_SUCCESS@{VGA\_INIT\_SUCCESS}!VGA\_core.h@{VGA\_core.h}}\index{VGA\_core.h@{VGA\_core.h}!VGA\_INIT\_SUCCESS@{VGA\_INIT\_SUCCESS}}}\mbox{\Hypertarget{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfaa677bcc67ba407cf2005143e3a7471268}\label{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfaa677bcc67ba407cf2005143e3a7471268}} 
+V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+S\+U\+C\+C\+E\+SS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VGA\_INIT\_FAILED@{VGA\_INIT\_FAILED}!VGA\_core.h@{VGA\_core.h}}\index{VGA\_core.h@{VGA\_core.h}!VGA\_INIT\_FAILED@{VGA\_INIT\_FAILED}}}\mbox{\Hypertarget{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfaaa0155251c58787a8b436fbcd1dd172a5}\label{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfaaa0155251c58787a8b436fbcd1dd172a5}} 
+V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+F\+A\+I\+L\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VGA\_CLEARSCREEN\_SUCCESS@{VGA\_CLEARSCREEN\_SUCCESS}!VGA\_core.h@{VGA\_core.h}}\index{VGA\_core.h@{VGA\_core.h}!VGA\_CLEARSCREEN\_SUCCESS@{VGA\_CLEARSCREEN\_SUCCESS}}}\mbox{\Hypertarget{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfaae42912a21bb1ac5aef3a8385c7bb584c}\label{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfaae42912a21bb1ac5aef3a8385c7bb584c}} 
+V\+G\+A\+\_\+\+C\+L\+E\+A\+R\+S\+C\+R\+E\+E\+N\+\_\+\+S\+U\+C\+C\+E\+SS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VGA\_SETPIXEL\_SUCCESS@{VGA\_SETPIXEL\_SUCCESS}!VGA\_core.h@{VGA\_core.h}}\index{VGA\_core.h@{VGA\_core.h}!VGA\_SETPIXEL\_SUCCESS@{VGA\_SETPIXEL\_SUCCESS}}}\mbox{\Hypertarget{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfaa4b9bc459053a619f5251b967c7ac1421}\label{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfaa4b9bc459053a619f5251b967c7ac1421}} 
+V\+G\+A\+\_\+\+S\+E\+T\+P\+I\+X\+E\+L\+\_\+\+S\+U\+C\+C\+E\+SS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_v_g_a__core_8h_a850b2269b47826f529ff8c0c34f2d503}\label{_v_g_a__core_8h_a850b2269b47826f529ff8c0c34f2d503}} 
+\index{VGA\_core.h@{VGA\_core.h}!API\_Clearscreen@{API\_Clearscreen}}
+\index{API\_Clearscreen@{API\_Clearscreen}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{API\_Clearscreen()}{API\_Clearscreen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Clearscreen (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+This function clears the screen. 
+
+Clearing the screen is done by setting the whole screen to one color. This is done by setting each individual pixel to a specific color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The color of screen to clear the screen with, (uint8\+\_\+t) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{_v_g_a__core_8h_a2e5f4ee3788504643af7c5b5e25ec667}\label{_v_g_a__core_8h_a2e5f4ee3788504643af7c5b5e25ec667}} 
+\index{VGA\_core.h@{VGA\_core.h}!API\_SetPixel@{API\_SetPixel}}
+\index{API\_SetPixel@{API\_SetPixel}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{API\_SetPixel()}{API\_SetPixel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Set\+Pixel (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{xp,  }\item[{uint16\+\_\+t}]{yp,  }\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+This function sets the color of a single pixel. 
+
+Setting the color of a single pixel is done by writing the color code in the V\+G\+A\+\_\+\+R\+AM. The position in the R\+AM corresponds with the coordinates on the screen.
+
+Important \+: The last Pixel+1 from every line must be black The reason for this is still unclear
+
+
+\begin{DoxyParams}{Parameters}
+{\em xp} & The x-\/coordinate of the pixel, (uint16\+\_\+t) \\
+\hline
+{\em yp} & The y-\/coordinate of the pixel, (uint16\+\_\+t) \\
+\hline
+{\em color} & The color of screen to clear the screen with, (uint8\+\_\+t) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{_v_g_a__core_8h_ade692319ed4167a35485f514039feae8}\label{_v_g_a__core_8h_ade692319ed4167a35485f514039feae8}} 
+\index{VGA\_core.h@{VGA\_core.h}!API\_VGA\_Screen\_Init@{API\_VGA\_Screen\_Init}}
+\index{API\_VGA\_Screen\_Init@{API\_VGA\_Screen\_Init}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{API\_VGA\_Screen\_Init()}{API\_VGA\_Screen\_Init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+V\+G\+A\+\_\+\+Screen\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Global Function call. 
+
+Global Function call.
+
+The initialization consist of the following steps\+:
+\begin{DoxyEnumerate}
+\item Setting timer2 Channel 4 is the H\+Sync-\/signal Channel 3 is the trigger point for the D\+MA start
+\item Enabling the D\+MA which uses timer1 The D\+MA is used to send the 8bit color to the V\+GA color pins from the V\+G\+A\+\_\+\+R\+AM. In these R\+AM the color for each individual pixel can be set.
+\item Clear the screen The screen is set to full black after initializing the V\+G\+A\+\_\+screen.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_v_g_a__core_8h_a9b485a722de9fa0ba181f6bae241abfa}{V\+G\+A\+\_\+\+I\+N\+I\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:
+% FIG 5
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_v_g_a__core_8h_acd48b1c3d56a19d493bb4311cccbee25}\label{_v_g_a__core_8h_acd48b1c3d56a19d493bb4311cccbee25}} 
+\index{VGA\_core.h@{VGA\_core.h}!Background\_Color@{Background\_Color}}
+\index{Background\_Color@{Background\_Color}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{Background\_Color}{Background\_Color}}
+{\footnotesize\ttfamily uint8\+\_\+t Background\+\_\+\+Color}
+
+
+
+Global variables. 
+
+\mbox{\Hypertarget{_v_g_a__core_8h_a0642526bfd4eb59d888572150ee3032a}\label{_v_g_a__core_8h_a0642526bfd4eb59d888572150ee3032a}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA@{VGA}}
+\index{VGA@{VGA}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA}{VGA}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_v_g_a__t}{V\+G\+A\+\_\+t}} V\+GA}
+
+\mbox{\Hypertarget{_v_g_a__core_8h_adad76feab97da661d4015659c7a7f9a8}\label{_v_g_a__core_8h_adad76feab97da661d4015659c7a7f9a8}} 
+\index{VGA\_core.h@{VGA\_core.h}!VGA\_RAM1@{VGA\_RAM1}}
+\index{VGA\_RAM1@{VGA\_RAM1}!VGA\_core.h@{VGA\_core.h}}
+\doxysubsubsection{\texorpdfstring{VGA\_RAM1}{VGA\_RAM1}}
+{\footnotesize\ttfamily uint8\+\_\+t V\+G\+A\+\_\+\+R\+A\+M1\mbox{[}(\mbox{\hyperlink{_v_g_a__core_8h_ace7f348dc91111917772d3e19f8821d3}{V\+G\+A\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+\_\+X}}+1) $\ast$\mbox{\hyperlink{_v_g_a__core_8h_a9c3e46882b624fe1887d0ec6171d771b}{V\+G\+A\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+\_\+Y}}\mbox{]}}
+
+
+
+Display R\+AM. 
+

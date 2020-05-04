@@ -16,6 +16,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -92,7 +99,7 @@ $(document).ready(function(){initNavTree('bitmap_8h.html',''); initResizable(); 
 
 <p>This file is the headerfile of <a class="el" href="bitmap_8c.html" title="This file contains all API function responsible for drawing the different bitmaps.">bitmap.c</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;stm32_ub_vga_screen.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_v_g_a__core_8h_source.html">VGA_core.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="smiley__happy_8h_source.html">smiley_happy.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="smiley__angry_8h_source.html">smiley_angry.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="arrows_8h_source.html">arrows.h</a>&quot;</code><br />
@@ -131,10 +138,11 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file is the headerfile of <a class="el" href="bitmap_8c.html" title="This file contains all API function responsible for drawing the different bitmaps.">bitmap.c</a>. </p>
+<p>This file is the headerfile of <a class="el" href="uart_8c.html" title="This file contains the API function responsible for transmitting and receiving data over UART2.">uart.c</a>.</p>
 <dl class="section author"><dt>Author</dt><dd>Wouter Berghuis </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>21 April 2020 </dd></dl>
-
-<p class="definition">Definition in file <a class="el" href="bitmap_8h_source.html">bitmap.h</a>.</p>
+<dl class="section date"><dt>Date</dt><dd>21 April 2020</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Jered van Ling </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>23 April 2020 </dd></dl>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a9fc05d0b7082f8486e22045775b76fdb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9fc05d0b7082f8486e22045775b76fdb">&#9670;&nbsp;</a></span>BITMAP_ERROR_CODES</h2>
@@ -176,8 +184,6 @@ Functions</h2></td></tr>
  </p>
 </td></tr>
 </table>
-
-<p class="definition">Definition at line <a class="el" href="bitmap_8h_source.html#l00024">24</a> of file <a class="el" href="bitmap_8h_source.html">bitmap.h</a>.</p>
 
 </div>
 </div>
@@ -239,8 +245,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdb">BITMAP_ERROR_CODES</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00116">116</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
-
 </div>
 </div>
 <a id="ace7afd6d3172262c2868a2733b684c10"></a>
@@ -294,19 +298,17 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdb">BITMAP_ERROR_CODES</a> </dd>
 <dd>
-smiley_happy </dd>
+<a class="el" href="smiley__happy_8h.html#a00c0fa71bb2dabbd561f57e82a0a943a">smiley_happy</a> </dd>
 <dd>
-smiley_angry </dd>
+<a class="el" href="smiley__angry_8h.html#ab64bec877b3ca42deff0723d49c09894">smiley_angry</a> </dd>
 <dd>
-arrow_up </dd>
+<a class="el" href="arrows_8h.html#ab0d6761326cb4c313ef33de4ad88cc37">arrow_up</a> </dd>
 <dd>
-arrow_down </dd>
+<a class="el" href="arrows_8h.html#a16efae6436a4472dd952f75d470e646b">arrow_down</a> </dd>
 <dd>
-arrow_right </dd>
+<a class="el" href="arrows_8h.html#a76e0960b7cc90dcd19a075ed7bc9c794">arrow_right</a> </dd>
 <dd>
-arrow_left </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00041">41</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
+<a class="el" href="arrows_8h.html#ada96a8528b75f348de48a39184fc7ab5">arrow_left</a> </dd></dl>
 
 </div>
 </div>
@@ -373,8 +375,6 @@ arrow_left </dd></dl>
   </dd>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="bitmap_8h.html#a9fc05d0b7082f8486e22045775b76fdb">BITMAP_ERROR_CODES</a> </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00150">150</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
 
 </div>
 </div>

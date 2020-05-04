@@ -1,0 +1,261 @@
+\hypertarget{line_8h}{}\doxysection{D\+:/\+Bestanden/\+ET Jaar 3/\+Software Ontwikkeling/\+Software/swont\+\_\+ide/\+Library/line.h File Reference}
+\label{line_8h}\index{D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont\_ide/Library/line.h@{D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont\_ide/Library/line.h}}
+
+
+This file contains all A\+PI function responsible for drawing the different bitmaps.  
+
+
+{\ttfamily \#include \char`\"{}V\+G\+A\+\_\+core.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parse.\+h\char`\"{}}\newline
+Include dependency graph for line.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562}{L\+I\+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \{ \newline
+\mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562a4116ce31a876ac14b52013ba206f4ac3}{C\+O\+R\+R\+E\+C\+T\+\_\+\+L\+I\+N\+E\+\_\+\+P\+L\+A\+C\+E\+M\+E\+NT}} = 0, 
+\mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562a8c633490c0c6deba8d34f83e08708bcb}{E\+R\+R\+O\+R\+\_\+\+L\+I\+N\+E\+\_\+\+P\+L\+A\+C\+E\+M\+E\+N\+T\+\_\+\+X\+C\+O\+O\+R1}}, 
+\mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562a60a39c68bad14cdde33971f3ca9c0cf9}{E\+R\+R\+O\+R\+\_\+\+L\+I\+N\+E\+\_\+\+P\+L\+A\+C\+E\+M\+E\+N\+T\+\_\+\+Y\+C\+O\+O\+R1}}, 
+\mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562a860c2cf5247c2de27c5a3d475c366161}{E\+R\+R\+O\+R\+\_\+\+L\+I\+N\+E\+\_\+\+P\+L\+A\+C\+E\+M\+E\+N\+T\+\_\+\+X\+C\+O\+O\+R2}}, 
+\newline
+\mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562a828957273ea482a0f0fa66d58ca27d06}{E\+R\+R\+O\+R\+\_\+\+L\+I\+N\+E\+\_\+\+P\+L\+A\+C\+E\+M\+E\+N\+T\+\_\+\+Y\+C\+O\+O\+R2}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562}{L\+I\+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{line_8h_a6f9297d151929e0bf3e975ce1c497f5d}{A\+P\+I\+\_\+\+Draw\+\_\+\+Line}} (uint16\+\_\+t x\+\_\+coor1, uint16\+\_\+t y\+\_\+coor1, uint16\+\_\+t x\+\_\+coor2, uint16\+\_\+t y\+\_\+coor2, uint8\+\_\+t color, uint16\+\_\+t dikte)
+\begin{DoxyCompactList}\small\item\em This function is used for drawing a line on the V\+GA screen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562}{L\+I\+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{line_8h_a7d79d1836ab6fa62aa0e40586bc925f2}{A\+P\+I\+\_\+\+Check\+\_\+\+Line\+Coords}} (uint16\+\_\+t x\+\_\+coor1, uint16\+\_\+t y\+\_\+coor1, uint16\+\_\+t x\+\_\+coor2, uint16\+\_\+t y\+\_\+coor2)
+\begin{DoxyCompactList}\small\item\em This function is used for checking the coordinates of the sent data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562}{L\+I\+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} \mbox{\hyperlink{line_8h_ad737d8f17e17f336751f56f5bbfef908}{A\+P\+I\+\_\+\+Write\+\_\+\+Line\+\_\+to\+\_\+\+V\+GA}} (uint16\+\_\+t x\+\_\+coor1, uint16\+\_\+t y\+\_\+coor1, uint16\+\_\+t x\+\_\+coor2, uint16\+\_\+t y\+\_\+coor2, uint8\+\_\+t color, uint16\+\_\+t dikte)
+\begin{DoxyCompactList}\small\item\em This function is used for writing the line on the V\+GA. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{line_8h_a726074376b42d71538eaa0cb17f54cc8}{Round\+\_\+\+Float\+\_\+to\+\_\+\+Int}} (float num)
+\begin{DoxyCompactList}\small\item\em This function is used for rounding a float to an integer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{line_8h_ac0b303e7c63014dee4699f81fa8d6ac7}{Even\+\_\+or\+\_\+\+Uneven}} (uint16\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em This function is used to check if a value is divisible by 2. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{line_8h_a717b67cf51c62a641c775f023ecb034f}{sgn}} (int v)
+\begin{DoxyCompactList}\small\item\em This function is used to check if a variable is bigger or smaller than 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains all A\+PI function responsible for drawing the different bitmaps. 
+
+\begin{DoxyAuthor}{Author}
+Stijn Keller 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+26 April 2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{line_8h_af7d805d67201582f6b65762d7efbe562}\label{line_8h_af7d805d67201582f6b65762d7efbe562}} 
+\index{line.h@{line.h}!LINE\_ERROR\_CODES@{LINE\_ERROR\_CODES}}
+\index{LINE\_ERROR\_CODES@{LINE\_ERROR\_CODES}!line.h@{line.h}}
+\doxysubsubsection{\texorpdfstring{LINE\_ERROR\_CODES}{LINE\_ERROR\_CODES}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562}{L\+I\+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CORRECT\_LINE\_PLACEMENT@{CORRECT\_LINE\_PLACEMENT}!line.h@{line.h}}\index{line.h@{line.h}!CORRECT\_LINE\_PLACEMENT@{CORRECT\_LINE\_PLACEMENT}}}\mbox{\Hypertarget{line_8h_af7d805d67201582f6b65762d7efbe562a4116ce31a876ac14b52013ba206f4ac3}\label{line_8h_af7d805d67201582f6b65762d7efbe562a4116ce31a876ac14b52013ba206f4ac3}} 
+C\+O\+R\+R\+E\+C\+T\+\_\+\+L\+I\+N\+E\+\_\+\+P\+L\+A\+C\+E\+M\+E\+NT&No errors occurred during bitmap placement ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR\_LINE\_PLACEMENT\_XCOOR1@{ERROR\_LINE\_PLACEMENT\_XCOOR1}!line.h@{line.h}}\index{line.h@{line.h}!ERROR\_LINE\_PLACEMENT\_XCOOR1@{ERROR\_LINE\_PLACEMENT\_XCOOR1}}}\mbox{\Hypertarget{line_8h_af7d805d67201582f6b65762d7efbe562a8c633490c0c6deba8d34f83e08708bcb}\label{line_8h_af7d805d67201582f6b65762d7efbe562a8c633490c0c6deba8d34f83e08708bcb}} 
+E\+R\+R\+O\+R\+\_\+\+L\+I\+N\+E\+\_\+\+P\+L\+A\+C\+E\+M\+E\+N\+T\+\_\+\+X\+C\+O\+O\+R1&Received position of bitmap unavailable, too far right for the screen ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR\_LINE\_PLACEMENT\_YCOOR1@{ERROR\_LINE\_PLACEMENT\_YCOOR1}!line.h@{line.h}}\index{line.h@{line.h}!ERROR\_LINE\_PLACEMENT\_YCOOR1@{ERROR\_LINE\_PLACEMENT\_YCOOR1}}}\mbox{\Hypertarget{line_8h_af7d805d67201582f6b65762d7efbe562a60a39c68bad14cdde33971f3ca9c0cf9}\label{line_8h_af7d805d67201582f6b65762d7efbe562a60a39c68bad14cdde33971f3ca9c0cf9}} 
+E\+R\+R\+O\+R\+\_\+\+L\+I\+N\+E\+\_\+\+P\+L\+A\+C\+E\+M\+E\+N\+T\+\_\+\+Y\+C\+O\+O\+R1&Received position of bitmap unavailable, too far left for the screen ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR\_LINE\_PLACEMENT\_XCOOR2@{ERROR\_LINE\_PLACEMENT\_XCOOR2}!line.h@{line.h}}\index{line.h@{line.h}!ERROR\_LINE\_PLACEMENT\_XCOOR2@{ERROR\_LINE\_PLACEMENT\_XCOOR2}}}\mbox{\Hypertarget{line_8h_af7d805d67201582f6b65762d7efbe562a860c2cf5247c2de27c5a3d475c366161}\label{line_8h_af7d805d67201582f6b65762d7efbe562a860c2cf5247c2de27c5a3d475c366161}} 
+E\+R\+R\+O\+R\+\_\+\+L\+I\+N\+E\+\_\+\+P\+L\+A\+C\+E\+M\+E\+N\+T\+\_\+\+X\+C\+O\+O\+R2&Received position of bitmap unavailable, too high for the screen ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR\_LINE\_PLACEMENT\_YCOOR2@{ERROR\_LINE\_PLACEMENT\_YCOOR2}!line.h@{line.h}}\index{line.h@{line.h}!ERROR\_LINE\_PLACEMENT\_YCOOR2@{ERROR\_LINE\_PLACEMENT\_YCOOR2}}}\mbox{\Hypertarget{line_8h_af7d805d67201582f6b65762d7efbe562a828957273ea482a0f0fa66d58ca27d06}\label{line_8h_af7d805d67201582f6b65762d7efbe562a828957273ea482a0f0fa66d58ca27d06}} 
+E\+R\+R\+O\+R\+\_\+\+L\+I\+N\+E\+\_\+\+P\+L\+A\+C\+E\+M\+E\+N\+T\+\_\+\+Y\+C\+O\+O\+R2&Received position of bitmap unavailable, to0 low for on the screen ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{line_8h_a7d79d1836ab6fa62aa0e40586bc925f2}\label{line_8h_a7d79d1836ab6fa62aa0e40586bc925f2}} 
+\index{line.h@{line.h}!API\_Check\_LineCoords@{API\_Check\_LineCoords}}
+\index{API\_Check\_LineCoords@{API\_Check\_LineCoords}!line.h@{line.h}}
+\doxysubsubsection{\texorpdfstring{API\_Check\_LineCoords()}{API\_Check\_LineCoords()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562}{L\+I\+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Check\+\_\+\+Line\+Coords (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+coor1,  }\item[{uint16\+\_\+t}]{y\+\_\+coor1,  }\item[{uint16\+\_\+t}]{x\+\_\+coor2,  }\item[{uint16\+\_\+t}]{y\+\_\+coor2 }\end{DoxyParamCaption})}
+
+
+
+This function is used for checking the coordinates of the sent data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+coor1} & This is the first x-\/coordinate for the line, (uint16\+\_\+t) \\
+\hline
+{\em y\+\_\+coor1} & This is the first y-\/coordinate for the line, (uint16\+\_\+t) \\
+\hline
+{\em x\+\_\+coor2} & This is the second x-\/coordinate for the line, (uint16\+\_\+t) \\
+\hline
+{\em y\+\_\+coor2} & This is the second y-\/coordinate for the line, (uint16\+\_\+t) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em L\+I\+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562}{L\+I\+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{line_8h_a6f9297d151929e0bf3e975ce1c497f5d}\label{line_8h_a6f9297d151929e0bf3e975ce1c497f5d}} 
+\index{line.h@{line.h}!API\_Draw\_Line@{API\_Draw\_Line}}
+\index{API\_Draw\_Line@{API\_Draw\_Line}!line.h@{line.h}}
+\doxysubsubsection{\texorpdfstring{API\_Draw\_Line()}{API\_Draw\_Line()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562}{L\+I\+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Draw\+\_\+\+Line (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+coor1,  }\item[{uint16\+\_\+t}]{y\+\_\+coor1,  }\item[{uint16\+\_\+t}]{x\+\_\+coor2,  }\item[{uint16\+\_\+t}]{y\+\_\+coor2,  }\item[{uint8\+\_\+t}]{color,  }\item[{uint16\+\_\+t}]{dikte }\end{DoxyParamCaption})}
+
+
+
+This function is used for drawing a line on the V\+GA screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+coor1} & This the x-\/coordinate for the bitmap, (uint16\+\_\+t) \\
+\hline
+{\em y\+\_\+coor1} & This the y-\/coordinate for the bitmap, (uint16\+\_\+t) \\
+\hline
+{\em x\+\_\+coor2} & This the x-\/coordinate for the bitmap, (uint16\+\_\+t) \\
+\hline
+{\em y\+\_\+coor2} & This the y-\/coordinate for the bitmap, (uint16\+\_\+t) \\
+\hline
+{\em kleur} & This is the color of the line , (char) \\
+\hline
+{\em dikte} & This is the width of the line , (uint16\+\_\+t) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em L\+I\+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562}{L\+I\+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{line_8h_ad737d8f17e17f336751f56f5bbfef908}\label{line_8h_ad737d8f17e17f336751f56f5bbfef908}} 
+\index{line.h@{line.h}!API\_Write\_Line\_to\_VGA@{API\_Write\_Line\_to\_VGA}}
+\index{API\_Write\_Line\_to\_VGA@{API\_Write\_Line\_to\_VGA}!line.h@{line.h}}
+\doxysubsubsection{\texorpdfstring{API\_Write\_Line\_to\_VGA()}{API\_Write\_Line\_to\_VGA()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562}{L\+I\+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} A\+P\+I\+\_\+\+Write\+\_\+\+Line\+\_\+to\+\_\+\+V\+GA (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+coor1,  }\item[{uint16\+\_\+t}]{y\+\_\+coor1,  }\item[{uint16\+\_\+t}]{x\+\_\+coor2,  }\item[{uint16\+\_\+t}]{y\+\_\+coor2,  }\item[{uint8\+\_\+t}]{color,  }\item[{uint16\+\_\+t}]{dikte }\end{DoxyParamCaption})}
+
+
+
+This function is used for writing the line on the V\+GA. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+coor1} & This is the first x-\/coordinate for the line, (uint16\+\_\+t) \\
+\hline
+{\em y\+\_\+coor1} & This is the first y-\/coordinate for the line, (uint16\+\_\+t) \\
+\hline
+{\em x\+\_\+coor2} & This is the second x-\/coordinate for the line, (uint16\+\_\+t) \\
+\hline
+{\em y\+\_\+coor2} & This is the second y-\/coordinate for the line, (uint16\+\_\+t) \\
+\hline
+{\em color} & This is the color of the line , (uint8\+\_\+t) \\
+\hline
+{\em dikte} & This is the width of the line , (uint16\+\_\+t) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em L\+I\+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{line_8h_af7d805d67201582f6b65762d7efbe562}{L\+I\+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+D\+ES}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{line_8h_ac0b303e7c63014dee4699f81fa8d6ac7}\label{line_8h_ac0b303e7c63014dee4699f81fa8d6ac7}} 
+\index{line.h@{line.h}!Even\_or\_Uneven@{Even\_or\_Uneven}}
+\index{Even\_or\_Uneven@{Even\_or\_Uneven}!line.h@{line.h}}
+\doxysubsubsection{\texorpdfstring{Even\_or\_Uneven()}{Even\_or\_Uneven()}}
+{\footnotesize\ttfamily int Even\+\_\+or\+\_\+\+Uneven (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+This function is used to check if a value is divisible by 2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & variable that will be checked (uint16\+\_\+t) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & \\
+\hline
+\end{DoxyRetVals}
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{line_8h_a726074376b42d71538eaa0cb17f54cc8}\label{line_8h_a726074376b42d71538eaa0cb17f54cc8}} 
+\index{line.h@{line.h}!Round\_Float\_to\_Int@{Round\_Float\_to\_Int}}
+\index{Round\_Float\_to\_Int@{Round\_Float\_to\_Int}!line.h@{line.h}}
+\doxysubsubsection{\texorpdfstring{Round\_Float\_to\_Int()}{Round\_Float\_to\_Int()}}
+{\footnotesize\ttfamily int Round\+\_\+\+Float\+\_\+to\+\_\+\+Int (\begin{DoxyParamCaption}\item[{float}]{num }\end{DoxyParamCaption})}
+
+
+
+This function is used for rounding a float to an integer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & float that will be rounded up (float) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & \\
+\hline
+\end{DoxyRetVals}
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{line_8h_a717b67cf51c62a641c775f023ecb034f}\label{line_8h_a717b67cf51c62a641c775f023ecb034f}} 
+\index{line.h@{line.h}!sgn@{sgn}}
+\index{sgn@{sgn}!line.h@{line.h}}
+\doxysubsubsection{\texorpdfstring{sgn()}{sgn()}}
+{\footnotesize\ttfamily int sgn (\begin{DoxyParamCaption}\item[{int}]{v }\end{DoxyParamCaption})}
+
+
+
+This function is used to check if a variable is bigger or smaller than 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & variable that will be checked (int) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & \\
+\hline
+\end{DoxyRetVals}
+Here is the caller graph for this function\+:
+% FIG 9
