@@ -37,6 +37,7 @@
 #include "bitmap.h"
 #include "rectangle.h"
 #include "ellipse.h"
+#include "receive_command.h"
 
 
 
@@ -54,8 +55,10 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define MAX_SIZE_MESSAGE 100
+#define MAX_AMOUNT_OF_COMMANDS 300
 #define CARRIAGE_RETURN 13
-#define MAX_AMOUNT_OF_COMMANDS 60
+#define DOT 46
+#define LINE_FEED 10
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -69,11 +72,9 @@
 uint8_t rx_data;
 volatile uint8_t rx_index = 0;
 uint8_t rx_buffer[MAX_AMOUNT_OF_COMMANDS][MAX_SIZE_MESSAGE];
-uint8_t commando = 0;
-uint8_t Message_Counter = 0;
+volatile uint8_t commando = 0;
 bool New_Message = false;
-char Command_word[MAX_COMMANDWORD_SIZE] = {0};
-char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -157,6 +158,7 @@ int main(void)
   while (1)
   {
 	  API_Send_Command();
+	  //HAL_Delay(100);
     /* USER CODE END WHILE */
 
 //	  char First[]="STM32 is de bom";  // char array waarin je je string met data zet
@@ -243,13 +245,19 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	/** Checks the runtime of USART 2*/
 	if (huart->Instance == USART2)
 	{
-		/**< If the character received is ascii '13' which is carriage return (enter), reset rx_index, put counter on commando and set flag message true */
-		if (rx_data == CARRIAGE_RETURN)
+		/**< If the character received is ascii '13' which is carriage return (enter), reset rx_index, put counter on commando and set flag New_Message true */
+		if (rx_data == CARRIAGE_RETURN  || rx_data == DOT )
 		{
 			rx_index = 0;
 			commando++;
 			New_Message = true;
 		}
+
+		/**< If the character received is ascii '10', do not store it but turn it into a space character */
+		else if(rx_data == LINE_FEED)
+			rx_data = ' ';
+
+		/**< Store rx_data into a buffer */
 		else
 		rx_buffer[commando][rx_index++] = rx_data;
 
@@ -258,32 +266,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	}
 }
 
-/**
-  * @brief	This function is used to send the received message to the parser
-  *
-  *The function waits for a New_Message flag to be set to true.
-  *This flag will only be set to true when the HAL_UART_RxCpltCallback has determined if a new message is received.
-  *When the flag is set to true, the uart_parser function will be called and the message will be sent to the parser.
-  *To keep track of the messages a message counter is used to make sure the new message will be send to the parser.
-  *The New_Message flag will always be reset to false afterwards to only send the message once to the parser.
-  * @param	None
-  *
-  * @retval	None
-  *
-  */
-
-void API_Send_Command()
-{
-
-	if (New_Message == true)
-	{
-		API_Uart_Transmit ((uint8_t*)rx_buffer[Message_Counter]);   /**< Transmit the data via uart */
-		//uart_parser((uint8_t*)rx_buffer[Message_Counter], Command_word, Commandstring);
-		Message_Counter++; 											/**< Keeps track of the messages send */
-		New_Message = false;										/**< Reset the New_Message flag */
-	}
-
-}
 
 /* USER CODE END 4 */
 
