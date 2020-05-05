@@ -294,10 +294,10 @@ VGA_INIT_ERROR_CODES Fontstyle_String_to_Int(char *Fontstylestring, uint8_t *fon
 		if (strcmp(Fontstylestring, "normaal") == 0)
 			*fontstyleValue = FONTSTYLE_NORMAL;
 
-		else if (strcmp(Fontstylestring, "vet") == 0)
+		else if (strcmp(Fontstylestring, "cursief") == 0)
 			*fontstyleValue = FONTSTYLE_ITALIC;
 
-		else if (strcmp(Fontstylestring, "cursief") == 0)
+		else if (strcmp(Fontstylestring, "vet") == 0)
 			*fontstyleValue = FONTSTYLE_BOLD;
 		else
 			return FONTSTYLE_TO_INT_FAILED;
