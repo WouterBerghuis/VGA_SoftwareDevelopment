@@ -11,7 +11,7 @@
 **/
 #include "receive_command.h"
 
-uint8_t Message_Counter = 0;
+uint8_t Message_Counter = 1;
 char Command_word[MAX_COMMANDWORD_SIZE] = {0};
 char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
 uint8_t rx_buffer[MAX_AMOUNT_OF_COMMANDS][MAX_SIZE_MESSAGE];
@@ -43,12 +43,12 @@ void API_Send_Command()
 		API_Execute_Command();													 			 /**< Keeps track of the messages send */
 		New_Message = false;																 /**< Reset the New_Message flag */
 	}
-
+/*
 	if (Message_Counter != commando)
 	{
 		API_Execute_Command();
 	}
-
+*/
 }
 
 void API_Execute_Command()

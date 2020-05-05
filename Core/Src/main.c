@@ -39,6 +39,7 @@
 #include "ellipse.h"
 #include "receive_command.h"
 #include "wait.h"
+#include "repeat.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -70,7 +71,7 @@
 uint8_t rx_data;
 volatile uint8_t rx_index = 0;
 uint8_t rx_buffer[MAX_AMOUNT_OF_COMMANDS][MAX_SIZE_MESSAGE];
-volatile uint8_t commando = 0;
+volatile uint8_t commando = 1;
 bool New_Message = false;
 
 /* USER CODE END PV */
@@ -148,7 +149,8 @@ int main(void)
 //
 //  if(error_check == CHECK_COMMAND_SUCCESS)
 //	  Run_Command(Command_word, Commandstring);
-
+   char c = 3;
+   char a = 5;
   API_Wait_Init();
 
   /* USER CODE END 2 */
@@ -158,8 +160,9 @@ int main(void)
   while (1)
   {
 	  API_Send_Command();
-	  API_Wait(100);
-	  //HAL_Delay(100);
+	  //API_Wait(100);
+	  if (commando == 3)
+		  API_Repeat(c,a);
     /* USER CODE END WHILE */
 
 //	  char First[]="STM32 is de bom";  // char array waarin je je string met data zet
