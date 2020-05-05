@@ -38,4 +38,4 @@ typedef enum{
 
 UART_ERROR_CODES API_Uart_Transmit(uint8_t *send_data);
 
-#endif // __UART_H
+#endif	/**< __UART_H*/
