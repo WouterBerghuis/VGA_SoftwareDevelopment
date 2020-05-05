@@ -1,0 +1,12 @@
+<map id="D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont_ide/Library/bitmap.c" name="D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont_ide/Library/bitmap.c">
+<area shape="rect" id="node1" title="This file contains all API function responsible for drawing the different bitmaps." alt="" coords="196,5,377,76"/>
+<area shape="rect" id="node2" href="$da/dcb/bitmap_8h.html" title="This file is the headerfile of bitmap.c." alt="" coords="251,124,323,151"/>
+<area shape="rect" id="node3" href="$d0/db6/_v_g_a__core_8h.html" title="This file is the headerfile of VGA_core.c." alt="" coords="105,199,199,225"/>
+<area shape="rect" id="node8" href="$d1/de3/smiley__happy_8h.html" title="This file contains all the needed defines for the &#39;smiley_happy&#39; bitmap." alt="" coords="259,273,373,300"/>
+<area shape="rect" id="node9" href="$d9/dc4/smiley__angry_8h.html" title="This file contains the smiley_angry pixel data. This data can be used in combination with the functio..." alt="" coords="325,199,435,225"/>
+<area shape="rect" id="node10" href="$d4/daa/arrows_8h.html" title="This file contains all the needed defines for the different arrow bitmaps." alt="" coords="459,199,530,225"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,273,67,300"/>
+<area shape="rect" id="node5" title=" " alt="" coords="91,273,157,300"/>
+<area shape="rect" id="node6" href="$d9/dcc/text_8h.html" title="This file contains all the needed defines for the text&#45;drawing functions." alt="" coords="181,273,235,300"/>
+<area shape="rect" id="node7" title=" " alt="" coords="330,348,395,375"/>
+</map>

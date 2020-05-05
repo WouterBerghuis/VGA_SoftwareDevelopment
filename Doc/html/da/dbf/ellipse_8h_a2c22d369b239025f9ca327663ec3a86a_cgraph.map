@@ -1,0 +1,11 @@
+<map id="API_Draw_Ellipse" name="API_Draw_Ellipse">
+<area shape="rect" id="node1" title="Draw ellipse functions." alt="" coords="5,122,131,149"/>
+<area shape="rect" id="node2" href="$d6/d61/ellipse_8c.html#a474dec60e86aa22848d057e28147154c" title="This function is used for calculating individual coordinates of the ellipse." alt="" coords="204,5,345,47"/>
+<area shape="rect" id="node3" href="$d6/d61/ellipse_8c.html#a0bcbe8628081a70c4132f300cd3f2c4a" title="This function is used for checking the position of the ellipse." alt="" coords="181,71,368,98"/>
+<area shape="rect" id="node4" href="$d6/d61/ellipse_8c.html#aa98cc64aa9ca95de9c749dd0a7f0ff10" title="This function checks if there is a jump in the y_coordinate." alt="" coords="179,122,371,149"/>
+<area shape="rect" id="node5" href="$d6/d61/ellipse_8c.html#a714459c3278993d76088bb586002476c" title="This function is used for drawing vertical filling lines for the ellipse." alt="" coords="197,173,353,199"/>
+<area shape="rect" id="node9" href="$d5/d5e/_v_g_a__core_8c.html#a2e5f4ee3788504643af7c5b5e25ec667" title="This function sets the color of a single pixel." alt="" coords="225,223,324,250"/>
+<area shape="rect" id="node6" href="$df/d6d/line_8c.html#a6f9297d151929e0bf3e975ce1c497f5d" title="This function is used for drawing a line on the VGA screen." alt="" coords="419,173,529,199"/>
+<area shape="rect" id="node7" href="$df/d6d/line_8c.html#a7d79d1836ab6fa62aa0e40586bc925f2" title="This function is used for checking the coordinates of the sent data." alt="" coords="577,147,736,174"/>
+<area shape="rect" id="node8" href="$df/d6d/line_8c.html#a2d48f7e3cb682eeee0f095c4e669cc9a" title="This function is used for writing the line on the VGA." alt="" coords="601,198,713,225"/>
+</map>

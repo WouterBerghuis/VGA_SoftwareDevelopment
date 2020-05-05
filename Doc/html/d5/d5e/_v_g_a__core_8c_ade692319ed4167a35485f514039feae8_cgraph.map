@@ -1,0 +1,5 @@
+<map id="API_VGA_Screen_Init" name="API_VGA_Screen_Init">
+<area shape="rect" id="node1" title="This function initialized the VGA screen." alt="" coords="5,5,156,32"/>
+<area shape="rect" id="node2" href="$d5/d5e/_v_g_a__core_8c.html#a850b2269b47826f529ff8c0c34f2d503" title="This function clears the screen." alt="" coords="204,5,323,32"/>
+<area shape="rect" id="node3" href="$d5/d5e/_v_g_a__core_8c.html#a2e5f4ee3788504643af7c5b5e25ec667" title="This function sets the color of a single pixel." alt="" coords="371,5,469,32"/>
+</map>

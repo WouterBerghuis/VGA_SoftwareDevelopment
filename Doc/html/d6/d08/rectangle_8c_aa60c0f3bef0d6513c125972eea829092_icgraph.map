@@ -1,0 +1,4 @@
+<map id="API_Write_Rectangle_to_VGA" name="API_Write_Rectangle_to_VGA">
+<area shape="rect" id="node1" title="This function writes the rectangle pixel data to the VGA RAM." alt="" coords="197,5,344,47"/>
+<area shape="rect" id="node2" href="$db/dd0/rectangle_8h.html#a0b83460dfcab1acbf9548526245322da" title="Draw rectangle functions." alt="" coords="5,13,149,39"/>
+</map>

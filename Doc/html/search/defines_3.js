@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['italic_5fshift_5fone_5foffset_339',['ITALIC_SHIFT_ONE_OFFSET',['../text_8h.html#a69b73231f369c0bd68c61cc28522915a',1,'text.h']]],
-  ['italic_5fshift_5ftwo_5foffset_340',['ITALIC_SHIFT_TWO_OFFSET',['../text_8h.html#ac16ed9d82764a6660c07d4ec5da64622',1,'text.h']]]
+  ['filling_5fline_5foffset_358',['FILLING_LINE_OFFSET',['../da/dbf/ellipse_8h.html#a85911516150d44cb7b8af8d6ad88f3b7',1,'ellipse.h']]],
+  ['filling_5fline_5fsize_359',['FILLING_LINE_SIZE',['../da/dbf/ellipse_8h.html#af6bd332e922a1c6c2a159835a6f6004c',1,'ellipse.h']]]
 ];

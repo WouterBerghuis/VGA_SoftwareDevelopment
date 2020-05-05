@@ -10,14 +10,16 @@
   * the use of Timers (TIM1 and TIM2) and the DMA (DMA2, Channel6 and Stream5). These
   * will control the different GPIO-pins connected to the VGA connector.
   *
-  * Signal: 	PB11      = HSync-Signal
-  *         	PB12      = VSync-Signal
-  *         	PE8+PE9   = Color Blue
-  *         	PE10-PE12 = Color Green
-  *         	PE13-PE15 = Color red
+  * Signal:
+  * - PB11      = HSync-Signal
+  * - PB12      = VSync-Signal
+  * - PE8+PE9   = Color Blue
+  * - PE10-PE12 = Color Green
+  * - PE13-PE15 = Color red
   *
-  * VGA out:	320x240 Pixel
-  * 			8bit color
+  * VGA out:
+  * - 320x240 Pixel
+  * - 8bit color
   *
   ******************************************************************************
 **/
@@ -44,7 +46,6 @@ extern DMA_HandleTypeDef hdma_tim1_up;
   * 3. Clear the screen
   * 	The screen is set to full black after initializing the VGA_screen.
   *
-  * @param	void
   * @retval	VGA_INIT_ERROR_CODES
   *
   * @see VGA_INIT_ERROR_CODES
@@ -97,6 +98,7 @@ VGA_INIT_ERROR_CODES API_VGA_Screen_Init(void)
   * This is done by setting each individual pixel to a specific color.
   *
   * @param	color The color of screen to clear the screen with, (uint8_t)
+  *
   * @retval	VGA_INIT_ERROR_CODES
   *
   * @see VGA_INIT_ERROR_CODES
@@ -147,10 +149,11 @@ VGA_INIT_ERROR_CODES API_SetPixel(uint16_t xp, uint16_t yp, uint8_t color)
 }
 
 /**
-  * @brief	This function checks the colour of the string
+  * @brief	This function checks the color of the string
   *
-  * @param	Color Pointer to the string that contains the colour, (char *)
-  * @param	colorValue Pointer to the variable that will hold the uint8_t value of the color, (int *)
+  * @param	Color Pointer to the string that contains the color, (char *)
+  * @param	colorValue Pointer to the variable that will hold the uint8_t value of the color, (uint8_t *)
+  *
   * @retval	VGA_INIT_ERROR_CODES
   *
   * @see VGA_INIT_ERROR_CODES
@@ -208,10 +211,11 @@ VGA_INIT_ERROR_CODES Check_Color(char *Color, uint8_t *colorValue){
 }
 
 /**
-  * @brief	This function returns the decimal value of the colour sent to the function
+  * @brief	This function returns the decimal value of the color sent to the function
   *
-  * @param	Colorstring Pointer to the string that contains the colour, (char *)
-  * @param	colorValue Pointer to the variable that will hold the uint8_t value of the color, (int *)
+  * @param	Colorstring Pointer to the string that contains the color, (char *)
+  * @param	colorValue Pointer to the variable that will hold the uint8_t value of the color, (uint8_t *)
+  *
   * @retval	VGA_INIT_ERROR_CODES
   *
   * @see VGA_INIT_ERROR_CODES

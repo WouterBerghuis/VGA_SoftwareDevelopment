@@ -12,7 +12,6 @@
 #ifndef __VGA_core_H
 #define __VGA_core_H
 
-
 /**
   * @brief Includes
   */
@@ -33,7 +32,6 @@
 #define  VGA_COL_GREEN          0x1C
 #define  VGA_COL_RED            0xE0
 #define  VGA_COL_WHITE          0xFF
-
 #define  VGA_COL_CYAN           0x1F
 #define  VGA_COL_MAGENTA        0xE3
 #define  VGA_COL_YELLOW         0xFC
@@ -157,5 +155,4 @@ VGA_INIT_ERROR_CODES Color_String_to_Int(char *Colorstring, uint8_t *colorValue)
 VGA_INIT_ERROR_CODES Check_Fontstyle(char *Fontstylestring, uint8_t *fontstyleValue);
 VGA_INIT_ERROR_CODES Fontstyle_String_to_Int(char *Fontstylestring, uint8_t *fontstyleValue);
 
-//--------------------------------------------------------------
 #endif // __VGA_core_H

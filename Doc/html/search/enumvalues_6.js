@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['uart_5faction_5fsuccesfull_314',['UART_ACTION_SUCCESFULL',['../uart_8h.html#a7147ec48ef11e09cb24f4d55a0bc5784add942a659415961d67f3f1236ab1c3e2',1,'uart.h']]],
-  ['uart_5fbusy_315',['UART_BUSY',['../uart_8h.html#a7147ec48ef11e09cb24f4d55a0bc5784a108080dd41fe4f3c5e1813a3fc0b33df',1,'uart.h']]],
-  ['uart_5ferror_316',['UART_ERROR',['../uart_8h.html#a7147ec48ef11e09cb24f4d55a0bc5784a8d985e4627498f56f5ab06caa7405b46',1,'uart.h']]],
-  ['uart_5ftimeout_317',['UART_TIMEOUT',['../uart_8h.html#a7147ec48ef11e09cb24f4d55a0bc5784a6db8855475c024fa80574d98d7e60fe3',1,'uart.h']]]
+  ['set_5fbig_5fcharacter_5fsucces_334',['SET_BIG_CHARACTER_SUCCES',['../d9/dcc/text_8h.html#a7bd5a728fd3c13428992659bb0d87467a74f24063238ed66ef3d459491db4f8df',1,'text.h']]],
+  ['set_5fbold_5fcharacter_5fsucces_335',['SET_BOLD_CHARACTER_SUCCES',['../d9/dcc/text_8h.html#a7bd5a728fd3c13428992659bb0d87467a8ef651224a523fd9a06cf207882bd8b6',1,'text.h']]],
+  ['set_5fitalic_5fcharacter_5fsucces_336',['SET_ITALIC_CHARACTER_SUCCES',['../d9/dcc/text_8h.html#a7bd5a728fd3c13428992659bb0d87467af68eb325c93ab77a57efe960e30d6317',1,'text.h']]]
 ];

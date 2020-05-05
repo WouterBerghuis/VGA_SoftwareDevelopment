@@ -49,8 +49,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_v_g_a__core_8c.html",
-"text_8h.html#a7bd5a728fd3c13428992659bb0d87467a8ef651224a523fd9a06cf207882bd8b6"
+"annotated.html",
+"dd/ddd/minecraft_8h.html#ace5aa11f5fa4041ef0f4916269ce4844"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

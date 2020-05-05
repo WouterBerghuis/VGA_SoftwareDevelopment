@@ -1,0 +1,10 @@
+<map id="API_Draw_Rectangle" name="API_Draw_Rectangle">
+<area shape="rect" id="node1" title="This function is used for drawing a rectangle on the VGA screen." alt="" coords="5,71,149,98"/>
+<area shape="rect" id="node2" href="$d6/d08/rectangle_8c.html#a0d775c6a6b4ffaa06eb2438cee467a7c" title="This function is used to check if the received rectangle fits on the screen." alt="" coords="197,5,349,47"/>
+<area shape="rect" id="node3" href="$d6/d08/rectangle_8c.html#a79b2bb710e1d267360b3b5611659a870" title="This function fills the inside of the rectangle with one color." alt="" coords="207,71,339,98"/>
+<area shape="rect" id="node5" href="$d6/d08/rectangle_8c.html#aa60c0f3bef0d6513c125972eea829092" title="This function writes the rectangle pixel data to the VGA RAM." alt="" coords="200,123,347,164"/>
+<area shape="rect" id="node4" href="$d5/d5e/_v_g_a__core_8c.html#a2e5f4ee3788504643af7c5b5e25ec667" title="This function sets the color of a single pixel." alt="" coords="403,71,502,98"/>
+<area shape="rect" id="node6" href="$df/d6d/line_8c.html#a6f9297d151929e0bf3e975ce1c497f5d" title="This function is used for drawing a line on the VGA screen." alt="" coords="397,130,508,157"/>
+<area shape="rect" id="node7" href="$df/d6d/line_8c.html#a7d79d1836ab6fa62aa0e40586bc925f2" title="This function is used for checking the coordinates of the sent data." alt="" coords="556,105,715,131"/>
+<area shape="rect" id="node8" href="$df/d6d/line_8c.html#a2d48f7e3cb682eeee0f095c4e669cc9a" title="This function is used for writing the line on the VGA." alt="" coords="579,155,691,182"/>
+</map>

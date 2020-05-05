@@ -1,0 +1,6 @@
+<map id="API_Draw_Bitmap" name="API_Draw_Bitmap">
+<area shape="rect" id="node1" title="This function is used for drawing a bitmap on the VGA screen." alt="" coords="5,31,132,57"/>
+<area shape="rect" id="node2" href="$df/d9a/bitmap_8c.html#a0d6870b69d85b67ae4ad00eb58e01f2e" title="This function checks if the received bitmap fits on the screen." alt="" coords="180,5,369,32"/>
+<area shape="rect" id="node3" href="$df/d9a/bitmap_8c.html#a69029da24c6c67c7220ea6e7cd4117b3" title="This function sends the bitmap data to the VGA&#45;RAM." alt="" coords="183,56,366,83"/>
+<area shape="rect" id="node4" href="$d5/d5e/_v_g_a__core_8c.html#a2e5f4ee3788504643af7c5b5e25ec667" title="This function sets the color of a single pixel." alt="" coords="417,56,516,83"/>
+</map>

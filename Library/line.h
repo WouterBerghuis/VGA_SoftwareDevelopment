@@ -4,7 +4,7 @@
   *
   * @author 			Stijn Keller
   * @date 				26 April 2020
-  * @brief        		This file contains all API function responsible for drawing different bitmaps.
+  * @brief        		This file is the header file of line.c
   *
   ******************************************************************************
 **/

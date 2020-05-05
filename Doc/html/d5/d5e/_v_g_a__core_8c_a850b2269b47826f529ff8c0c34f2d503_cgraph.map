@@ -1,0 +1,4 @@
+<map id="API_Clearscreen" name="API_Clearscreen">
+<area shape="rect" id="node1" title="This function clears the screen." alt="" coords="5,5,124,32"/>
+<area shape="rect" id="node2" href="$d5/d5e/_v_g_a__core_8c.html#a2e5f4ee3788504643af7c5b5e25ec667" title="This function sets the color of a single pixel." alt="" coords="172,5,271,32"/>
+</map>

@@ -1,9 +1,0 @@
-digraph "D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont_ide/Library/bitmaps/fonts" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  subgraph clusterdir_1a42898649e3a278369544d7a0f55e99 {
-    graph [ bgcolor="#ddddee", pencolor="black", label="bitmaps" fontname="Helvetica", fontsize="10", URL="dir_1a42898649e3a278369544d7a0f55e99.html"]
-  dir_d5cded99a9bf679e71b4da9244056632 [shape=box, label="fonts", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_d5cded99a9bf679e71b4da9244056632.html"];
-  }
-}

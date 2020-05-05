@@ -1,4 +1,4 @@
 var annotated_dup =
 [
-    [ "VGA_t", "struct_v_g_a__t.html", "struct_v_g_a__t" ]
+    [ "VGA_t", "d3/d56/struct_v_g_a__t.html", "d3/d56/struct_v_g_a__t" ]
 ];

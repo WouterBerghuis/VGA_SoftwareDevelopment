@@ -17,12 +17,12 @@
   *
   * Drawing an ellipse on the screen consist of multiple steps. These steps are:
   * 1. Check the received position of the ellipse
-  * 	Does the ellipse fit on the screen with the received position and height/width.
+  * 	Does the ellipse fit on the screen with the received position and the height/width.
   * 	The function will return an error if the ellipse doesn't fit on the screen.
   * 2. Calculate the individual points of the ellipse
   * 	An ellipse consist of two parabolas, the coordinates of the bottom parabola are calculated. Using these coordinates and
-  * 	the center point the top (opposite) parabola is calculated.
-  * 3. Check if there is a big jump for old to new point on the y-axis
+  * 	the center point the top (opposite) parabola is calculated. These individual points are send to the VGA RAM
+  * 3. Check if there is a big jump from the old y coordinate to new y coordinate.
   * 	If there is a big jump (> 1) an line is drawn between the two points.
   * 	This will fill in the gaps between the two calculated points.
   * 4. Write calculated ellipse point to the VGA RAM
@@ -97,9 +97,9 @@ ELLIPSE_ERROR_CODES API_Draw_Ellipse(uint16_t x_coor_center, uint16_t y_coor_cen
 }
 
 /**
-  * @brief	This function is used for checking to position of the ellipse
+  * @brief	This function is used for checking the position of the ellipse
   *
-  * This function returns an errormessage if the received position doesn't fit on the screen.
+  * This function returns an errormessage if the received ellipse doesn't fit on the screen.
   *
   * @param	x_coor_center 	This is the x-coordinate of the center of the ellipse, 	(uint16_t)
   * @param  y_coor_center 	This is the y-coordinate of the center of the ellipse, 	(uint16_t)
@@ -140,7 +140,7 @@ ELLIPSE_ERROR_CODES API_Check_Ellipse_Position(uint16_t x_coor_center, uint16_t 
   *	- a = Radius of the width
   *	- b = Radius of the heigth
   *
-  * If you solve for Y the formula is equal to: \f$y = \pm\sqrt{\frac{(a^2\cdot b^2)-(b^2(x - h)^2)}{a^2}} + k\f$
+  * If you solve the formula for Y it will be equal to: \f$y = \pm\sqrt{\frac{(a^2\cdot b^2)-(b^2(x - h)^2)}{a^2}} + k\f$
   * Using this equation the y-coordinate of a point on the ellipse is calculated. For an easier to read and write code the
   * formula is divided into the following three sections:
   * - Section one: \f$(a^2\cdot b^2)\f$
@@ -148,7 +148,8 @@ ELLIPSE_ERROR_CODES API_Check_Ellipse_Position(uint16_t x_coor_center, uint16_t 
   * - Section three: \f$\frac{(a^2\cdot b^2)-(b^2(x - h)^2)}{a^2}\f$
   *
   * There is one special case with this formula. This is if section three is smaller then 0. In this case the
-  * y-coordinate is equal to y-coordinate of the center.
+  * y-coordinate is equal to y-coordinate of the center. This is the point on the ellipse where the point on the ellipse is on the
+  * same y-coordinate as the center of the ellipse.
   *
   * @param	x_coor_center 	This is the x-coordinate of the center of the ellipse, 	  		(uint16_t)
   * @param  y_coor_center 	This is the y-coordinate of the center of the ellipse, 	  		(uint16_t)
@@ -189,8 +190,8 @@ ELLIPSE_ERROR_CODES API_Calculate_Point_On_Ellipse(uint16_t x_coor_center, uint1
 /**
   * @brief	This function is used for drawing vertical filling lines for the ellipse
   *
-  * This function uses the API_Draw_Lijne function to draw a line between two points on the ellipse.
-  * Depending on the position on the ellipse the line is different. In the case of the first half of
+  * This function uses the API_Draw_Line function to draw a line between two points on the ellipse.
+  * Depending on the position of the point on the ellipse the line is different. In the case of the first half of
   * both parabolas the line is on the previous x-coordinate. On the second half the y-coordinate is different, either
   * -1 or +1 depending on the bottom or top parabola.
   *
@@ -229,7 +230,7 @@ ELLIPSE_ERROR_CODES API_Draw_Ellipse_Line(uint16_t x_coor, uint16_t x_coor_cente
   * If the jump on the y-axis is bigger then 1 or -1, depending on the bottom or top parabola, the function
   * returns true. If this is not the case the function returns false
   *
-  * @param	new_y_coor 		New calcualted point on the ellipse 	(uint16_t)
+  * @param	new_y_coor 		New calculated point on the ellipse 	(uint16_t)
   * @param  old_y_coor 		previous point on the ellipse  	  		(uint16_t)
   *
   * @retval	bool

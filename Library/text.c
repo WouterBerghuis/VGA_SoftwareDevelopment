@@ -22,13 +22,13 @@
   * 	2.3 Write bitmap to the VGA screen
   * 	2.4 Move cursor to position for the next character
   *
-  * @param	x_coor This is the x-coordinate for the start of the string, (uint16_t)
-  * @param  y_coor This is the y-coordinate for the start of the string, (uint16_t)
-  * @param  color, The color of the text, (uint16_t)
-  * @param  text, The string of character (char *)
-  * @param  fontname, Fontname which should be used for printing (char *)
-  * @param  fontsize, 0 = small | 1 = big
-  * @param  fontstyle, 0 = normal | 1 = Italic | 2 = Bold
+  * @param	x_coor    This is the x-coordinate for the start of the string, (uint16_t)
+  * @param  y_coor    This is the y-coordinate for the start of the string, (uint16_t)
+  * @param  color     The color of the text, 								(uint16_t)
+  * @param  text      The string of character 								(char *)
+  * @param  fontname  Fontname which should be used for printing 			(char *)
+  * @param  fontsize  0 = small | 1 = big									(uint8_t)
+  * @param  fontstyle 0 = normal | 1 = Italic | 2 = Bold					(uint8_t)
   *
   * @retval	TEXT_ERROR_CODES
   *
@@ -134,13 +134,14 @@ TEXT_ERROR_CODES API_Draw_Text(uint16_t x_coor, uint16_t y_coor, uint8_t color, 
 /**
   * @brief	This function checks if the received string fits on the screen
   *
-  *	Checking if the received string fits is done with one simple equation.
-  *	If the sum of all characters width + the start position is greater then
-  *	the total width of the screen the received is too long.
+  *	Checking if the received string fits on the screen is done with the following equation:
+  *		If the sum of all characters pixel-width + the start position is greater then
+  *		the total width of the screen the received string is too long.
   *
-  * @param	x_coor This is the x-coordinate for the start of the string, (uint16_t)
-  * @param  text_length, Size of the received string, (size_t)
-  * @param  mac_character_width, Maximum width of the bitmap, (uint8_t
+  * @param	x_coor              This is the x-coordinate for the start of the string, 	(uint16_t)
+  * @param  text_length         Size of the received string, 							(size_t)
+  * @param  max_character_width Maximum width of the bitmap, 							(uint8_t)
+  *
   * @retval	TEXT_ERROR_CODES
   *
   * @see TEXT_ERROR_CODES
@@ -156,18 +157,17 @@ TEXT_ERROR_CODES API_Check_Text_Length(uint16_t x_coor, size_t text_length, uint
 /**
   * @brief	This function writes a received bitmap to the VGA RAM.
   *
-  * This function loops over the entire received bitmap and writes the pixelcolor
-  * to the correct postition in the VGA RAM. The bitmaps for the different characters consist
-  * of two values, either 0xFF or 0x00.
+  * This function loops over the entire received bitmap and writes @p color to the correct
+  * position in the VGA RAM. The bitmaps for the different characters consist of two values, either 0xFF or 0x00.
   * 0xFF = background
   * 0x00 = Actual character
   *
-  * @param	x_coor This is the x-coordinate of the bitmap, (uint16_t)
-  * @param	y_coor This is the y-coordinate of the bitmap, (uint16_t)
-  * @param  character_w, The with of the bitmap, (uint16_t)
-  * @param  character_h, The height of the bitmap, (uint16_t)
-  * @param  color, the color that must be used for the character pixels, (uint8_t)
-  * @param  characterBitmap, Pointer to the bitmap, (const uint8_t *)
+  * @param	x_coor 			This is the x-coordinate of the bitmap, 				(uint16_t)
+  * @param	y_coor 			This is the y-coordinate of the bitmap, 				(uint16_t)
+  * @param  character_w 	The with of the bitmap,									(uint16_t)
+  * @param  character_h 	The height of the bitmap, 								(uint16_t)
+  * @param  color 			The color that must be used for the character pixels, 	(uint8_t)
+  * @param  characterBitmap Pointer to the bitmap, 									(const uint8_t *)
   *
   * @retval	TEXT_ERROR_CODES
   *
@@ -193,16 +193,16 @@ TEXT_ERROR_CODES API_Write_Character_to_VGA(uint16_t x_coor, uint16_t y_coor, ui
 }
 
 /**
-  * @brief	This function makes a big character bitmap from the normal bitmap
+  * @brief	This function makes a big character bitmap from the original bitmap
   *
   * The difference between the big and normal characters is the size. Each pixel (1x1) in the normal
-  * format corresponds with a 2x2 pixelsquare in teh big format.
+  * format corresponds with a 2x2 pixelsquare in the big format.
   * This function creates a new bitmap that increases the size of a received character.
   *
-  * @param	big_character_w The width of the big character, (uint16_t)
-  * @param	big_character_h The height of the big character, (uint16_t)
-  * @param  currentCharacter, Pointer to the normal character, (const uint8_t *)
-  * @param  characterBitmap, Pointer to memory for the new bigger character, (uint8_t *)
+  * @param	big_character_w  The width of the big character, 					(uint16_t)
+  * @param	big_character_h  The height of the big character,					(uint16_t)
+  * @param  currentCharacter Pointer to the normal character, 					(const uint8_t *)
+  * @param  characterBitmap  Pointer to memory for the new bigger character, 	(uint8_t *)
 
   * @retval	TEXT_ERROR_CODES
   *
@@ -233,21 +233,22 @@ TEXT_ERROR_CODES API_Set_Big_Character_Bitmap(uint16_t big_character_w, uint16_t
 /**
   * @brief	This function makes an italic character bitmap from the original bitmap
   *
-  * To create an italic character certain pixels are shifted to the right. The original bitmap
-  * is devided into three sections.
-  * In the first section (top) the pixels are shifted two positions to the right.
-  * In the second section (middle) the pixels are shifted one position to the right.
-  * In the last section (bottom) the pixels are not shifted.
+  * To create an italic character certain pixels are shifted to the right. The original bitmap is
+  * divided into the following three sections.
+  * - Section one:   (top) the pixels are shifted two positions to the right.
+  * - Section two:   (middle) the pixels are shifted one position to the right.
+  * - Section three: (bottom) the pixels are not shifted.
   *
-  * Because of the shifting certain pixels of the new bitmap are not filled in.
-  * In the first section these are pixel 0 and 1 from each row.
-  * In the second section these are pixel 0 and the last pixel from each row
-  * In the last section these are the final two pixels from each row.
+  * Because of the shifting certain pixels of the new bitmap are not filled in. This corresponds to the
+  * following solution for each section:
+  * - Section one: Pixel 0 and 1 from each row.
+  * - Section two: Pixel 0 and the last pixel from each row
+  * - Section three: The final two pixels from each row.
   *
-  * @param	italic__character_w The width of the italic character, (uint16_t)
-  * @param	italic_character_h The height of the italic character, (uint16_t)
-  * @param  currentCharacter, Pointer to the original character, (uint8_t *)
-  * @param  characterBitmap, Pointer to memory for the new italic character, (uint8_t *)
+  * @param	italic__character_w The width of the italic character, 				(uint16_t)
+  * @param	italic_character_h  The height of the italic character, 			(uint16_t)
+  * @param  currentCharacter    Pointer to the original character, 				(uint8_t *)
+  * @param  characterBitmap     Pointer to memory for the new italic character, (uint8_t *)
 
   * @retval	TEXT_ERROR_CODES
   *
@@ -312,10 +313,10 @@ TEXT_ERROR_CODES API_Set_Italic_Character_Bitmap(uint16_t italic__character_w, u
   * Creating a bold character from the original bitmap is done by adding one pixel.
   * For each pixel an additional pixels is added to the right.
   *
-  * @param	bold_character_w The width of the bold character, (uint16_t)
-  * @param	bold_character_h The height of the bold character, (uint16_t)
-  * @param  currentCharacter, Pointer to the original character, (uint8_t *)
-  * @param  characterBitmap, Pointer to memory for the new bold character, (uint8_t *)
+  * @param	bold_character_w The width of the bold character, 				(uint16_t)
+  * @param	bold_character_h The height of the bold character, 				(uint16_t)
+  * @param  currentCharacter Pointer to the original character,				(uint8_t *)
+  * @param  characterBitmap  Pointer to memory for the new bold character, 	(uint8_t *)
 
   * @retval	TEXT_ERROR_CODES
   *

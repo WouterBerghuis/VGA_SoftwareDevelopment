@@ -17,16 +17,17 @@
   * @brief	This function is used for drawing a bitmap on the VGA screen.
   *
   * The bitmap specified in @p bitmap_nr will be drawn from the position specified in @p x_coor
-  * and @p y_coor. These coordinates correspond with the topleft coordinate of
+  * and @p y_coor. These coordinates correspond with the top-left coordinate of the
   * bitmap.
   *
-  * The function will check if the bitmap fits on the screen before it starts
-  * drawing. If the bitmap doesnt fit on the screen the bitmap won't be drawn and the
+  * The function will check if the bitmap fits on the screen before it writes the bitmap to the VGA
+  * RAM. If the bitmap doesn't fit on the screen the bitmap won't be drawn and the
   * function returns with an error.
   *
   * @param	x_coor This the x-coordinate for the bitmap, (uint16_t)
   * @param  y_coor This the y-coordinate for the bitmap, (uint16_t)
-  * @param  bitmap_nr This is the bitmap number, all bitmaps have an unique number
+  * @param  bitmap_nr This is the bitmap number, 0 = Happy Smiley | 1 = Angry Smiley \
+  * 			2 = Arrow Up | 3 = Arrow Down | 4 = Arrow Right | 5 = Arrow Left
   *
   * @retval	BITMAP_ERROR_CODES
   *
@@ -101,13 +102,13 @@ BITMAP_ERROR_CODES API_Draw_Bitmap(uint16_t x_coor, uint16_t y_coor, uint8_t bit
 /**
   * @brief	This function checks if the received bitmap fits on the screen.
   *
-  * This is done by matching the width and height of the bitmap with the choosen coordinates. The
-  * functions returns an error if the bit doesn't fit.
+  * This is done by matching the width and height of the bitmap with the received coordinates. The
+  * functions returns an error if the bitmap doesn't fit on the screen.
   *
   * @param	x_coor This the x-coordinate for the bitmap, (uint16_t)
   * @param  y_coor This the y-coordinate for the bitmap, (uint16_t)
-  * @param  bitmap_w This is the width of the choosen bitmap, (uint16_t)
-  * @param  bitmap_h This is the height of the choosen bitmap, (uint16_t)
+  * @param  bitmap_w This is the width of the received bitmap, (uint16_t)
+  * @param  bitmap_h This is the height of the received bitmap, (uint16_t)
   *
   * @retval	BITMAP_ERROR_CODES
   *

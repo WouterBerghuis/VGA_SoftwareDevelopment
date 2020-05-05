@@ -1,0 +1,11 @@
+<map id="Round_Float_to_Int" name="Round_Float_to_Int">
+<area shape="rect" id="node1" title="This function is used for rounding a float to an integer." alt="" coords="933,46,1068,73"/>
+<area shape="rect" id="node2" href="$d7/d5d/line_8h.html#a212801983849ac7bd9e5451ec5e6d70a" title="This function is used for drawing a line on the VGA&#45;screen that is more horizontal than vertical." alt="" coords="720,5,885,47"/>
+<area shape="rect" id="node9" href="$d7/d5d/line_8h.html#ae0a6adf9b1f50e429ae61f514cb97e82" title="This function is used for drawing a line on the VGA&#45;screen that is more vertical than horizontal." alt="" coords="720,71,885,112"/>
+<area shape="rect" id="node3" href="$d7/d5d/line_8h.html#a2d48f7e3cb682eeee0f095c4e669cc9a" title="This function is used for writing the line on the VGA." alt="" coords="560,46,672,73"/>
+<area shape="rect" id="node4" href="$d7/d5d/line_8h.html#a6f9297d151929e0bf3e975ce1c497f5d" title="This function is used for drawing a line on the VGA screen." alt="" coords="401,46,512,73"/>
+<area shape="rect" id="node5" href="$da/dbf/ellipse_8h.html#a714459c3278993d76088bb586002476c" title="This function is used for drawing vertical filling lines for the ellipse." alt="" coords="197,17,353,43"/>
+<area shape="rect" id="node7" href="$db/dd0/rectangle_8h.html#aa60c0f3bef0d6513c125972eea829092" title="This function writes the rectangle pixel data to the VGA RAM." alt="" coords="202,68,349,109"/>
+<area shape="rect" id="node6" href="$da/dbf/ellipse_8h.html#a2c22d369b239025f9ca327663ec3a86a" title="Draw ellipse functions." alt="" coords="15,17,140,43"/>
+<area shape="rect" id="node8" href="$db/dd0/rectangle_8h.html#a0b83460dfcab1acbf9548526245322da" title="Draw rectangle functions." alt="" coords="5,75,149,102"/>
+</map>

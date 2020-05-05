@@ -1,0 +1,5 @@
+<map id="API_Write_Line_to_VGA_Horizontal" name="API_Write_Line_to_VGA_Horizontal">
+<area shape="rect" id="node1" title="This function is used for drawing a line on the VGA&#45;screen that is more horizontal than vertical." alt="" coords="5,23,171,65"/>
+<area shape="rect" id="node2" href="$d5/d5e/_v_g_a__core_8c.html#a2e5f4ee3788504643af7c5b5e25ec667" title="This function sets the color of a single pixel." alt="" coords="237,5,335,32"/>
+<area shape="rect" id="node3" href="$df/d6d/line_8c.html#a726074376b42d71538eaa0cb17f54cc8" title="This function is used for rounding a float to an integer." alt="" coords="219,56,353,83"/>
+</map>

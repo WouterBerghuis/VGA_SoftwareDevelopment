@@ -1,0 +1,4 @@
+<map id="API_Write_Character_to_VGA" name="API_Write_Character_to_VGA">
+<area shape="rect" id="node1" title="This function writes a received bitmap to the VGA RAM." alt="" coords="164,5,308,47"/>
+<area shape="rect" id="node2" href="$d9/dcc/text_8h.html#a0e1cd4cbb56ac4ada26673d37b160eec" title="This function draws a received string on the VGA screen." alt="" coords="5,13,116,39"/>
+</map>

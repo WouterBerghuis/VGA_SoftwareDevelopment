@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sgn_245',['sgn',['../line_8c.html#a717b67cf51c62a641c775f023ecb034f',1,'sgn(int v):&#160;line.c'],['../line_8h.html#a717b67cf51c62a641c775f023ecb034f',1,'sgn(int v):&#160;line.c']]]
+  ['fontstyle_5fstring_5fto_5fint_259',['Fontstyle_String_to_Int',['../d5/d5e/_v_g_a__core_8c.html#afb940b0255c551ea1b203beaf5bc7b32',1,'Fontstyle_String_to_Int(char *Fontstylestring, uint8_t *fontstyleValue):&#160;VGA_core.c'],['../d0/db6/_v_g_a__core_8h.html#afb940b0255c551ea1b203beaf5bc7b32',1,'Fontstyle_String_to_Int(char *Fontstylestring, uint8_t *fontstyleValue):&#160;VGA_core.c']]]
 ];

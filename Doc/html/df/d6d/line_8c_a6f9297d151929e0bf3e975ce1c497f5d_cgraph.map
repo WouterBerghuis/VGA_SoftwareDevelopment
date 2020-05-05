@@ -1,0 +1,11 @@
+<map id="API_Draw_Line" name="API_Draw_Line">
+<area shape="rect" id="node1" title="This function is used for drawing a line on the VGA screen." alt="" coords="5,82,116,109"/>
+<area shape="rect" id="node2" href="$df/d6d/line_8c.html#a7d79d1836ab6fa62aa0e40586bc925f2" title="This function is used for checking the coordinates of the sent data." alt="" coords="164,57,323,83"/>
+<area shape="rect" id="node3" href="$df/d6d/line_8c.html#a2d48f7e3cb682eeee0f095c4e669cc9a" title="This function is used for writing the line on the VGA." alt="" coords="187,107,299,134"/>
+<area shape="rect" id="node4" href="$df/d6d/line_8c.html#a7aac672c19689effc1c87192f38c5f65" title="This function is used for drawing a line on the VGA&#45;screen that is more horizontal than vertical." alt="" coords="371,5,536,47"/>
+<area shape="rect" id="node7" href="$df/d6d/line_8c.html#a3a965b56e1c93b3ac9111dff692f51fd" title="This function is used for drawing a line on the VGA&#45;screen that is more vertical than horizontal." alt="" coords="371,71,536,112"/>
+<area shape="rect" id="node8" href="$df/d6d/line_8c.html#ac0b303e7c63014dee4699f81fa8d6ac7" title="This function is used to check if a value is divisible by 2." alt="" coords="395,137,512,163"/>
+<area shape="rect" id="node9" href="$df/d6d/line_8c.html#a717b67cf51c62a641c775f023ecb034f" title="This function is used to check if a variable is bigger or smaller than 0." alt="" coords="432,187,475,214"/>
+<area shape="rect" id="node5" href="$d5/d5e/_v_g_a__core_8c.html#a2e5f4ee3788504643af7c5b5e25ec667" title="This function sets the color of a single pixel." alt="" coords="602,17,701,43"/>
+<area shape="rect" id="node6" href="$df/d6d/line_8c.html#a726074376b42d71538eaa0cb17f54cc8" title="This function is used for rounding a float to an integer." alt="" coords="584,71,719,98"/>
+</map>

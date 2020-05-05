@@ -17,13 +17,12 @@
   *
   * Drawing the rectangle on the screen consist of the following steps:
   * 1. Check the received coordinates of the rectangle.
-  * 	 Does the rectangle fit on the screen or is the size too big
-  * 	 for the chosen position.
+  * 	 Does the rectangle fit on the screen or is the size too big for the received position.
   *	2. Write the rectangle pixel data to the VGA RAM
   *	     This is done with the use of the API_Draw_Line function
-  *	3. Fill the inside of the rectangle if @param filled is equal to one
+  *	3. Fill the inside of the rectangle if @p filled is equal to 1
   *		 This is done by setting the pixels within the rectangle corners
-  *		 to @param color.
+  *		 to the received color.
   *
   * @param	x_coor This is the x-coordinate for the rectangle, (uint16_t)
   * @param  y_coor This is the y-coordinate for the rectangle, (uint16_t)
@@ -31,7 +30,7 @@
   * @param  height This is the height of the rectangle, (uint16_t)
   * @param  color  This is the color with which the rectangle is drawn, (uint8_t)
   * @param  filled 0 = Not filled | 1 = Filled, if filled the inside of the
-  * 				rectangle will be filled with @param color, (uint8_t)
+  * 				rectangle will be filled with @p color, (uint8_t)
   *
   * @retval	RECTANGLE_ERROR_CODES
   *
@@ -138,8 +137,7 @@ RECTANGLE_ERROR_CODES API_Write_Rectangle_to_VGA(uint16_t x_coor, uint16_t y_coo
   * @brief	This function fills the inside of the rectangle with one color
   *
   * Filling the rectangle is done by looping over the individual pixels within the rectangle area.
-  * Each individual pixel is set to the @param color.
-  *
+  * Each individual pixel is set to @p color.
   *
   * @param	x_coor This is the x-coordinate for the rectangle, (uint16_t)
   * @param  y_coor This is the y-coordinate for the rectangle, (uint16_t)

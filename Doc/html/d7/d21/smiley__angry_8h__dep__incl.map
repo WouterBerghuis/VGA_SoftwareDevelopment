@@ -1,0 +1,20 @@
+<map id="D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont_ide/Library/bitmaps/smiley_angry.h" name="D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont_ide/Library/bitmaps/smiley_angry.h">
+<area shape="rect" id="node1" title="This file contains the smiley_angry pixel data. This data can be used in combination with the functio..." alt="" coords="696,5,877,76"/>
+<area shape="rect" id="node2" href="$da/dcb/bitmap_8h.html" title="This file is the headerfile of bitmap.c." alt="" coords="549,124,731,195"/>
+<area shape="rect" id="node17" href="$d2/d6b/smiley__angry_8c.html" title=" " alt="" coords="928,243,1109,313"/>
+<area shape="rect" id="node3" href="$df/d9a/bitmap_8c.html" title="This file contains all API function responsible for drawing the different bitmaps." alt="" coords="5,243,187,313"/>
+<area shape="rect" id="node4" href="$d9/dcc/text_8h.html" title="This file contains all the needed defines for the text&#45;drawing functions." alt="" coords="327,369,545,425"/>
+<area shape="rect" id="node14" href="$d5/dea/arrows_8c.html" title="This file contains all the data for the different arrow bitmaps. These bitmaps can be printed on the ..." alt="" coords="261,243,443,313"/>
+<area shape="rect" id="node15" href="$dd/ddd/minecraft_8h.html" title="This file contains all the needed defines for the Minecraft font. This font supports both upper,..." alt="" coords="467,243,648,313"/>
+<area shape="rect" id="node18" href="$df/d55/smiley__happy_8c.html" title="This file contains the smiley_happy pixel data. This data can be used in combination with the functio..." alt="" coords="672,243,853,313"/>
+<area shape="rect" id="node5" href="$d0/db6/_v_g_a__core_8h.html" title="This file is the headerfile of VGA_core.c." alt="" coords="457,480,639,551"/>
+<area shape="rect" id="node13" href="$da/d80/text_8c.html" title=" " alt="" coords="215,487,433,543"/>
+<area shape="rect" id="node6" href="$d7/d5d/line_8h.html" title="This file is the header file of line.c." alt="" coords="328,606,544,662"/>
+<area shape="rect" id="node12" href="$d5/d5e/_v_g_a__core_8c.html" title="This file contains all the core functions for controlling the VGA screen." alt="" coords="568,599,749,669"/>
+<area shape="rect" id="node7" href="$da/dbf/ellipse_8h.html" title="This file contains all the needed defines for the ellipse drawing functions." alt="" coords="123,717,304,788"/>
+<area shape="rect" id="node9" href="$df/d6d/line_8c.html" title="This file contains the API&#45;function for drawing a line on the screen." alt="" coords="328,725,544,781"/>
+<area shape="rect" id="node10" href="$db/dd0/rectangle_8h.html" title="This file contains all the needed defines for the rectangle drawing functions." alt="" coords="568,717,749,788"/>
+<area shape="rect" id="node8" href="$d6/d61/ellipse_8c.html" title="This file contains all API function responsible for drawing an ellipse on the screen." alt="" coords="123,836,304,907"/>
+<area shape="rect" id="node11" href="$d6/d08/rectangle_8c.html" title="This file contains all API function responsible for drawing a rectangle on the screen." alt="" coords="568,836,749,907"/>
+<area shape="rect" id="node16" href="$dd/d20/minecraft_8c.html" title="This file contains the pixel data for all the supported characters from the minecraft font." alt="" coords="569,361,751,432"/>
+</map>

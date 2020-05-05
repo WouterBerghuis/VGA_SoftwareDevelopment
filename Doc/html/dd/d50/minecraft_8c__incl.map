@@ -1,0 +1,10 @@
+<map id="D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont_ide/Library/bitmaps/fonts/minecraft.c" name="D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont_ide/Library/bitmaps/fonts/minecraft.c">
+<area shape="rect" id="node1" title="This file contains the pixel data for all the supported characters from the minecraft font." alt="" coords="6,5,188,76"/>
+<area shape="rect" id="node2" href="$dd/ddd/minecraft_8h.html" title="This file contains all the needed defines for the Minecraft font. This font supports both upper,..." alt="" coords="54,124,140,151"/>
+<area shape="rect" id="node3" title=" " alt="" coords="239,348,304,375"/>
+<area shape="rect" id="node4" href="$da/dcb/bitmap_8h.html" title="This file is the headerfile of bitmap.c." alt="" coords="168,199,240,225"/>
+<area shape="rect" id="node5" href="$d0/db6/_v_g_a__core_8h.html" title="This file is the headerfile of VGA_core.c." alt="" coords="29,273,122,300"/>
+<area shape="rect" id="node6" href="$d1/de3/smiley__happy_8h.html" title="This file contains all the needed defines for the &#39;smiley_happy&#39; bitmap." alt="" coords="147,273,260,300"/>
+<area shape="rect" id="node7" href="$d9/dc4/smiley__angry_8h.html" title="This file contains the smiley_angry pixel data. This data can be used in combination with the functio..." alt="" coords="284,273,395,300"/>
+<area shape="rect" id="node8" href="$d4/daa/arrows_8h.html" title="This file contains all the needed defines for the different arrow bitmaps." alt="" coords="419,273,490,300"/>
+</map>

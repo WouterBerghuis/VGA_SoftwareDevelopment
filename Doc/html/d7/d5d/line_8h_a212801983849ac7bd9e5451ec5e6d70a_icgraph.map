@@ -1,0 +1,9 @@
+<map id="API_Write_Line_to_VGA_Horizontal" name="API_Write_Line_to_VGA_Horizontal">
+<area shape="rect" id="node1" title="This function is used for drawing a line on the VGA&#45;screen that is more horizontal than vertical." alt="" coords="720,27,885,69"/>
+<area shape="rect" id="node2" href="$d7/d5d/line_8h.html#a2d48f7e3cb682eeee0f095c4e669cc9a" title="This function is used for writing the line on the VGA." alt="" coords="560,35,672,61"/>
+<area shape="rect" id="node3" href="$d7/d5d/line_8h.html#a6f9297d151929e0bf3e975ce1c497f5d" title="This function is used for drawing a line on the VGA screen." alt="" coords="401,35,512,61"/>
+<area shape="rect" id="node4" href="$da/dbf/ellipse_8h.html#a714459c3278993d76088bb586002476c" title="This function is used for drawing vertical filling lines for the ellipse." alt="" coords="197,5,353,32"/>
+<area shape="rect" id="node6" href="$db/dd0/rectangle_8h.html#aa60c0f3bef0d6513c125972eea829092" title="This function writes the rectangle pixel data to the VGA RAM." alt="" coords="202,57,349,98"/>
+<area shape="rect" id="node5" href="$da/dbf/ellipse_8h.html#a2c22d369b239025f9ca327663ec3a86a" title="Draw ellipse functions." alt="" coords="15,5,140,32"/>
+<area shape="rect" id="node7" href="$db/dd0/rectangle_8h.html#a0b83460dfcab1acbf9548526245322da" title="Draw rectangle functions." alt="" coords="5,64,149,91"/>
+</map>

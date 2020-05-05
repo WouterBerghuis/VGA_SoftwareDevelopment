@@ -1,0 +1,9 @@
+<map id="API_Draw_Text" name="API_Draw_Text">
+<area shape="rect" id="node1" title="This function draws a received string on the VGA screen." alt="" coords="5,129,116,156"/>
+<area shape="rect" id="node2" href="$da/d80/text_8c.html#a069eeefd999d06a26e734444d3e49c04" title="This function checks if the received string fits on the screen." alt="" coords="165,5,330,32"/>
+<area shape="rect" id="node3" href="$da/d80/text_8c.html#a16f8bd24b7b074e4ba037a5cba47fd80" title="This function makes a big character bitmap from the original bitmap." alt="" coords="168,57,327,98"/>
+<area shape="rect" id="node4" href="$da/d80/text_8c.html#a45116a87ff57792ead8ebf593e642bcb" title="This function makes a bold character bitmap from the original bitmap." alt="" coords="164,122,331,163"/>
+<area shape="rect" id="node5" href="$da/d80/text_8c.html#a11b5825c20b3e62e75cfb44d970a0eea" title="This function makes an italic character bitmap from the original bitmap." alt="" coords="164,187,331,229"/>
+<area shape="rect" id="node6" href="$da/d80/text_8c.html#ae0ccabd12cd111bcfcdfc4c490bd7aed" title="This function writes a received bitmap to the VGA RAM." alt="" coords="175,253,319,294"/>
+<area shape="rect" id="node7" href="$d5/d5e/_v_g_a__core_8c.html#a2e5f4ee3788504643af7c5b5e25ec667" title="This function sets the color of a single pixel." alt="" coords="379,260,477,287"/>
+</map>

@@ -14,15 +14,15 @@
 /**
   * @brief	This function is used for drawing a line on the VGA screen.
   *
-  * A line will be drawn between 2 given coordinates, the width and the colour.
-  * The coordinates will be checked if they fit on the screen.
-  * If that's true the function API_Write_Line will be called to draw the line on the screen.
+  * A line will be drawn between 2 given coordinates with the specified width and color.
+  * Before the line is drawn the coordinates are checked to make sure the line fits on the screen.
+  * If the line fits on the screen the function API_Write_Line will be called to draw the line on the screen.
   *
   * @param	x_coor1 This the x-coordinate for the line, (uint16_t)
   * @param  y_coor1 This the y-coordinate for the line, (uint16_t)
   * @param	x_coor2 This the 2nd x-coordinate for the line, (uint16_t)
   * @param  y_coor2 This the 2nd y-coordinate for the line, (uint16_t)
-  * @param  kleur 	This is the color of the line 		, (char)
+  * @param  color 	This is the color of the line 		, (char)
   * @param  dikte   This is the width of the line		, (uint16_t)
   * @retval	LINE_ERROR_CODES
   *
@@ -72,15 +72,15 @@ LINE_ERROR_CODES API_Check_LineCoords(uint16_t x_coor1, uint16_t y_coor1, uint16
   * @brief	This function is used for writing the line on the VGA
   *
   * Firstly the width is checked if it is even or uneven. This is checked because that has effect on the placement of the line.
-  * Secondly the sloap of the line will be checked. There is a function for a more horizontal than vertical line and a function for a more
+  * Secondly the slope of the line will be checked. There is a function for a more horizontal than vertical line and a function for a more
   * vertical than horizontal line.
   *
-  * @param	x_coor1 This is the first x-coordinate for the line,  (uint16_t)
-  * @param  y_coor1 This is the first y-coordinate for the line,  (uint16_t)
-  * @param	x_coor2 This is the second x-coordinate for the line, (uint16_t)
-  * @param  y_coor2 This is the second y-coordinate for the line, (uint16_t)
-  * @param  color 	This is the color of the line 		, (uint8_t)
-  * @param  dikte   This is the width of the line		, (uint16_t)
+  * @param	x_coor1 This is the first x-coordinate for the line,  	(uint16_t)
+  * @param  y_coor1 This is the first y-coordinate for the line,  	(uint16_t)
+  * @param	x_coor2 This is the second x-coordinate for the line, 	(uint16_t)
+  * @param  y_coor2 This is the second y-coordinate for the line, 	(uint16_t)
+  * @param  color 	This is the color of the line,				 	(uint8_t)
+  * @param  dikte   This is the width of the line, 					(uint16_t)
   *
   * @retval	LINE_ERROR_CODES
   *
@@ -133,30 +133,30 @@ LINE_ERROR_CODES API_Write_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_c
 /**
   * @brief	This function is used for drawing a line on the VGA-screen that is more horizontal than vertical.
   *
-  * There are too for-loops for drawing the line on the VGA. The first for-loop is for drawing the original line.
+  * There are two for-loops for drawing the line on the VGA. The first for-loop is for drawing the original line.
   * The second for-loop is for creating the width of the line.
   *
-  * The formula for the line: x = i + x_coor1, y = slope * i + offset + k & y = slope * i + offset - k
+  * The formula for the line is:\f$x = i + x_coor1\f$, \f$y = slope * i + offset + k\f$ and \f$y = slope * i + offset - k\f$
   * For an uneven width, the offset is 0. For an even width, the offset is 0.5.
-  * The 'k' is used for making the width of the line by shifting the y one upwards or downwards.
+  * The variable 'k' is used for making the width of the line by shifting the y one pixel up or down.
   *
   * Before the x and y are used for the API_set_pixel() function, they are rounded and converted to integers by the function Round_Float_to_Int().
   *
-  * @param	sloap  This is the sloap of the line, (float)
-  * @param  dx  This is the difference between x_coor1 and x_coor2, (float)
-  * @param	dy  This is the difference between y_coor1 and y_coor2, (float)
-  * @param  offset  This is the offset which is used for creating the width of the line, (float)
-  * @param  width  This is the width of the line, (uint16_t)
-  * @param  sdx  This is the signed value of dx (1 or -1), (int)
-  * @param  x_coor1  This is the x-coordinate of the first coordinate, (uint16_t)
-  * @param  y_coor1 This is the y-coordinate of the first coordinate, (uint16_t)
-  * @param  Colour  This is the colour of the line, (uint8_t)
+  * @param	slope  This is the sloap of the line, 											(float)
+  * @param  dx  This is the difference between x_coor1 and x_coor2, 						(float)
+  * @param	dy  This is the difference between y_coor1 and y_coor2, 						(float)
+  * @param  offset  This is the offset which is used for creating the width of the line,	(float)
+  * @param  width  This is the width of the line, 											(uint16_t)
+  * @param  sdx  This is the signed value of dx (1 or -1), 									(int)
+  * @param  x_coor1  This is the x-coordinate of the first coordinate, 						(uint16_t)
+  * @param  y_coor1 This is the y-coordinate of the first coordinate, 						(uint16_t)
+  * @param  color  This is the color of the line, 											(uint8_t)
   *
   * @retval	LINE_ERROR_CODES
   *
   * @see LINE_ERROR_CODES
   */
-LINE_ERROR_CODES API_Write_Line_to_VGA_Horizontal(float slope, float dx, float dy, float offset, uint16_t width, int sdx, uint16_t x_coor1, uint16_t y_coor1, uint8_t Colour){
+LINE_ERROR_CODES API_Write_Line_to_VGA_Horizontal(float slope, float dx, float dy, float offset, uint16_t width, int sdx, uint16_t x_coor1, uint16_t y_coor1, uint8_t color){
 	float x_temp, y_temp;
 	int i,k;
 	uint16_t x,y;
@@ -167,13 +167,13 @@ LINE_ERROR_CODES API_Write_Line_to_VGA_Horizontal(float slope, float dx, float d
 			y_temp = slope * i + y_coor1 + offset + k;
 		    x = Round_Float_to_Int(x_temp);
 			y = Round_Float_to_Int(y_temp);
-			API_SetPixel(x, y, Colour);
+			API_SetPixel(x, y, color);
 
 			x_temp = i + x_coor1;
 			y_temp = slope * i + y_coor1 - offset - k;
 			x = Round_Float_to_Int(x_temp);
 			y = Round_Float_to_Int(y_temp);
-			API_SetPixel(x, y, Colour);
+			API_SetPixel(x, y, color);
 		}
 	}
 	return LINE_ON_VGA_SUCCESS;
@@ -182,31 +182,31 @@ LINE_ERROR_CODES API_Write_Line_to_VGA_Horizontal(float slope, float dx, float d
 /**
   * @brief	This function is used for drawing a line on the VGA-screen that is more vertical than horizontal.
   *
-  * There are too for-loops for drawing the line on the VGA. The first for-loop is for drawing the original line.
+  * There are two for-loops for drawing the line on the VGA. The first for-loop is for drawing the original line.
   * The second for-loop is for creating the width of the line.
   *
-  * The formula for the line: y = i + y_coor1, x = slope * i + offset + k & x = slope * i + offset - k
+  * The formula for the line: \f$y = i + y_coor1\f$, \f$x = slope * i + offset + k\f$ and \f$x = slope * i + offset - k\f$
   *
   * For an uneven width, the offset is 0. For an even width, the offset is 0.5.
-  * The 'k' is used for making the width of the line by shifting the y one upwards or downwards.
+  * The variable 'k' is used for making the width of the line by shifting the y one upwards or downwards.
   *
   * Before the x and y are used for the API_set_pixel() function, they are rounded and converted to integers by the function Round_Float_to_Int().
   *
-  * @param	sloap  This is the sloap of the line, (float)
-  * @param  dxabs  This is the absolute difference between x_coor1 and x_coor2, (float)
-  * @param	dy  This is the difference between y_coor1 and y_coor2, (float)
-  * @param  offset  This is the offset which is used for creating the width of the line, (float)
-  * @param  width  This is the width of the line, (uint16_t)
-  * @param  sdy  This is the signed value of dy (1 or -1), (int)
-  * @param  x_coor1  This is the x-coordinate of the first coordinate, (uint16_t)
-  * @param  y_coor1 This is the y-coordinate of the first coordinate, (uint16_t)
-  * @param  Colour  This is the colour of the line, (uint8_t)
+  * @param	slope    This is the sloap of the line, 										(float)
+  * @param  dxabs    This is the absolute difference between x_coor1 and x_coor2, 			(float)
+  * @param	dy       This is the difference between y_coor1 and y_coor2, 					(float)
+  * @param  offset   This is the offset which is used for creating the width of the line, 	(float)
+  * @param  width    This is the width of the line, 										(uint16_t)
+  * @param  sdy      This is the signed value of dy (1 or -1), 								(int)
+  * @param  x_coor1  This is the x-coordinate of the first coordinate, 						(uint16_t)
+  * @param  y_coor1  This is the y-coordinate of the first coordinate, 						(uint16_t)
+  * @param  color    This is the color of the line, 										(uint8_t)
   *
   * @retval	LINE_ERROR_CODES
   *
   * @see LINE_ERROR_CODES
   */
-LINE_ERROR_CODES API_Write_Line_to_VGA_Vertical(float slope, float dxabs, float dy, float offset, uint16_t width, int sdy, uint16_t x_coor1, uint16_t y_coor1, uint8_t Colour){
+LINE_ERROR_CODES API_Write_Line_to_VGA_Vertical(float slope, float dxabs, float dy, float offset, uint16_t width, int sdy, uint16_t x_coor1, uint16_t y_coor1, uint8_t color){
 	float x_temp, y_temp;
 	int i,k;
 	uint16_t x,y;
@@ -217,13 +217,13 @@ LINE_ERROR_CODES API_Write_Line_to_VGA_Vertical(float slope, float dxabs, float 
 			x_temp = slope * i + x_coor1 + offset + k;
 			x = Round_Float_to_Int(x_temp);
 			y = Round_Float_to_Int(y_temp);
-			API_SetPixel(x, y, Colour);
+			API_SetPixel(x, y, color);
 
 			y_temp = i + y_coor1 ;
 			x_temp = slope * i + x_coor1 - offset - k;
 			x = Round_Float_to_Int(x_temp);
 			y = Round_Float_to_Int(y_temp);
-			API_SetPixel(x, y, Colour);
+			API_SetPixel(x, y, color);
 		}
 	}
 	return LINE_ON_VGA_SUCCESS;
@@ -232,7 +232,7 @@ LINE_ERROR_CODES API_Write_Line_to_VGA_Vertical(float slope, float dxabs, float 
 /**
   * @brief	This function is used for rounding a float to an integer
   *
-  * @param	The float that will be rounded up  (float)
+  * @param 	num The float that will be rounded up,  (float)
   * @retval int
   */
 int Round_Float_to_Int(float num)
@@ -243,27 +243,21 @@ int Round_Float_to_Int(float num)
 /**
   * @brief	This function is used to check if a value is divisible by 2
   *
-  * @param	The variable that will be checked  (uint16_t)
+  * @param	data The variable that will be checked,  (uint16_t)
   * @retval int
   */
 int Even_or_Uneven(uint16_t data)
 {
-	int var;
 	if(data % 2 == 0)
-	{
-		var = 1;
-	}
+		return 1;
 	else
-	{
-		var = 0;
-	}
-	return var;
+		return 0;
 }
 
 /**
   * @brief	This function is used to check if a variable is bigger or smaller than 0
   *
-  * @param	The variable that will be checked  (int)
+  * @param	v The variable that will be checked,  (int)
   * @retval int
   */
 int sgn(int v)

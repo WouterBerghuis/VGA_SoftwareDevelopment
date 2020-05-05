@@ -1,0 +1,4 @@
+<map id="API_Check_Bitmap_Position" name="API_Check_Bitmap_Position">
+<area shape="rect" id="node1" title="This function checks if the received bitmap fits on the screen." alt="" coords="180,5,369,32"/>
+<area shape="rect" id="node2" href="$da/dcb/bitmap_8h.html#ace7afd6d3172262c2868a2733b684c10" title="This function is used for drawing a bitmap on the VGA screen." alt="" coords="5,5,132,32"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="API_Write_Bitmap_to_VGA" name="API_Write_Bitmap_to_VGA">
+<area shape="rect" id="node1" title="This function sends the bitmap data to the VGA&#45;RAM." alt="" coords="180,5,363,32"/>
+<area shape="rect" id="node2" href="$da/dcb/bitmap_8h.html#ace7afd6d3172262c2868a2733b684c10" title="This function is used for drawing a bitmap on the VGA screen." alt="" coords="5,5,132,32"/>
+</map>

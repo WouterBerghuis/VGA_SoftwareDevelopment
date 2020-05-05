@@ -1,0 +1,12 @@
+<map id="D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont_ide/Library/bitmaps/fonts/minecraft.h" name="D:/Bestanden/ET Jaar 3/Software Ontwikkeling/Software/swont_ide/Library/bitmaps/fonts/minecraft.h">
+<area shape="rect" id="node1" title="This file contains all the needed defines for the Minecraft font. This font supports both upper,..." alt="" coords="183,5,365,76"/>
+<area shape="rect" id="node2" title=" " alt="" coords="140,348,205,375"/>
+<area shape="rect" id="node3" href="$da/dcb/bitmap_8h.html" title="This file is the headerfile of bitmap.c." alt="" coords="238,124,310,151"/>
+<area shape="rect" id="node4" href="$d0/db6/_v_g_a__core_8h.html" title="This file is the headerfile of VGA_core.c." alt="" coords="334,199,427,225"/>
+<area shape="rect" id="node8" href="$d1/de3/smiley__happy_8h.html" title="This file contains all the needed defines for the &#39;smiley_happy&#39; bitmap." alt="" coords="21,273,135,300"/>
+<area shape="rect" id="node9" href="$d9/dc4/smiley__angry_8h.html" title="This file contains the smiley_angry pixel data. This data can be used in combination with the functio..." alt="" coords="104,199,215,225"/>
+<area shape="rect" id="node10" href="$d4/daa/arrows_8h.html" title="This file contains all the needed defines for the different arrow bitmaps." alt="" coords="239,199,309,225"/>
+<area shape="rect" id="node5" title=" " alt="" coords="351,273,413,300"/>
+<area shape="rect" id="node6" title=" " alt="" coords="261,273,327,300"/>
+<area shape="rect" id="node7" href="$d9/dcc/text_8h.html" title="This file contains all the needed defines for the text&#45;drawing functions." alt="" coords="437,273,492,300"/>
+</map>
