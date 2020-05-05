@@ -38,6 +38,7 @@
 #include "rectangle.h"
 #include "ellipse.h"
 #include "receive_command.h"
+#include "stm32f4xx_hal_rcc.h"
 
 
 
@@ -74,6 +75,8 @@ volatile uint8_t rx_index = 0;
 uint8_t rx_buffer[MAX_AMOUNT_OF_COMMANDS][MAX_SIZE_MESSAGE];
 volatile uint8_t commando = 0;
 bool New_Message = false;
+uint32_t G_CLK;
+uint32_t D_mS;
 
 /* USER CODE END PV */
 
@@ -124,7 +127,7 @@ int main(void)
   HAL_UART_Receive_IT (&huart2, &rx_data, 1);
   /* Initialize non-CubeMX peripherals */
   API_VGA_Screen_Init();
-
+  API_Wait_Init();
 //  API_Draw_Text(0, 10, VGA_COL_RED,  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Minecraft", 0, 0);
 //  API_Draw_Text(0, 20, VGA_COL_BLUE, "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB", "Minecraft", 0, 1);
 //  API_Draw_Text(0, 30, VGA_COL_GREEN, "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 0, 2);
@@ -158,6 +161,7 @@ int main(void)
   while (1)
   {
 	  API_Send_Command();
+	  API_Wait(100);
 	  //HAL_Delay(100);
     /* USER CODE END WHILE */
 
@@ -266,6 +270,22 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	}
 }
 
+void API_Wait_Init()
+{
+	  G_CLK = HAL_RCC_GetSysClockFreq();
+	  D_mS = (G_CLK / 4000);					/**< Clock ticks needed to wait 1 millisecond */
+}
+
+uint8_t API_Wait(uint32_t ms)
+{
+  /* Multiply micros with multipler */
+  /* Substract 10 */
+  ms = ms * D_mS;
+  /* 4 cycles for one loop */
+  while (ms--);
+
+  return 0;
+}
 
 /* USER CODE END 4 */
 

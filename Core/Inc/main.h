@@ -54,6 +54,8 @@ extern "C" {
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 void API_Send_Command(void);
+void API_Wait_Init(void);
+uint8_t API_Wait(uint32_t ms);
 
 /* USER CODE BEGIN EFP */
 
