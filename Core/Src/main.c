@@ -137,18 +137,18 @@ int main(void)
 //  API_Draw_Rectangle(10, 10, 20, 30, VGA_COL_RED, 0);
 //  API_Draw_Rectangle(100, 50, 30, 50, VGA_COL_GREEN, 1);
 
-//  char Command_word[MAX_COMMANDWORD_SIZE] = {0};
-//  char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
-//
-//  char Teststring[]="clearscherm, blauw";  // char array waarin je je string met data zet
-//  	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
-//
-//  uart_parser(Teststring, Command_word, Commandstring);
-//
-//  COMMANDCHECK_ERROR_CODES error_check = Command_check(Command_word, Commandstring);
-//
-//  if(error_check == CHECK_COMMAND_SUCCESS)
-//	  Run_Command(Command_word, Commandstring);
+  char Command_word[MAX_COMMANDWORD_SIZE] = {0};
+  char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
+
+  	  char Teststring[]="cirkel, 100,100,60,40,lichtcyaan";  // char array waarin je je string met data zet
+  	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
+
+  uart_parser(Teststring, Command_word, Commandstring);
+
+  COMMANDCHECK_ERROR_CODES error_check = Command_check(Command_word, Commandstring);
+
+  if(error_check == CHECK_COMMAND_SUCCESS)
+	  Run_Command(Command_word, Commandstring);
 
   /* USER CODE END 2 */
 
