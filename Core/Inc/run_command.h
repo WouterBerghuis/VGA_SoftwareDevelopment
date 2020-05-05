@@ -17,6 +17,8 @@
 #include <line.h>
 #include <bitmap.h>
 #include <ellipse.h>
+#include <rectangle.h>
+#include <text.h>
 
 /*
  * @brief 	Returnvalues for calling the API-functions

@@ -112,23 +112,23 @@ RECTANGLE_ERROR_CODES API_Write_Rectangle_to_VGA(uint16_t x_coor, uint16_t y_coo
 
 	// Draw top line
 	error = API_Draw_Line(x_coor, y_coor, (x_coor + width), y_coor, color, RECTANGLE_WEIGHT);
-	if(error)
+	if(error != LINE_ON_VGA_SUCCESS)
 		return ERROR_LINE_PLACEMENT;
 
 	// Draw bottom line
 	error = API_Draw_Line(x_coor, (y_coor + height), (x_coor + width), (y_coor + height), color, RECTANGLE_WEIGHT);
-	if(error)
+	if(error != LINE_ON_VGA_SUCCESS)
 		return ERROR_LINE_PLACEMENT;
 
 	// Draw Left line
 	error = API_Draw_Line(x_coor, y_coor, x_coor, (y_coor + height), color, RECTANGLE_WEIGHT);
-	if(error)
+	if(error != LINE_ON_VGA_SUCCESS)
 		return ERROR_LINE_PLACEMENT;
 
 	// Draw right line
 	// Weird bug: Line on the right side must be one pixel longer
 	error = API_Draw_Line((x_coor + width), y_coor, (x_coor + width), (y_coor + height + RECTANGLE_LINE_OFFSET_BUG), color, RECTANGLE_WEIGHT);
-	if(error)
+	if(error != LINE_ON_VGA_SUCCESS)
 		return ERROR_LINE_PLACEMENT;
 
 	return DRAW_RECTANGLE_SUCCESS;

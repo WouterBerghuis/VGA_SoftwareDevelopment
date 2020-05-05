@@ -60,12 +60,12 @@ void Run_Command_Line(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMAND
 }
 
 void Run_Command_Rectangle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
-	//API_Draw_Rectangle(atoi(Commandstringdevided[1]), // x
-//			 	  	   atoi(Commandstringdevided[2]),	// y
-//					   atoi(Commandstringdevided[3]),	// Width
-//					   atoi(Commandstringdevided[4]),	// Height
-//					   atoi(Commandstringdevided[5]),	// Color
-//					   atoi(Commandstringdevided[6]));	// Filled
+	API_Draw_Rectangle(atoi(Commandstringdevided[1]),   // x
+			 	  	   atoi(Commandstringdevided[2]),	// y
+					   atoi(Commandstringdevided[3]),	// Width
+					   atoi(Commandstringdevided[4]),	// Height
+					   atoi(Commandstringdevided[5]),	// Color
+					   atoi(Commandstringdevided[6]));	// Filled
 }
 
 void Run_Command_Text(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
