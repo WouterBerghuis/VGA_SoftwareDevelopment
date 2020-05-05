@@ -59,11 +59,8 @@ typedef enum{
 	VGA_SETPIXEL_SUCCESS,
 	COLOR_FOUND,
 	COLOR_NOT_FOUND,
-	COLOR_TO_STRING_FAILED,
-	COLOR_TO_STRING_SUCCES,
 	FONTSTYLE_NOT_FOUND,
-	FONTSTYLE_TO_INT_FAILED,
-	FONTSTYLE_TO_INT_SUCCESS
+	FONTSTYLE_FOUND
 }VGA_INIT_ERROR_CODES;
 
 /**
@@ -151,8 +148,6 @@ VGA_INIT_ERROR_CODES API_VGA_Screen_Init(void);
 VGA_INIT_ERROR_CODES API_Clearscreen(uint8_t color);
 VGA_INIT_ERROR_CODES API_SetPixel(uint16_t xp, uint16_t yp, uint8_t color);
 VGA_INIT_ERROR_CODES Check_Color(char *Colorstring, uint8_t *colorValue);
-VGA_INIT_ERROR_CODES Color_String_to_Int(char *Colorstring, uint8_t *colorValue);
 VGA_INIT_ERROR_CODES Check_Fontstyle(char *Fontstylestring, uint8_t *fontstyleValue);
-VGA_INIT_ERROR_CODES Fontstyle_String_to_Int(char *Fontstylestring, uint8_t *fontstyleValue);
 
 #endif // __VGA_core_H
