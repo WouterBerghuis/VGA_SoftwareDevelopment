@@ -30,7 +30,7 @@ uint32_t D_mS;
 void API_Wait_Init()
 {
 	  G_CLK = HAL_RCC_GetSysClockFreq();		/**< Request the set clock frequency and store it in G_CLK */
-	  D_mS = (G_CLK / 4000);					/**< Calculate the clock ticks needed to wait 1 millisecond*/
+	  D_mS = (G_CLK / TICKS);					/**< Calculate the clock ticks needed to wait 1 millisecond*/
 }
 
 /**

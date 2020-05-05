@@ -13,6 +13,8 @@
 
 #include "main.h"
 
+#define TICKS 4000
+
 /*
  * FUNCTIONS
  */
