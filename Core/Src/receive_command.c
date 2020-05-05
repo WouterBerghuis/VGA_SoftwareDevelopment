@@ -40,26 +40,36 @@ void API_Send_Command()
 
 	if (New_Message == true)
 	{
-		uart_parser((char*)rx_buffer[Message_Counter], Command_word, Commandstring); 		 /**< Send the command to the parser*/
-		COMMANDCHECK_ERROR_CODES error_check = Command_check(Command_word, Commandstring);	 /**< Check if the send command is valid */
-
-		if(error_check == CHECK_COMMAND_SUCCESS)
-		{
-			error_check = Run_Command(Command_word, Commandstring);							 /**< If the command is valid, the command wil be ran in Run_Command */
-
-			if(error_check == API_FUNCTION_CALL_SUCCESS)									 /**< If the command is executed without error, inform the user it is executed */
-				API_Uart_Transmit (No_error);
-			else
-				API_Uart_Transmit (Error);													/**< If a error returned, inform the user it is was not executed */
-		}
-
-		else if(error_check == COMMAND_DOES_NOT_EXIST)
-			API_Uart_Transmit (Error);														 /**< If the command is invalid, inform the user that the command is invalid */
-
-		memset(Commandstring, 0, sizeof(Commandstring));									 /**< Reset the commandstring buffer*/
-		memset(Command_word, 0, sizeof(Command_word));										 /**< Reset the Command_word buffer*/
-		Message_Counter++; 																	 /**< Keeps track of the messages send */
+		API_Execute_Command();													 			 /**< Keeps track of the messages send */
 		New_Message = false;																 /**< Reset the New_Message flag */
 	}
 
+	if (Message_Counter != commando)
+	{
+		API_Execute_Command();
+	}
+
+}
+
+void API_Execute_Command()
+{
+	uart_parser((char*)rx_buffer[Message_Counter], Command_word, Commandstring); 		 /**< Send the command to the parser*/
+	COMMANDCHECK_ERROR_CODES error_check = Command_check(Command_word, Commandstring);	 /**< Check if the send command is valid */
+
+	if(error_check == CHECK_COMMAND_SUCCESS)
+	{
+		error_check = Run_Command(Command_word, Commandstring);							 /**< If the command is valid, the command wil be ran in Run_Command */
+
+		if(error_check == API_FUNCTION_CALL_SUCCESS)									 /**< If the command is executed without error, inform the user it is executed */
+			API_Uart_Transmit (No_error);
+		else
+			API_Uart_Transmit (Error);													/**< If a error returned, inform the user it is was not executed */
+	}
+
+	else if(error_check == COMMAND_DOES_NOT_EXIST)
+		API_Uart_Transmit (Error);														 /**< If the command is invalid, inform the user that the command is invalid */
+
+	memset(Commandstring, 0, sizeof(Commandstring));									 /**< Reset the Commandstring buffer*/
+	memset(Command_word, 0, sizeof(Command_word));										 /**< Reset the Command_word buffer*/
+	Message_Counter++;
 }
