@@ -76,6 +76,7 @@ void Run_Command_Text(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMAND
 					   Commandstringdevided[5],			// Fontname
 			 	  atoi(Commandstringdevided[6]),		// Fontsize
 				  atoi(Commandstringdevided[7]));		// Font style
+
 }
 
 void Run_Command_Bitmap(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
