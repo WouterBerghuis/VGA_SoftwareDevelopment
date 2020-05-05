@@ -34,7 +34,6 @@ void API_Wait_Init()
 }
 
 /**
-/**
   * @brief	This function is used to wait the amount of milliseconds the user wants.
   *
   *

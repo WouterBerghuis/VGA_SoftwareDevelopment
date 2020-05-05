@@ -67,6 +67,11 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 		error = CHECK_COMMAND_SUCCESS;
 	}
 
+	else if (strcmp(First_word, "wacht") == 0)
+		{
+			error = CHECK_COMMAND_SUCCESS;
+		}
+
 	else
 		return COMMAND_DOES_NOT_EXIST;
 

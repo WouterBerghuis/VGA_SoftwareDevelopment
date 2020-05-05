@@ -158,7 +158,7 @@ int main(void)
   while (1)
   {
 	  API_Send_Command();
-	  API_Wait(100);
+	  //API_Wait(100);
 	  //HAL_Delay(100);
     /* USER CODE END WHILE */
 
