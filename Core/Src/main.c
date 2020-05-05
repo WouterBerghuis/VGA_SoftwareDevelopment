@@ -38,10 +38,7 @@
 #include "rectangle.h"
 #include "ellipse.h"
 #include "receive_command.h"
-#include "stm32f4xx_hal_rcc.h"
-
-
-
+#include "wait.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -75,8 +72,6 @@ volatile uint8_t rx_index = 0;
 uint8_t rx_buffer[MAX_AMOUNT_OF_COMMANDS][MAX_SIZE_MESSAGE];
 volatile uint8_t commando = 0;
 bool New_Message = false;
-uint32_t G_CLK;
-uint32_t D_mS;
 
 /* USER CODE END PV */
 
@@ -128,32 +123,6 @@ int main(void)
   /* Initialize non-CubeMX peripherals */
   API_VGA_Screen_Init();
   API_Wait_Init();
-//  API_Draw_Text(0, 10, VGA_COL_RED,  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Minecraft", 0, 0);
-//  API_Draw_Text(0, 20, VGA_COL_BLUE, "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB", "Minecraft", 0, 1);
-//  API_Draw_Text(0, 30, VGA_COL_GREEN, "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 0, 2);
-//  API_Draw_Text(0, 50, VGA_COL_RED,  "SSSSSSSSSSSSSSSSSSSSSSSSSSS", "Minecraft", 1, 0);
-//  API_Draw_Text(0, 70, VGA_COL_BLUE, "XXXXXXXXXXXXXXXXXXXXXX", "Minecraft", 1, 1);
-//  API_Draw_Text(0, 90, VGA_COL_GREEN, "QQQQQQQQQQQQQ", "Minecraft", 1, 2);
-
-   API_Draw_Ellipse(100, 100,20, 60, VGA_COL_RED);
-//   API_Draw_Ellipse(50, 50,80, 40, VGA_COL_BLUE);
-//   API_Draw_Ellipse(200, 150, 10, 20, VGA_COL_GREEN);
-//  API_Draw_Rectangle(10, 10, 20, 30, VGA_COL_RED, 0);
-//  API_Draw_Rectangle(100, 50, 30, 50, VGA_COL_GREEN, 1);
-
-//  char Command_word[MAX_COMMANDWORD_SIZE] = {0};
-//  char Commandstring[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE] = {0};
-//
-//  char Teststring[]="clearscherm, blauw";  // char array waarin je je string met data zet
-//  	  //HAL_UART_Transmit(&huart2, (uint8_t*)First, sizeof(First), 1000); // string versturen via uart2
-//
-//  uart_parser(Teststring, Command_word, Commandstring);
-//
-//  COMMANDCHECK_ERROR_CODES error_check = Command_check(Command_word, Commandstring);
-//
-//  if(error_check == CHECK_COMMAND_SUCCESS)
-//	  Run_Command(Command_word, Commandstring);
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -268,23 +237,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 		HAL_UART_Receive_IT (&huart2, &rx_data, 1); /**< receive data (one character at a time) */
 	}
-}
-
-void API_Wait_Init()
-{
-	  G_CLK = HAL_RCC_GetSysClockFreq();
-	  D_mS = (G_CLK / 4000);					/**< Clock ticks needed to wait 1 millisecond */
-}
-
-uint8_t API_Wait(uint32_t ms)
-{
-  /* Multiply micros with multipler */
-  /* Substract 10 */
-  ms = ms * D_mS;
-  /* 4 cycles for one loop */
-  while (ms--);
-
-  return 0;
 }
 
 /* USER CODE END 4 */

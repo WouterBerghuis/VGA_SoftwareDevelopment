@@ -8,6 +8,16 @@
   *
   ******************************************************************************
 **/
+#ifndef INC_WAIT_H_
+#define INC_WAIT_H_
+
+#include "main.h"
+
 /*
-#include "stm32f4xx_hal_rcc.h"
-*/
+ * FUNCTIONS
+ */
+void API_Wait_Init(void);
+uint32_t API_Wait(uint32_t ms);
+
+
+#endif /* INC_WAIT_H */
