@@ -14,54 +14,55 @@
 void API_Error_Handler(uint8_t ErrorCode)
 {
     uint8_t error = ErrorCode;
-    char *message;
+    uint8_t message[60];
     switch(error)
     {
     	case 0:
-    		message = "Command successfully executed\n";
-    		API_Uart_Transmit((uint8_t*)message);
+    		strcpy((char*)message, "Command successfully executed\n");
     		break;
         case 1:
-        	message = "Error: Placements X coordinates\n";
-        	API_Uart_Transmit((uint8_t*)message);
+    		strcpy((char*)message, "Error: Placements X coordinates\n");
+
         	break;
         case 2:
-        	message = "Error: Placements Y coordinates\n";
-        	API_Uart_Transmit((uint8_t*)message);
+    		strcpy((char*)message, "Error: Placements Y coordinates\n");
+
         	break;
         case 3:
-        	message = "Error: Line could not be placed\n";
-        	API_Uart_Transmit((uint8_t*)message);
+    		strcpy((char*)message, "Error: Line could not be placed\n");
+
         	break;
         case 4:
-        	message = "Error: Could not fill rectangle\n";
-        	API_Uart_Transmit((uint8_t*)message);
+    		strcpy((char*)message, "Error: Could not fill rectangle\n");
+
         	break;
         case 5:
-        	message = "Error: Received font is not available\n";
-        	API_Uart_Transmit((uint8_t*)message);
+    		strcpy((char*)message, "Error: Received font is not available\n");
+
         	break;
         case 6:
-        	message = "Error: Received fontsize is not available\n";
-        	API_Uart_Transmit((uint8_t*)message);
+    		strcpy((char*)message, "Error: Received fontsize is not available\n");
+
         	break;
         case 7:
-        	message = "Error: Received string doesn't fit on the screen\n";
-        	API_Uart_Transmit((uint8_t*)message);
+    		strcpy((char*)message, "Error: Received string doesn't fit on the screen\n");
+
         	break;
         case 8:
-        	message = "Error: Error occurred during writing character to VGA RAM\n";
-        	API_Uart_Transmit((uint8_t*)message);
+    		strcpy((char*)message, "Error occurred during writing character to VGA RAM\n");
+
         	break;
         case 9:
-        	message = "Error: Received bitmap number doesn't exist\n";
-        	API_Uart_Transmit((uint8_t*)message);
+    		strcpy((char*)message, "Received bitmap number doesn't exist\n");
+
         	break;
         case 10:
-        	message = "Error: Command failed to execute\n";
-        	API_Uart_Transmit((uint8_t*)message);
-        	break;
-   }
+    		strcpy((char*)message, "Error: Command failed to execute\n");
 
+        	break;
+
+        default: strcpy((char*)message,"Error: Error in error handling");
+   }
+	API_Uart_Transmit(message);
 }
 
