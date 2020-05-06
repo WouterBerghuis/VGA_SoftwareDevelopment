@@ -44,6 +44,9 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 	else if (strcmp(First_word, "cirkel") == 0)
 		Run_Command_Circle(Commandstringdevided);
 
+	else if (strcmp(First_word, "wacht") == 0)
+		Run_Command_Wait(Commandstringdevided);
+
 	else{
 		return API_FUNCTION_CALL_FAILED;
 	}
@@ -95,5 +98,9 @@ void Run_Command_Circle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMA
 				    atoi(Commandstringdevided[3]),		// Height
 				 	atoi(Commandstringdevided[4]),		// Width
 					atoi(Commandstringdevided[5]));		// Color
+}
+
+void Run_Command_Wait(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
+	API_Wait(atoi(Commandstringdevided[1]));     // Milliseconds
 }
 

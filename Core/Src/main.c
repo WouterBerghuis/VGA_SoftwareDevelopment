@@ -39,6 +39,7 @@
 #include "ellipse.h"
 #include "receive_command.h"
 #include "cube.h"
+#include "wait.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -156,6 +157,8 @@ int main(void)
 //  if(error_check == CHECK_COMMAND_SUCCESS)
 //	  Run_Command(Command_word, Commandstring);
 
+  API_Wait_Init();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -163,6 +166,7 @@ int main(void)
   while (1)
   {
 	  API_Send_Command();
+	  //API_Wait(100);
 	  //HAL_Delay(100);
     /* USER CODE END WHILE */
 
@@ -270,7 +274,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		HAL_UART_Receive_IT (&huart2, &rx_data, 1); /**< receive data (one character at a time) */
 	}
 }
-
 
 /* USER CODE END 4 */
 
