@@ -100,6 +100,7 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 		else if (errorBitmap == ERROR_BITMAP_PLACEMENT_TOP || errorBitmap == ERROR_BITMAP_PLACEMENT_BOT){
 			errorCommand = 2;
 		}
+		else errorCommand = 0;
 	}
 
 	else if (strcmp(First_word, "clearscherm") == 0)
