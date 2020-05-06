@@ -13,9 +13,10 @@
 #define ERROR_H_
 
 #include "main.h"
+#include "uart.h"
 /*
  * FUNCTIONS
  */
-void 			Error_Handler(uint8_t ErrorCode);
+void 			API_Error_Handler(uint8_t ErrorCode);
 
 #endif /* INC_WAIT_H */
