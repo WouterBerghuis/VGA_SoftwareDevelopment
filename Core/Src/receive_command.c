@@ -43,7 +43,8 @@ void API_Send_Command()
 	}
 
 	else if (Message_Counter != commando)												/**< This makes sure that no commands will be skipped after a wait*/
-		API_Execute_Command();
+		API_Wait(100), API_Execute_Command();
+
 
 }
 
