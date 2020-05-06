@@ -18,50 +18,50 @@ void API_Error_Handler(uint8_t ErrorCode)
     switch(error)
     {
     	case 0:
-    		strcpy((char*)message, "Command successfully executed\n");
+    		strcpy((char*)message, "\nCommand successfully executed\n");
     		break;
         case 1:
-    		strcpy((char*)message, "Error: Placements X coordinates\n");
+    		strcpy((char*)message, "\nError: Placements X coordinates\n");
 
         	break;
         case 2:
-    		strcpy((char*)message, "Error: Placements Y coordinates\n");
+    		strcpy((char*)message, "\nError: Placements Y coordinates\n");
 
         	break;
         case 3:
-    		strcpy((char*)message, "Error: Line could not be placed\n");
+    		strcpy((char*)message, "\nError: Line could not be placed\n");
 
         	break;
         case 4:
-    		strcpy((char*)message, "Error: Could not fill rectangle\n");
+    		strcpy((char*)message, "\nError: Could not fill rectangle\n");
 
         	break;
         case 5:
-    		strcpy((char*)message, "Error: Received font is not available\n");
+    		strcpy((char*)message, "\nError: Received font is not available\n");
 
         	break;
         case 6:
-    		strcpy((char*)message, "Error: Received fontsize is not available\n");
+    		strcpy((char*)message, "\nError: Received fontsize is not available\n");
 
         	break;
         case 7:
-    		strcpy((char*)message, "Error: Received string doesn't fit on the screen\n");
+    		strcpy((char*)message, "\nError: Received string doesn't fit on the screen\n");
 
         	break;
         case 8:
-    		strcpy((char*)message, "Error occurred during writing character to VGA RAM\n");
+    		strcpy((char*)message, "\nError occurred during writing character to VGA RAM\n");
 
         	break;
         case 9:
-    		strcpy((char*)message, "Received bitmap number doesn't exist\n");
+    		strcpy((char*)message, "\nReceived bitmap number doesn't exist\n");
 
         	break;
         case 10:
-    		strcpy((char*)message, "Error: Command failed to execute\n");
+    		strcpy((char*)message, "\nError: Command failed to execute\n");
 
         	break;
 
-        default: strcpy((char*)message,"Error: Error in error handling\n");
+        default: strcpy((char*)message,"\nError: Error in error handling\n");
    }
 	API_Uart_Transmit(message);
 }
