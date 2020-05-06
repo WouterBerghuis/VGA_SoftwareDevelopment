@@ -54,16 +54,16 @@ LINE_ERROR_CODES API_Draw_Line(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_co
   */
 LINE_ERROR_CODES API_Check_LineCoords(uint16_t x_coor1, uint16_t y_coor1, uint16_t x_coor2, uint16_t y_coor2)
 {
-	if(VGA_DISPLAY_X < x_coor1 && x_coor1 < 0)
+	if(VGA_DISPLAY_X < x_coor1 || x_coor1 < 0)
 		return ERROR_LINE_PLACEMENT_XCOOR1;
 
-	if(VGA_DISPLAY_X < y_coor1 && y_coor1 < 0)
+	if(VGA_DISPLAY_X < y_coor1 || y_coor1 < 0)
 		return ERROR_LINE_PLACEMENT_XCOOR2;
 
-	if(VGA_DISPLAY_Y < x_coor2 && x_coor2 < 0)
+	if(VGA_DISPLAY_Y < x_coor2 || x_coor2 < 0)
 		return ERROR_LINE_PLACEMENT_YCOOR1;
 
-	if(VGA_DISPLAY_Y < y_coor2 && y_coor2 < 0)
+	if(VGA_DISPLAY_Y < y_coor2 || y_coor2 < 0)
 		return ERROR_LINE_PLACEMENT_YCOOR2;
 	return CORRECT_LINE_PLACEMENT;
 }
