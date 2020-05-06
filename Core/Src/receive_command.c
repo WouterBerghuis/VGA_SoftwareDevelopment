@@ -69,12 +69,10 @@ void API_Execute_Command()
 
 	if(error_check == CHECK_COMMAND_SUCCESS)
 	{
-		error_check = Run_Command(Command_word, Commandstring);							 /**< If the command is valid, the command wil be ran in Run_Command */
+		error_check = Run_Command(Command_word, Commandstring);							 /**< If the command is valid, the command will be ran in Run_Command */
+		API_Error_Handler(error_check);
 
-		if(error_check == API_FUNCTION_CALL_SUCCESS)									 /**< If the command is executed without error, inform the user it is executed */
-			API_Uart_Transmit (No_error);
-		else
-			API_Uart_Transmit (Error);													/**< If a error returned, inform the user it is was not executed */
+													/**< If a error returned, inform the user it is was not executed */
 	}
 
 	else if(error_check == COMMAND_DOES_NOT_EXIST)
