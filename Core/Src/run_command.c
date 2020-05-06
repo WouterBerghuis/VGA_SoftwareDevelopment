@@ -26,9 +26,14 @@
   */
 RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE])
 {
+	RUNCOMMANDS_ERROR_CODES error;
+	LINE_ERROR_CODES errorline;
 	if 	(strcmp(First_word, "lijn") == 0)
-		Run_Command_Line(Commandstringdevided);
+		errorline = Run_Command_Line(Commandstringdevided);
 
+		if (errorline == 4){
+
+		}
 	else if (strcmp(First_word, "rechthoek") == 0)
 		Run_Command_Rectangle(Commandstringdevided);
 
@@ -53,13 +58,15 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 	return API_FUNCTION_CALL_SUCCESS;
 }
 
-void Run_Command_Line(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
-	API_Draw_Line(atoi(Commandstringdevided[1]),		// x_coor1
+LINE_ERROR_CODES Run_Command_Line(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
+	LINE_ERROR_CODES errorline;
+	errorline = API_Draw_Line(atoi(Commandstringdevided[1]),		// x_coor1
 			 	  atoi(Commandstringdevided[2]),		// y_coor1
 				  atoi(Commandstringdevided[3]),		// x_coor2
 				  atoi(Commandstringdevided[4]),		// y_coor2
 				  atoi(Commandstringdevided[5]),		// Color
 				  atoi(Commandstringdevided[6]));		// Width
+	return errorline;
 }
 
 void Run_Command_Rectangle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
