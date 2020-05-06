@@ -96,13 +96,13 @@ CUBE_ERROR_CODES API_Check_Cube_Position(uint16_t x_coor, uint16_t y_coor, uint1
   */
 CUBE_ERROR_CODES API_Write_Cube_to_VGA(uint16_t x_coor, uint16_t y_coor, uint16_t width, uint16_t height, uint16_t depth, uint8_t color){
 
-	RECTANGLE_ERROR_CODES Rectangel_errors = 0;
+	RECTANGLE_ERROR_CODES Rectangle_errors = 0;
 	LINE_ERROR_CODES	  Line_errors	   = 0;
 
 	// Draw the back and front rectangle
-	Rectangel_errors = API_Draw_Rectangle(x_coor, y_coor, width, height, color, NO_FILL);
-	Rectangel_errors = API_Draw_Rectangle((x_coor + depth), (y_coor - depth), width, height, color, NO_FILL);
-	if(Rectangel_errors != DRAW_RECTANGLE_SUCCESS)
+	Rectangle_errors = API_Draw_Rectangle(x_coor, y_coor, width, height, color, NO_FILL);
+	Rectangle_errors = API_Draw_Rectangle((x_coor + depth), (y_coor - depth), width, height, color, NO_FILL);
+	if(Rectangle_errors != DRAW_RECTANGLE_SUCCESS)
 		return ERROR_DRAW_SINGLE_RECTANGLE;
 
 	// Draw connecting lines
@@ -110,7 +110,7 @@ CUBE_ERROR_CODES API_Write_Cube_to_VGA(uint16_t x_coor, uint16_t y_coor, uint16_
 	Line_errors |= API_Draw_Line((x_coor + width), y_coor,          (x_coor + width + depth), (y_coor - depth),          color, LINE_THICKNESS);
 	Line_errors |= API_Draw_Line( x_coor,         (y_coor + height),(x_coor + depth),         (y_coor - depth + height), color, LINE_THICKNESS);
 	Line_errors |= API_Draw_Line((x_coor + width),(y_coor + height),(x_coor + width + depth), (y_coor - depth + height), color, LINE_THICKNESS);
-	if(Line_errors != CORRECT_LINE_PLACEMENT)
+	if(Line_errors != LINE_ON_VGA_SUCCESS)
 		return ERROR_DRAW_CONNECTING_LINE;
 
 	return DRAW_CUBE_SUCCESS;

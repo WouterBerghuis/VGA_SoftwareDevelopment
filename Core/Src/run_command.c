@@ -20,9 +20,9 @@
   *
   * @param	First_word This is the pointer to the first char of the 2D-array, (uint16_t)
   * @param  Commandstringdevided This is the 2D-array where all the data for the command is stored, (char[][])
-  * @retval	LINE_ERROR_CODES
+  * @retval	RUNCOMMANDS_ERROR_CODES
   *
-  * @see LINE_ERROR_CODES
+  * @see RUNCOMMANDS_ERROR_CODES
   */
 RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE])
 {
@@ -32,6 +32,7 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 	TEXT_ERROR_CODES errorText;
 	BITMAP_ERROR_CODES errorBitmap;
 	ELLIPSE_ERROR_CODES errorEllipse;
+	CUBE_ERROR_CODES errorCube;
 
 	if 	(strcmp(First_word, "lijn") == 0){
 		errorLine = Run_Command_Line(Commandstringdevided);
@@ -129,7 +130,25 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 	}
 
 	else if (strcmp(First_word, "kubus") == 0){
-		errorEllipse = Run_Command_Cube(Commandstringdevided);
+		errorCube = Run_Command_Cube(Commandstringdevided);
+
+		if (errorCube == DRAW_CUBE_FAILED){
+			errorCommand = 10;
+		}
+		else if (errorCube == ERROR_CUBE_PLACEMENT_X_AXIS){
+			errorCommand = 1;
+		}
+		else if (errorCube == ERROR_CUBE_PLACEMENT_Y_AXIS){
+			errorCommand = 2;
+		}
+		else if (errorCube == ERROR_DRAW_SINGLE_RECTANGLE){
+			errorCommand = 11;
+		}
+		else if (errorCube == ERROR_DRAW_CONNECTING_LINE){
+			errorCommand = 12;
+		}
+		else
+			errorCommand = 0;
 	}
 
 	else if (strcmp(First_word, "wacht") == 0){
