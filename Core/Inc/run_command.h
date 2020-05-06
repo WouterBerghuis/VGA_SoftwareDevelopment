@@ -42,6 +42,7 @@ TEXT_ERROR_CODES Run_Command_Text(char Commandstringdevided[MAX_STRINGS_DEVIDED]
 BITMAP_ERROR_CODES Run_Command_Bitmap(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
 void Run_Command_Clearscreen(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
 ELLIPSE_ERROR_CODES Run_Command_Circle(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
+//CUBE_ERROR_CODES Run_Command_Cube(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
 void Run_Command_Wait(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]);
 
 

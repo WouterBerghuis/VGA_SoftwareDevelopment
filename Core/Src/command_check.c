@@ -67,6 +67,13 @@ COMMANDCHECK_ERROR_CODES Command_check(char *First_word, char Commandstringdevid
 		error = CHECK_COMMAND_SUCCESS;
 	}
 
+	else if (strcmp(First_word, "kubus") == 0){
+		Check_Color(Commandstringdevided[6], &colorValue);					//Color gets checked if it exists and will be converted into uint8_t
+		sprintf(Commandstringdevided[6], "%d", colorValue);					//Integer gets placed in string
+		error = CHECK_COMMAND_SUCCESS;
+	}
+
+
 	else if (strcmp(First_word, "wacht") == 0)
 		{
 			error = CHECK_COMMAND_SUCCESS;
