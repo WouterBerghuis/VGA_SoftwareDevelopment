@@ -103,8 +103,11 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 		else errorCommand = 0;
 	}
 
-	else if (strcmp(First_word, "clearscherm") == 0)
+	else if (strcmp(First_word, "clearscherm") == 0){
 		Run_Command_Clearscreen(Commandstringdevided);
+		errorCommand = 0;
+	}
+
 
 	else if (strcmp(First_word, "cirkel") == 0){
 		errorEllipse = Run_Command_Circle(Commandstringdevided);
@@ -129,9 +132,10 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 //		errorEllipse = Run_Command_Cube(Commandstringdevided);
 //	}
 
-	else if (strcmp(First_word, "wacht") == 0)
+	else if (strcmp(First_word, "wacht") == 0){
 		Run_Command_Wait(Commandstringdevided);
-
+		errorCommand = 0;
+	}
 	else{
 		return API_FUNCTION_CALL_FAILED;
 	}
