@@ -61,7 +61,7 @@ void API_Error_Handler(uint8_t ErrorCode)
 
         	break;
 
-        default: strcpy((char*)message,"Error: Error in error handling");
+        default: strcpy((char*)message,"Error: Error in error handling\n");
    }
 	API_Uart_Transmit(message);
 }
