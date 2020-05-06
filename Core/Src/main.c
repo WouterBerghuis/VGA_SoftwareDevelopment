@@ -133,7 +133,7 @@ int main(void)
   while (1)
   {
 	  API_Send_Command();
-	  //API_Wait(100);
+	  API_Wait(1);      	//it crashes sometimes when it does not get a pause, have to look into this
 	  //HAL_Delay(100);
     /* USER CODE END WHILE */
 

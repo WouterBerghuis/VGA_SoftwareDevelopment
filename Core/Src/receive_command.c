@@ -42,7 +42,7 @@ void API_Send_Command()
 		New_Message = false;															 /**< Reset the New_Message flag */
 	}
 
-	if (Message_Counter != commando)												/**< This makes sure that no commands will be skipped after a wait*/
+	else if (Message_Counter != commando)												/**< This makes sure that no commands will be skipped after a wait*/
 		API_Execute_Command();
 
 }
