@@ -1,0 +1,86 @@
+lijn,1,1,100,100,rood,4
+lijn,100,100,220,100,rood,4
+lijn,220,100,320,1,rood,4
+lijn,1,240,100,140,rood,4
+lijn,100,140,220,140,rood,4
+lijn,220,140,320,240,rood,4
+tekst,64,110,zwart, Software Ontwikkeling Presentatie, Minecraft, 0, normaal
+tekst,126,120,zwart, Groep 7, Minecraft, 0, cursief
+tekst,112,150,cyaan, Jered van Ling, Minecraft, 0, normaal
+tekst,154,160,zwart, &, Minecraft, 0, normaal 
+tekst,124,170,groen, Stijn Keller, Minecraft, 0, normaal
+tekst,154,180,zwart, &, Minecraft, 0, normaal 
+tekst,112,190,blauw, Wouter Berghuis, Minecraft, 0, normaal 
+wacht, 1000
+
+clearscherm, bruin
+tekst,112,113, wit, Lijnen, Minecraft, 1, normaal
+
+lijn,1,239,319,239,magenta,1
+lijn,1,240,320,208,blauw,1
+lijn,1,240,320,176,groen,1
+lijn,1,240,320,144,geel,1
+lijn,1,240,320,112,rood,1
+lijn,1,240,320,80,rood,1
+lijn,1,240,320,48,geel,1
+lijn,1,240,320,24,groen,1
+lijn,1,240,300,0,blauw,1
+lijn,1,240,266,0,magenta,1
+lijn,1,240,240,0,wit,1
+lijn,1,240,200,0,grijs,1
+lijn,1,240,170,0,zwart,1
+lijn,1,240,150,0,zwart,1
+lijn,1,240,120,0,grijs,1
+lijn,1,240,96,0,wit,1
+lijn,1,240,80,0,magenta,1
+lijn,1,240,60,0,blauw,1
+lijn,1,240,40,0,groen,1
+lijn,1,240,25,0,geel,1
+lijn,1,240,12,0,rood,1
+lijn,1,240,1,0,rood,1
+wacht, 1000
+
+clearscherm, grijs
+tekst,22,113, zwart, Vierkanten en Cirkels, Minecraft, 1, normaal
+
+rechthoek,0,1,319,238,blauw,0
+cirkel,160,120,70,70,rood
+rechthoek,25,85,35,70,groen,0
+rechthoek,225,103,70,35,groen,0
+cirkel,42,40,30,70,magenta
+cirkel,42,195,30,70,magenta
+cirkel,260,40,70,30,magenta
+cirkel,260,195,70,30,magenta
+rechthoek,135,15,50,50,geel,1
+rechthoek,135,175,50,50,geel,1
+wacht, 1000
+
+clearscherm, wit
+tekst,112,113, zwart, Bitmaps, Minecraft, 1, normaal
+
+bitmap,2, 10, 10
+bitmap,3, 200, 10
+wacht, 500
+clearscherm, wit
+bitmap,4, 100, 10
+bitmap,5, 100, 125
+wacht, 500
+
+clearscherm, wit
+bitmap,0, 50, 10
+bitmap,1, 50, 150
+bitmap,1, 200, 10
+bitmap,0, 200, 150
+wacht, 500
+
+clearscherm, wit
+tekst,112,113, zwart, Cubes, Minecraft, 1, normaal
+
+kubus,25, 25, 50, 50, 5, rood
+kubus,25, 180, 50, 50, 5, rood
+kubus,280, 25, 50, 50, 5, rood
+kubus,280, 180, 50, 50, 5, rood 
+kubus,150, 130, 50, 120, 5, groen
+
+
+ 
