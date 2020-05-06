@@ -36,10 +36,10 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 	if 	(strcmp(First_word, "lijn") == 0){
 		errorLine = Run_Command_Line(Commandstringdevided);
 
-		if (errorLine == ERROR_LINE_PLACEMENT_XCOOR1||ERROR_LINE_PLACEMENT_XCOOR2){
+		if (errorLine == ERROR_LINE_PLACEMENT_XCOOR1 || errorLine == ERROR_LINE_PLACEMENT_XCOOR2){
 			errorCommand = 1;
 		}
-		else if (errorLine == ERROR_LINE_PLACEMENT_YCOOR1||ERROR_LINE_PLACEMENT_YCOOR2){
+		else if (errorLine == ERROR_LINE_PLACEMENT_YCOOR1 || errorLine == ERROR_LINE_PLACEMENT_YCOOR2){
 			errorCommand = 2;
 		}
 		else
@@ -94,10 +94,10 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 		else if (errorBitmap == ERROR_BITMAP_NUMBER_UNAVAILABLE){
 			errorCommand = 9;
 		}
-		else if (errorBitmap == EROR_BITMAP_PLACEMENT_RIGHT||ERROR_BITMAP_PLACEMENT_LEFT){
+		else if (errorBitmap == EROR_BITMAP_PLACEMENT_RIGHT || errorBitmap == ERROR_BITMAP_PLACEMENT_LEFT){
 			errorCommand = 1;
 		}
-		else if (errorBitmap == ERROR_BITMAP_PLACEMENT_TOP||ERROR_BITMAP_PLACEMENT_BOT){
+		else if (errorBitmap == ERROR_BITMAP_PLACEMENT_TOP || errorBitmap == ERROR_BITMAP_PLACEMENT_BOT){
 			errorCommand = 2;
 		}
 	}
