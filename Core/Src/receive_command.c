@@ -38,13 +38,19 @@ void API_Send_Command()
 
 	if (New_Message == true)
 	{
+		API_Uart_Transmit ((uint8_t*)rx_buffer[Message_Counter]);
 		API_Execute_Command();													 		 /**< Keeps track of the messages send */
 		New_Message = false;															 /**< Reset the New_Message flag */
 	}
 
 	else if (Message_Counter != commando)												/**< This makes sure that no commands will be skipped after a wait*/
-		API_Wait(100), API_Execute_Command();
-
+	{
+		API_Wait(50);
+		API_Execute_Command();
+		API_Wait(50);
+		API_Uart_Transmit ((uint8_t*)rx_buffer[Message_Counter]);
+		API_Wait(50);
+	}
 
 }
 
