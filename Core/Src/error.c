@@ -18,47 +18,47 @@ void API_Error_Handler(uint8_t ErrorCode)
     switch(error)
     {
     	case 0:
-    		message = "Command successfully executed";
+    		message = "Command successfully executed\n";
     		API_Uart_Transmit((uint8_t*)message);
     		break;
         case 1:
-        	message = "Error: Placements X coordinates";
+        	message = "Error: Placements X coordinates\n";
         	API_Uart_Transmit((uint8_t*)message);
         	break;
         case 2:
-        	message = "Error: Placements Y coordinates";
+        	message = "Error: Placements Y coordinates\n";
         	API_Uart_Transmit((uint8_t*)message);
         	break;
         case 3:
-        	message = "Error: Line could not be placed";
+        	message = "Error: Line could not be placed\n";
         	API_Uart_Transmit((uint8_t*)message);
         	break;
         case 4:
-        	message = "Error: Could not fill rectangle";
+        	message = "Error: Could not fill rectangle\n";
         	API_Uart_Transmit((uint8_t*)message);
         	break;
         case 5:
-        	message = "Error: Received font is not available";
+        	message = "Error: Received font is not available\n";
         	API_Uart_Transmit((uint8_t*)message);
         	break;
         case 6:
-        	message = "Error: Received fontsize is not available ";
+        	message = "Error: Received fontsize is not available\n";
         	API_Uart_Transmit((uint8_t*)message);
         	break;
         case 7:
-        	message = "Error: Received string doesn't fit on the screen ";
+        	message = "Error: Received string doesn't fit on the screen\n";
         	API_Uart_Transmit((uint8_t*)message);
         	break;
         case 8:
-        	message = "Error: Error occurred during writing character to VGA RAM";
+        	message = "Error: Error occurred during writing character to VGA RAM\n";
         	API_Uart_Transmit((uint8_t*)message);
         	break;
         case 9:
-        	message = "Error: Received bitmap number doesn't exist ";
+        	message = "Error: Received bitmap number doesn't exist\n";
         	API_Uart_Transmit((uint8_t*)message);
         	break;
         case 10:
-        	message = "Error: Command failed to execute";
+        	message = "Error: Command failed to execute\n";
         	API_Uart_Transmit((uint8_t*)message);
         	break;
    }
