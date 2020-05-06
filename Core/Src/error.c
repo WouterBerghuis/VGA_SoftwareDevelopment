@@ -61,6 +61,16 @@ void API_Error_Handler(uint8_t ErrorCode)
 
         	break;
 
+        case 11:
+    		strcpy((char*)message, "\nError: A rectangle for the cube could not be drawn\n");
+
+        	break;
+
+        case 12:
+    		strcpy((char*)message, "\nError: Could not connect lines for the cube\n");
+
+        	break;
+
         default: strcpy((char*)message,"\nError: Error in error handling\n");
    }
 	API_Uart_Transmit(message);
