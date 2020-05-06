@@ -103,8 +103,11 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 		else errorCommand = 0;
 	}
 
-	else if (strcmp(First_word, "clearscherm") == 0)
+	else if (strcmp(First_word, "clearscherm") == 0){
 		Run_Command_Clearscreen(Commandstringdevided);
+		errorCommand = 0;
+	}
+
 
 	else if (strcmp(First_word, "cirkel") == 0){
 		errorEllipse = Run_Command_Circle(Commandstringdevided);
@@ -125,9 +128,14 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 			errorCommand = 0;
 	}
 
-	else if (strcmp(First_word, "wacht") == 0)
-		Run_Command_Wait(Commandstringdevided);
+//	else if (strcmp(First_word, "kubus") == 0){
+//		errorEllipse = Run_Command_Cube(Commandstringdevided);
+//	}
 
+	else if (strcmp(First_word, "wacht") == 0){
+		Run_Command_Wait(Commandstringdevided);
+		errorCommand = 0;
+	}
 	else{
 		return API_FUNCTION_CALL_FAILED;
 	}
@@ -188,6 +196,17 @@ ELLIPSE_ERROR_CODES Run_Command_Circle(char Commandstringdevided[MAX_STRINGS_DEV
 					atoi(Commandstringdevided[5]));		// Color
 	return errorEllipse;
 }
+
+//CUBE_ERROR_CODES Run_Command_Cube(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
+//	CUBE_ERROR_CODES errorCube;
+//	errorCube = API_Draw_Cube(atoi(Commandstringdevided[1]),		// x
+//			 	    atoi(Commandstringdevided[2]),					// y
+//				    atoi(Commandstringdevided[3]),					// Width
+//				 	atoi(Commandstringdevided[4]),					// Height
+//					atoi(Commandstringdevided[5]),					// Depth
+//					atoi(Commandstringdevided[6]));					// Color
+//	return errorCube;
+//}
 
 void Run_Command_Wait(char Commandstringdevided[MAX_STRINGS_DEVIDED][MAX_COMMANDWORD_SIZE]){
 	API_Wait(atoi(Commandstringdevided[1]));     // Milliseconds
