@@ -20,6 +20,7 @@
 #include <rectangle.h>
 #include <text.h>
 #include <wait.h>
+#include <error.h>
 
 /*
  * @brief 	Returnvalues for calling the API-functions

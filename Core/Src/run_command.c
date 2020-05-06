@@ -31,17 +31,16 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 	RECTANGLE_ERROR_CODES errorRectangle;
 	TEXT_ERROR_CODES errorText;
 	BITMAP_ERROR_CODES errorBitmap;
-	VGA_INIT_ERROR_CODES errorVga;
 	ELLIPSE_ERROR_CODES errorEllipse;
 
 	if 	(strcmp(First_word, "lijn") == 0){
 		errorLine = Run_Command_Line(Commandstringdevided);
 
 		if (errorLine == ERROR_LINE_PLACEMENT_XCOOR1||ERROR_LINE_PLACEMENT_XCOOR2){
-			//errorCommand = ;
+			errorCommand = 1;
 		}
 		else if (errorLine == ERROR_LINE_PLACEMENT_YCOOR1||ERROR_LINE_PLACEMENT_YCOOR2){
-			//errorCommand = ;
+			errorCommand = 2;
 		}
 		else
 			errorCommand = 0;
@@ -50,16 +49,16 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 		errorRectangle = Run_Command_Rectangle(Commandstringdevided);
 
 		if (errorRectangle == ERROR_POSITION_X_COOR){
-			//errorCommand = ;
+			errorCommand = 1;
 		}
 		else if (errorRectangle == ERROR_POSITION_Y_COOR){
-			//errorCommand = ;
+			errorCommand = 2;
 		}
 		else if (errorRectangle == ERROR_LINE_PLACEMENT){
-
+			errorCommand = 3;
 		}
 		else if (errorRectangle == ERROR_FILL_RECTANGLE){
-
+			errorCommand = 4;
 		}
 		else
 			errorCommand = 0;
@@ -68,57 +67,58 @@ RUNCOMMANDS_ERROR_CODES Run_Command(char *First_word, char Commandstringdevided[
 		errorText = Run_Command_Text(Commandstringdevided);
 
 	    if (errorText == ERROR_TEXT_FAILED){
-			//errorCommand = ;
+	    	errorCommand = 10;
 		}
 		else if (errorText == ERROR_FONT_NOT_AVAILABLE){
-			//errorCommand = ;
+			errorCommand = 5;
 		}
 		else if (errorText == ERROR_FONTSIZE_NOT_AVAILABLE){
-
+			errorCommand = 6;
 		}
 		else if (errorText == ERROR_TEXT_TOO_LONG){
-
+			errorCommand = 7;
 		}
 		else if (errorText == ERROR_WRITE_CHARACTER){
-
+			errorCommand = 8;
 		}
 		else
 			errorCommand = 0;
 	}
 
-	else if (strcmp(First_word, "bitmap") == 0)
+	else if (strcmp(First_word, "bitmap") == 0){
 		errorBitmap = Run_Command_Bitmap(Commandstringdevided);
 
 		if (errorBitmap == DRAW_BITMAP_FAILED){
-
+			errorCommand = 10;
 		}
 		else if (errorBitmap == ERROR_BITMAP_NUMBER_UNAVAILABLE){
-			//errorCommand = ;
+			errorCommand = 9;
 		}
 		else if (errorBitmap == EROR_BITMAP_PLACEMENT_RIGHT||ERROR_BITMAP_PLACEMENT_LEFT){
-			//errorCommand = ;
+			errorCommand = 1;
 		}
 		else if (errorBitmap == ERROR_BITMAP_PLACEMENT_TOP||ERROR_BITMAP_PLACEMENT_BOT){
-
+			errorCommand = 2;
 		}
+	}
 
 	else if (strcmp(First_word, "clearscherm") == 0)
 		Run_Command_Clearscreen(Commandstringdevided);
 
 	else if (strcmp(First_word, "cirkel") == 0){
-		Run_Command_Circle(Commandstringdevided);
+		errorEllipse = Run_Command_Circle(Commandstringdevided);
 
-		if (errorBitmap == DRAW_ELLIPSE_FAILED){
-
+		if (errorEllipse == DRAW_ELLIPSE_FAILED){
+			errorCommand = 10;
 		}
-		else if (errorBitmap == ERROR_ELLIPSE_POSITION_X_COOR){
-			//errorCommand = ;
+		else if (errorEllipse == ERROR_ELLIPSE_POSITION_X_COOR){
+			errorCommand = 1;
 		}
-		else if (errorBitmap == ERROR_ELLIPSE_POSITION_Y_COOR){
-			//errorCommand = ;
+		else if (errorEllipse == ERROR_ELLIPSE_POSITION_Y_COOR){
+			errorCommand = 2;
 		}
-		else if (errorBitmap == ERROR_PLACEMENT_INDIVIDUAL_LINE){
-
+		else if (errorEllipse == ERROR_PLACEMENT_INDIVIDUAL_LINE){
+			errorCommand = 3;
 		}
 		else
 			errorCommand = 0;
